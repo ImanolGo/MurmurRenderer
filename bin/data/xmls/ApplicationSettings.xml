@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+
+  <of_settings>
+	<window title="Murmur Renderer" x="0" y="0" width="1055" height="960" fullscreen="0"/>
+	<debug showCursor="1" setVerbose="0"/>
+	<network ipAddress="127.0.0.1" portSend="12345" portReceive="7890"/>
+  </of_settings>
+  
+  <textures>	
+
+  	<texture name="starling" path="images/birds/starling_top_01.png"/>
+  	
+  	<texture name="scene_01_BLURRED_FRONT" path="images/beautiful_mind/scene_01_BLURRED_FRONT.png"/>
+  	<texture name="scene_01_BLURRED_MIDDLE" path="images/beautiful_mind/scene_01_BLURRED_MIDDLE.png"/>
+  	<texture name="scene_01_BLURRED_REAR" path="images/beautiful_mind/scene_01_BLURRED_REAR.png"/>
+  	<texture name="scene_02_CANVAS_BG" path="images/beautiful_mind/scene_02_CANVAS_BG.png"/>
+  	<texture name="scene_02_img1_FRONT" path="images/beautiful_mind/scene_02_img1_FRONT.png"/>
+  	<texture name="scene_02_img2_FRONT" path="images/beautiful_mind/scene_02_img2_FRONT.png"/>
+  	<texture name="scene_02_img3_FRONT" path="images/beautiful_mind/scene_02_img3_FRONT.png"/>
+  	<texture name="scene_02_img4_FRONT" path="images/beautiful_mind/scene_02_img4_FRONT.png"/>
+  	<texture name="scene_03_CANVAS_BG" path="images/beautiful_mind/scene_03_CANVAS_BG.png"/>
+  	<texture name="scene_03_FRONT" path="images/beautiful_mind/scene_03_FRONT.png"/>
+  	<texture name="scene_03_MIDDLE" path="images/beautiful_mind/scene_03_MIDDLE.png"/>
+  	<texture name="scene_03_REAR" path="images/beautiful_mind/scene_03_REAR.png"/>
+  	<texture name="scene_04_FRONT" path="images/beautiful_mind/scene_04_FRONT.png"/>
+  	<texture name="scene_04_MIDDLE" path="images/beautiful_mind/scene_04_MIDDLE.png"/>
+  	<texture name="scene_04_REAR" path="images/beautiful_mind/scene_04_REAR.png"/>
+
+  </textures>
+
+  <colors>
+  </colors>
+
+  
+</settings>
