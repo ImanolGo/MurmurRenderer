@@ -64,9 +64,6 @@ class SettingsManager: public Manager
         //! Loads all the settings
         void loadAllSettings();
 
-        //! Sets all the debug properties
-        void setDebugProperties();
-
         //! Sets all the network properties
         void setNetworkProperties();
 

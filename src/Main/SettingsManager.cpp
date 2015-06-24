@@ -44,7 +44,6 @@ void SettingsManager::setup()
 void SettingsManager::loadAllSettings()
 {
     this->setWindowProperties();
-    this->setDebugProperties();
     this->setNetworkProperties();
     this->loadTextureSettings();
     this->loadSvgSettings();
@@ -63,39 +62,6 @@ bool SettingsManager::loadSettingsFile()
     return true;
 }
 
-void SettingsManager::setDebugProperties()
-{
-    m_xmlSettings.setTo("//");
-
-    string ofPath = "//of_settings/debug";
-    if(m_xmlSettings.exists(ofPath)) {
-        m_xmlSettings.setTo(ofPath);
-        typedef   std::map<string, string>   AttributesMap;
-        AttributesMap attributes = m_xmlSettings.getAttributes();
-
-        bool showCursor = ofToBool(attributes["showCursor"]);
-        if(showCursor){
-            ofShowCursor();
-        }
-        else{
-            ofHideCursor();
-        }
-
-        bool setVerbose = ofToBool(attributes["setVerbose"]);
-        if(setVerbose){
-            ofSetLogLevel(OF_LOG_VERBOSE);
-        }
-        else{
-            ofSetLogLevel(OF_LOG_NOTICE);
-        }
-
-
-        ofLogNotice() <<"SettingsManager::setDebugProperties->  successfully loaded the OF general settings" ;
-        return;
-    }
-
-    ofLogNotice() <<"SettingsManager::setOFProperties->  path not found: " << ofPath ;
-}
 
 void SettingsManager::setWindowProperties()
 {
@@ -113,12 +79,12 @@ void SettingsManager::setWindowProperties()
         int y = ofToInt(attributes["y"]);
         bool fullscreen = ofToBool(attributes["fullscreen"]);
 
-        ofSetFullscreen(fullscreen);
-        ofSetWindowShape(m_appWidth,m_appHeight);
-        if(!fullscreen){
-            ofSetWindowPosition(x,y);
-        }
-        ofSetWindowTitle(title);
+        //ofSetFullscreen(fullscreen);
+        //ofSetWindowShape(m_appWidth,m_appHeight);
+        //if(!fullscreen){
+          //  ofSetWindowPosition(x,y);
+        //}
+        //ofSetWindowTitle(title);
 
         ofLogNotice() <<"SettingsManager::setWindowProperties->  successfully loaded the window settings" ;
         ofLogNotice() <<"SettingsManager::setWindowProperties->  title = "<< title<<", width = " << m_appWidth <<", height = "

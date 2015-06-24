@@ -55,8 +55,10 @@ void GuiManager::draw()
     if(!m_showGui)
         return;
     
-    m_gui.draw();
+    //ofLogNotice() <<"GuiManager::drawGUI";
     m_guiFPS = ofGetFrameRate();
+    m_gui.draw();
+    
 }
 
 

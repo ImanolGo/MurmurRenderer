@@ -67,6 +67,7 @@ void AppManager::setupGlfwWidows()
     ofSetWindowPosition(0, 100);    // business as usual...
     ofSetWindowShape(600, 800);
     ofSetWindowTitle("Murmur Renderer GUI");
+    ofShowCursor();
     //ofSetFullscreen(true);        // order important with fullscreen
     
     
@@ -76,6 +77,7 @@ void AppManager::setupGlfwWidows()
     ofSetWindowPosition(500, 100);
     ofSetWindowShape(500, 800);
     ofSetWindowTitle("Murmur Renderer Front Projection");
+    ofHideCursor();
     //ofSetFullscreen(true);        // order important with fullscreen
     
     
@@ -86,9 +88,11 @@ void AppManager::setupGlfwWidows()
     ofSetWindowPosition(500+500, 100);
     ofSetWindowShape(500, 800);
     ofSetWindowTitle("Murmur Renderer Top Projection");
+    ofHideCursor();
     //ofSetFullscreen(true);        // order important with fullscreen
     
     m_glfw->setWindow(m_windows->at(0));
+    ofShowCursor();
     
 }
 
@@ -124,13 +128,13 @@ void AppManager::draw()
         case 0:
             ofBackground(0,0,0); // change background color on each window
             m_guiManager.draw();
-            m_viewManager.draw();
+            //m_viewManager.draw();
             break;
         case 1:
-            ofBackground(0,0,0); // change background color on each window
+            ofBackground(0,255,0); // change background color on each window
             break;
         case 2:
-            ofBackground(0,0,0); // change background color on each window
+            ofBackground(0,0,255); // change background color on each window
             
             break;
     }
