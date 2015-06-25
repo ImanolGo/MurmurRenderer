@@ -110,12 +110,14 @@ void AppManager::setupManagers()
     m_layoutManager.setup();
     m_oscManager.setup();
     m_keyboardManager.setup();
+    m_sceneManager.setup();
     m_guiManager.setup();
 }
 
 void AppManager::update()
 {
     m_visualEffectsManager.update();
+    m_sceneManager.update();
     m_oscManager.update();
 }
 

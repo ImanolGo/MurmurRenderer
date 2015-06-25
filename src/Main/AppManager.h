@@ -21,6 +21,7 @@
 #include "ViewManager.h"
 #include "KeyboardManager.h"
 #include "OscManager.h"
+#include "SceneManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -118,6 +119,7 @@ private:
     VisualEffectsManager            m_visualEffectsManager;     ///< Manages the visual effects
     OscManager                      m_oscManager;               ///< Manages the OSC messages
     KeyboardManager                 m_keyboardManager;          ///< Manages the keboard input
+    SceneManager                    m_sceneManager;             ///< Manages all the scenes
 
     bool                            m_debugMode;
 };
