@@ -13,9 +13,10 @@
 
 
 const string SettingsManager::APPLICATION_SETTINGS_FILE_NAME = "xmls/ApplicationSettings.xml";
+const string SettingsManager::LOCALHOST = "127.0.0.1";
 
 
-SettingsManager::SettingsManager(): Manager(), m_appHeight(0.0), m_appWidth(0.0)
+SettingsManager::SettingsManager(): Manager(), m_portReceive(0), m_portSend(0), m_ipAddress(LOCALHOST)
 {
     //Intentionally left empty
 }
@@ -67,28 +68,36 @@ void SettingsManager::setWindowProperties()
 {
     m_xmlSettings.setTo("//");
 
-    string windowPath = "//of_settings/window";
+    string windowPath = "//of_settings";
     if(m_xmlSettings.exists(windowPath)) {
+        
+        windowPath += "/window[0]";
         m_xmlSettings.setTo(windowPath);
         typedef   std::map<string, string>   AttributesMap;
-        AttributesMap attributes = m_xmlSettings.getAttributes();
-        string title = attributes["title"];
-        m_appWidth = ofToInt(attributes["width"]);
-        m_appHeight= ofToInt(attributes["height"]);
-        int x = ofToInt(attributes["x"]);
-        int y = ofToInt(attributes["y"]);
-        bool fullscreen = ofToBool(attributes["fullscreen"]);
-
-        //ofSetFullscreen(fullscreen);
-        //ofSetWindowShape(m_appWidth,m_appHeight);
-        //if(!fullscreen){
-          //  ofSetWindowPosition(x,y);
-        //}
-        //ofSetWindowTitle(title);
-
+        
+        do {
+            
+            AttributesMap attributes = m_xmlSettings.getAttributes();
+            WindowSettings windowSettings;
+            
+            windowSettings.title = attributes["title"];
+            windowSettings.width = ofToInt(attributes["width"]);
+            windowSettings.height = ofToInt(attributes["height"]);
+            windowSettings.x = ofToInt(attributes["x"]);
+            windowSettings.y = ofToInt(attributes["y"]);
+            windowSettings.fullscreen = ofToBool(attributes["fullscreen"]);
+            windowSettings.showCursor = ofToBool(attributes["showCursor"]);
+            
+            ofLogNotice() <<"SettingsManager::setWindowProperties->  title = "<< windowSettings.title <<", width = " << windowSettings.width <<", height = "
+            <<windowSettings.height <<", x = "<< windowSettings.x << ", y = " <<windowSettings.y << ", fullscreen = " << windowSettings.fullscreen
+            << ", showCursor = " << windowSettings.showCursor;
+            
+            m_windowsSettings.push_back(windowSettings);
+        }
+        while(m_xmlSettings.setToSibling()); // go to the next texture
+        
+        
         ofLogNotice() <<"SettingsManager::setWindowProperties->  successfully loaded the window settings" ;
-        ofLogNotice() <<"SettingsManager::setWindowProperties->  title = "<< title<<", width = " << m_appWidth <<", height = "
-        <<m_appHeight <<", x = "<<x<<", y = "<<y;
         return;
     }
 
@@ -108,6 +117,8 @@ void SettingsManager::setNetworkProperties()
         m_portSend  =   ofToInt(attributes["portSend"]);
         m_ipAddress  =  ofToString(attributes["ipAddress"]);
 
+        ofLogNotice() <<"SettingsManager::setNetworkProperties->  receive port = "<< m_portReceive<<", send port = " << m_portSend<<", host = "
+        <<m_ipAddress ; 
 
         ofLogNotice() <<"SettingsManager::setNetworkProperties->  successfully loaded the network settings" ;
         return;
@@ -118,6 +129,7 @@ void SettingsManager::setNetworkProperties()
 
 void SettingsManager::loadColors()
 {
+    
     m_xmlSettings.setTo("//");
     
     string colorsSettingsPath = "//colors";

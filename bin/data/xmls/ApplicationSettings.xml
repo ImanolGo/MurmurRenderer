@@ -2,15 +2,19 @@
 <settings>
 
   <of_settings>
-	<window title="Murmur Renderer" x="0" y="0" width="1055" height="960" fullscreen="0"/>
-	<debug showCursor="1" setVerbose="0"/>
-	<network ipAddress="127.0.0.1" portSend="12345" portReceive="7890"/>
+
+    <debug showCursor="1" setVerbose="0"/>
+    <network ipAddress="127.0.0.1" portSend="12345" portReceive="7890"/>
+
+  	<window title="Murmur Renderer GUI" x="0" y="0" width="1280" height="1000" fullscreen="0" showCursor="1"/>
+    <window title="Murmur Renderer Front" x="0" y="0" width="1920" height="1080" fullscreen="0" showCursor="0"/>
+    <window title="Murmur Renderer Top" x="0" y="0" width="1920" height="1080" fullscreen="0" showCursor="0"/>
+
   </of_settings>
   
   <textures>	
 
   	<texture name="starling" path="images/birds/starling_top_01.png"/>
-  	
   	<texture name="scene_01_BLURRED_FRONT" path="images/beautiful_mind/scene_01_BLURRED_FRONT.png"/>
   	<texture name="scene_01_BLURRED_MIDDLE" path="images/beautiful_mind/scene_01_BLURRED_MIDDLE.png"/>
   	<texture name="scene_01_BLURRED_REAR" path="images/beautiful_mind/scene_01_BLURRED_REAR.png"/>

@@ -41,10 +41,10 @@ void OscManager::setup()
 void OscManager::setupOscReceiver()
 {
     int portReceive = AppManager::getInstance().getSettingsManager().getPortReceive();
-    
+    ofLogNotice() <<"OscManager::setupOscReceiver -> listening for osc messages on port  " << portReceive;
     m_oscReceiver.setup(portReceive);
    
-    ofLogNotice() <<"OscManager::setupOscReceiver -> listening for osc messages on port  " << portReceive;
+    
 }
 
 void OscManager::setupOscSender()
@@ -52,9 +52,11 @@ void OscManager::setupOscSender()
     int portSend = AppManager::getInstance().getSettingsManager().getPortSend();
     string host = AppManager::getInstance().getSettingsManager().getIpAddress();
     
+    ofLogNotice() <<"OscManager::setupOscSender -> open osc connection " << host << ":" << portSend;
+    
     m_oscSender.setup(host, portSend);
     
-    ofLogNotice() <<"OscManager::setupOscSender -> open osc connection " << host << ":" << portSend;
+   
 }
 
 void OscManager::setupText()

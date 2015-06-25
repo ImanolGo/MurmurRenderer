@@ -20,13 +20,25 @@
  */
 
 
-typedef  map<string,string>               ResourcesPathMap;       ///< defines a map of path attached to the resources name
+
+struct WindowSettings
+{
+    string title;
+    int x, y;
+    int width, height;
+    bool fullscreen, showCursor;
+    
+};
+
+typedef  map<string,string>          ResourcesPathMap;       ///< defines a map of path attached to the resources name
+typedef  vector<WindowSettings>      WindowSettingsVector;   ///< Defines a vector of windows settings
 
 
 class SettingsManager: public Manager
 {
     
     static const string APPLICATION_SETTINGS_FILE_NAME;
+    static const string LOCALHOST;
     
     public:
     
@@ -45,9 +57,7 @@ class SettingsManager: public Manager
 
         ofColor getColor(const string& colorName);
     
-        float getAppWidth() const {return m_appWidth;}
-
-        float getAppHeight() const {return m_appHeight;}
+        const WindowSettingsVector& getWindowsSettings() {return m_windowsSettings;}
     
         string getIpAddress() const {return m_ipAddress;}
 
@@ -89,11 +99,10 @@ class SettingsManager: public Manager
         ResourcesPathMap        m_texturesPath;         ///< stores the texture paths
         ResourcesPathMap        m_svgResourcesPath;     ///< stores the resources paths
         ColorMap                m_colors;               ///< stores all the application's colors
-        float                   m_appWidth;             ///< stores the applications width
-        float                   m_appHeight;            ///< stores the applications height
+        WindowSettingsVector    m_windowsSettings;      ///< store the settings of all the windows
         int                     m_portReceive;          ///< stores the UDP port to receive from
         int                     m_portSend;             ///< stores the UDP port to send to
-        string                  m_ipAddress;             ///< stores the Ip Address used for the Network communications
+        string                  m_ipAddress;            ///< stores the Ip Address used for the Network communications
 };
 
 

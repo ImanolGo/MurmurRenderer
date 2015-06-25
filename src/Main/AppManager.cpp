@@ -42,17 +42,23 @@ void AppManager::setup()
 
 	Manager::setup();
     
-    this->setupGlfwWidows();
+    this->setupOF();
 	this->setupManagers();
+    this->setupGlfwWidows();
     
     setDebugMode(m_debugMode);
 }
 
+void AppManager::setupOF()
+{
+    ofLogNotice() << "AppManager::setupOF";
+    
+    ofSetVerticalSync(true);
+    ofSetEscapeQuitsApp(false);
+}
 void AppManager::setupGlfwWidows()
 {
     ofLogNotice() << "AppManager::setupGlfwWidows";
-    
-    ofSetVerticalSync(true);
     
     //ofVbo::disableVAOs();
     
@@ -61,38 +67,35 @@ void AppManager::setupGlfwWidows()
     // vector of windows, count set in main
     m_windows = &m_glfw->windows;
     
-    // configure first window
-    m_glfw->setWindow(m_windows->at(0));    // set window pointer
-    m_glfw->initializeWindow();       // initialize events (mouse, keyboard, etc) on window (optional)
-    ofSetWindowPosition(0, 100);    // business as usual...
-    ofSetWindowShape(600, 800);
-    ofSetWindowTitle("Murmur Renderer GUI");
-    ofShowCursor();
-    //ofSetFullscreen(true);        // order important with fullscreen
+    WindowSettingsVector windowSettingsVector = AppManager::getInstance().getSettingsManager().getWindowsSettings();
     
+    int i = 0;
+    for(auto windowSettings : windowSettingsVector) {
+        ofLogNotice() << "AppManager::setupGlfwWidows -> creating window: " << i;
+        
+        if(i>1){
+            m_glfw->createWindow();
+        }
+      
+        m_glfw->setWindow(m_windows->at(i));    // set window pointer
+        m_glfw->initializeWindow();       // initialize events (mouse, keyboard, etc) on window (optional)
+        ofSetWindowPosition(windowSettings.x, windowSettings.y);    // business as usual...
+        ofSetWindowShape(windowSettings.width, windowSettings.height);
+        ofSetWindowTitle(windowSettings.title);
+        ofSetFullscreen(windowSettings.fullscreen);        // order important with fullscreen
+        
+        if(windowSettings.showCursor){
+            ofShowCursor();
+        }
+        else{
+            ofHideCursor();
+        }
+
+        i++;
+    }
     
-    // configure second window
-    m_glfw->setWindow(m_windows->at(1));
-    m_glfw->initializeWindow();
-    ofSetWindowPosition(500, 100);
-    ofSetWindowShape(500, 800);
-    ofSetWindowTitle("Murmur Renderer Front Projection");
-    ofHideCursor();
-    //ofSetFullscreen(true);        // order important with fullscreen
-    
-    
-    // create third window dynamically
-    m_glfw->createWindow();
-    m_glfw->setWindow(m_windows->at(2));
-    m_glfw->initializeWindow();
-    ofSetWindowPosition(500+500, 100);
-    ofSetWindowShape(500, 800);
-    ofSetWindowTitle("Murmur Renderer Top Projection");
-    ofHideCursor();
-    //ofSetFullscreen(true);        // order important with fullscreen
     
     m_glfw->setWindow(m_windows->at(0));
-    ofShowCursor();
     
 }
 

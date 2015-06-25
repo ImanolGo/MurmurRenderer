@@ -95,6 +95,9 @@ private:
     //! Set-up all the managers
     void setupManagers();
 
+    //! Set-up OpenFrameworks
+    void setupOF();
+    
     //! Set-up GLFW windows
     void setupGlfwWidows();
 
