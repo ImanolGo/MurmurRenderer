@@ -172,4 +172,14 @@ bool SceneManager::changeScene(string sceneName)
 }
 
 
+void SceneManager::onTransitionTimeChange(float & value){
+  
+    for(auto scene : m_scenes) {
+        
+        scene->scene->setSceneDuration(value,value);
+    }
+}
+
+
+
 

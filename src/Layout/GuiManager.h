@@ -50,6 +50,12 @@ public:
     
     int getHeight()  {return m_gui.getHeight();}
     
+    void setSceneTransitionTime(float value) {m_sceneTransitionTime = value;}
+    
+private:
+    
+    void setupScenesGui();
+    
     
 public:
     
@@ -63,6 +69,8 @@ private:
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
     ofParameter<float>      m_guiFPS;
+    
+    ofParameter<float>      m_sceneTransitionTime;
     
 };
 

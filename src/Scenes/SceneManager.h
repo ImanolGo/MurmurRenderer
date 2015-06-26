@@ -45,6 +45,9 @@ public:
     
     //! Runs the scene manager attached to a window
     bool run(WindowIndex w);
+    
+    //! Transition Time controlled by GUI
+    void onTransitionTimeChange(float & value);
 
 private:
 

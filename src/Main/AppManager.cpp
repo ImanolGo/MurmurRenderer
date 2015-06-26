@@ -135,15 +135,17 @@ void AppManager::draw()
     switch (wIndex) { // switch on window index
         case 0:
             ofBackground(0,0,0); // change background color on each window
+            m_sceneManager.draw(WindowIndex(wIndex));
             m_guiManager.draw();
             //m_viewManager.draw();
             break;
         case 1:
-            ofBackground(0,255,0); // change background color on each window
+            ofBackground(0,0,0); // change background color on each window
+            m_sceneManager.draw(WindowIndex(wIndex));
             break;
         case 2:
-            ofBackground(0,0,255); // change background color on each window
-            
+            ofBackground(0,0,0); // change background color on each window
+            m_sceneManager.draw(WindowIndex(wIndex));
             break;
     }
 

@@ -45,9 +45,22 @@ void GuiManager::setup()
     m_gui.setPosition(LayoutManager::MARGIN, LayoutManager::MARGIN);
     m_gui.add(m_guiFPS.set("FPS", 0, 0, 60));
     
+    this->setupScenesGui();
+    
     m_gui.loadFromFile(GUI_SETTINGS_FILE_NAME);
  
    
+}
+
+void GuiManager::setupScenesGui()
+{
+    
+    SceneManager* sceneManager = &AppManager::getInstance().getSceneManager();
+    
+    m_sceneTransitionTime.set("SceneTransitionTime", 2.0, 0.0, 10);
+    m_sceneTransitionTime.addListener(sceneManager, &SceneManager::onTransitionTimeChange);
+    m_gui.add(m_sceneTransitionTime);
+    
 }
 
 void GuiManager::draw()

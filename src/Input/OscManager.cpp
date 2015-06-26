@@ -68,14 +68,26 @@ void OscManager::setupText()
 void OscManager::update()
 {
     // check for waiting messages
-    while(m_oscReceiver.hasWaitingMessages()){
+    while(m_oscReceiver.hasWaitingMessages())
+    {
         // get the next message
         ofxOscMessage m;
         m_oscReceiver.getNextMessage(&m);
         
         m_latestOscMessage = m;
         
-       }
+        if(m.getAddress() == "/MurmurRenderer/Scene"){
+            string sceneName = m.getArgAsString(0);
+            AppManager::getInstance().getSceneManager().changeScene(sceneName);
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/SceneTransitionTime"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setSceneTransitionTime(value);
+        }
+
+        
+    }
 }
 
 
