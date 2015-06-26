@@ -71,6 +71,9 @@ public:
     
     //! Returns the  OSC manager
     OscManager&  getOscManager() { return m_oscManager; }
+    
+    //! Returns the  Scene Manager
+    SceneManager&  getSceneManager() { return m_sceneManager; }
 
     
     //==========================================================================

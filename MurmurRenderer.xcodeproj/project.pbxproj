@@ -25,6 +25,8 @@
 		08EC803E1B3C3F0F000893E1 /* ofxEasingSine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC802F1B3C3F0F000893E1 /* ofxEasingSine.cpp */; };
 		08EC803F1B3C3F0F000893E1 /* ofxTween.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80311B3C3F0F000893E1 /* ofxTween.cpp */; };
 		08EC80431B3C3FEF000893E1 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80411B3C3FEF000893E1 /* SceneManager.cpp */; };
+		08EC804F1B3CABAC000893E1 /* BlankScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC804B1B3CABAC000893E1 /* BlankScene.cpp */; };
+		08EC80501B3CABAC000893E1 /* SmokyHandsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC804D1B3CABAC000893E1 /* SmokyHandsScene.cpp */; };
 		0C172F935FC53F927E2A2A06 /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFD18460E16E3FD4072AD755 /* StateMachine.cpp */; };
 		10071661D0AA59C4EC246B6C /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4A1CE60B1AC164DA8880771 /* ofxGuiGroup.cpp */; };
 		18E1C71898DBDC3A23B3D23E /* KeyboardManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46427E49D73D5E0749213503 /* KeyboardManager.cpp */; };
@@ -186,6 +188,11 @@
 		08EC80321B3C3F0F000893E1 /* ofxTween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTween.h; sourceTree = "<group>"; };
 		08EC80411B3C3FEF000893E1 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		08EC80421B3C3FEF000893E1 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		08EC804B1B3CABAC000893E1 /* BlankScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlankScene.cpp; sourceTree = "<group>"; };
+		08EC804C1B3CABAC000893E1 /* BlankScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlankScene.h; sourceTree = "<group>"; };
+		08EC804D1B3CABAC000893E1 /* SmokyHandsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmokyHandsScene.cpp; sourceTree = "<group>"; };
+		08EC804E1B3CABAC000893E1 /* SmokyHandsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmokyHandsScene.h; sourceTree = "<group>"; };
+		08EC80511B3CAD10000893E1 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		09F8F2DF1D53E65319F30B96 /* LightManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = LightManager.cpp; path = src/Engine/3D/LightManager.cpp; sourceTree = SOURCE_ROOT; };
 		0A72D47C9CAB86AC2081453B /* README.md */ = {isa = PBXFileReference; explicitFileType = file; fileEncoding = 30; name = README.md; path = src/Addons/ofxMultiGLFWWindow/README.md; sourceTree = SOURCE_ROOT; };
 		0ACA94EAF2C7DCA9EE906D69 /* svgtiny_internal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = svgtiny_internal.h; path = src/Addons/ofxSvg/libs/svgTiny/src/svgtiny_internal.h; sourceTree = SOURCE_ROOT; };
@@ -493,6 +500,11 @@
 		08EC80401B3C3FEF000893E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				08EC80511B3CAD10000893E1 /* Scene.h */,
+				08EC804B1B3CABAC000893E1 /* BlankScene.cpp */,
+				08EC804C1B3CABAC000893E1 /* BlankScene.h */,
+				08EC804D1B3CABAC000893E1 /* SmokyHandsScene.cpp */,
+				08EC804E1B3CABAC000893E1 /* SmokyHandsScene.h */,
 				08EC80411B3C3FEF000893E1 /* SceneManager.cpp */,
 				08EC80421B3C3FEF000893E1 /* SceneManager.h */,
 			);
@@ -1270,11 +1282,13 @@
 				A17FD063CDFB818E826A6080 /* ofxMultiGLFWWindow.cpp in Sources */,
 				85EE6C4774B9737FF97A89E8 /* IpEndpointName.cpp in Sources */,
 				A6ACA0F494E98AF780199B78 /* NetworkingUtils.cpp in Sources */,
+				08EC80501B3CABAC000893E1 /* SmokyHandsScene.cpp in Sources */,
 				1D8CD25882E2AD645377A32C /* UdpSocket.cpp in Sources */,
 				2A295D66A6FB5F4733D49A37 /* NetworkingUtilsWin.cpp in Sources */,
 				66917D59ACB7DEA9977F0675 /* UdpSocketWin.cpp in Sources */,
 				7E2A201F278FAA6068E9BD05 /* OscOutboundPacketStream.cpp in Sources */,
 				CC0B2A50563644998E19E1DA /* OscPrintReceivedElements.cpp in Sources */,
+				08EC804F1B3CABAC000893E1 /* BlankScene.cpp in Sources */,
 				42FCE37E2A11C1173820946E /* OscReceivedElements.cpp in Sources */,
 				995BFC8114C840534661FB6A /* OscTypes.cpp in Sources */,
 				08EC803F1B3C3F0F000893E1 /* ofxTween.cpp in Sources */,
@@ -1603,6 +1617,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
 				);
+				LIB_GLFW = "\"$(OF_PATH)/libs/glfw/lib/osx/libglfw3.a\"";
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1728,6 +1743,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 				);
+				LIB_GLFW = "\"$(OF_PATH)/libs/glfw/lib/osx/libglfw3.a\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -83,6 +83,7 @@ void AppManager::setupGlfwWidows()
         ofSetWindowShape(windowSettings.width, windowSettings.height);
         ofSetWindowTitle(windowSettings.title);
         ofSetFullscreen(windowSettings.fullscreen);        // order important with fullscreen
+        //ofLogNotice() << "AppManager::setupGlfwWidows -> width = " << ofGetWidth() << ", height = " << ofGetHeight();
         
         if(windowSettings.showCursor){
             ofShowCursor();
@@ -90,6 +91,8 @@ void AppManager::setupGlfwWidows()
         else{
             ofHideCursor();
         }
+        
+        m_sceneManager.run(WindowIndex(i));
 
         i++;
     }
