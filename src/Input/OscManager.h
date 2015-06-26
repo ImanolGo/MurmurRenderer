@@ -68,6 +68,8 @@ private:
     
      ofPtr<TextVisual>     m_sendingInformation;
      ofPtr<TextVisual>     m_receivingInformation;
+    
+     int                   m_numberOfContours;
 
 };
 

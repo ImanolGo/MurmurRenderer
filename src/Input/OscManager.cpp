@@ -12,7 +12,7 @@
 #include "AppManager.h"
 
 
-OscManager::OscManager(): Manager()
+OscManager::OscManager(): Manager(), m_numberOfContours(0)
 {
     //Intentionally left empty
 }
@@ -32,10 +32,11 @@ void OscManager::setup()
     
     Manager::setup();
     
-    ofLogNotice() <<"OscManager::initialized" ;
     this->setupOscReceiver();
     this->setupOscSender();
     this->setupText();
+    
+    ofLogNotice() <<"OscManager::initialized" ;
 }
 
 void OscManager::setupOscReceiver()
@@ -61,7 +62,37 @@ void OscManager::setupOscSender()
 
 void OscManager::setupText()
 {
+    ofVec3f position;
+   
+    position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN;
+    position.y = LayoutManager::MARGIN;
     
+    int width = 700;
+    int fontSize = 12;
+    int height = fontSize*3;
+    
+    int portSend = AppManager::getInstance().getSettingsManager().getPortSend();
+    string host = AppManager::getInstance().getSettingsManager().getIpAddress();
+    string text = ">> OSC sending -> Host: " + host + ", Port: " + ofToString(portSend);
+    
+    m_sendingInformation =  ofPtr<TextVisual> (new TextVisual(position, width, height));
+    m_sendingInformation->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    m_sendingInformation->setColor(ofColor::white);
+    m_sendingInformation->setLineHeight(2.5);
+    
+    AppManager::getInstance().getViewManager().addOverlay(m_sendingInformation);
+    
+    
+    int porReceive = AppManager::getInstance().getSettingsManager().getPortReceive();
+    text = ">> OSC receiving -> Port: " + ofToString(porReceive);
+    
+    position.y += (height + 3*fontSize);
+    m_receivingInformation =  ofPtr<TextVisual> (new TextVisual(position, width, height));
+    m_receivingInformation->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    m_receivingInformation->setColor(ofColor::white);
+    m_receivingInformation->setLineHeight(2.5);
+    
+    AppManager::getInstance().getViewManager().addOverlay(m_receivingInformation);
 }
 
 
@@ -79,11 +110,35 @@ void OscManager::update()
         if(m.getAddress() == "/MurmurRenderer/Scene"){
             string sceneName = m.getArgAsString(0);
             AppManager::getInstance().getSceneManager().changeScene(sceneName);
+            this->updateReceiveText();
         }
         
         else if(m.getAddress() == "/MurmurRenderer/SceneTransitionTime"){
             float value = m.getArgAsFloat(0);
             AppManager::getInstance().getGuiManager().setSceneTransitionTime(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/NumContours"){
+            m_numberOfContours = m.getArgAsInt32(0);
+            AppManager::getInstance().getContourManager().resetContours();
+            this->updateReceiveText();
+        }
+        
+        
+        for (int i = 0; i<m_numberOfContours; i++) {
+            string contourAddr = "/MurmurRenderer/Contour/" + ofToString(i);
+            
+            if(m.getAddress() == contourAddr){
+                
+                vector<float> contourPoints;
+                for (int n = 0; n < m.getNumArgs(); n++) {
+                    contourPoints.push_back(m.getArgAsFloat(n));
+                }
+                
+                AppManager::getInstance().getContourManager().setContour(contourPoints);
+               
+            }
         }
 
         

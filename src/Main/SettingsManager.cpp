@@ -33,13 +33,13 @@ void SettingsManager::setup()
 	if(m_initialized)
 		return;
 
-    ofLogNotice() <<"SettingsManager::initialized" ;
-
 	Manager::setup();
 
     if(this->loadSettingsFile()){
         this->loadAllSettings();
     }
+    
+    ofLogNotice() <<"SettingsManager::initialized" ;
 }
 
 void SettingsManager::loadAllSettings()

@@ -38,8 +38,6 @@ void AppManager::setup()
 	if(m_initialized)
 		return;
 
-    ofLogNotice() << "AppManager::initialized";
-
 	Manager::setup();
     
     this->setupOF();
@@ -47,6 +45,8 @@ void AppManager::setup()
     this->setupGlfwWidows();
     
     setDebugMode(m_debugMode);
+    
+    ofLogNotice() << "AppManager::initialized";
 }
 
 void AppManager::setupOF()
@@ -111,6 +111,7 @@ void AppManager::setupManagers()
     m_visualEffectsManager.setup();
     m_settingsManager.setup();
     m_layoutManager.setup();
+    m_contourManager.setup();
     m_oscManager.setup();
     m_keyboardManager.setup();
     m_sceneManager.setup();
@@ -135,9 +136,10 @@ void AppManager::draw()
     switch (wIndex) { // switch on window index
         case 0:
             ofBackground(0,0,0); // change background color on each window
+            m_viewManager.draw();
             m_sceneManager.draw(WindowIndex(wIndex));
             m_guiManager.draw();
-            //m_viewManager.draw();
+            
             break;
         case 1:
             ofBackground(0,0,0); // change background color on each window

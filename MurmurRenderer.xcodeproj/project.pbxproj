@@ -27,6 +27,7 @@
 		08EC80431B3C3FEF000893E1 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80411B3C3FEF000893E1 /* SceneManager.cpp */; };
 		08EC804F1B3CABAC000893E1 /* BlankScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC804B1B3CABAC000893E1 /* BlankScene.cpp */; };
 		08EC80501B3CABAC000893E1 /* SmokyHandsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC804D1B3CABAC000893E1 /* SmokyHandsScene.cpp */; };
+		08EC805E1B3D81EA000893E1 /* ContourManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC805C1B3D81EA000893E1 /* ContourManager.cpp */; };
 		0C172F935FC53F927E2A2A06 /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFD18460E16E3FD4072AD755 /* StateMachine.cpp */; };
 		10071661D0AA59C4EC246B6C /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4A1CE60B1AC164DA8880771 /* ofxGuiGroup.cpp */; };
 		18E1C71898DBDC3A23B3D23E /* KeyboardManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46427E49D73D5E0749213503 /* KeyboardManager.cpp */; };
@@ -193,6 +194,8 @@
 		08EC804D1B3CABAC000893E1 /* SmokyHandsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmokyHandsScene.cpp; sourceTree = "<group>"; };
 		08EC804E1B3CABAC000893E1 /* SmokyHandsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmokyHandsScene.h; sourceTree = "<group>"; };
 		08EC80511B3CAD10000893E1 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		08EC805C1B3D81EA000893E1 /* ContourManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContourManager.cpp; path = Visuals/ContourManager.cpp; sourceTree = "<group>"; };
+		08EC805D1B3D81EA000893E1 /* ContourManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContourManager.h; path = Visuals/ContourManager.h; sourceTree = "<group>"; };
 		09F8F2DF1D53E65319F30B96 /* LightManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = LightManager.cpp; path = src/Engine/3D/LightManager.cpp; sourceTree = SOURCE_ROOT; };
 		0A72D47C9CAB86AC2081453B /* README.md */ = {isa = PBXFileReference; explicitFileType = file; fileEncoding = 30; name = README.md; path = src/Addons/ofxMultiGLFWWindow/README.md; sourceTree = SOURCE_ROOT; };
 		0ACA94EAF2C7DCA9EE906D69 /* svgtiny_internal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = svgtiny_internal.h; path = src/Addons/ofxSvg/libs/svgTiny/src/svgtiny_internal.h; sourceTree = SOURCE_ROOT; };
@@ -1047,6 +1050,8 @@
 		C02C33831C66F04FEBAE29DE /* Visuals */ = {
 			isa = PBXGroup;
 			children = (
+				08EC805C1B3D81EA000893E1 /* ContourManager.cpp */,
+				08EC805D1B3D81EA000893E1 /* ContourManager.h */,
 				575D1CDBA068886786CD62D7 /* FluidManager.cpp */,
 				3837E08AF81F9A434C3295B6 /* FluidManager.h */,
 			);
@@ -1328,6 +1333,7 @@
 				08EC80331B3C3F0F000893E1 /* ofxEasing.cpp in Sources */,
 				F7EA3801298F5E54967C119B /* ImageVisual3D.cpp in Sources */,
 				8BC3D4AABDF5E655706BA3B8 /* SvgVisual.cpp in Sources */,
+				08EC805E1B3D81EA000893E1 /* ContourManager.cpp in Sources */,
 				DB05E98D002D6650AA23E87B /* TextVisual.cpp in Sources */,
 				08EC80361B3C3F0F000893E1 /* ofxEasingCirc.cpp in Sources */,
 				9D9E0E996DA1B9AC9952C889 /* ViewManager.cpp in Sources */,

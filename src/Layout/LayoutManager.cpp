@@ -36,8 +36,6 @@ void LayoutManager::setup()
 	if(m_initialized)
 		return;
 
-    ofLogNotice() <<"LayoutManager::initialized";
-
 	Manager::setup();
 
     this->createTextVisuals();
@@ -45,6 +43,8 @@ void LayoutManager::setup()
     this->createImageVisuals();
 
     this->addVisuals();
+    
+    ofLogNotice() <<"LayoutManager::initialized";
 
 }
 

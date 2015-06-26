@@ -22,6 +22,7 @@
 #include "KeyboardManager.h"
 #include "OscManager.h"
 #include "SceneManager.h"
+#include "ContourManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -74,6 +75,9 @@ public:
     
     //! Returns the  Scene Manager
     SceneManager&  getSceneManager() { return m_sceneManager; }
+    
+    //! Returns the  Contour Manager
+    ContourManager&  getContourManager() { return m_contourManager; }
 
     
     //==========================================================================
@@ -123,6 +127,7 @@ private:
     OscManager                      m_oscManager;               ///< Manages the OSC messages
     KeyboardManager                 m_keyboardManager;          ///< Manages the keboard input
     SceneManager                    m_sceneManager;             ///< Manages all the scenes
+    ContourManager                  m_contourManager;           ///< Manages the contour coming from the camera
 
     bool                            m_debugMode;
 };
