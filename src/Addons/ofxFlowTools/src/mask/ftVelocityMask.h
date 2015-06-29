@@ -34,12 +34,14 @@ namespace flowTools {
 		void	setBlurRadius(float value) {blurRadius.set(value);}
 		
 		ofParameterGroup	parameters;
+        
+        ofParameter<float>	strength;
+        ofParameter<float>	saturation;
+        ofParameter<int>	blurPasses;
+        ofParameter<float>	blurRadius;
 		
 	protected:
-		ofParameter<float>	strength;
-		ofParameter<float>	saturation;
-		ofParameter<int>	blurPasses;
-		ofParameter<float>	blurRadius;
+		
 		
 		int		width;
 		int		height;

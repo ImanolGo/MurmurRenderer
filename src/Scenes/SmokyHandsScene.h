@@ -10,6 +10,7 @@
 
 
 #include "ofxScene.h"
+#include "FluidVisual.h"
 
 class SmokyHandsScene : public ofxScene {
 
@@ -35,6 +36,10 @@ public:
 
     //! Called when exit
     void willExit();
+    
+private:
+    
+    FluidVisual     m_smokeFluid;
 
 };
 

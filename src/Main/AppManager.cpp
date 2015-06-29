@@ -100,6 +100,7 @@ void AppManager::setupGlfwWidows()
     
     m_glfw->setWindow(m_windows->at(0));
     
+    m_sceneManager.changeScene("SmokyHandsScene");
 }
 
 
@@ -123,6 +124,7 @@ void AppManager::update()
     m_visualEffectsManager.update();
     m_sceneManager.update();
     m_oscManager.update();
+    m_contourManager.update();
 }
 
 

@@ -107,7 +107,7 @@
 		EC108074DB75C3CD93A7DADF /* ofUTF8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4DEA9B316209449F17ED538 /* ofUTF8.cpp */; };
 		EEAC49F2D85B2790282E9CEF /* MurmurRendererApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3D461D566E10D3FBB1F3A9F /* MurmurRendererApp.cpp */; };
 		EF28B4E47642F5ABD48095BA /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5641DE8CEC2154DE44CF8E79 /* ofxToggle.cpp */; };
-		F16507CAEC376BABC65568F5 /* FluidManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 575D1CDBA068886786CD62D7 /* FluidManager.cpp */; };
+		F16507CAEC376BABC65568F5 /* FluidVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 575D1CDBA068886786CD62D7 /* FluidVisual.cpp */; };
 		F79E74E14D9ADD817F5560E9 /* LICENSE in Sources */ = {isa = PBXBuildFile; fileRef = 034C4C727A668928C89BAA6E /* LICENSE */; };
 		F7EA3801298F5E54967C119B /* ImageVisual3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DD6F074B2A9C65331157B2C /* ImageVisual3D.cpp */; };
 		F958C23C5A1E903B1FDCA40F /* ofxOscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C16D98E481F4B05C3F708AC /* ofxOscBundle.cpp */; };
@@ -225,7 +225,7 @@
 		30E9F125BCCB6C6D01B2B32B /* OscException.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscException.h; path = src/Addons/ofxOsc/libs/oscpack/src/osc/OscException.h; sourceTree = SOURCE_ROOT; };
 		33CCE8BBE5279F1B4F46E55A /* NetworkingUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NetworkingUtils.cpp; path = src/Addons/ofxOsc/libs/oscpack/src/ip/posix/NetworkingUtils.cpp; sourceTree = SOURCE_ROOT; };
 		3656BF3981C35A273806DCEB /* BasicVisual.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BasicVisual.h; path = src/Engine/Visuals/BasicVisual.h; sourceTree = SOURCE_ROOT; };
-		3837E08AF81F9A434C3295B6 /* FluidManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FluidManager.h; path = src/Visuals/FluidManager.h; sourceTree = SOURCE_ROOT; };
+		3837E08AF81F9A434C3295B6 /* FluidVisual.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FluidVisual.h; path = src/Visuals/FluidVisual.h; sourceTree = SOURCE_ROOT; };
 		3BCE0794E19FC20EABD2173D /* ofxSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSlider.h; path = src/Addons/ofxGui/src/ofxSlider.h; sourceTree = SOURCE_ROOT; };
 		3C01FEEAD29823C01C4EEC27 /* CameraAnimationsManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = CameraAnimationsManager.cpp; path = src/Engine/3D/CameraAnimationsManager.cpp; sourceTree = SOURCE_ROOT; };
 		3DD6F074B2A9C65331157B2C /* ImageVisual3D.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ImageVisual3D.cpp; path = src/Engine/Visuals/ImageVisual3D.cpp; sourceTree = SOURCE_ROOT; };
@@ -252,7 +252,7 @@
 		556F252E634B0A1D729D0889 /* PacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PacketListener.h; path = src/Addons/ofxOsc/libs/oscpack/src/ip/PacketListener.h; sourceTree = SOURCE_ROOT; };
 		5641DE8CEC2154DE44CF8E79 /* ofxToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxToggle.cpp; path = src/Addons/ofxGui/src/ofxToggle.cpp; sourceTree = SOURCE_ROOT; };
 		56E991FC0AE7E20FD398127D /* src_colors.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = src_colors.cpp; path = src/Addons/ofxSvg/libs/svgTiny/src/src_colors.cpp; sourceTree = SOURCE_ROOT; };
-		575D1CDBA068886786CD62D7 /* FluidManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FluidManager.cpp; path = src/Visuals/FluidManager.cpp; sourceTree = SOURCE_ROOT; };
+		575D1CDBA068886786CD62D7 /* FluidVisual.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FluidVisual.cpp; path = src/Visuals/FluidVisual.cpp; sourceTree = SOURCE_ROOT; };
 		589087FD6A45E7AD2FF3CD32 /* ofxSvg.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSvg.h; path = src/Addons/ofxSvg/src/ofxSvg.h; sourceTree = SOURCE_ROOT; };
 		589D5A41B8E9E3B5FC11BCDB /* core.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = core.h; path = src/Addons/ofxUnicode/libs/utf8cpp/include/utf8/core.h; sourceTree = SOURCE_ROOT; };
 		58D49A2E28986D495EBCDA08 /* ftClampLengthShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ftClampLengthShader.h; path = src/Addons/ofxFlowTools/src/tools/ftClampLengthShader.h; sourceTree = SOURCE_ROOT; };
@@ -1052,8 +1052,8 @@
 			children = (
 				08EC805C1B3D81EA000893E1 /* ContourManager.cpp */,
 				08EC805D1B3D81EA000893E1 /* ContourManager.h */,
-				575D1CDBA068886786CD62D7 /* FluidManager.cpp */,
-				3837E08AF81F9A434C3295B6 /* FluidManager.h */,
+				575D1CDBA068886786CD62D7 /* FluidVisual.cpp */,
+				3837E08AF81F9A434C3295B6 /* FluidVisual.h */,
 			);
 			name = Visuals;
 			sourceTree = "<group>";
@@ -1348,7 +1348,7 @@
 				EEAC49F2D85B2790282E9CEF /* MurmurRendererApp.cpp in Sources */,
 				58BCEB4034B30CB4A3456FC7 /* SettingsManager.cpp in Sources */,
 				08EC80381B3C3F0F000893E1 /* ofxEasingElastic.cpp in Sources */,
-				F16507CAEC376BABC65568F5 /* FluidManager.cpp in Sources */,
+				F16507CAEC376BABC65568F5 /* FluidVisual.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

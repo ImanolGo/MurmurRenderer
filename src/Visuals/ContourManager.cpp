@@ -7,10 +7,11 @@
  */
 
 
+#include "FluidVisual.h"
 #include "ContourManager.h"
 
 
-ContourManager::ContourManager()
+ContourManager::ContourManager(): m_isFrameNew(false)
 {
     //Intentionaly left empty
 }
@@ -27,16 +28,47 @@ void ContourManager::setup()
     Manager::setup();
     
     ofLogNotice() <<"ContourManager::initialized" ;
+    
+    this->setupFbo();
 }
+
+
+void ContourManager::setupFbo()
+{
+    m_contourFbo.allocate(FluidVisual::FLUID_WIDTH, FluidVisual::FLUID_HEIGHT);
+    //m_contourFbo.allocate(1920, 1080);
+    m_contourFbo.begin(); ofClear(0); m_contourFbo.end();
+    
+    ofLogNotice() <<"ContourManager::setupFbo-> Set up FBO with width = " << m_contourFbo.getTextureReference().getWidth() << ", height = " << m_contourFbo.getTextureReference().getHeight();
+    
+}
+
 
 void ContourManager::update()
 {
-    
+
+    if(m_isFrameNew)
+    {
+        ofPushStyle();
+        ofEnableBlendMode(OF_BLENDMODE_DISABLED);
+        m_contourFbo.begin();
+            ofClear(0);
+            for (auto contour: m_contours){
+                ofSetLineWidth(20);
+                contour->draw();
+           
+        }
+        m_contourFbo.end();
+        ofPopStyle();
+        
+        m_isFrameNew = false;
+    }
+   
 }
 
 void ContourManager::draw()
 {
-    
+    m_contourFbo.draw(0,0);
 }
 
 void ContourManager::resetContours()
@@ -46,14 +78,13 @@ void ContourManager::resetContours()
 
 void ContourManager::setContour(vector<float> contourPoints)
 {
-    int i = 0;
-    ofPtr<ofPolyline> contour = ofPtr<ofPolyline> (new ofPolyline());
-    //ofLogNotice() <<"ContourManager::contourPoint size = " << contourPoints.size();
+    //ofLogNotice() <<"ContourManager::setContour-> NEW FRAME!!!!!!!!";
     
-    while (i<contourPoints.size()-1)
-    {
-        float x = contourPoints[i++];
-        float y = contourPoints[i++];
+    ofPtr<ofPolyline> contour = ofPtr<ofPolyline> (new ofPolyline());
+    
+    for (int i = 0; i < contourPoints.size(); i = i + 2) {
+        float x = contourPoints[i]*FluidVisual::FLUID_WIDTH;
+        float y = contourPoints[i+1]*FluidVisual::FLUID_HEIGHT;
         
         contour->addVertex(x,y);
     }
@@ -61,6 +92,14 @@ void ContourManager::setContour(vector<float> contourPoints)
     contour->close(); // close the shape
     m_contours.push_back(contour);
     
+    m_isFrameNew = true;
+    
+}
+
+
+const ofFbo& ContourManager::getSource() const
+{
+    return m_contourFbo;
 }
 
 void ContourManager::setOffsetX(float & dx)

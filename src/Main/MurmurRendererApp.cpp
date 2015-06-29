@@ -27,7 +27,7 @@ void MurmurRendererApp::draw(){
 
 void MurmurRendererApp::exit()
 {
-    ofLogNotice() <<"MurmurRenderer::exit";
+    ofLogNotice() <<"MurmurRenderer::Exit";
 
 }
 

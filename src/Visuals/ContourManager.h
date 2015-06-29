@@ -40,6 +40,8 @@ public:
     //! Draw the Contour Manager
     void draw();
      
+    const ofFbo& getSource() const;
+     
     void resetContours();
      
     void setContour(vector<float> contourPoints);
@@ -48,6 +50,10 @@ public:
     void setOffsetY(float & dy);
     void setScaleX(float & sx);
     void setScaleY(float & sy);
+     
+private:
+     
+    void setupFbo();
     
     
 private:
@@ -59,7 +65,10 @@ private:
      
     ContourVector       m_contours;
      
+    ofFbo				m_contourFbo;
     
+    bool                m_isFrameNew;
+     
 };
 
 
