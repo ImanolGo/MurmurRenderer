@@ -80,13 +80,7 @@ void ContourManager::update()
 
 void ContourManager::draw()
 {
-    //m_contourFbo.draw(0,0);
-    
-    ofSetLineWidth(20);
-    for (auto contour: m_contours){
-        contour->draw();
-    }
-
+    m_contourFbo.draw(0,0, ofGetWidth(), ofGetHeight());
 }
 
 void ContourManager::resetContours()

@@ -34,32 +34,33 @@ public:
     //! Destructor
     ~FluidVisual();
     
-    //! Setup the Halo Visuals
-    void setup();
+    //! Setup the Fluid Visual
+    void setup(string settingsName);
     
-    //! Update the Halo Visuals
+    //! Update the Fluid Visual
     void update();
     
-    //! Draw the Halo Visuals
+    //! Draw the Fluid Visual
     void draw();
     
     //! Set the source texture use to create the fluid
     void setSource(const ofFbo& source);
     
     //Gui
-    void resetDrawForces(bool& _value) { if (_value) {for (int i=0; i<m_numDrawForces; i++) m_flexDrawForces[i].reset();}}
-    void setDisplayScalarScale(float& _value) { m_displayScalar.setScale(_value); }
-    void setVelocityFieldArrowScale(float& _value) { m_velocityField.setVectorSize(_value); }
-    void setTemperatureFieldBarScale(float& _value) { m_temperatureField.setVectorSize(_value); }
-    void setVisualisationLineSmooth(bool& _value) { m_velocityField.setLineSmooth(_value); }
-     
-public:
+    void	setupGui();
     
-    static const int FLUID_WIDTH;
-    static const int FLUID_HEIGHT;
+    void    resetDrawForces(bool& _value) { if (_value) {for (int i=0; i<m_numDrawForces; i++) m_flexDrawForces[i].reset();}}
+   
+    void	setDisplayScalarScale(float& _value) { m_displayScalar.setScale(_value); }
+   
+    void	setVelocityFieldArrowScale(float& _value) { m_velocityField.setVectorSize(_value); }
+   
+    void	setTemperatureFieldBarScale(float& _value) { m_temperatureField.setVectorSize(_value); }
+
+    void	setVisualisationLineSmooth(bool& _value) { m_velocityField.setLineSmooth(_value); }
+   
     
 private:
-    
     
     void drawVisuals();
     
@@ -70,6 +71,26 @@ private:
     void drawFluid();
     
 public:
+    
+    static const int FLUID_WIDTH;
+    static const int FLUID_HEIGHT;
+    
+    ofxPanel            m_gui;
+    string              m_guiSettingsName;
+    ofParameter<bool>	toggleGuiDraw;
+    ofParameterGroup	visualisationParameters;
+    
+    ofParameterGroup	drawForceParameters;
+    ofParameter<bool>	doResetDrawForces;
+    ofParameterGroup	leftButtonParameters;
+    ofParameterGroup	rightButtonParameters;
+    ofParameter<bool>	showScalar;
+    ofParameter<bool>	showField;
+    ofParameter<float>	displayScalarScale;
+    ofParameter<float>	velocityFieldArrowScale;
+    ofParameter<float>	temperatureFieldBarScale;
+    ofParameter<bool>	visualisationLineSmooth;
+    
     
     ftOpticalFlow		m_opticalFlow;
     ftVelocityMask		m_velocityMask;

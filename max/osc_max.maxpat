@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 51.0, 317.0, 1169.0, 698.0 ],
+		"rect" : [ 721.0, 239.0, 1169.0, 698.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -102,7 +102,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 574.0, 319.0, 368.0, 22.0 ],
 					"style" : "",
-					"text" : "/MurmurFloorTracking/position 0.841797 0.34434"
+					"text" : "/MurmurRenderer/SceneTransitionTime 10."
 				}
 
 			}
@@ -113,9 +113,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 569.0, 264.0, 123.0, 22.0 ],
+					"patching_rect" : [ 569.0, 264.0, 99.0, 22.0 ],
 					"style" : "",
-					"text" : "udpreceive 12345"
+					"text" : "udpreceive 7777"
 				}
 
 			}
@@ -140,9 +140,9 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 391.0, 263.0, 140.0, 22.0 ],
+					"patching_rect" : [ 391.0, 263.0, 147.0, 22.0 ],
 					"style" : "",
-					"text" : "udpsend 127.0.0.1 7890"
+					"text" : "udpsend 127.0.0.1 12345"
 				}
 
 			}

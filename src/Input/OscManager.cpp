@@ -106,7 +106,7 @@ void OscManager::update()
         m_oscReceiver.getNextMessage(&m);
         
         m_latestOscMessage = m;
-        
+       
         if(m.getAddress() == "/MurmurRenderer/Scene"){
             string sceneName = m.getArgAsString(0);
             AppManager::getInstance().getSceneManager().changeScene(sceneName);

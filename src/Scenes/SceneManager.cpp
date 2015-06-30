@@ -44,9 +44,11 @@ void SceneManager::createSceneManagers()
 {
     m_sceneManagers[WindowIndex(FRONT)] = ofPtr<ofxSceneManager> (new ofxSceneManager());
     m_sceneManagers[WindowIndex(FRONT)]->setTransitionDissolve();
+    //m_sceneManagers[WindowIndex(FRONT)]->setSceneDuration(3.5,3.5);
     
     m_sceneManagers[WindowIndex(TOP)] = ofPtr<ofxSceneManager> (new ofxSceneManager());
     m_sceneManagers[WindowIndex(TOP)]->setTransitionDissolve();
+    //m_sceneManagers[WindowIndex(TOP)]->setSceneDuration(3.5,3.5);
 }
 
 
@@ -138,10 +140,17 @@ void SceneManager::update()
 
 void SceneManager::draw(WindowIndex w)
 {
+    
     if(m_sceneManagers.find(w)!= m_sceneManagers.end()){
+        ofPushStyle();
+        ofEnableAlphaBlending();
         m_sceneManagers[w]->draw();
+        ofDisableAlphaBlending();
+        ofPopStyle();
         return;
     }
+    
+    
     
     ofLogVerbose() <<"SceneManager::draw -> No Scene Manager attached to window " << w;
 }
@@ -175,7 +184,6 @@ bool SceneManager::changeScene(string sceneName)
 void SceneManager::onTransitionTimeChange(float & value){
   
     for(auto scene : m_scenes) {
-        
         scene->scene->setSceneDuration(value,value);
     }
 }

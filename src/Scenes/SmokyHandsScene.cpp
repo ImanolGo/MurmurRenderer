@@ -12,22 +12,48 @@
 
 #include "SmokyHandsScene.h"
 
-void SmokyHandsScene::setup() {
+
+SmokyHandsScene::SmokyHandsScene():m_initialized(false)
+{
     
-    m_smokeFluid.setup();
 }
 
-void SmokyHandsScene::update() {
+SmokyHandsScene::~SmokyHandsScene()
+{
+    //Intentionally left empty
+}
+
+void SmokyHandsScene::setup()
+{
+    if (m_initialized) {
+        return;
+    }
     
+    ofLogNotice("SmokyHandsScene::setup");
+    m_smokeFluid.setup("xmls/SmokyHandsFluid.xml");
+    m_initialized = true;
+}
+
+void SmokyHandsScene::update()
+{
+    this->updateFluid();
+}
+
+
+void SmokyHandsScene::draw() {
+    ofBackground(0,0,0);
+    this->drawFluid();
+}
+
+void SmokyHandsScene::updateFluid()
+{
     const ofFbo& source = AppManager::getInstance().getContourManager().getSource();
     m_smokeFluid.setSource(source);
     m_smokeFluid.update();
 }
 
-void SmokyHandsScene::draw() {
-    ofBackground(0,0,0);
-    //AppManager::getInstance().getContourManager().draw();
-    
+void SmokyHandsScene::drawFluid()
+{
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
@@ -40,17 +66,17 @@ void SmokyHandsScene::draw() {
 }
 
 void SmokyHandsScene::willFadeIn() {
-
+    ofLogNotice("SmokyHandsScene::willFadeIn");
 }
 
 void SmokyHandsScene::willDraw() {
-
+    ofLogNotice("SmokyHandsScene::willDraw");
 }
 
 void SmokyHandsScene::willFadeOut() {
-
+    ofLogNotice("SmokyHandsScene::willFadeOut");
 }
 
 void SmokyHandsScene::willExit() {
-    
+    ofLogNotice("SmokyHandsScene::willExit");
 }

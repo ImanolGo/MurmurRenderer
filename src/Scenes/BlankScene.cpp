@@ -10,7 +10,7 @@
 #include "BlankScene.h"
 
 void BlankScene::setup() {
-    
+    ofLogNotice("BlankScene::setup");
 }
 
 void BlankScene::update() {
@@ -22,17 +22,17 @@ void BlankScene::draw() {
 }
 
 void BlankScene::willFadeIn() {
-
+     ofLogNotice("BlankScene::willFadeIn");
 }
 
 void BlankScene::willDraw() {
-
+    ofLogNotice("BlankScene::willDraw");
 }
 
 void BlankScene::willFadeOut() {
-
+    ofLogNotice("BlankScene::willFadeOut");
 }
 
 void BlankScene::willExit() {
-    
+    ofLogNotice("BlankScene::willExit");
 }

@@ -15,6 +15,12 @@
 class SmokyHandsScene : public ofxScene {
 
 public:
+    
+    //Contructor
+    SmokyHandsScene();
+    
+    //Destructor
+    ~SmokyHandsScene();
 
     //! Set up the scene
     void setup();
@@ -39,7 +45,14 @@ public:
     
 private:
     
+    void drawFluid();
+    
+    void updateFluid();
+    
+private:
+    
     FluidVisual     m_smokeFluid;
+    bool            m_initialized;
 
 };
 

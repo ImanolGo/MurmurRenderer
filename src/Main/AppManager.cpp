@@ -43,6 +43,7 @@ void AppManager::setup()
     this->setupOF();
 	this->setupManagers();
     this->setupGlfwWidows();
+    m_guiManager.setup();
     
     setDebugMode(m_debugMode);
     
@@ -100,7 +101,7 @@ void AppManager::setupGlfwWidows()
     
     m_glfw->setWindow(m_windows->at(0));
     
-    m_sceneManager.changeScene("SmokyHandsScene");
+    //m_sceneManager.changeScene("SmokyHandsScene");
 }
 
 
@@ -114,9 +115,8 @@ void AppManager::setupManagers()
     m_layoutManager.setup();
     m_contourManager.setup();
     m_oscManager.setup();
-    m_keyboardManager.setup();
     m_sceneManager.setup();
-    m_guiManager.setup();
+    m_keyboardManager.setup();
 }
 
 void AppManager::update()

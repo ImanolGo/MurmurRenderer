@@ -25,13 +25,16 @@ FluidVisual::FluidVisual()
 
 FluidVisual::~FluidVisual()
 {
-    //Intentionaly left empty
+   m_gui.saveToFile(m_guiSettingsName);
 }
 
 
-void FluidVisual::setup()
+void FluidVisual::setup(string settingsName)
 {
+    m_guiSettingsName = settingsName;
+    
     this->setupFluid();
+    this->setupGui();
 }
 
 
@@ -69,38 +72,67 @@ void FluidVisual::setupFluid()
     m_flexDrawForces[2].setup(flowWidth, flowHeight, FT_TEMPERATURE, false);
     m_flexDrawForces[2].setName("draw flow res 2");
     
+}
+
+void FluidVisual::setupGui()
+{
+    m_gui.setup("FluidGUI", m_guiSettingsName);
+    m_gui.setDefaultBackgroundColor(ofColor(0, 0, 0, 127));
+    m_gui.setDefaultFillColor(ofColor(160, 160, 160, 160));
+  
+    int guiColorSwitch = 0;
+    ofColor guiHeaderColor[2];
+    guiHeaderColor[0].set(160, 160, 80, 200);
+    guiHeaderColor[1].set(80, 160, 160, 200);
+    ofColor guiFillColor[2];
+    guiFillColor[0].set(160, 160, 80, 200);
+    guiFillColor[1].set(80, 160, 160, 200);
     
-    m_opticalFlow.setStrength(50);
-    m_opticalFlow.setOffset(3);
-    m_opticalFlow.setLambda(0.01);
-    m_opticalFlow.setThreshold(0.0255);
-    m_opticalFlow.setTimeBlurActive(true);
-    m_opticalFlow.setTimeBlurDecay(0.1201);
-    m_opticalFlow.setTimeBlurRadius(2);
+    m_gui.setDefaultHeaderBackgroundColor(guiHeaderColor[guiColorSwitch]);
+    m_gui.setDefaultFillColor(guiFillColor[guiColorSwitch]);
+    guiColorSwitch = 1 - guiColorSwitch;
+    m_gui.add(m_opticalFlow.parameters);
     
-    m_velocityMask.strength = 2;
+    m_gui.setDefaultHeaderBackgroundColor(guiHeaderColor[guiColorSwitch]);
+    m_gui.setDefaultFillColor(guiFillColor[guiColorSwitch]);
+    guiColorSwitch = 1 - guiColorSwitch;
+    m_gui.add(m_velocityMask.parameters);
+    
+    m_gui.setDefaultHeaderBackgroundColor(guiHeaderColor[guiColorSwitch]);
+    m_gui.setDefaultFillColor(guiFillColor[guiColorSwitch]);
+    guiColorSwitch = 1 - guiColorSwitch;
+    m_gui.add(m_fluid.parameters);
     
     
+    visualisationParameters.setName("visualisation");
+    visualisationParameters.add(showScalar.set("show scalar", true));
+    visualisationParameters.add(showField.set("show field", true));
+    visualisationParameters.add(displayScalarScale.set("display scalar scale", 0.25, 0.05, 0.5));
+    displayScalarScale.addListener(this, &FluidVisual::setDisplayScalarScale);
+    visualisationParameters.add(velocityFieldArrowScale.set("arrow scale", 0.6, 0.2, 1));
+    velocityFieldArrowScale.addListener(this, &FluidVisual::setVelocityFieldArrowScale);
+    visualisationParameters.add(temperatureFieldBarScale.set("temperature scale", 0.25, 0.05, 0.5));
+    temperatureFieldBarScale.addListener(this, &FluidVisual::setTemperatureFieldBarScale);
+    visualisationParameters.add(visualisationLineSmooth.set("line smooth", false));
+    visualisationLineSmooth.addListener(this, &FluidVisual::setVisualisationLineSmooth);
     
-    m_fluid.setSpeed(28);
-    m_fluid.setCellSize(1.25);
-    m_fluid.setNumJacobiIterations(40);
-    m_fluid.setViscosity(0.68);
-    m_fluid.setVorticity(0.1);
-    m_fluid.setDissipation(0.018);
-    m_fluid.setDissipationVelocityOffset(0);
-    m_fluid.setDissipationDensityOffset(0);
-    m_fluid.setDissipationTemperatureOffset(0);
-    m_fluid.setSmokeSigma(0);
-    m_fluid.setSmokeWeight(0.0681);
-    m_fluid.setAmbientTemperature(0) ;
-    m_fluid.setGravity(ofPoint(0,100));
-    m_fluid.setClampForce(0.073) ;
-    m_fluid.setMaxVelocity(4.4) ;
-    m_fluid.setMaxDensity(0.96);
-    m_fluid.setMaxTemperature(2.334);
-    m_fluid.setDensityFromVorticity(0) ;
-    m_fluid.setDensityFromPressure(0.153) ;
+    m_gui.setDefaultHeaderBackgroundColor(guiHeaderColor[guiColorSwitch]);
+    m_gui.setDefaultFillColor(guiFillColor[guiColorSwitch]);
+    guiColorSwitch = 1 - guiColorSwitch;
+    m_gui.add(visualisationParameters);
+    
+    leftButtonParameters.setName("mouse left button");
+    for (int i=0; i<3; i++) {
+        leftButtonParameters.add(m_flexDrawForces[i].parameters);
+    }
+    m_gui.setDefaultHeaderBackgroundColor(guiHeaderColor[guiColorSwitch]);
+    m_gui.setDefaultFillColor(guiFillColor[guiColorSwitch]);
+    guiColorSwitch = 1 - guiColorSwitch;
+    m_gui.add(leftButtonParameters);
+    
+    m_gui.loadFromFile(m_guiSettingsName);
+    m_gui.minimizeAll();
+
 }
 
 
@@ -150,20 +182,8 @@ void FluidVisual::updateFluid()
 
 void FluidVisual::draw()
 {
-    ofClear(0);
-    
-    ofPushStyle();
-    ofEnableBlendMode(OF_BLENDMODE_DISABLED);
-    
-    m_source.draw(0, 0, ofGetWidth(), ofGetHeight());
-    
-    ofEnableBlendMode(OF_BLENDMODE_ADD);
-     m_fluid.draw(0, 0, ofGetWidth(), ofGetHeight());
-    ofPopStyle();
-
-    
-   
-    //ofLogNotice() << "FluidVisual::draw()-> " << ofGetWidth();
+    m_fluid.draw(0, 0, ofGetWidth(), ofGetHeight());
+    m_gui.draw();
 }
 
 void FluidVisual::setSource(const ofFbo& source)
