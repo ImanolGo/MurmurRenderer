@@ -72,6 +72,10 @@ void GuiManager::setupScenesGui()
     m_sceneSmokyHands.addListener(this, &GuiManager::onSetSmokyHandsScene);
     m_parametersScenes.add(m_sceneSmokyHands);
     
+    m_sceneBattleOfSelf.set("BattleOfSelfScene", false);
+    m_sceneBattleOfSelf.addListener(this, &GuiManager::onSetBattleOfSelfScene);
+    m_parametersScenes.add(m_sceneBattleOfSelf);
+    
     m_gui.add(m_parametersScenes);
     
 }
@@ -132,6 +136,7 @@ void GuiManager::onSetBlankScene(bool& value)
 {
     if(value == true){
         m_sceneSmokyHands = false;
+        m_sceneBattleOfSelf = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBlank.getName());
     }
 }
@@ -140,7 +145,19 @@ void GuiManager::onSetSmokyHandsScene(bool& value)
 {
     if(value == true){
         m_sceneBlank = false;
+        m_sceneBattleOfSelf = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneSmokyHands.getName());
     }
 }
+
+void GuiManager::onSetBattleOfSelfScene(bool& value)
+{
+    if(value == true){
+        m_sceneBlank = false;
+        m_sceneSmokyHands = false;
+        
+        AppManager::getInstance().getSceneManager().changeScene(m_sceneBattleOfSelf.getName());
+    }
+}
+
 

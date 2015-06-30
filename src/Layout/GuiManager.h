@@ -59,6 +59,10 @@ public:
     //! Changes the smoky hands scene from the GUI
     void onSetSmokyHandsScene(bool& value);
     
+    //! Changes the battle of self scene from the GUI
+    void onSetBattleOfSelfScene(bool& value);
+    
+    
 private:
     
     void setupScenesGui();
@@ -83,6 +87,7 @@ private:
     ofParameter<float>      m_sceneTransitionTime;
     ofParameter<bool>       m_sceneSmokyHands;
     ofParameter<bool>       m_sceneBlank;
+    ofParameter<bool>       m_sceneBattleOfSelf;
     
     ofParameter<float>      m_contourThickness;
     ofParameter<ofVec2f>    m_contourOffset;

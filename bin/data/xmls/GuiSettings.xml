@@ -1,14 +1,14 @@
 <MurmurRenderer>
-	<FPS>60.3042</FPS>
+	<FPS>39.1646</FPS>
 	<Scenes>
 		<TransitionTime>2</TransitionTime>
-		<BlankScene>1</BlankScene>
-		<SmokyHandsScene>0</SmokyHandsScene>
+		<BlankScene>0</BlankScene>
+		<SmokyHandsScene>1</SmokyHandsScene>
 	</Scenes>
 	<Contour>
 		<Thickness>1.7551</Thickness>
 		<Offset>0, -3.24448</Offset>
-		<Scale>2.91962, -9.32528</Scale>
+		<Scale>-6.40983, -9.32528</Scale>
 	</Contour>
 <MurmurRenderer/>
 </MurmurRenderer>

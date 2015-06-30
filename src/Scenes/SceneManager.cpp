@@ -12,6 +12,7 @@
 #include "SceneManager.h"
 #include "BlankScene.h"
 #include "SmokyHandsScene.h"
+#include "BattleOfSelfScene.h"
 
 
 SceneManager::SceneManager(): Manager()
@@ -71,6 +72,11 @@ void SceneManager::createFrontScenes()
     //Create Smoky Hands Scene
     scene = ofPtr<ofxScene> (new SmokyHandsScene());
     this->createScene("SmokyHandsScene", SceneIndex(i), scene, WindowIndex(FRONT));
+    i++;
+    
+    //Create Battle of Self Scene
+    scene = ofPtr<ofxScene> (new BattleOfSelfScene());
+    this->createScene("BattleOfSelfScene", SceneIndex(i), scene, WindowIndex(FRONT));
     i++;
     
 }
