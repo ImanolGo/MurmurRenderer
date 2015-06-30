@@ -52,9 +52,18 @@ public:
     
     void setSceneTransitionTime(float value) {m_sceneTransitionTime = value;}
     
+    
+    //! Changes the blank scene from the GUI
+    void onSetBlankScene(bool& value);
+    
+    //! Changes the smoky hands scene from the GUI
+    void onSetSmokyHandsScene(bool& value);
+    
 private:
     
     void setupScenesGui();
+    
+    void setupContourGui();
     
     
 public:
@@ -63,14 +72,21 @@ public:
     
 private:
     
-    // Fluid GUI
     ofxPanel                m_gui;
+    ofParameterGroup        m_parametersContour;
+    ofParameterGroup        m_parametersScenes;
    
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
     ofParameter<float>      m_guiFPS;
-    
+
     ofParameter<float>      m_sceneTransitionTime;
+    ofParameter<bool>       m_sceneSmokyHands;
+    ofParameter<bool>       m_sceneBlank;
+    
+    ofParameter<float>      m_contourThickness;
+    ofParameter<ofVec2f>    m_contourOffset;
+    ofParameter<ofVec2f>    m_contourScale;
     
 };
 

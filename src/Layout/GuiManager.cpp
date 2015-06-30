@@ -46,6 +46,7 @@ void GuiManager::setup()
     m_gui.add(m_guiFPS.set("FPS", 0, 0, 60));
     
     this->setupScenesGui();
+    this->setupContourGui();
     
     m_gui.loadFromFile(GUI_SETTINGS_FILE_NAME);
  
@@ -57,9 +58,44 @@ void GuiManager::setupScenesGui()
     
     SceneManager* sceneManager = &AppManager::getInstance().getSceneManager();
     
-    m_sceneTransitionTime.set("SceneTransitionTime", 2.0, 0.0, 10);
+    m_parametersScenes.setName("Scenes");
+    
+    m_sceneTransitionTime.set("TransitionTime", 2.0, 0.0, 10);
     m_sceneTransitionTime.addListener(sceneManager, &SceneManager::onTransitionTimeChange);
-    m_gui.add(m_sceneTransitionTime);
+    m_parametersScenes.add(m_sceneTransitionTime);
+    
+    m_sceneBlank.set("BlankScene", false);
+    m_sceneBlank.addListener(this, &GuiManager::onSetBlankScene);
+    m_parametersScenes.add(m_sceneBlank);
+    
+    m_sceneSmokyHands.set("SmokyHandsScene", false);
+    m_sceneSmokyHands.addListener(this, &GuiManager::onSetSmokyHandsScene);
+    m_parametersScenes.add(m_sceneSmokyHands);
+    
+    m_gui.add(m_parametersScenes);
+    
+}
+
+void GuiManager::setupContourGui()
+{
+    
+    ContourManager* contourManager = &AppManager::getInstance().getContourManager();
+    m_parametersContour.setName("Contour");
+    
+    m_contourThickness.set("Thickness", 1.0, 0.0, 10.0);
+    m_contourThickness.addListener(contourManager, &ContourManager::setContourThickness);
+    m_parametersContour.add(m_contourThickness);
+    
+    
+    m_contourOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-10.0,-10.0) , ofVec2f(10.0,10.0) );
+    m_contourOffset.addListener(contourManager, &ContourManager::setOffset);
+    m_parametersContour.add(m_contourOffset);
+    
+    m_contourScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-10.0,-10.0) , ofVec2f(10.0,10.0) );
+    m_contourScale.addListener(contourManager, &ContourManager::setOffset);
+    m_parametersContour.add(m_contourScale);
+    
+    m_gui.add(m_parametersContour);
     
 }
 
@@ -89,5 +125,22 @@ void GuiManager::toggleGui()
 {
     ofLogNotice() <<"GuiManager::toggleGui -> show GUI "<< m_showGui;
     m_showGui = !m_showGui;
+}
+
+
+void GuiManager::onSetBlankScene(bool& value)
+{
+    if(value == true){
+        m_sceneSmokyHands = false;
+        AppManager::getInstance().getSceneManager().changeScene(m_sceneBlank.getName());
+    }
+}
+
+void GuiManager::onSetSmokyHandsScene(bool& value)
+{
+    if(value == true){
+        m_sceneBlank = false;
+        AppManager::getInstance().getSceneManager().changeScene(m_sceneSmokyHands.getName());
+    }
 }
 

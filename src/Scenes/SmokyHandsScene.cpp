@@ -25,8 +25,9 @@ void SmokyHandsScene::update() {
 }
 
 void SmokyHandsScene::draw() {
-    //ofBackground(0,0,50);
+    ofBackground(0,0,0);
     //AppManager::getInstance().getContourManager().draw();
+    
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     

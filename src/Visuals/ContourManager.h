@@ -46,19 +46,22 @@ public:
      
     void setContour(vector<float> contourPoints);
     
-    void setOffsetX(float & dx);
-    void setOffsetY(float & dy);
-    void setScaleX(float & sx);
-    void setScaleY(float & sy);
+    void setOffset(ofVec2f & offset);
+    
+    void setScale(ofVec2f & scale);
+     
+    void setContourThickness(float & value);
      
 private:
      
     void setupFbo();
     
+    void setupShader();
     
+     
 private:
      
-    typedef vector< ofPtr<ofPolyline> > ContourVector;
+    typedef vector< ofPtr<ofPath> > ContourVector;
     
     ofVec2f             m_contourOffset;
     ofVec2f             m_contourScale;
@@ -68,6 +71,11 @@ private:
     ofFbo				m_contourFbo;
     
     bool                m_isFrameNew;
+     
+    ofShader            m_thickLineShader;
+    
+     
+    float               m_contourThickness;
      
 };
 

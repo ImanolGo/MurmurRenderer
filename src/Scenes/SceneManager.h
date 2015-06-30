@@ -49,6 +49,7 @@ public:
     //! Transition Time controlled by GUI
     void onTransitionTimeChange(float & value);
 
+
 private:
 
     //! Create the scene managers

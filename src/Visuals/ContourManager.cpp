@@ -11,7 +11,7 @@
 #include "ContourManager.h"
 
 
-ContourManager::ContourManager(): m_isFrameNew(false)
+ContourManager::ContourManager(): m_isFrameNew(false), m_contourThickness(1.0)
 {
     //Intentionaly left empty
 }
@@ -29,7 +29,17 @@ void ContourManager::setup()
     
     ofLogNotice() <<"ContourManager::initialized" ;
     
+    this->setupShader();
     this->setupFbo();
+}
+
+
+void ContourManager::setupShader()
+{
+    m_thickLineShader.load("shaders/shadersGL3/ThickLineShaderVert.glsl", "shaders/shadersGL3/ThickLineShaderFrag.glsl", "shaders/shadersGL3/ThickLineShaderGeom.glsl");
+    
+    m_contourThickness = 0.3;
+    ofLogNotice() <<"ContourManager::setupShader";
 }
 
 
@@ -50,14 +60,16 @@ void ContourManager::update()
     if(m_isFrameNew)
     {
         ofPushStyle();
-        ofEnableBlendMode(OF_BLENDMODE_DISABLED);
+        //ofEnableBlendMode(OF_BLENDMODE_DISABLED);
         m_contourFbo.begin();
+        m_thickLineShader.begin();
+        m_thickLineShader.setUniform1f("thickness", m_contourThickness);
             ofClear(0);
             for (auto contour: m_contours){
-                ofSetLineWidth(20);
+                ofSetLineWidth(10);
                 contour->draw();
-           
         }
+        m_thickLineShader.end();
         m_contourFbo.end();
         ofPopStyle();
         
@@ -68,7 +80,13 @@ void ContourManager::update()
 
 void ContourManager::draw()
 {
-    m_contourFbo.draw(0,0);
+    //m_contourFbo.draw(0,0);
+    
+    ofSetLineWidth(20);
+    for (auto contour: m_contours){
+        contour->draw();
+    }
+
 }
 
 void ContourManager::resetContours()
@@ -80,15 +98,21 @@ void ContourManager::setContour(vector<float> contourPoints)
 {
     //ofLogNotice() <<"ContourManager::setContour-> NEW FRAME!!!!!!!!";
     
-    ofPtr<ofPolyline> contour = ofPtr<ofPolyline> (new ofPolyline());
+    ofPtr<ofPath> contour = ofPtr<ofPath> (new ofPath());
     
     for (int i = 0; i < contourPoints.size(); i = i + 2) {
         float x = contourPoints[i]*FluidVisual::FLUID_WIDTH;
         float y = contourPoints[i+1]*FluidVisual::FLUID_HEIGHT;
         
-        contour->addVertex(x,y);
+        contour->lineTo(x,y);
     }
-    
+   
+    //contour->setMode(ofPath::POLYLINES);
+    contour->setStrokeColor(ofColor::white);
+    contour->setFillColor(ofColor::white);
+    contour->setFilled(false);
+    contour->setStrokeWidth(0.1);
+    //contour->setPolyWindingMode((ofPolyWindingMode) 2);
     contour->close(); // close the shape
     m_contours.push_back(contour);
     
@@ -102,22 +126,17 @@ const ofFbo& ContourManager::getSource() const
     return m_contourFbo;
 }
 
-void ContourManager::setOffsetX(float & dx)
+void ContourManager::setOffset(ofVec2f & offset)
 {
-    m_contourOffset.x = dx;
+    m_contourOffset = offset;
 }
 
-void ContourManager::setOffsetY(float & dy)
+void ContourManager::setScale(ofVec2f & scale)
 {
-    m_contourOffset.y = dy;
+    m_contourScale = scale;
 }
 
-void ContourManager::setScaleX(float & sx)
+void ContourManager::setContourThickness(float & value)
 {
-    m_contourScale.x = sx;
-}
-
-void ContourManager::setScaleY(float & sy)
-{
-    m_contourScale.y = sy;
+    m_contourThickness = ofClamp(value, 0.0, 10.0);
 }

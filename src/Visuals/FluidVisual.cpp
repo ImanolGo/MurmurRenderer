@@ -32,7 +32,6 @@ FluidVisual::~FluidVisual()
 void FluidVisual::setup()
 {
     this->setupFluid();
-    //ofLogNotice()<< "FluidVisual::SETUP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 }
 
 
@@ -71,7 +70,7 @@ void FluidVisual::setupFluid()
     m_flexDrawForces[2].setName("draw flow res 2");
     
     
-    m_opticalFlow.setStrength(100);
+    m_opticalFlow.setStrength(50);
     m_opticalFlow.setOffset(3);
     m_opticalFlow.setLambda(0.01);
     m_opticalFlow.setThreshold(0.0255);
@@ -79,16 +78,16 @@ void FluidVisual::setupFluid()
     m_opticalFlow.setTimeBlurDecay(0.1201);
     m_opticalFlow.setTimeBlurRadius(2);
     
-    m_velocityMask.strength = 10;
+    m_velocityMask.strength = 2;
     
     
     
-    m_fluid.setSpeed(48);
+    m_fluid.setSpeed(28);
     m_fluid.setCellSize(1.25);
     m_fluid.setNumJacobiIterations(40);
-    m_fluid.setViscosity(0.88);
-    m_fluid.setVorticity(0.061);
-    m_fluid.setDissipation(0.0018);
+    m_fluid.setViscosity(0.68);
+    m_fluid.setVorticity(0.1);
+    m_fluid.setDissipation(0.018);
     m_fluid.setDissipationVelocityOffset(0);
     m_fluid.setDissipationDensityOffset(0);
     m_fluid.setDissipationTemperatureOffset(0);
