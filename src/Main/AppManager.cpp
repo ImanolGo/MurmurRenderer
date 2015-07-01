@@ -114,7 +114,9 @@ void AppManager::setupManagers()
     m_settingsManager.setup();
     m_layoutManager.setup();
     m_contourManager.setup();
+    m_handsManager.setup();
     m_oscManager.setup();
+    m_udpManager.setup();
     m_sceneManager.setup();
     m_keyboardManager.setup();
 }
@@ -124,6 +126,7 @@ void AppManager::update()
     m_visualEffectsManager.update();
     m_sceneManager.update();
     m_oscManager.update();
+    m_udpManager.update();
     m_contourManager.update();
 }
 

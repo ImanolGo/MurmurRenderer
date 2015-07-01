@@ -23,6 +23,8 @@
 #include "OscManager.h"
 #include "SceneManager.h"
 #include "ContourManager.h"
+#include "HandsManager.h"
+#include "UdpManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -78,6 +80,12 @@ public:
     
     //! Returns the  Contour Manager
     ContourManager&  getContourManager() { return m_contourManager; }
+    
+    //! Returns the  Hands Manager
+    HandsManager&  getHandsManager() { return m_handsManager; }
+    
+    //! Returns the  Udp Manager
+    UdpManager&  getUdpManager() { return m_udpManager; }
 
     
     //==========================================================================
@@ -128,6 +136,8 @@ private:
     KeyboardManager                 m_keyboardManager;          ///< Manages the keboard input
     SceneManager                    m_sceneManager;             ///< Manages all the scenes
     ContourManager                  m_contourManager;           ///< Manages the contour coming from the camera
+    HandsManager                    m_handsManager;             ///< Manages the hand information coming from the laser ranger
+    UdpManager                      m_udpManager;               ///< Manages the UDP messages
 
     bool                            m_debugMode;
 };

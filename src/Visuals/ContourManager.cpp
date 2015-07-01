@@ -61,16 +61,16 @@ void ContourManager::update()
     {
         ofPushStyle();
         //ofEnableBlendMode(OF_BLENDMODE_DISABLED);
-        m_contourFbo.begin();
-        m_thickLineShader.begin();
-        m_thickLineShader.setUniform1f("thickness", m_contourThickness);
+            m_contourFbo.begin();
+            m_thickLineShader.begin();
+            m_thickLineShader.setUniform1f("thickness", m_contourThickness);
             ofClear(0);
             for (auto contour: m_contours){
                 ofSetLineWidth(10);
                 contour->draw();
-        }
-        m_thickLineShader.end();
-        m_contourFbo.end();
+            }
+            m_thickLineShader.end();
+            m_contourFbo.end();
         ofPopStyle();
         
         m_isFrameNew = false;

@@ -61,9 +61,11 @@ class SettingsManager: public Manager
     
         string getIpAddress() const {return m_ipAddress;}
 
-        int getPortReceive() const {return m_portReceive;}
+        int getOscPortReceive() const {return m_portOscReceive;}
     
-        int getPortSend() const {return m_portSend;}
+        int getOscPortSend() const {return m_portOscSend;}
+    
+        int getUdpPortReceive() const {return m_portUdpReceive;}
 
 
     private:
@@ -100,8 +102,9 @@ class SettingsManager: public Manager
         ResourcesPathMap        m_svgResourcesPath;     ///< stores the resources paths
         ColorMap                m_colors;               ///< stores all the application's colors
         WindowSettingsVector    m_windowsSettings;      ///< store the settings of all the windows
-        int                     m_portReceive;          ///< stores the UDP port to receive from
-        int                     m_portSend;             ///< stores the UDP port to send to
+        int                     m_portUdpReceive;       ///< stores the UDP port to receive UDP messages from
+        int                     m_portOscReceive;       ///< stores the UDP port to receive OSC messages from
+        int                     m_portOscSend;          ///< stores the UDP port to send OSC messages to
         string                  m_ipAddress;            ///< stores the Ip Address used for the Network communications
 };
 

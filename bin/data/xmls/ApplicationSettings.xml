@@ -4,7 +4,7 @@
   <of_settings>
 
     <debug showCursor="1" setVerbose="0"/>
-    <network ipAddress="127.0.0.1" portSend="5555" portReceive="12345"/>
+    <network ipAddress="127.0.0.1" portOscSend="5555" portOscReceive="12345" portUdpReceive="7777"/>
 
   	<window title="Murmur Renderer GUI" x="0" y="0" width="1280" height="1000" fullscreen="0" showCursor="1"/>
     <window title="Murmur Renderer Front" x="500" y="0" width="1920" height="1080" fullscreen="0" showCursor="1"/>

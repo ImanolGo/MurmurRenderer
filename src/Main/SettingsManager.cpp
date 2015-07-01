@@ -16,7 +16,7 @@ const string SettingsManager::APPLICATION_SETTINGS_FILE_NAME = "xmls/Application
 const string SettingsManager::LOCALHOST = "127.0.0.1";
 
 
-SettingsManager::SettingsManager(): Manager(), m_portReceive(0), m_portSend(0), m_ipAddress(LOCALHOST)
+SettingsManager::SettingsManager(): Manager(), m_portUdpReceive(0), m_portOscReceive(0), m_portOscSend(0), m_ipAddress(LOCALHOST)
 {
     //Intentionally left empty
 }
@@ -113,11 +113,12 @@ void SettingsManager::setNetworkProperties()
         typedef   std::map<string, string>   AttributesMap;
         AttributesMap attributes = m_xmlSettings.getAttributes();
 
-        m_portReceive = ofToInt(attributes["portReceive"]);
-        m_portSend  =   ofToInt(attributes["portSend"]);
+        m_portUdpReceive = ofToInt(attributes["portUdpReceive"]);
+        m_portOscReceive = ofToInt(attributes["portOscReceive"]);
+        m_portOscSend  =   ofToInt(attributes["portOscSend"]);
         m_ipAddress  =  ofToString(attributes["ipAddress"]);
 
-        ofLogNotice() <<"SettingsManager::setNetworkProperties->  receive port = "<< m_portReceive<<", send port = " << m_portSend<<", host = "
+        ofLogNotice() <<"SettingsManager::setNetworkProperties->  receive UDP port = " << m_portUdpReceive << ". receive OSC port = "<< m_portOscReceive<<", send OSC port = " << m_portOscSend<<", host = "
         <<m_ipAddress ; 
 
         ofLogNotice() <<"SettingsManager::setNetworkProperties->  successfully loaded the network settings" ;
