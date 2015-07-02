@@ -65,11 +65,11 @@ void FluidVisual::setupFluid()
     // Draw Forces
     m_numDrawForces = 3;
     m_flexDrawForces = new ftDrawForce[m_numDrawForces];
-    m_flexDrawForces[0].setup(FLUID_WIDTH, FLUID_HEIGHT, FT_DENSITY, false);
+    m_flexDrawForces[0].setup(FLUID_WIDTH, FLUID_HEIGHT, FT_DENSITY, true);
     m_flexDrawForces[0].setName("draw full res");
-    m_flexDrawForces[1].setup(flowWidth, flowHeight, FT_VELOCITY, false);
+    m_flexDrawForces[1].setup(flowWidth, flowHeight, FT_VELOCITY, true);
     m_flexDrawForces[1].setName("draw flow res 1");
-    m_flexDrawForces[2].setup(flowWidth, flowHeight, FT_TEMPERATURE, false);
+    m_flexDrawForces[2].setup(flowWidth, flowHeight, FT_TEMPERATURE, true);
     m_flexDrawForces[2].setName("draw flow res 2");
     
 }
@@ -77,6 +77,7 @@ void FluidVisual::setupFluid()
 void FluidVisual::setupGui()
 {
     m_gui.setup("FluidGUI", m_guiSettingsName);
+    m_gui.setPosition(300,20);
     m_gui.setDefaultBackgroundColor(ofColor(0, 0, 0, 127));
     m_gui.setDefaultFillColor(ofColor(160, 160, 160, 160));
   
@@ -185,6 +186,20 @@ void FluidVisual::draw()
     m_fluid.draw(0, 0, ofGetWidth(), ofGetHeight());
     m_gui.draw();
 }
+
+void FluidVisual::addForce(ofVec2f position) {
+    
+    ofVec2f velocity = position - m_lastPosition;
+    
+    for (int i=0; i<m_numDrawForces; i++) {
+        if (m_flexDrawForces[i].getType() == FT_VELOCITY)
+            m_flexDrawForces[i].setForce(velocity);
+        m_flexDrawForces[i].applyForce(position);
+    }
+    
+    m_lastPosition.set(position.x, position.y);
+}
+
 
 void FluidVisual::setSource(const ofFbo& source)
 {

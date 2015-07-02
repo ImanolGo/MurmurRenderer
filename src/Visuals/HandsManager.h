@@ -39,6 +39,8 @@ public:
     //! Draw the Hands Manager
     void draw();
      
+     const ofFbo& getSource() const {return m_handsFbo;}
+     
     //! parses the hands information coming from the laser ranger
     void readHands(char const* udpMessage);
      
@@ -67,6 +69,8 @@ private:
     typedef vector< ofVec2f > HandVector;
      
     HandVector          m_hands; ///< Vector holding the hands information
+     
+    ofFbo				m_handsFbo;
      
     ofVec2f             m_handsOffset;
     ofVec2f             m_handsScale;

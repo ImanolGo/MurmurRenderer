@@ -58,6 +58,8 @@ public:
     void	setTemperatureFieldBarScale(float& _value) { m_temperatureField.setVectorSize(_value); }
 
     void	setVisualisationLineSmooth(bool& _value) { m_velocityField.setLineSmooth(_value); }
+    
+    void    addForce(ofVec2f position);
    
     
 private:
@@ -104,6 +106,8 @@ public:
     ftDrawForce*		m_flexDrawForces;
     
     ofFbo               m_source;
+    
+    ofVec2f				m_lastPosition;
     
     
 };

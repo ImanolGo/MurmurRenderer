@@ -6,7 +6,7 @@
  *
  */
 
-
+#include "FluidVisual.h"
 #include "HandsManager.h"
 
 const int HandsManager::HANDS_CIRCLE_RADIUS = 20;
@@ -29,6 +29,10 @@ void HandsManager::setup()
     
     m_handsScale = ofVec2f(1.0,1.0);
     ofLogNotice() <<"HandsManager::initialized" ;
+    
+    m_handsFbo.allocate(FluidVisual::FLUID_WIDTH, FluidVisual::FLUID_HEIGHT);
+    //m_contourFbo.allocate(1920, 1080);
+    m_handsFbo.begin(); ofClear(0); m_handsFbo.end();
     
     this->setupHandsRectangleSpace();
     

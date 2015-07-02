@@ -31,6 +31,8 @@ void HandsWritingScene::setup()
     
     m_initialized = true;
     
+    m_fluid.setup("xmls/HandsWritingFluid.xml");
+    
     ofLogNotice("HandsWritingScene::setup");
     
 }
@@ -38,20 +40,43 @@ void HandsWritingScene::setup()
 
 void HandsWritingScene::update()
 {
-    ///
+    this->updateFluid();
 }
 
 
 void HandsWritingScene::draw() {
-    ofBackground(0,50,0);
-    this->drawVisuals();
+    ofBackground(0,0,0);
+    //AppManager::getInstance().getHandsManager().draw();
+    this->drawFluid();
 }
 
-
-void HandsWritingScene::drawVisuals()
+void HandsWritingScene::updateFluid()
 {
-    AppManager::getInstance().getHandsManager().draw();
+    const vector< ofVec2f >& hands = AppManager::getInstance().getHandsManager().getHands();
+    
+    const ofFbo& source = AppManager::getInstance().getHandsManager().getSource();
+    m_fluid.setSource(source);
+    
+    for (auto hand : hands) {
+        m_fluid.addForce(hand);
+    }
+    
+    m_fluid.update();
 }
+
+void HandsWritingScene::drawFluid()
+{
+    ofPushStyle();
+    ofEnableBlendMode(OF_BLENDMODE_DISABLED);
+    
+    AppManager::getInstance().getHandsManager().draw();
+    
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    m_fluid.draw();
+    ofPopStyle();
+    
+}
+
 
 void HandsWritingScene::willFadeIn() {
     ofLogNotice("HandsWritingScene::willFadeIn");

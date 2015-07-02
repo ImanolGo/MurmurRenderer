@@ -13,7 +13,7 @@
 #include "AppManager.h"
 
 
-const int UdpManager::UDP_MESSAGE_LENGHT = 100000;
+const int UdpManager::UDP_MESSAGE_LENGHT = 100;
 
 UdpManager::UdpManager(): Manager()
 {
@@ -48,7 +48,7 @@ void UdpManager::setupUdpReceiver()
     
     m_udpConnection.Create(); //create the socket
     m_udpConnection.Bind(portReceive); //and bind to port
-    m_udpConnection.SetNonBlocking(false);
+    m_udpConnection.SetNonBlocking(true);
 }
 
 void UdpManager::setupText()
@@ -79,14 +79,33 @@ void UdpManager::setupText()
 void UdpManager::update()
 {
     char udpMessage[UDP_MESSAGE_LENGHT];
-    m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
-    string message=udpMessage;
+    string message;
+    string tempMessage;
+    bool getNext = true;
     
+    string text = ">>UdpManager::update -> " ;
+    
+    while (getNext) {
+        m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
+        tempMessage=udpMessage;
+        
+        if (tempMessage==""){
+            getNext = false;
+        }
+        else{
+            message = tempMessage;
+        }
+    
+    }
+   
+    //ofLogNotice() <<">>UdpManager::update -> message: " << message;
+    
+    AppManager::getInstance().getHandsManager().readHands(message.c_str());
+    
+    m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
+   
     //ofLogNotice() << message;
     //this->updateReceiveText(message);
-    
-    AppManager::getInstance().getHandsManager().readHands(udpMessage);
-
 }
 
 

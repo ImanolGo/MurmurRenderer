@@ -8,7 +8,7 @@
 
 #pragma once
 
-
+#include "FluidVisual.h"
 #include "ofxScene.h"
 
 class HandsWritingScene : public ofxScene {
@@ -44,10 +44,13 @@ public:
     
 private:
     
-    void drawVisuals();
+    void drawFluid();
+    
+    void updateFluid();
     
 private:
     
+    FluidVisual     m_fluid;
     bool            m_initialized;
 
 };
