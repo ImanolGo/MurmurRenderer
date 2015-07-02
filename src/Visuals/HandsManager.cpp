@@ -9,6 +9,7 @@
 
 #include "HandsManager.h"
 
+const int HandsManager::HANDS_CIRCLE_RADIUS = 20;
 
 HandsManager::HandsManager()
 {
@@ -26,6 +27,7 @@ void HandsManager::setup()
 {
     Manager::setup();
     
+    m_handsScale = ofVec2f(1.0,1.0);
     ofLogNotice() <<"HandsManager::initialized" ;
     
 }
@@ -36,9 +38,9 @@ void HandsManager::draw()
     ofPushStyle();
     ofSetColor(ofColor::white);
         for (auto hand: m_hands){
-            hand.x = (hand.x - 0.5)*ofGetWidth();
-            hand.y = (hand.x - 0.5)*ofGetHeight();
-            ofCircle(hand, 20);
+            hand.x = (hand.x - 0.5)*ofGetWidth()*m_handsScale.x + m_handsOffset.x;
+            hand.y = (hand.x - 0.5)*ofGetHeight()*m_handsScale.y + m_handsOffset.y;
+            ofCircle(hand, HANDS_CIRCLE_RADIUS);
         }
     ofPopStyle();
 }
@@ -123,4 +125,15 @@ char const* HandsManager::extract(char const* data, std::string& s)
 {
     s.assign((char const*)data, std::strlen((char const*)data));
     return data + s.size();
+}
+
+
+void HandsManager::setOffset(ofVec2f & offset)
+{
+    m_handsOffset = offset;
+}
+
+void HandsManager::setScale(ofVec2f & scale)
+{
+    m_handsScale = scale;
 }

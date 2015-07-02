@@ -60,13 +60,13 @@ void UdpManager::setupText()
     
     ofVec3f position;
     
-    position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN;
-    position.y = LayoutManager::MARGIN + 9*fontSize;
+    //position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN;
+    position.y = LayoutManager::MARGIN + 7*fontSize;
+    position.x = 2*LayoutManager::MARGIN + 95;
     
     int porReceive = AppManager::getInstance().getSettingsManager().getUdpPortReceive();
     string text = ">> UDP receiving -> Port: " + ofToString(porReceive);
     
-    position.y += (height + 3*fontSize);
     m_receivingInformation =  ofPtr<TextVisual> (new TextVisual(position, width, height));
     m_receivingInformation->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
     m_receivingInformation->setColor(ofColor::white);

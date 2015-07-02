@@ -52,7 +52,6 @@ public:
     
     void setSceneTransitionTime(float value) {m_sceneTransitionTime = value;}
     
-    
     //! Changes the blank scene from the GUI
     void onSetBlankScene(bool& value);
     
@@ -62,12 +61,24 @@ public:
     //! Changes the battle of self scene from the GUI
     void onSetBattleOfSelfScene(bool& value);
     
+    void setContourThickness(float value) {m_contourThickness = value;}
+    
+    void setContourOffset(ofVec2f value) {m_contourOffset = value;}
+    
+    void setContourScale(ofVec2f value) {m_contourScale = value;}
+    
+    void setHandsOffset(ofVec2f value) {m_handsOffset = value;}
+    
+    void setHandsScale(ofVec2f value) {m_handsScale = value;}
+    
     
 private:
     
     void setupScenesGui();
     
     void setupContourGui();
+    
+    void setupHandsGui();
     
     
 public:
@@ -79,6 +90,7 @@ private:
     ofxPanel                m_gui;
     ofParameterGroup        m_parametersContour;
     ofParameterGroup        m_parametersScenes;
+    ofParameterGroup        m_parametersHands;
    
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
@@ -92,6 +104,9 @@ private:
     ofParameter<float>      m_contourThickness;
     ofParameter<ofVec2f>    m_contourOffset;
     ofParameter<ofVec2f>    m_contourScale;
+    
+    ofParameter<ofVec2f>    m_handsOffset;
+    ofParameter<ofVec2f>    m_handsScale;
     
 };
 

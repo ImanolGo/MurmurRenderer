@@ -1,15 +1,19 @@
 <MurmurRenderer>
-	<FPS>60.3209</FPS>
+	<FPS>56.0425</FPS>
 	<Scenes>
 		<TransitionTime>2</TransitionTime>
-		<BlankScene>1</BlankScene>
-		<SmokyHandsScene>0</SmokyHandsScene>
+		<BlankScene>0</BlankScene>
+		<SmokyHandsScene>1</SmokyHandsScene>
 	<BattleOfSelfScene>0</BattleOfSelfScene>
 	</Scenes>
 	<Contour>
 		<Thickness>1.7551</Thickness>
 		<Offset>0, 2.33653</Offset>
-		<Scale>-6.40983, -9.32528</Scale>
+		<Scale>1.00375, 0.837152</Scale>
 	</Contour>
 <MurmurRenderer/>
+<Hands>
+		<Offset>0, 0</Offset>
+		<Scale>1, 1</Scale>
+	</Hands>
 </MurmurRenderer>

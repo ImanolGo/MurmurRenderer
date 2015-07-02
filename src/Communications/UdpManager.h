@@ -55,8 +55,8 @@ private:
  private:
     
  
-     ofxUDPManager  m_udpConnection;        ///< ofxUdpManager  class
-     ofPtr<TextVisual>     m_receivingInformation;
+     ofxUDPManager          m_udpConnection;        ///< ofxUdpManager  class
+     ofPtr<TextVisual>      m_receivingInformation;
     
 };
 

@@ -47,6 +47,7 @@ void GuiManager::setup()
     
     this->setupScenesGui();
     this->setupContourGui();
+    this->setupHandsGui();
     
     m_gui.loadFromFile(GUI_SETTINGS_FILE_NAME);
  
@@ -100,6 +101,24 @@ void GuiManager::setupContourGui()
     m_parametersContour.add(m_contourScale);
     
     m_gui.add(m_parametersContour);
+    
+}
+
+void GuiManager::setupHandsGui()
+{
+    
+    HandsManager* handsManager = &AppManager::getInstance().getHandsManager();
+    m_parametersHands.setName("Hands");
+    
+    m_handsOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-10.0,-10.0) , ofVec2f(10.0,10.0) );
+    m_handsOffset.addListener(handsManager, &HandsManager::setOffset);
+    m_parametersHands.add(m_handsOffset);
+    
+    m_handsScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-10.0,-10.0) , ofVec2f(10.0,10.0) );
+    m_handsScale.addListener(handsManager, &HandsManager::setOffset);
+    m_parametersHands.add(m_handsScale);
+    
+    m_gui.add(m_parametersHands);
     
 }
 

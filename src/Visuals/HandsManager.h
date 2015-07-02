@@ -22,6 +22,8 @@
 
 class HandsManager: public Manager
  {
+     
+     static const int HANDS_CIRCLE_RADIUS;
 
 public:
     
@@ -41,6 +43,10 @@ public:
     void readHands(char const* udpMessage);
      
     const vector< ofPoint >& getHands() const {return m_hands;}
+     
+    void setOffset(ofVec2f & offset);
+     
+    void setScale(ofVec2f & scale);
     
      
 private:
@@ -59,6 +65,9 @@ private:
     typedef vector< ofPoint > PointVector;
      
     PointVector   m_hands; ///< Vector holding the hands information
+     
+    ofVec2f             m_handsOffset;
+    ofVec2f             m_handsScale;
      
 };
 

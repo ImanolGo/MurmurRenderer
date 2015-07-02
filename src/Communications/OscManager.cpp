@@ -125,6 +125,46 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
+        else if(m.getAddress() == "/MurmurRenderer/ContourThickness"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setContourThickness(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/ContourOffset"){
+            ofVec2f pos;
+            pos.x = m.getArgAsFloat(0);
+            pos.y = m.getArgAsFloat(1);
+            AppManager::getInstance().getGuiManager().setContourOffset(pos);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/ContourScale"){
+            ofVec2f scale;
+            scale.x = m.getArgAsFloat(0);
+            scale.y = m.getArgAsFloat(1);
+            AppManager::getInstance().getGuiManager().setContourScale(scale);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/HandsOffset"){
+            ofVec2f pos;
+            pos.x = m.getArgAsFloat(0);
+            pos.y = m.getArgAsFloat(1);
+            AppManager::getInstance().getGuiManager().setHandsOffset(pos);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/HandsScale"){
+            ofVec2f scale;
+            scale.x = m.getArgAsFloat(0);
+            scale.y = m.getArgAsFloat(1);
+            AppManager::getInstance().getGuiManager().setHandsScale(scale);
+            this->updateReceiveText();
+        }
+
+
+        
         
         for (int i = 0; i<m_numberOfContours; i++) {
             string contourAddr = "/MurmurRenderer/Contour/" + ofToString(i);
