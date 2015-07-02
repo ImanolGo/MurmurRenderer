@@ -42,7 +42,7 @@ public:
     //! parses the hands information coming from the laser ranger
     void readHands(char const* udpMessage);
      
-    const vector< ofPoint >& getHands() const {return m_hands;}
+    const vector< ofVec2f >& getHands() const {return m_hands;}
      
     void setOffset(ofVec2f & offset);
      
@@ -50,6 +50,8 @@ public:
     
      
 private:
+     
+     void setupHandsRectangleSpace();
      
      //! General routing to extract aligned integral types from the UDP packet.
      template<typename Type>
@@ -62,12 +64,13 @@ private:
 private:
      
     
-    typedef vector< ofPoint > PointVector;
+    typedef vector< ofVec2f > HandVector;
      
-    PointVector   m_hands; ///< Vector holding the hands information
+    HandVector          m_hands; ///< Vector holding the hands information
      
     ofVec2f             m_handsOffset;
     ofVec2f             m_handsScale;
+    ofRectangle         m_handsRectangleSpace;
      
 };
 

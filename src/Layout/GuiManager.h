@@ -52,14 +52,13 @@ public:
     
     void setSceneTransitionTime(float value) {m_sceneTransitionTime = value;}
     
-    //! Changes the blank scene from the GUI
     void onSetBlankScene(bool& value);
     
-    //! Changes the smoky hands scene from the GUI
     void onSetSmokyHandsScene(bool& value);
     
-    //! Changes the battle of self scene from the GUI
     void onSetBattleOfSelfScene(bool& value);
+    
+    void onSetHandsWritingScene(bool& value);
     
     void setContourThickness(float value) {m_contourThickness = value;}
     
@@ -100,6 +99,7 @@ private:
     ofParameter<bool>       m_sceneSmokyHands;
     ofParameter<bool>       m_sceneBlank;
     ofParameter<bool>       m_sceneBattleOfSelf;
+    ofParameter<bool>       m_sceneHandsWriting;
     
     ofParameter<float>      m_contourThickness;
     ofParameter<ofVec2f>    m_contourOffset;

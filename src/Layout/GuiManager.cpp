@@ -77,6 +77,10 @@ void GuiManager::setupScenesGui()
     m_sceneBattleOfSelf.addListener(this, &GuiManager::onSetBattleOfSelfScene);
     m_parametersScenes.add(m_sceneBattleOfSelf);
     
+    m_sceneHandsWriting.set("HandsWritingScene", false);
+    m_sceneHandsWriting.addListener(this, &GuiManager::onSetHandsWritingScene);
+    m_parametersScenes.add(m_sceneHandsWriting);
+    
     m_gui.add(m_parametersScenes);
     
 }
@@ -110,12 +114,12 @@ void GuiManager::setupHandsGui()
     HandsManager* handsManager = &AppManager::getInstance().getHandsManager();
     m_parametersHands.setName("Hands");
     
-    m_handsOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-10.0,-10.0) , ofVec2f(10.0,10.0) );
+    m_handsOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
     m_handsOffset.addListener(handsManager, &HandsManager::setOffset);
     m_parametersHands.add(m_handsOffset);
     
-    m_handsScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-10.0,-10.0) , ofVec2f(10.0,10.0) );
-    m_handsScale.addListener(handsManager, &HandsManager::setOffset);
+    m_handsScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
+    m_handsScale.addListener(handsManager, &HandsManager::setScale);
     m_parametersHands.add(m_handsScale);
     
     m_gui.add(m_parametersHands);
@@ -156,6 +160,7 @@ void GuiManager::onSetBlankScene(bool& value)
     if(value == true){
         m_sceneSmokyHands = false;
         m_sceneBattleOfSelf = false;
+        m_sceneHandsWriting = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBlank.getName());
     }
 }
@@ -165,6 +170,7 @@ void GuiManager::onSetSmokyHandsScene(bool& value)
     if(value == true){
         m_sceneBlank = false;
         m_sceneBattleOfSelf = false;
+        m_sceneHandsWriting = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneSmokyHands.getName());
     }
 }
@@ -174,9 +180,21 @@ void GuiManager::onSetBattleOfSelfScene(bool& value)
     if(value == true){
         m_sceneBlank = false;
         m_sceneSmokyHands = false;
-        
+        m_sceneHandsWriting = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBattleOfSelf.getName());
     }
 }
+
+void GuiManager::onSetHandsWritingScene(bool& value)
+{
+    if(value == true){
+        m_sceneBlank = false;
+        m_sceneSmokyHands = false;
+        m_sceneBattleOfSelf = false;
+        AppManager::getInstance().getSceneManager().changeScene(m_sceneHandsWriting.getName());
+    }
+}
+
+
 
 

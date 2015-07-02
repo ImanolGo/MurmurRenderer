@@ -11,7 +11,7 @@
 
 const int HandsManager::HANDS_CIRCLE_RADIUS = 20;
 
-HandsManager::HandsManager()
+HandsManager::HandsManager(): m_handsOffset(ofVec2f(0,0)), m_handsScale(ofVec2f(1,1))
 {
     //Intentionaly left empty
 }
@@ -30,21 +30,43 @@ void HandsManager::setup()
     m_handsScale = ofVec2f(1.0,1.0);
     ofLogNotice() <<"HandsManager::initialized" ;
     
+    this->setupHandsRectangleSpace();
+    
 }
 
 
 void HandsManager::draw()
 {
+    ofPushMatrix();
     ofPushStyle();
+    
+   
     ofSetColor(ofColor::white);
+    
+        ofNoFill();
+        ofRect(m_handsRectangleSpace.position.x*ofGetWidth(), m_handsRectangleSpace.position.y*ofGetHeight(), m_handsRectangleSpace.width*ofGetWidth(), m_handsRectangleSpace.height*ofGetHeight() );
+    
         for (auto hand: m_hands){
-            hand.x = (hand.x - 0.5)*ofGetWidth()*m_handsScale.x + m_handsOffset.x;
-            hand.y = (hand.x - 0.5)*ofGetHeight()*m_handsScale.y + m_handsOffset.y;
-            ofCircle(hand, HANDS_CIRCLE_RADIUS);
+            
+            ofVec2f transformedHand = hand;
+            transformedHand.x *= ofGetWidth();
+            transformedHand.y *= ofGetHeight();
+            
+            
+            ofCircle(transformedHand, HANDS_CIRCLE_RADIUS);
+            ofCircle(transformedHand, HANDS_CIRCLE_RADIUS/10);
+            //ofLogNotice() <<"HandsManager::readHands << x:  " << hand.x << ", y: " << hand.y;
+            
         }
     ofPopStyle();
+    ofPopMatrix();
 }
 
+
+void HandsManager::setupHandsRectangleSpace()
+{
+    m_handsRectangleSpace = ofRectangle(0.0,0.0,1.0,1.0);
+}
 
 void HandsManager::readHands(char const* data)
 {
@@ -59,25 +81,39 @@ void HandsManager::readHands(char const* data)
     {
         m_hands.clear();
         
-        int8_t numberOfHands;
-        p = extract(p, numberOfHands); // p contains next position to read
+        char charNumberOfHands;
+        p = extract(p, charNumberOfHands); // p contains next position to read
         
-        for(int8_t i = 0; i < numberOfHands; i++) //Extract all the hands
+        int numberOfHands = charNumberOfHands;
+        
+        for(int i = 0; i < numberOfHands; i++) //Extract all the hands
         {
             Float32 x, y;
             p = extract(p, x); // p contains next position to read
+            
             //x = htonl(x);
             p = extract(p, y); // p contains next position to read
             //y = htonl(y);
-            m_hands.push_back(ofPoint(x,y));
+            
+            ofVec2f hand = ofVec2f(x,y);
+            hand -= 0.5;
+            hand *= m_handsScale;
+            hand = hand + 0.5 + m_handsOffset;
+            
+            m_hands.push_back(hand);
+            
         }
+        
+        //ofLogNotice() <<"HandsManager::readHands << x:  " << m_hands[0].x << ", y: " << m_hands[0].y;
         
         char tailByte;
         p = extract(p, tailByte); // p contains next position to read
         
-        if(headerByte == 'x') //Message correctly formatted
+        //ofLogNotice() <<"HandsManager::readHands << tailByte -> " << tailByte;
+        
+        if(tailByte == 'x') //Message correctly formatted
         {
-            ofLogNotice() <<"HandsManager::readHands << Hands correctly parsed";
+            //ofLogNotice() <<"HandsManager::readHands << Hands correctly parsed";
             return;
         }
         
@@ -131,9 +167,11 @@ char const* HandsManager::extract(char const* data, std::string& s)
 void HandsManager::setOffset(ofVec2f & offset)
 {
     m_handsOffset = offset;
+    m_handsRectangleSpace.setFromCenter(m_handsOffset.x+0.5, m_handsOffset.y+0.5, m_handsScale.x, m_handsScale.y);
 }
 
 void HandsManager::setScale(ofVec2f & scale)
 {
     m_handsScale = scale;
+    m_handsRectangleSpace.setFromCenter(m_handsOffset.x+0.5, m_handsOffset.y+0.5, m_handsScale.x, m_handsScale.y);
 }

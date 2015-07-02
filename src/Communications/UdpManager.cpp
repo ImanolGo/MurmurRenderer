@@ -48,7 +48,7 @@ void UdpManager::setupUdpReceiver()
     
     m_udpConnection.Create(); //create the socket
     m_udpConnection.Bind(portReceive); //and bind to port
-    m_udpConnection.SetNonBlocking(true);    
+    m_udpConnection.SetNonBlocking(false);
 }
 
 void UdpManager::setupText()
@@ -61,8 +61,8 @@ void UdpManager::setupText()
     ofVec3f position;
     
     //position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN;
-    position.y = LayoutManager::MARGIN + 7*fontSize;
-    position.x = 2*LayoutManager::MARGIN + 95;
+    position.y = LayoutManager::MARGIN + 9*fontSize;
+    position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH ;
     
     int porReceive = AppManager::getInstance().getSettingsManager().getUdpPortReceive();
     string text = ">> UDP receiving -> Port: " + ofToString(porReceive);
@@ -82,7 +82,8 @@ void UdpManager::update()
     m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
     string message=udpMessage;
     
-    this->updateReceiveText(message);
+    //ofLogNotice() << message;
+    //this->updateReceiveText(message);
     
     AppManager::getInstance().getHandsManager().readHands(udpMessage);
 
