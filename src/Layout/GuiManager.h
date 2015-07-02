@@ -62,7 +62,7 @@ public:
     
     void onSetBeautifulMindScene(bool& value);
     
-    void onSetFloorFluidScene(bool& value);
+    void onSetFluidFloorScene(bool& value);
     
     void setContourThickness(float value) {m_contourThickness = value;}
     
@@ -111,7 +111,7 @@ private:
     ofParameter<bool>       m_sceneBlank;
     ofParameter<bool>       m_sceneBattleOfSelf;
     ofParameter<bool>       m_sceneHandsWriting;
-    ofParameter<bool>       m_sceneFloorFluid;
+    ofParameter<bool>       m_sceneFluidFloor;
     ofParameter<bool>       m_sceneBeautifulMind;
     
     ofParameter<float>      m_contourThickness;

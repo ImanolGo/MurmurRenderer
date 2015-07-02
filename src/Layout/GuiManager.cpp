@@ -82,9 +82,9 @@ void GuiManager::setupScenesGui()
     m_sceneHandsWriting.addListener(this, &GuiManager::onSetHandsWritingScene);
     m_parametersScenes.add(m_sceneHandsWriting);
     
-    m_sceneFloorFluid.set("FloorFluidScene", false);
-    m_sceneFloorFluid.addListener(this, &GuiManager::onSetFloorFluidScene);
-    m_parametersScenes.add(m_sceneFloorFluid);
+    m_sceneFluidFloor.set("FluidFloorScene", false);
+    m_sceneFluidFloor.addListener(this, &GuiManager::onSetFluidFloorScene);
+    m_parametersScenes.add(m_sceneFluidFloor);
     
     m_sceneBeautifulMind.set("BeautifulMindScene", false);
     m_sceneBeautifulMind.addListener(this, &GuiManager::onSetBeautifulMindScene);
@@ -189,7 +189,7 @@ void GuiManager::onSetBlankScene(bool& value)
         m_sceneBattleOfSelf = false;
         m_sceneHandsWriting = false;
         m_sceneBeautifulMind = false;
-        m_sceneFloorFluid = false;
+        m_sceneFluidFloor = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBlank.getName());
     }
 }
@@ -201,7 +201,7 @@ void GuiManager::onSetSmokyHandsScene(bool& value)
         m_sceneBattleOfSelf = false;
         m_sceneHandsWriting = false;
         m_sceneBeautifulMind = false;
-        m_sceneFloorFluid = false;
+        m_sceneFluidFloor = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneSmokyHands.getName());
     }
 }
@@ -213,7 +213,7 @@ void GuiManager::onSetBattleOfSelfScene(bool& value)
         m_sceneSmokyHands = false;
         m_sceneHandsWriting = false;
         m_sceneBeautifulMind = false;
-        m_sceneFloorFluid = false;
+        m_sceneFluidFloor = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBattleOfSelf.getName());
     }
 }
@@ -225,7 +225,7 @@ void GuiManager::onSetHandsWritingScene(bool& value)
         m_sceneSmokyHands = false;
         m_sceneBattleOfSelf = false;
         m_sceneBeautifulMind = false;
-        m_sceneFloorFluid = false;
+        m_sceneFluidFloor = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneHandsWriting.getName());
     }
 }
@@ -237,12 +237,12 @@ void GuiManager::onSetBeautifulMindScene(bool& value)
         m_sceneSmokyHands = false;
         m_sceneBattleOfSelf = false;
         m_sceneHandsWriting = false;
-        m_sceneFloorFluid = false;
+        m_sceneFluidFloor = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBeautifulMind.getName());
     }
 }
 
-void GuiManager::onSetFloorFluidScene(bool& value)
+void GuiManager::onSetFluidFloorScene(bool& value)
 {
     if(value == true){
         m_sceneBlank = false;
@@ -250,7 +250,7 @@ void GuiManager::onSetFloorFluidScene(bool& value)
         m_sceneBattleOfSelf = false;
         m_sceneHandsWriting = false;
         m_sceneBeautifulMind = false;
-        AppManager::getInstance().getSceneManager().changeScene(m_sceneFloorFluid.getName());
+        AppManager::getInstance().getSceneManager().changeScene(m_sceneFluidFloor.getName());
     }
 }
 
