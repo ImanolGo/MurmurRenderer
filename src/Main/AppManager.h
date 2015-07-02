@@ -25,6 +25,7 @@
 #include "ContourManager.h"
 #include "HandsManager.h"
 #include "UdpManager.h"
+#include "FloorManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -86,6 +87,9 @@ public:
     
     //! Returns the  Udp Manager
     UdpManager&  getUdpManager() { return m_udpManager; }
+    
+    //! Returns the Floor Manager
+    FloorManager&  getFloorManager() { return m_floorManager; }
 
     
     //==========================================================================
@@ -136,6 +140,7 @@ private:
     KeyboardManager                 m_keyboardManager;          ///< Manages the keboard input
     SceneManager                    m_sceneManager;             ///< Manages all the scenes
     ContourManager                  m_contourManager;           ///< Manages the contour coming from the camera
+    FloorManager                    m_floorManager;             ///< Manages the floor tracking position coming from the top camera
     HandsManager                    m_handsManager;             ///< Manages the hand information coming from the laser ranger
     UdpManager                      m_udpManager;               ///< Manages the UDP messages
 

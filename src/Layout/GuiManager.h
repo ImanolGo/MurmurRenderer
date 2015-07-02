@@ -60,6 +60,10 @@ public:
     
     void onSetHandsWritingScene(bool& value);
     
+    void onSetBeautifulMindScene(bool& value);
+    
+    void onSetFloorFluidScene(bool& value);
+    
     void setContourThickness(float value) {m_contourThickness = value;}
     
     void setContourOffset(ofVec2f value) {m_contourOffset = value;}
@@ -70,6 +74,10 @@ public:
     
     void setHandsScale(ofVec2f value) {m_handsScale = value;}
     
+    void setFloorOffset(ofVec2f value) {m_floorOffset = value;}
+    
+    void setFloorScale(ofVec2f value) {m_floorScale = value;}
+    
     
 private:
     
@@ -78,6 +86,8 @@ private:
     void setupContourGui();
     
     void setupHandsGui();
+    
+    void setupFloorGui();
     
     
 public:
@@ -90,6 +100,7 @@ private:
     ofParameterGroup        m_parametersContour;
     ofParameterGroup        m_parametersScenes;
     ofParameterGroup        m_parametersHands;
+    ofParameterGroup        m_parametersFloor;
    
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
@@ -100,6 +111,8 @@ private:
     ofParameter<bool>       m_sceneBlank;
     ofParameter<bool>       m_sceneBattleOfSelf;
     ofParameter<bool>       m_sceneHandsWriting;
+    ofParameter<bool>       m_sceneFloorFluid;
+    ofParameter<bool>       m_sceneBeautifulMind;
     
     ofParameter<float>      m_contourThickness;
     ofParameter<ofVec2f>    m_contourOffset;
@@ -107,6 +120,9 @@ private:
     
     ofParameter<ofVec2f>    m_handsOffset;
     ofParameter<ofVec2f>    m_handsScale;
+    
+    ofParameter<ofVec2f>    m_floorOffset;
+    ofParameter<ofVec2f>    m_floorScale;
     
 };
 

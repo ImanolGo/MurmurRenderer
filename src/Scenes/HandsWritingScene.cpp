@@ -52,10 +52,7 @@ void HandsWritingScene::draw() {
 
 void HandsWritingScene::updateFluid()
 {
-    const vector< ofVec2f >& hands = AppManager::getInstance().getHandsManager().getHands();
-    
-    const ofFbo& source = AppManager::getInstance().getHandsManager().getSource();
-    m_fluid.setSource(source);
+    auto hands = AppManager::getInstance().getHandsManager().getHands();
     
     for (auto hand : hands) {
         m_fluid.addForce(hand);

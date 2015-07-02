@@ -115,6 +115,7 @@ void AppManager::setupManagers()
     m_layoutManager.setup();
     m_contourManager.setup();
     m_handsManager.setup();
+    m_floorManager.setup();
     m_oscManager.setup();
     m_udpManager.setup();
     m_sceneManager.setup();

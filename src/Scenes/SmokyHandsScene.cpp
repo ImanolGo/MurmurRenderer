@@ -47,7 +47,7 @@ void SmokyHandsScene::draw() {
 
 void SmokyHandsScene::updateFluid()
 {
-    const ofFbo& source = AppManager::getInstance().getContourManager().getSource();
+    auto source = AppManager::getInstance().getContourManager().getSource();
     m_smokeFluid.setSource(source);
     m_smokeFluid.update();
 }

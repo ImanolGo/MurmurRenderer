@@ -162,25 +162,48 @@ void OscManager::update()
             AppManager::getInstance().getGuiManager().setHandsScale(scale);
             this->updateReceiveText();
         }
-
-
         
+        else if(m.getAddress() == "/MurmurRenderer/FloorTrackingPos"){
+            ofVec2f pos;
+            pos.x = m.getArgAsFloat(0);
+            pos.y = m.getArgAsFloat(1);
+            AppManager::getInstance().getFloorManager().setPosition(pos);
+            this->updateReceiveText();
+        }
         
-        for (int i = 0; i<m_numberOfContours; i++) {
-            string contourAddr = "/MurmurRenderer/Contour/" + ofToString(i);
-            
-            if(m.getAddress() == contourAddr){
-                
-                vector<float> contourPoints;
-                for (int n = 0; n < m.getNumArgs(); n++) {
-                    contourPoints.push_back(m.getArgAsFloat(n));
-                }
-                
-                AppManager::getInstance().getContourManager().setContour(contourPoints);
-               
-            }
+        else if(m.getAddress() == "/MurmurRenderer/FloorOffset"){
+            ofVec2f offset;
+            offset.x = m.getArgAsFloat(0);
+            offset.y = m.getArgAsFloat(1);
+            AppManager::getInstance().getGuiManager().setFloorOffset(offset);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/FloorScale"){
+            ofVec2f scale;
+            scale.x = m.getArgAsFloat(0);
+            scale.y = m.getArgAsFloat(1);
+            AppManager::getInstance().getGuiManager().setFloorScale(scale);
+            this->updateReceiveText();
         }
 
+        else{
+            
+            for (int i = 0; i<m_numberOfContours; i++) {
+                string contourAddr = "/MurmurRenderer/Contour/" + ofToString(i);
+                
+                if(m.getAddress() == contourAddr){
+                    
+                    vector<float> contourPoints;
+                    for (int n = 0; n < m.getNumArgs(); n++) {
+                        contourPoints.push_back(m.getArgAsFloat(n));
+                    }
+                    
+                    AppManager::getInstance().getContourManager().setContour(contourPoints);
+                    
+                }
+            }
+        }
         
     }
 }

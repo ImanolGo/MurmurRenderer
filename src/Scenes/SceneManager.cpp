@@ -14,6 +14,8 @@
 #include "SmokyHandsScene.h"
 #include "BattleOfSelfScene.h"
 #include "HandsWritingScene.h"
+#include "BeautifulMindScene.h"
+#include "FluidFloorScene.h"
 
 SceneManager::SceneManager(): Manager()
 {
@@ -84,6 +86,11 @@ void SceneManager::createFrontScenes()
     this->createScene("HandsWritingScene", SceneIndex(i), scene, WindowIndex(FRONT));
     i++;
     
+    //Create Beautiful Mind Scene
+    scene = ofPtr<ofxScene> (new BeautifulMindScene());
+    this->createScene("BeautifulMindScene", SceneIndex(i), scene, WindowIndex(FRONT));
+    i++;
+    
 }
 
 void SceneManager::createScene(string name, SceneIndex i, ofPtr<ofxScene> ofx_scene, WindowIndex w)
@@ -126,6 +133,10 @@ void SceneManager::createTopScenes()
     //Create Blank Scene
     scene = ofPtr<ofxScene> (new BlankScene());
     this->createScene("BlankScene", SceneIndex(i), scene, WindowIndex(TOP));
+    i++;
+    
+    scene = ofPtr<ofxScene> (new FluidFloorScene());
+    this->createScene("FluidFloorScene", SceneIndex(i), scene, WindowIndex(TOP));
     i++;
 }
 

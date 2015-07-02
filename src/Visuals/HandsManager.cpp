@@ -30,10 +30,6 @@ void HandsManager::setup()
     m_handsScale = ofVec2f(1.0,1.0);
     ofLogNotice() <<"HandsManager::initialized" ;
     
-    m_handsFbo.allocate(FluidVisual::FLUID_WIDTH, FluidVisual::FLUID_HEIGHT);
-    //m_contourFbo.allocate(1920, 1080);
-    m_handsFbo.begin(); ofClear(0); m_handsFbo.end();
-    
     this->setupHandsRectangleSpace();
     
 }
@@ -43,7 +39,6 @@ void HandsManager::draw()
 {
     ofPushMatrix();
     ofPushStyle();
-    
    
     ofSetColor(ofColor::white);
     
@@ -52,7 +47,7 @@ void HandsManager::draw()
     
         for (auto hand: m_hands){
             
-            ofVec2f transformedHand = hand;
+            auto transformedHand = hand;
             transformedHand.x *= ofGetWidth();
             transformedHand.y *= ofGetHeight();
             
@@ -99,8 +94,7 @@ void HandsManager::readHands(char const* data)
             p = extract(p, y); // p contains next position to read
             //y = htonl(y);
             
-            ofVec2f hand = ofVec2f(x,y);
-            hand -= 0.5;
+            ofVec2f hand = ofVec2f(x,y) - 0.5;
             hand *= m_handsScale;
             hand = hand + 0.5 + m_handsOffset;
             

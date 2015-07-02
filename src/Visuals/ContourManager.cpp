@@ -2,7 +2,7 @@
  *  ContourManager.cpp
  *  Murmur
  *
- *  Created by Imanol Gomez on 26/05/15.
+ *  Created by Imanol Gomez on 26/06/15.
  *
  */
 
