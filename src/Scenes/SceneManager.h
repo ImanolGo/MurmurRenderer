@@ -10,6 +10,7 @@
 
 #include "Manager.h"
 #include "Scene.h"
+#include "SettingsManager.h"
 #include "ofxSceneManager.h"
 
 //========================== class SceneManager ==============================
@@ -36,6 +37,9 @@ public:
     
     //! Update the scenes
     void update();
+    
+    //! Get the windows settings of a specific scene
+    WindowSettings getWindowSettings(ofxScene* scene);
     
     //! Draw a specific Scene Manager
     void draw(WindowIndex w);

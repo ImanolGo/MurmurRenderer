@@ -184,6 +184,10 @@ void FluidVisual::updateFluid()
 void FluidVisual::draw()
 {
     m_fluid.draw(0, 0, ofGetWidth(), ofGetHeight());
+}
+
+void FluidVisual::drawGui()
+{
     m_gui.draw();
 }
 

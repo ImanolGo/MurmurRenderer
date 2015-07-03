@@ -10,6 +10,7 @@
 
 #include "FluidVisual.h"
 #include "ofxScene.h"
+#include "ImageVisual.h"
 
 class FluidFloorScene : public ofxScene {
 
@@ -44,6 +45,10 @@ public:
     
 private:
     
+    void setupFbos();
+    
+    void setupShaders();
+    
     void drawFluid();
     
     void updateFluid();
@@ -52,6 +57,8 @@ private:
     
     FluidVisual     m_fluid;
     bool            m_initialized;
+    ofShader        m_maskShader;
+    ofFbo           m_fboMask;
 
 };
 

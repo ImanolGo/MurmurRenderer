@@ -238,6 +238,15 @@ void SettingsManager::loadSvgSettings()
     ofLogNotice() <<"SettingsManager::loadSvgSettings->  path not found: " << svgPath ;
 }
 
+const WindowSettings& SettingsManager::getWindowsSettings  (int windowIndex) const
+{
+    if(0 <= windowIndex < m_windowsSettings.size()){
+        return m_windowsSettings.at(windowIndex);
+    }
+    
+    return m_defaultWindow;
+}
+
 
 
 

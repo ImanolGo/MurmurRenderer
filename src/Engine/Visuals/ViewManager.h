@@ -92,6 +92,7 @@ private:
 
     OverlayList             m_overlays;         ///< list of all overlays that are rendered each frame
     VisualList              m_visuals;            ///< list of all overlays that are rendered each frame
+    ofPtr<TextVisual>       m_frameRateText;    ///< font displaying the frame rate
 
     bool                    m_showDebugInfo;    ///< it tells if you should or should not show debug information
     

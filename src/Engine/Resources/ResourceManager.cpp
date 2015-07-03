@@ -5,8 +5,8 @@
  *
  */
 
-#include "AppManager.h"
-#include "SettingsManager.h"
+#include "../Main/AppManager.h"
+#include "../Main/SettingsManager.h"
 
 #include "ResourceManager.h"
 
@@ -52,9 +52,9 @@ void ResourceManager::loadTextures()
         string textureName = it->first;
         string texturePath = it->second;
 
-        ofTexture texture;
+        ofPtr<ofTexture> texture = ofPtr<ofTexture>(new ofTexture());
 
-        if(ofLoadImage(texture,texturePath)){
+        if(ofLoadImage(*texture,texturePath)){
             m_textures[textureName] = texture;
             ofLogNotice() <<"ResourceManager::loadTextures-> allocated texture " << textureName ;
 
@@ -75,18 +75,18 @@ void ResourceManager::loadSVGs()
         string svgName = it->first;
         string svgPath = it->second;
 
-        ofxSVG svg;
-        svg.load(svgPath);
+        ofPtr<ofxSVG> svg = ofPtr<ofxSVG>(new ofxSVG);
+        svg->load(svgPath);
         m_SVGs[svgName] = svg;
         ofLogNotice() <<"ResourceManager::loadSVGs-> allocated svg " << svgName ;
     }
 }
 
 
-const ofTexture& ResourceManager::getTexture(const string& name) const
+ofPtr<ofTexture> ResourceManager::getTexture(const string& name) const
 {
     if(this->containsTexture(name)) {
-        return m_textures.at(name);
+		return m_textures.at(name);
 	}
 
 	return m_defaultTexture;
@@ -94,7 +94,8 @@ const ofTexture& ResourceManager::getTexture(const string& name) const
 void ResourceManager::createDefaultResource()
 {
     int resourceSize = 256;
-    m_defaultTexture.allocate(DEFAULT_IMAGE_SIZE,DEFAULT_IMAGE_SIZE,GL_RGB);
+    m_defaultTexture = ofPtr<ofTexture>(new ofTexture());
+    m_defaultTexture->allocate(DEFAULT_IMAGE_SIZE,DEFAULT_IMAGE_SIZE,GL_RGB);
 }
 
 bool ResourceManager::containsTexture(const string& name) const
@@ -108,13 +109,14 @@ bool ResourceManager::containsTexture(const string& name) const
 }
 
 
-const ofxSVG& ResourceManager::getSVG(const string& name)
+ofPtr<ofxSVG> ResourceManager::getSVG(const string& name)
 {
     if(this->containsSvg(name)) {
 		return m_SVGs.at(name);
 	}
 
-	return m_defaultSVG;
+    ofPtr<ofxSVG> svg = ofPtr<ofxSVG> (new ofxSVG);
+	return svg;
 }
 
 bool ResourceManager::containsSvg(const string& name) const

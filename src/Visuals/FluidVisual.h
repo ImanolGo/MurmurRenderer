@@ -43,6 +43,9 @@ public:
     //! Draw the Fluid Visual
     void draw();
     
+    //! Draw the Fluid Visual GUI
+    void drawGui();
+    
     //! Set the source texture use to create the fluid
     void setSource(const ofFbo& source);
     

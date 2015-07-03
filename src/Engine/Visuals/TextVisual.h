@@ -24,9 +24,6 @@
 class TextVisual: public BasicVisual
 {
     public:
-    
-        //! Constructor
-        TextVisual();
 
         //! Constructor
         TextVisual(ofVec3f pos, float width, float height, bool centred = false);

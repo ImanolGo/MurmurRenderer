@@ -28,6 +28,10 @@ struct WindowSettings
     int width, height;
     bool fullscreen, showCursor;
     
+    WindowSettings(): title(""), x(0),y(0), width(0), height(0), fullscreen(false),showCursor(false)
+    {
+    }
+    
 };
 
 typedef  map<string,string>          ResourcesPathMap;       ///< defines a map of path attached to the resources name
@@ -57,7 +61,9 @@ class SettingsManager: public Manager
 
         ofColor getColor(const string& colorName);
     
-        const WindowSettingsVector& getWindowsSettings() {return m_windowsSettings;}
+        const WindowSettingsVector& getWindowsSettings() const {return m_windowsSettings;}
+    
+        const WindowSettings& getWindowsSettings (int windowIndex) const;
     
         string getIpAddress() const {return m_ipAddress;}
 
@@ -102,6 +108,7 @@ class SettingsManager: public Manager
         ResourcesPathMap        m_svgResourcesPath;     ///< stores the resources paths
         ColorMap                m_colors;               ///< stores all the application's colors
         WindowSettingsVector    m_windowsSettings;      ///< store the settings of all the windows
+        WindowSettings          m_defaultWindow;        ///< default window setting
         int                     m_portUdpReceive;       ///< stores the UDP port to receive UDP messages from
         int                     m_portOscReceive;       ///< stores the UDP port to receive OSC messages from
         int                     m_portOscSend;          ///< stores the UDP port to send OSC messages to

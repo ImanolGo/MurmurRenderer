@@ -31,6 +31,7 @@ void BeautifulMindScene::setup() {
     m_initialized = true;
     
     ofLogNotice("BeautifulMindScene::setup");
+    
 }
 
 void BeautifulMindScene::update() {

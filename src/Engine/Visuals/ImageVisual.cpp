@@ -11,10 +11,12 @@
 
 #include "ImageVisual.h"
 
-ImageVisual::ImageVisual(): BasicVisual(), m_centred(false)
+
+ImageVisual::ImageVisual(): BasicVisual(), m_centred(false), m_resizer(1,1,1)
 {
     //Intentionally left empty
 }
+
 
 ImageVisual::ImageVisual(const ofVec3f& pos, const string& resourceName,bool centred):
     BasicVisual(pos, 0, 0), m_centred(centred), m_resizer(1,1,1)
@@ -31,8 +33,8 @@ bool ImageVisual::setResource(const string& resourceName)
 {
     m_texture = AppManager::getInstance().getResourceManager().getTexture(resourceName);
 
-    m_width = m_originalWidth = m_texture.getWidth();
-    m_height = m_originalHeight = m_texture.getHeight();
+    m_width = m_originalWidth = m_texture->getWidth();
+    m_height = m_originalHeight = m_texture->getHeight();
     m_resizer.x = m_width/m_originalWidth;
     m_resizer.y = m_height/m_originalHeight;
 
@@ -41,7 +43,7 @@ bool ImageVisual::setResource(const string& resourceName)
 
 void ImageVisual::draw()
 {
-     if(!m_texture.bAllocated()){
+     if(!m_texture->bAllocated()){
         return;
     }
 
@@ -62,7 +64,7 @@ void ImageVisual::draw()
         ofScale(m_resizer.x,m_resizer.y);
 
         ofSetColor(m_color);
-        m_texture.draw(0,0);
+        m_texture->draw(0,0);
 
     ofPopMatrix();
 }

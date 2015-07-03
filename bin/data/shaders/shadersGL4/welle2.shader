@@ -1,0 +1,160 @@
+/*ARB_vertex_shader*/
+
+#version 430 compatibility
+
+uniform sampler2D s_tex_0;
+uniform sampler2D s_tex_1;
+uniform sampler2D s_tex_3;
+/* input */
+//uniform vec2 res=vec2(1024);
+//uniform vec2 randres;
+uniform float depth = 0.0;
+
+/* out 2 fragment shader */
+
+void main()
+{
+    vec4 dummy, vpos;
+
+    vpos = gl_ModelViewMatrix * gl_Vertex;
+
+    gl_Position = gl_ProjectionMatrix * vpos;
+
+    gl_TexCoord[0] = gl_MultiTexCoord0;
+    gl_TexCoord[0].z = depth;
+}
+
+
+/*ARB_fragment_shader*/
+
+#version 430 compatibility
+
+uniform sampler2D s_tex_0;
+uniform sampler2D s_tex_1;
+uniform sampler2D s_tex_2;
+uniform sampler2D s_tex_3;
+
+//uniform float delta = 1.0;
+uniform float strength = 800.0;
+uniform float viscosity = 16.0;
+uniform float dt = 0.03;
+uniform float randomness = 0.3;
+uniform float wellness = 0.3;
+uniform vec2 rand;
+uniform float init=0;
+
+//varying vec2 ires;
+
+vec4 blow(vec2 pos, vec2 size, vec3 strength, vec2 texc)
+{
+    float s = 0.1;
+    if( texc.x<pos.x+size.x && texc.x>pos.x-size.x && texc.y<pos.y+size.y && texc.y>pos.y-size.y )
+    {
+        return vec4(strength.x,strength.y,strength.z,0);
+    }
+    else
+    {
+        return vec4(0.0);
+    }
+}
+
+vec4 softDot(vec2 pos, float r, vec4 strength, vec2 texc)
+{
+    float d=length(texc-pos);
+    float s = 0.1;
+    if( d<r )
+    {
+        return strength*(r-d)/r;
+    }
+    else
+    {
+        return vec4(0.0);
+    }
+}
+
+void main()
+{
+    #define colTex s_tex_0
+    #define randTex s_tex_3
+    vec4   v, texc, v00, vp0, vm0, v0p, v0m, vpp, vmm, vpm, vmp;
+    vec2   vdelta;
+    vec4   rand01;
+
+//    float stepnum = 8.0;
+
+    texc = gl_TexCoord[0];
+
+    vec2 res=vec2(textureSize(s_tex_0,0));
+    vec2 randres=vec2(textureSize(randTex,0));
+
+    v00 = texture2D( s_tex_0, texc.xy );
+//    rand=0.5;
+
+    vec2 ires=vec2(1.0)/res;
+
+    vdelta=vec2(ires)*1.0;
+//    vdelta=vec2(0.002);
+
+    vp0 = texture2D( s_tex_0, texc.xy+vdelta*vec2( 1.0, 0.0) );
+    vm0 = texture2D( s_tex_0, texc.xy+vdelta*vec2(-1.0, 0.0) );
+    v0p = texture2D( s_tex_0, texc.xy+vdelta*vec2( 0.0, 1.0) );
+    v0m = texture2D( s_tex_0, texc.xy+vdelta*vec2( 0.0,-1.0) );
+    vpp = texture2D( s_tex_0, texc.xy+vdelta*vec2( 1.0, 1.0) );
+    vmm = texture2D( s_tex_0, texc.xy+vdelta*vec2(-1.0,-1.0) );
+    vmp = texture2D( s_tex_0, texc.xy+vdelta*vec2(-1.0, 1.0) );
+    vpm = texture2D( s_tex_0, texc.xy+vdelta*vec2( 1.0,-1.0) );
+
+    //float vel = v00.y-(vp0.y+v0p.y+vm0.y+v0m.y + vpp.y+vmm.y+vmp.y+vpm.y)*0.125;
+    //float acc = strength*(((vp0.x+v0p.x+vm0.x+v0m.x + vpp.x+vmm.x+vmp.x+vpm.x)*0.125-v00.x)) /*- (v00.x-0.5)*strength*0.1*/ - viscosity*vel;
+    vec4 dv = (vp0+v0p+vm0+v0m /*+ vpp+vmm+vmp+vpm*/)*0.25 - v00;
+
+    /*float acc = strength*dv.x + viscosity*dv.y;
+    acc=acc*dt*0.5;
+    v00.y+=acc;
+    v00.x+=v00.y*dt;
+    v00.y+=acc;*/
+
+    vec2 acc = strength*dv.xz + viscosity*dv.yw;
+    acc=acc*dt*0.5;
+    v00.yw+=acc;
+    v00.xz+=v00.yw*dt;
+    v00.yw+=acc;
+
+    //v00.xy=v00.xy*0.7+(vp0.xy+v0p.xy+vm0.xy+v0m.xy)*0.25*0.3;
+
+//    v00+=blow(vec2(0.5), vec2(0.02), vec3(1.0), texc2);
+//    v00+=blow(vec2(0.5), vec2(0.01), vec3(0.01,0,0), texc2);
+//    v00=0.0;
+
+    /*gl_FragData[0].x = v00.x;
+    gl_FragData[0].y = v00.y;
+    v00.xy = clamp(v00.xy,vec2(-1.0,-1.0),vec2(1.0,1.0));
+    gl_FragData[0] = mix(texture2D( s_tex_0, texc2.xy+(d.xy+mix(0.0,rand01.xy-vec2(0.5),randomness))*ires*1.4 ),v00,wellness);
+    gl_FragData[0].x*=0.99;
+    gl_FragData[0].y*=0.99;*/
+
+    gl_FragData[0] = clamp(v00,vec4(0),vec4(1));
+    gl_FragData[0].x *= 0.95;
+    //gl_FragData[0].y *= 0.9;
+
+//    gl_FragColor = texture2D( s_tex_0, texc2.xy+(d.xy+mix(0.0,rand.xy-vec2(0.5),randomness))*ires*1.4 );
+//    gl_FragColor = v00;
+//    gl_FragColor.xy = fract(gl_TexCoord[0].xy*5);
+//    gl_FragColor = gl_TexCoord[0];
+//    gl_FragColor.xyzw = vec4(0.0,0.0,0,0);
+//    gl_FragData[0] = vec4(0.0);
+//    gl_FragData[0].xyzw = softDot(vec2(0.5,0.5),0.05,0.3*vec4(12.2,0.0,0.0,0.0),texc.xy);
+    //gl_FragData[0].xyzw = blow(vec2(0.5,0.5),vec2(10.0,10.0),vec3(0.0,0.0,0.0),texc.xy);
+
+    //gl_FragData[0].xyzw = blow(vec2(0.7,0.6),vec2(0.02,0.1),vec3(10.0,0.0,0.0),texc.xy);
+    //gl_FragData[0].xyzw += softDot(vec2(0.5,0.5),0.05,0.3*vec4(15.2,0.0,0.0,0.0),texc.xy);
+
+//    gl_FragData[0].xyzw = vec4(0.0);
+
+    gl_FragData[0].zw = vec2(0);
+    gl_FragData[1] = vec4(0);
+    gl_FragData[2] = vec4(0);
+
+    if(init>0.5) gl_FragData[0]=vec4(0);
+//    gl_FragData[0].xy += blow(vec2(0.5), vec2(0.05), vec3(0.1), texc2);
+}

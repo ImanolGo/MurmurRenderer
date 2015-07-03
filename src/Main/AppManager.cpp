@@ -112,6 +112,7 @@ void AppManager::setupManagers()
     m_viewManager.setup();
     m_visualEffectsManager.setup();
     m_settingsManager.setup();
+    m_resourceManager.setup();
     m_layoutManager.setup();
     m_contourManager.setup();
     m_handsManager.setup();
@@ -145,7 +146,6 @@ void AppManager::draw()
             m_viewManager.draw();
             m_sceneManager.draw(WindowIndex(wIndex));
             m_guiManager.draw();
-            
             break;
         case 1:
             ofBackground(0,0,0); // change background color on each window

@@ -9,6 +9,7 @@
 
 #include "AppManager.h"
 #include "ContourManager.h"
+#include "SettingsManager.h"
 
 #include "FluidFloorScene.h"
 
@@ -33,10 +34,30 @@ void FluidFloorScene::setup()
     
     m_fluid.setup("xmls/FluidFloor.xml");
     
+    this->setupFbos();
+    this->setupShaders();
+    
     ofLogNotice("FluidFloorScene::setup");
     
 }
 
+void FluidFloorScene::setupFbos()
+{
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    m_fboMask.allocate(windowsSettings.width, windowsSettings.height);
+    
+    ImageVisual gradientMask = ImageVisual(ofPoint(windowsSettings.width*0.5, windowsSettings.height*0.5), "floor_mask", true );
+    
+    m_fboMask.begin();
+        ofClear(0);
+        gradientMask.draw();
+    m_fboMask.end();
+}
+
+void FluidFloorScene::setupShaders()
+{
+    m_maskShader.load("shaders/shadersGL3/BlackMask");
+}
 
 void FluidFloorScene::update()
 {
@@ -46,8 +67,15 @@ void FluidFloorScene::update()
 
 void FluidFloorScene::draw() {
     ofBackground(0,0,0);
-    //AppManager::getInstance().getHandsManager().draw();
-    this->drawFluid();
+    
+    m_maskShader.begin();
+    m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
+        AppManager::getInstance().getHandsManager().draw();
+        this->drawFluid();
+    m_maskShader.end();
+    
+    m_fluid.drawGui();
+
 }
 
 void FluidFloorScene::updateFluid()
@@ -58,8 +86,11 @@ void FluidFloorScene::updateFluid()
     m_fluid.update();
 }
 
+
+
 void FluidFloorScene::drawFluid()
 {
+    ofPushMatrix();
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
@@ -68,6 +99,7 @@ void FluidFloorScene::drawFluid()
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     m_fluid.draw();
     ofPopStyle();
+    ofPopMatrix();
     
 }
 

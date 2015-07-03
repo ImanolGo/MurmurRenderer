@@ -14,6 +14,7 @@
   
   <textures>	
 
+    <texture name="floor_mask" path="images/floor/FloorGradientMask.png"/>
   	<texture name="starling" path="images/birds/starling_top_01.png"/>
   	<texture name="scene_01_BLURRED_FRONT" path="images/beautiful_mind/scene_01_BLURRED_FRONT.png"/>
   	<texture name="scene_01_BLURRED_MIDDLE" path="images/beautiful_mind/scene_01_BLURRED_MIDDLE.png"/>

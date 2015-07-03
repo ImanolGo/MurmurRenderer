@@ -22,9 +22,6 @@ class ImageVisual3D: public ImageVisual
 {
 
 public:
-    
-    //! Constructor
-    ImageVisual3D();
 
     //! Constructor
     ImageVisual3D(const ofVec3f& pos, const string& resourceName);
@@ -38,7 +35,7 @@ public:
 
 protected:
 
-    ofPlanePrimitive   m_plane;           ///<  ofPlanePrimitive class
+    ofPtr<ofPlanePrimitive>   m_plane;           ///< shared pointer to the ofPlanePrimitive class
 
 
 };

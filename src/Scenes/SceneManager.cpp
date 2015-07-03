@@ -17,6 +17,8 @@
 #include "BeautifulMindScene.h"
 #include "FluidFloorScene.h"
 
+#include "AppManager.h"
+
 SceneManager::SceneManager(): Manager()
 {
 	//Intentionally left empty
@@ -101,8 +103,9 @@ void SceneManager::createScene(string name, SceneIndex i, ofPtr<ofxScene> ofx_sc
     scene->name = name;
     scene->window_index = w;
     scene->scene = ofx_scene;
-    m_scenes.push_back(scene);
     
+    m_scenes.push_back(scene);
+
     ofLogNotice() <<"SceneManager::createScene -> name =  " << name << ", scene index = " << i << ", window index = " << w ;
     
     this->addSceneToSceneManager(scene, w);
@@ -208,6 +211,16 @@ void SceneManager::onTransitionTimeChange(float & value){
     for(auto scene : m_scenes) {
         scene->scene->setSceneDuration(value,value);
     }
+}
+
+WindowSettings SceneManager::getWindowSettings(ofxScene* scene)
+{
+    for(auto scene_ : m_scenes) {
+        if(scene_->scene.get() == scene){
+            return AppManager::getInstance().getSettingsManager().getWindowsSettings((int) scene_->window_index);
+        }
+    }
+    
 }
 
 
