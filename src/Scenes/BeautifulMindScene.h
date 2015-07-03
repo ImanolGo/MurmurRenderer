@@ -8,11 +8,15 @@
 
 #pragma once
 
-
+#include "ImageVisual.h"
 #include "ofxScene.h"
+
+
 
 class BeautifulMindScene : public ofxScene {
 
+    static const int NUMBER_SCENES;
+    
 public:
 
     //! Constructor
@@ -44,7 +48,15 @@ public:
     
 private:
     
-     bool            m_initialized;
+    //! Setup scene 1
+    void   setupScene1();
+    
+private:
+    
+     typedef   map < string, ofPtr< ImageVisual > >  ImageMap;
+    
+     bool          m_initialized;
+     ImageMap      m_images;
 
 };
 
