@@ -48,8 +48,11 @@ public:
     
 private:
     
-    //! Setup scene 1
+    //! Setup Scene 1
     void   setupScene1();
+    
+    //! Update Scene 1
+    void   updateScene1();
     
 private:
     
@@ -57,6 +60,7 @@ private:
     
      bool          m_initialized;
      ImageMap      m_images;
+    unsigned int    m_sceneNumber;
 
 };
 
