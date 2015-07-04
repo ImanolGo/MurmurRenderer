@@ -186,6 +186,22 @@ void OscManager::update()
             AppManager::getInstance().getGuiManager().setFloorScale(scale);
             this->updateReceiveText();
         }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BeautifulMindOffset"){
+            ofVec2f offset;
+            offset.x = m.getArgAsFloat(0);
+            offset.y = m.getArgAsFloat(1);
+            AppManager::getInstance().getGuiManager().setBeautifulMindOffset(offset);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BeautifulMindScale"){
+            ofVec2f scale;
+            scale.x = m.getArgAsFloat(0);
+            scale.y = m.getArgAsFloat(1);
+            AppManager::getInstance().getGuiManager().setBeautifulMindScale(scale);
+            this->updateReceiveText();
+        }
 
         else{
             

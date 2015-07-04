@@ -49,6 +49,7 @@ void GuiManager::setup()
     this->setupContourGui();
     this->setupHandsGui();
     this->setupFloorGui();
+    this->setupBeautifulMindGui();
     
     m_gui.loadFromFile(GUI_SETTINGS_FILE_NAME);
  
@@ -58,7 +59,7 @@ void GuiManager::setup()
 void GuiManager::setupScenesGui()
 {
     
-    SceneManager* sceneManager = &AppManager::getInstance().getSceneManager();
+    auto sceneManager = &AppManager::getInstance().getSceneManager();
     
     m_parametersScenes.setName("Scenes");
     
@@ -97,7 +98,7 @@ void GuiManager::setupScenesGui()
 void GuiManager::setupContourGui()
 {
     
-    ContourManager* contourManager = &AppManager::getInstance().getContourManager();
+    auto contourManager = &AppManager::getInstance().getContourManager();
     m_parametersContour.setName("Contour");
     
     m_contourThickness.set("Thickness", 1.0, 0.0, 10.0);
@@ -120,7 +121,7 @@ void GuiManager::setupContourGui()
 void GuiManager::setupHandsGui()
 {
     
-    HandsManager* handsManager = &AppManager::getInstance().getHandsManager();
+    auto handsManager = &AppManager::getInstance().getHandsManager();
     m_parametersHands.setName("Hands");
     
     m_handsOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
@@ -138,7 +139,7 @@ void GuiManager::setupHandsGui()
 void GuiManager::setupFloorGui()
 {
     
-    FloorManager* floorManager = &AppManager::getInstance().getFloorManager();
+    auto floorManager = &AppManager::getInstance().getFloorManager();
     m_parametersFloor.setName("Floor");
     
     m_floorOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
@@ -150,6 +151,23 @@ void GuiManager::setupFloorGui()
     m_parametersFloor.add(m_floorScale);
     
     m_gui.add(m_parametersFloor);
+    
+}
+
+void GuiManager::setupBeautifulMindGui()
+{
+    
+    auto beautifulMindManager = &AppManager::getInstance().getBeautifulMindManager();
+    m_parametersBeautifulMind.setName("BeautifulMind");
+    
+    m_beautifulMindOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
+    m_beautifulMindOffset.addListener(beautifulMindManager, &BeautifulMindManager::setOffset);
+    m_parametersBeautifulMind.add(m_beautifulMindOffset);
+    
+    m_beautifulMindScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(0.0,0.0) , ofVec2f(1.0,1.0) );
+    m_beautifulMindScale.addListener(beautifulMindManager, &BeautifulMindManager::setScale);
+    m_parametersBeautifulMind.add(m_beautifulMindScale);
+    m_gui.add(m_parametersBeautifulMind);
     
 }
 

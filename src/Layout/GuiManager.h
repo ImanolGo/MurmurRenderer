@@ -78,6 +78,10 @@ public:
     
     void setFloorScale(ofVec2f value) {m_floorScale = value;}
     
+    void setBeautifulMindOffset(ofVec2f value) {m_beautifulMindOffset = value;}
+    
+    void setBeautifulMindScale(ofVec2f value) {m_beautifulMindScale = value;}
+    
     
 private:
     
@@ -88,6 +92,8 @@ private:
     void setupHandsGui();
     
     void setupFloorGui();
+    
+    void setupBeautifulMindGui();
     
     
 public:
@@ -101,6 +107,7 @@ private:
     ofParameterGroup        m_parametersScenes;
     ofParameterGroup        m_parametersHands;
     ofParameterGroup        m_parametersFloor;
+    ofParameterGroup        m_parametersBeautifulMind;
    
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
@@ -123,6 +130,9 @@ private:
     
     ofParameter<ofVec2f>    m_floorOffset;
     ofParameter<ofVec2f>    m_floorScale;
+    
+    ofParameter<ofVec2f>    m_beautifulMindOffset;
+    ofParameter<ofVec2f>    m_beautifulMindScale;
     
 };
 

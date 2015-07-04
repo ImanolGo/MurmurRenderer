@@ -26,6 +26,7 @@
 #include "HandsManager.h"
 #include "UdpManager.h"
 #include "FloorManager.h"
+#include "BeautifulMindManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -90,6 +91,9 @@ public:
     
     //! Returns the Floor Manager
     FloorManager&  getFloorManager() { return m_floorManager; }
+    
+    //! Returns the Beautiful Mind Manager
+    BeautifulMindManager&  getBeautifulMindManager() { return m_beautifulMindManager; }
 
     
     //==========================================================================
@@ -143,6 +147,7 @@ private:
     FloorManager                    m_floorManager;             ///< Manages the floor tracking position coming from the top camera
     HandsManager                    m_handsManager;             ///< Manages the hand information coming from the laser ranger
     UdpManager                      m_udpManager;               ///< Manages the UDP messages
+    BeautifulMindManager            m_beautifulMindManager;     ///< Manages the Beautiful Mind Scene
 
     bool                            m_debugMode;
 };

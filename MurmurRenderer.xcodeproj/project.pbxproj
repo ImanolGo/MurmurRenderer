@@ -54,6 +54,7 @@
 		08EEBC2E1B445B0800061FB1 /* KeyboardManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EEBC281B445B0800061FB1 /* KeyboardManager.cpp */; };
 		08EEBC2F1B445B0800061FB1 /* OscManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EEBC2A1B445B0800061FB1 /* OscManager.cpp */; };
 		08EEBC301B445B0800061FB1 /* UdpManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EEBC2C1B445B0800061FB1 /* UdpManager.cpp */; };
+		08F31D9D1B47F6310053C234 /* BeautifulMindManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F31D9B1B47F6310053C234 /* BeautifulMindManager.cpp */; };
 		10071661D0AA59C4EC246B6C /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4A1CE60B1AC164DA8880771 /* ofxGuiGroup.cpp */; };
 		19D0A302C3A681F97EEAE033 /* ftDrawForce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF05B308B6DFDCF026864B2 /* ftDrawForce.cpp */; };
 		1AF15FCF93D2DDD6D4285C8E /* AppManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5056FC61E30B9810903B814D /* AppManager.cpp */; };
@@ -259,6 +260,8 @@
 		08EEBC2B1B445B0800061FB1 /* OscManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscManager.h; sourceTree = "<group>"; };
 		08EEBC2C1B445B0800061FB1 /* UdpManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UdpManager.cpp; sourceTree = "<group>"; };
 		08EEBC2D1B445B0800061FB1 /* UdpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdpManager.h; sourceTree = "<group>"; };
+		08F31D9B1B47F6310053C234 /* BeautifulMindManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BeautifulMindManager.cpp; path = Visuals/BeautifulMindManager.cpp; sourceTree = "<group>"; };
+		08F31D9C1B47F6310053C234 /* BeautifulMindManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeautifulMindManager.h; path = Visuals/BeautifulMindManager.h; sourceTree = "<group>"; };
 		0A72D47C9CAB86AC2081453B /* README.md */ = {isa = PBXFileReference; explicitFileType = file; fileEncoding = 30; name = README.md; path = src/Addons/ofxMultiGLFWWindow/README.md; sourceTree = SOURCE_ROOT; };
 		0ACA94EAF2C7DCA9EE906D69 /* svgtiny_internal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = svgtiny_internal.h; path = src/Addons/ofxSvg/libs/svgTiny/src/svgtiny_internal.h; sourceTree = SOURCE_ROOT; };
 		0C1C0F60B9ED693828ED32A8 /* ofUnicode.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofUnicode.h; path = src/Addons/ofxUnicode/src/ofUnicode.h; sourceTree = SOURCE_ROOT; };
@@ -1121,6 +1124,8 @@
 		C02C33831C66F04FEBAE29DE /* Visuals */ = {
 			isa = PBXGroup;
 			children = (
+				08F31D9B1B47F6310053C234 /* BeautifulMindManager.cpp */,
+				08F31D9C1B47F6310053C234 /* BeautifulMindManager.h */,
 				08B0745B1B4595E3008D71BB /* FloorManager.cpp */,
 				08B0745C1B4595E3008D71BB /* FloorManager.h */,
 				08EEBC241B444F0E00061FB1 /* HandsManager.cpp */,
@@ -1382,6 +1387,7 @@
 				08B074A51B46D588008D71BB /* ViewManager.cpp in Sources */,
 				08EC80431B3C3FEF000893E1 /* SceneManager.cpp in Sources */,
 				854D16924B6DD2C209FD11C2 /* ofxOscReceiver.cpp in Sources */,
+				08F31D9D1B47F6310053C234 /* BeautifulMindManager.cpp in Sources */,
 				78903FED64B0BFD8EED1E552 /* ofxOscSender.cpp in Sources */,
 				9D3E5A7C189607A50D28E499 /* src_colors.cpp in Sources */,
 				A417B50DA594FBD304CFF2CA /* svgtiny.cpp in Sources */,
