@@ -48,11 +48,20 @@ public:
     
 private:
     
+    //! Setup Fbo
+    void   setupFbo();
+    
     //! Setup Scene 1
     void   setupScene1();
     
     //! Update Scene 1
     void   updateScene1();
+    
+    //! Draw the complete scene
+    void   drawScene();
+    
+    //! Calculate the drawing area
+    ofRectangle  getDrawingArea();
     
 private:
     
@@ -60,7 +69,9 @@ private:
     
      bool          m_initialized;
      ImageMap      m_images;
-    unsigned int    m_sceneNumber;
+     unsigned int  m_sceneNumber;
+    
+     ofFbo         m_fbo;
 
 };
 
