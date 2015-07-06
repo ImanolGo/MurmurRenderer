@@ -42,7 +42,7 @@ void LayoutManager::setup()
     this->createSvgVisuals();
     this->createImageVisuals();
 
-    this->addVisuals();
+    //this->addVisuals();
     
     ofLogNotice() <<"LayoutManager::initialized";
 

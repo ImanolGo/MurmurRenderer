@@ -108,6 +108,17 @@ void VisualEffectsManager::createFadeEffect(ofPtr<BasicVisual> visual, double st
 	this->addVisualEffect(fadeVisual);
 }
 
+void VisualEffectsManager::createFadeEffect(ofPtr<BasicVisual> visual, double endAlpha, double startAnimation, double animationTime)
+{
+    if(!visual)
+        return;
+    
+    ofPtr<FadeVisual> fadeVisual = ofPtr<FadeVisual>(new FadeVisual(visual,CUBIC,EASE_OUT));
+    fadeVisual->setParameters(endAlpha,animationTime);
+    fadeVisual->start(startAnimation);
+    this->addVisualEffect(fadeVisual);
+}
+
 void VisualEffectsManager::createScaleEffect(ofPtr<BasicVisual> visual, const ofVec2f& startScale,const ofVec2f& endScale, double startAnimation, double animationTime)
 {
     if(!visual)

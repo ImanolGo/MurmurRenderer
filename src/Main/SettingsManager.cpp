@@ -49,6 +49,7 @@ void SettingsManager::loadAllSettings()
     this->loadTextureSettings();
     this->loadSvgSettings();
     this->loadColors();
+    this->loadTimings();
 }
 
 bool SettingsManager::loadSettingsFile()
@@ -245,6 +246,39 @@ const WindowSettings& SettingsManager::getWindowsSettings  (int windowIndex) con
     }
     
     return m_defaultWindow;
+}
+
+void SettingsManager::loadTimings()
+{
+    m_xmlSettings.setTo("//");
+    
+    string path = "//timings";
+    if(m_xmlSettings.exists(path)) {
+        
+        typedef   std::map<string, string>   AttributesMap;
+        AttributesMap attributes;
+        
+        path = "//timings/timing[0]";
+        m_xmlSettings.setTo(path);
+        do {
+            
+            attributes = m_xmlSettings.getAttributes();
+            
+            int id = ofToInt(attributes["id"]);
+            float duration = ofToFloat(attributes["duration"]);
+            
+            m_timings[id] = duration;
+            
+            ofLogNotice() <<"SettingsManager::loadTimings->  id = " << id <<", duration = "<< duration << "s";
+        }
+        while(m_xmlSettings.setToSibling()); // go to the next svg
+        
+        
+        ofLogNotice() <<"SettingsManager::loadTimings->  successfully loaded the timing settings" ;
+        return;
+    }
+    
+    ofLogNotice() <<"SettingsManager::loadTimings->  path not found: " << path ;
 }
 
 

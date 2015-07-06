@@ -6,7 +6,7 @@
  *
  */
 
-#include "FluidVisual.h"
+#include "AppManager.h"
 #include "BeautifulMindManager.h"
 
 BeautifulMindManager::BeautifulMindManager(): m_handsOffset(ofVec2f(0,0)), m_handsScale(ofVec2f(1,1))
@@ -28,9 +28,25 @@ void BeautifulMindManager::setup()
     ofLogNotice() <<"BeautifulMindManager::initialized" ;
     
     this->setupRectangleSpace();
+    this->setupTiming();
     
 }
 
+
+void BeautifulMindManager::setupTiming()
+{
+    m_timings = AppManager::getInstance().getSettingsManager().getTimings();
+}
+
+
+float BeautifulMindManager::getTiming(int id) const
+{
+    if(m_timings.find(id) != m_timings.end() ){
+        return m_timings.at(id);
+    }
+    
+    return 0.0f;
+}
 
 void BeautifulMindManager::draw()
 {

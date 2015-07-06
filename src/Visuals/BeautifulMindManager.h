@@ -11,6 +11,18 @@
 
 #include "ofMain.h"
 #include "Manager.h"
+#include "SettingsManager.h"
+
+
+
+struct BeautifulMindTimingSettings
+{
+    int id;
+    float duration;
+    
+    BeautifulMindTimingSettings(): id(0), duration(0.0f){}
+    
+};
 
 //========================== class BeautifulMindManager ==============================
 //============================================================================
@@ -40,11 +52,16 @@ public:
     void setOffset(ofVec2f & offset);
      
     void setScale(ofVec2f & scale);
+     
+    const ofRectangle& getRectangleSpace() const {return m_rectangleSpace;}
     
+    float getTiming(int id) const;
      
 private:
      
      void setupRectangleSpace();
+     
+     void setupTiming();
      
     
 private:
@@ -52,6 +69,7 @@ private:
     ofVec2f             m_handsOffset;
     ofVec2f             m_handsScale;
     ofRectangle         m_rectangleSpace;
+    TimingMap           m_timings;              ///< stores the timings
      
 };
 

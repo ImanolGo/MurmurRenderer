@@ -6,7 +6,7 @@
     <debug showCursor="1" setVerbose="0"/>
     <network ipAddress="127.0.0.1" portOscSend="5555" portOscReceive="12345" portUdpReceive="11999"/>
 
-  	<window title="Murmur Renderer GUI" x="0" y="0" width="1280" height="1000" fullscreen="0" showCursor="1"/>
+  	<window title="Murmur Renderer GUI" x="0" y="0" width="700" height="1000" fullscreen="0" showCursor="1"/>
     <window title="Murmur Renderer Front" x="500" y="0" width="1920" height="1080" fullscreen="0" showCursor="1"/>
     <window title="Murmur Renderer Top" x="1500" y="0" width="1920" height="1080" fullscreen="0" showCursor="0"/>
 
@@ -29,10 +29,23 @@
   	<texture name="scene_03_MIDDLE" path="images/beautiful_mind/scene_03_MIDDLE.png"/>
   	<texture name="scene_03_REAR" path="images/beautiful_mind/scene_03_REAR.png"/>
   	<texture name="scene_04_FRONT" path="images/beautiful_mind/scene_04_FRONT.png"/>
-  	<texture name="scene_04_MIDDLE" path="images/beautiful_mind/scene_04_MIDDLE.png"/>
-  	<texture name="scene_04_REAR" path="images/beautiful_mind/scene_04_REAR.png"/>
+  	<texture name="scene_04_MIDDLE" path="images/beautiful_mind/NEW_scene_04_MIDDLE_SHIP.png"/>
+  	<texture name="scene_04_REAR" path="images/beautiful_mind/NEW_scene_04_REAR.png"/>
+    <texture name="scene_04_MIDDLE_SAIL_1" path="images/beautiful_mind/NEW_scene_04_MIDDLE_SAIL_1.png"/>
+    <texture name="scene_04_MIDDLE_SAIL_2" path="images/beautiful_mind/NEW_scene_04_MIDDLE_SAIL_2.png"/>
+    <texture name="scene_04_MIDDLE_SAIL_3" path="images/beautiful_mind/NEW_scene_04_MIDDLE_SAIL_3.png"/>
+
 
   </textures>
+
+  <timings>  
+
+    <timing  id="0" duration="10.0"/>
+    <timing  id="1" duration="10.0"/> 
+    <timing  id="2" duration="10.0"/> 
+    <timing  id="3" duration="10.0"/>
+  
+  </timings>
 
   <colors>
   </colors>

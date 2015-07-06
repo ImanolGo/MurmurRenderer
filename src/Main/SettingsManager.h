@@ -34,6 +34,7 @@ struct WindowSettings
     
 };
 
+typedef  map<int,float>              TimingMap;             ///< defines a map of duration times attached to an id
 typedef  map<string,string>          ResourcesPathMap;       ///< defines a map of path attached to the resources name
 typedef  vector<WindowSettings>      WindowSettingsVector;   ///< Defines a vector of windows settings
 
@@ -65,6 +66,8 @@ class SettingsManager: public Manager
     
         const WindowSettings& getWindowsSettings (int windowIndex) const;
     
+        const TimingMap&  getTimings() const {return m_timings;}
+    
         string getIpAddress() const {return m_ipAddress;}
 
         int getOscPortReceive() const {return m_portOscReceive;}
@@ -88,6 +91,9 @@ class SettingsManager: public Manager
         //! Sets all the window properties
         void setWindowProperties();
     
+        //! Loads the time durations
+        void loadTimings();
+    
         //! Loads all the app colors
         void loadColors();
 
@@ -105,6 +111,7 @@ class SettingsManager: public Manager
 
         ofXml		            m_xmlSettings;          ///< instance of the xml parser
         ResourcesPathMap        m_texturesPath;         ///< stores the texture paths
+        TimingMap               m_timings;              ///< stores the timings
         ResourcesPathMap        m_svgResourcesPath;     ///< stores the resources paths
         ColorMap                m_colors;               ///< stores all the application's colors
         WindowSettingsVector    m_windowsSettings;      ///< store the settings of all the windows
