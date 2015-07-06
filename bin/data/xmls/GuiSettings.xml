@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>60.1514</FPS>
+	<FPS>59.2777</FPS>
 	<Scenes>
 		<TransitionTime>2</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -27,4 +27,10 @@
 		<Offset>0, 0</Offset>
 		<Scale>1, 1</Scale>
 	</BeautifulMind>
+<Crop>
+		<CropLeft>0</CropLeft>
+		<CropRight>0</CropRight>
+		<CropTop>0</CropTop>
+		<CropBottom>0</CropBottom>
+	</Crop>
 </MurmurRenderer>

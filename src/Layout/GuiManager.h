@@ -82,6 +82,14 @@ public:
     
     void setBeautifulMindScale(ofVec2f value) {m_beautifulMindScale = value;}
     
+    void setCropLeft(unsigned int value) {m_cropLeft = value;}
+    
+    void setCropRight(unsigned int value) {m_cropRight = value;}
+    
+    void setCropTop(unsigned int value) {m_cropTop = value;}
+    
+    void setCropBottom(unsigned int value) {m_cropBottom = value;}
+    
     
 private:
     
@@ -94,6 +102,8 @@ private:
     void setupFloorGui();
     
     void setupBeautifulMindGui();
+    
+    void setupLayoutGui();
     
     
 public:
@@ -108,6 +118,7 @@ private:
     ofParameterGroup        m_parametersHands;
     ofParameterGroup        m_parametersFloor;
     ofParameterGroup        m_parametersBeautifulMind;
+    ofParameterGroup        m_parametersLayout;
    
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
@@ -120,6 +131,8 @@ private:
     ofParameter<bool>       m_sceneHandsWriting;
     ofParameter<bool>       m_sceneFluidFloor;
     ofParameter<bool>       m_sceneBeautifulMind;
+    
+    ofParameter<int>     m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
     
     ofParameter<float>      m_contourThickness;
     ofParameter<ofVec2f>    m_contourOffset;

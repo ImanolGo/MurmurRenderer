@@ -151,6 +151,7 @@ void AppManager::draw()
         case 1:
             ofBackground(0,0,0); // change background color on each window
             m_sceneManager.draw(WindowIndex(wIndex));
+            m_layoutManager.draw();
             break;
         case 2:
             ofBackground(0,0,0); // change background color on each window

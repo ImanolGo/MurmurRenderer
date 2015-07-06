@@ -49,6 +49,7 @@ void GuiManager::setup()
     this->setupContourGui();
     this->setupHandsGui();
     this->setupFloorGui();
+    this->setupLayoutGui();
     this->setupBeautifulMindGui();
     
     m_gui.loadFromFile(GUI_SETTINGS_FILE_NAME);
@@ -168,6 +169,31 @@ void GuiManager::setupBeautifulMindGui()
     m_beautifulMindScale.addListener(beautifulMindManager, &BeautifulMindManager::setScale);
     m_parametersBeautifulMind.add(m_beautifulMindScale);
     m_gui.add(m_parametersBeautifulMind);
+    
+}
+
+void GuiManager::setupLayoutGui()
+{
+    auto layoutManager = &AppManager::getInstance().getLayoutManager();
+    m_parametersLayout.setName("Crop");
+    
+    m_cropLeft.set("CropLeft", 0.0, 0.0, 500.0);
+    m_cropLeft.addListener(layoutManager, &LayoutManager::onCropLeft);
+    m_parametersLayout.add(m_cropLeft);
+    
+    m_cropRight.set("CropRight", 0.0, 0.0, 500.0);
+    m_cropRight.addListener(layoutManager, &LayoutManager::onCropRight);
+    m_parametersLayout.add(m_cropRight);
+    
+    m_cropTop.set("CropTop", 0.0, 0.0, 500.0);
+    m_cropTop.addListener(layoutManager, &LayoutManager::onCropTop);
+    m_parametersLayout.add(m_cropTop);
+    
+    m_cropBottom.set("CropBottom", 0.0, 0.0, 500.0);
+    m_cropBottom.addListener(layoutManager, &LayoutManager::onCropBottom);
+    m_parametersLayout.add(m_cropBottom);
+    
+     m_gui.add(m_parametersLayout);
     
 }
 

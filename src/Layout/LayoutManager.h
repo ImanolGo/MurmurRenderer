@@ -32,6 +32,29 @@ public:
 
     //! Set-up the layout
     void setup();
+    
+    //! Draw Layer
+    void draw();
+    
+    
+    
+     int getCropLeft() const {return m_cropLeft;}
+    
+     int getCropRight() const {return m_cropRight;}
+    
+     int getCropTop() const {return m_cropTop;}
+    
+     int getCropBottom() const {return m_cropBottom;}
+    
+    
+    void onCropLeft( int & pixels) {m_cropLeft = pixels;}
+    
+    void onCropRight( int & pixels) {m_cropRight = pixels;}
+    
+    void onCropTop( int & pixels) {m_cropTop = pixels;}
+    
+    void onCropBottom( int & pixels){m_cropBottom = pixels;}
+    
 
 private:
 
@@ -48,7 +71,6 @@ private:
     //! Create the background Image
     void createBackground();
 
-
     //! Add all visuals as overlays
     void addVisuals();
 
@@ -56,6 +78,7 @@ public:
     
     static const int MARGIN;
     static const int PADDING;
+
 
 private:
 
@@ -67,7 +90,8 @@ private:
     TextMap             m_textVisuals;             ///< map storing the text visuals attached to a name
     SvgMap              m_svgVisuals;              ///< map storing the svg visuals attached to a name
     ImageMap            m_imageVisuals;            ///< map storing the image visuals attached to a name
-
+    
+    int                 m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
 };
 
 //==========================================================================

@@ -19,7 +19,7 @@ const int LayoutManager::MARGIN = 30;
 const int LayoutManager::PADDING = 10;
 
 
-LayoutManager::LayoutManager(): Manager()
+LayoutManager::LayoutManager(): Manager(), m_cropLeft(0), m_cropRight(0), m_cropTop(0), m_cropBottom(0)
 {
 	//Intentionally left empty
 }
@@ -69,6 +69,19 @@ void LayoutManager::createBackground()
 {
 }
 
+
+void LayoutManager::draw()
+{
+    ofPushStyle();
+    ofSetColor(0, 0, 0);
+        ofRect(0,0,m_cropLeft,ofGetHeight());
+        ofRect(0,0,ofGetWidth(),m_cropTop);
+        ofRect(ofGetWidth()-m_cropRight,0, m_cropRight, ofGetHeight());
+        ofRect(0,ofGetHeight()-m_cropBottom,ofGetWidth(),m_cropBottom);
+    ofPopStyle();
+}
+
+
 void LayoutManager::addVisuals()
 {
     int depthLevel = -1;
@@ -84,5 +97,14 @@ void LayoutManager::addVisuals()
        // AppManager::getInstance().getViewManager().addOverlay(it->second,depthLevel);
     }
 }
+
+
+void onCropLeft(int & pixels);
+
+void onCropRight(int & pixels);
+
+void onCropTop(int & pixels);
+
+void onCropBottom(int & pixels);
 
 
