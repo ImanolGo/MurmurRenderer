@@ -50,6 +50,8 @@ public:
     
     int getHeight()  {return m_gui.getHeight();}
     
+    void setSceneTransparency(float value) {m_sceneTransparency = value;}
+    
     void setSceneTransitionTime(float value) {m_sceneTransitionTime = value;}
     
     void onSetBlankScene(bool& value);
@@ -124,6 +126,7 @@ private:
     
     ofParameter<float>      m_guiFPS;
 
+    ofParameter<float>      m_sceneTransparency;
     ofParameter<float>      m_sceneTransitionTime;
     ofParameter<bool>       m_sceneSmokyHands;
     ofParameter<bool>       m_sceneBlank;

@@ -10,6 +10,7 @@
 #include "ofxSceneManager.h"
 
 void ofxSceneManager::run() {
+    
     _fbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
     _nextFbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
     
@@ -57,13 +58,13 @@ void ofxSceneManager::draw() {
     _fbo.end();
     
     ofPushStyle();
-    ofSetColor(255, 255, 255, _currentScene->getSceneAlpha());
+    ofSetColor(255, 255, 255, _currentScene->getSceneAlpha() * alpha);
     _fbo.draw(0, 0);
     ofPopStyle();
 
     if (transition == TRANSITION_DISSOLVE && _isInTransition) {
         ofPushStyle();
-        ofSetColor(255, 255, 255, _nextScene->getSceneAlpha());
+        ofSetColor(255, 255, 255, _nextScene->getSceneAlpha() * alpha);
         _nextFbo.draw(0, 0);
         ofPopStyle();
     }

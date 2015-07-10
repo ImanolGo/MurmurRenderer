@@ -11,7 +11,7 @@
 #include "ContourManager.h"
 
 
-ContourManager::ContourManager(): m_isFrameNew(false), m_contourThickness(1.0)
+ContourManager::ContourManager(): m_isFrameNew(false), m_contourThickness(1.0), m_contourScale(ofVec2f(1.0,1.0))
 {
     //Intentionaly left empty
 }
@@ -66,7 +66,6 @@ void ContourManager::update()
             m_thickLineShader.setUniform1f("thickness", m_contourThickness);
             ofClear(0);
             for (auto contour: m_contours){
-                ofSetLineWidth(10);
                 contour->draw();
             }
             m_thickLineShader.end();
@@ -95,8 +94,11 @@ void ContourManager::setContour(vector<float> contourPoints)
     ofPtr<ofPath> contour = ofPtr<ofPath> (new ofPath());
     
     for (int i = 0; i < contourPoints.size(); i = i + 2) {
-        float x = contourPoints[i]*FluidVisual::FLUID_WIDTH;
-        float y = contourPoints[i+1]*FluidVisual::FLUID_HEIGHT;
+        float x = (contourPoints[i] * m_contourScale.x + m_contourOffset.x )*FluidVisual::FLUID_WIDTH;
+        float y = (contourPoints[i+1]* m_contourScale.y + m_contourOffset.y)*FluidVisual::FLUID_HEIGHT;
+        
+        //float x = (contourPoints[i])*FluidVisual::FLUID_WIDTH;
+        //float y = (contourPoints[i+1])*FluidVisual::FLUID_HEIGHT;
         
         contour->lineTo(x,y);
     }
@@ -123,11 +125,13 @@ const ofFbo& ContourManager::getSource() const
 void ContourManager::setOffset(ofVec2f & offset)
 {
     m_contourOffset = offset;
+    ofLogNotice() <<"ContourManager::setOffset-> x = " << m_contourOffset.x << ", y = " << m_contourOffset.y;
 }
 
 void ContourManager::setScale(ofVec2f & scale)
 {
     m_contourScale = scale;
+     ofLogNotice() <<"ContourManager::setScale-> x = " << m_contourScale.x << ", y = " << m_contourScale.y;
 }
 
 void ContourManager::setContourThickness(float & value)

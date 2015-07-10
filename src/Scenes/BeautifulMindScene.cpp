@@ -215,7 +215,7 @@ void BeautifulMindScene::resetSecondaryScene()
         case 3:
             m_sceneNumberSecondary = NUMBER_SCENES_IN_SCENE_04 - 1;
             m_elapsedTimeSecondary = 0;
-            m_durationSecondary = 3;
+            m_durationSecondary = 2;
             break;
             
         default:
@@ -348,7 +348,7 @@ void BeautifulMindScene::nextSecondaryScene()
             for (auto image: m_images) {
                 if (ofIsStringInString(image.first, resourceName)) {
                     AppManager::getInstance().getVisualEffectsManager().removeAllVisualEffects(image.second);
-                    AppManager::getInstance().getVisualEffectsManager().createFadeEffect(image.second, 0, 0.0, FADE_TIME);
+                    AppManager::getInstance().getVisualEffectsManager().createFadeEffect(image.second, 0, 0.0, m_durationSecondary);
                 }
                 
             }
@@ -358,7 +358,7 @@ void BeautifulMindScene::nextSecondaryScene()
             for (auto image: m_images) {
                 if (ofIsStringInString(image.first, resourceName)) {
                     AppManager::getInstance().getVisualEffectsManager().removeAllVisualEffects(image.second);
-                    AppManager::getInstance().getVisualEffectsManager().createFadeEffect(image.second, 255, 0.0, FADE_TIME);
+                    AppManager::getInstance().getVisualEffectsManager().createFadeEffect(image.second, 255, 0.0, m_durationSecondary);
                 }
                 
             }

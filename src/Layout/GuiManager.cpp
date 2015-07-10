@@ -44,6 +44,7 @@ void GuiManager::setup()
     m_gui.setup(GUI_SETTINGS_NAME, GUI_SETTINGS_FILE_NAME);
     m_gui.setPosition(LayoutManager::MARGIN, LayoutManager::MARGIN);
     m_gui.add(m_guiFPS.set("FPS", 0, 0, 60));
+    ofxGuiSetFont( "fonts/open-sans/OpenSans-Semibold.ttf", 9 );
     
     this->setupScenesGui();
     this->setupContourGui();
@@ -63,6 +64,10 @@ void GuiManager::setupScenesGui()
     auto sceneManager = &AppManager::getInstance().getSceneManager();
     
     m_parametersScenes.setName("Scenes");
+    
+    m_sceneTransparency.set("Transparency", 0.0, 0.0, 1.0);
+    m_sceneTransparency.addListener(sceneManager, &SceneManager::onTransparencyChange);
+    m_parametersScenes.add(m_sceneTransparency);
     
     m_sceneTransitionTime.set("TransitionTime", 2.0, 0.0, 10);
     m_sceneTransitionTime.addListener(sceneManager, &SceneManager::onTransitionTimeChange);
@@ -107,12 +112,12 @@ void GuiManager::setupContourGui()
     m_parametersContour.add(m_contourThickness);
     
     
-    m_contourOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-10.0,-10.0) , ofVec2f(10.0,10.0) );
+    m_contourOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-2.0,-2.0) , ofVec2f(2.0,2.0));
     m_contourOffset.addListener(contourManager, &ContourManager::setOffset);
     m_parametersContour.add(m_contourOffset);
     
-    m_contourScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-10.0,-10.0) , ofVec2f(10.0,10.0) );
-    m_contourScale.addListener(contourManager, &ContourManager::setOffset);
+    m_contourScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-2.0,-2.0) , ofVec2f(2.0,2.0) );
+    m_contourScale.addListener(contourManager, &ContourManager::setScale);
     m_parametersContour.add(m_contourScale);
     
     m_gui.add(m_parametersContour);

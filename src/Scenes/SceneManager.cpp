@@ -169,7 +169,7 @@ void SceneManager::draw(WindowIndex w)
     if(m_sceneManagers.find(w)!= m_sceneManagers.end()){
         ofPushStyle();
         ofEnableAlphaBlending();
-        m_sceneManagers[w]->draw();
+            m_sceneManagers[w]->draw();
         ofDisableAlphaBlending();
         ofPopStyle();
         return;
@@ -221,6 +221,15 @@ WindowSettings SceneManager::getWindowSettings(ofxScene* scene)
         }
     }
     
+}
+
+void SceneManager::onTransparencyChange(float & value)
+{
+    float alpha = ofMap(value, 0, 1, 1, 0, true);
+    
+    for(auto sceneManager : m_sceneManagers) {
+        sceneManager.second->setAlpha(alpha);
+    }
 }
 
 

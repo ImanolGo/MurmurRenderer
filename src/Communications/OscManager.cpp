@@ -113,6 +113,13 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
+        else if(m.getAddress() == "/MurmurRenderer/SceneTransparency"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setSceneTransparency(value);
+            this->updateReceiveText();
+        }
+
+        
         else if(m.getAddress() == "/MurmurRenderer/SceneTransitionTime"){
             float value = m.getArgAsFloat(0);
             AppManager::getInstance().getGuiManager().setSceneTransitionTime(value);

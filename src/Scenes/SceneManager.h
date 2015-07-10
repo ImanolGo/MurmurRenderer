@@ -52,6 +52,9 @@ public:
     
     //! Transition Time controlled by GUI
     void onTransitionTimeChange(float & value);
+    
+    //! Transparency value controlled by GUI
+    void onTransparencyChange(float & value);
 
 
 private:

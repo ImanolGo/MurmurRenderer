@@ -18,6 +18,11 @@ enum ofxSmTransition{
 
 class ofxSceneManager {
 public:
+    
+    ofxSceneManager(): alpha(1.0f){}
+    
+    ~ofxSceneManager(){}
+    
     void run();
     
     void update();
@@ -33,6 +38,8 @@ public:
     void setSceneDuration(float fadeInSec, float drawingSec, float fadeOutSec);  
     void setTransitionFade();
     void setTransitionDissolve();
+    
+    void setAlpha(float _alpha){alpha = _alpha;}
 
     vector<ofPtr<ofxScene> > scenes;
 
@@ -64,6 +71,8 @@ public:
     void _windowResized(ofResizeEventArgs & args);
     void _dragEvent(ofDragInfo & dragInfo);
     void _gotMessage(ofMessage & msg);
+    
+    float alpha;
 };
 
 #endif /* defined(__KokiNomura__ofxSceneManager__) */

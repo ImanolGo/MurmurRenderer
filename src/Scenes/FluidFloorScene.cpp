@@ -94,10 +94,12 @@ void FluidFloorScene::drawFluid()
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-    AppManager::getInstance().getFloorManager().draw();
+        AppManager::getInstance().getFloorManager().draw();
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-    m_fluid.draw();
+    
+        m_fluid.draw();
+    
     ofPopStyle();
     ofPopMatrix();
     
