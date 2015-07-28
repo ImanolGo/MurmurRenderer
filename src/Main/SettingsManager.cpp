@@ -104,6 +104,7 @@ void SettingsManager::setWindowProperties()
 
     ofLogNotice() <<"SettingsManager::setWindowProperties->  path not found: " << windowPath ;
 }
+
 void SettingsManager::setNetworkProperties()
 {
     m_xmlSettings.setTo("//");
