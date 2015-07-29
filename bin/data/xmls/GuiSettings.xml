@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>39.7983</FPS>
+	<FPS>56.947</FPS>
 	<Scenes>
 		<TransitionTime>2</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -11,8 +11,8 @@
 	<Transparency>0</Transparency>
 	</Scenes>
 	<Contour>
-		<Thickness>1.14286</Thickness>
-		<Offset>0.667222, 0.000416517</Offset>
+		<Thickness>2.08163</Thickness>
+		<Offset>0.000833035, 0.000416517</Offset>
 		<Scale>1.00042, 1.00042</Scale>
 	</Contour>
 <MurmurRenderer/>

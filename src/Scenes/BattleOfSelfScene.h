@@ -48,6 +48,8 @@ private:
     
     void setupShaders();
     
+    void setupFilters();
+    
     void drawFluid();
     
     void updateFluid();

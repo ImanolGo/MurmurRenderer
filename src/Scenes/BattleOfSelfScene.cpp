@@ -30,6 +30,7 @@ void BattleOfSelfScene::setup()
     }
     
     this->setupShaders();
+    this->setupFilters();
     
     m_fluid.setup("xmls/BattleOfSelfFluid.xml");
     m_initialized = true;
@@ -50,6 +51,16 @@ void BattleOfSelfScene::setupShaders()
     
 }
 
+void BattleOfSelfScene::setupFilters()
+{
+     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    
+     FilterChain * battleOfSelfFilterChain = new FilterChain(windowsSettings.width, windowsSettings.height, "BattleOfSelfFilterChain");
+     battleOfSelfFilterChain->addFilter(new GaussianBlurFilter(windowsSettings.width, windowsSettings.height, 2.f ));
+    
+    m_filter = ofPtr<AbstractFilter> (battleOfSelfFilterChain);
+}
+
 void BattleOfSelfScene::update()
 {
     this->updateFluid();
@@ -65,18 +76,21 @@ void BattleOfSelfScene::updateFluid()
 
 
 void BattleOfSelfScene::draw() {
-    ofBackground(0,50,0);
-    this->drawFluid();
+    ofBackground(0,0,0);
+    this->drawVisuals();
 }
 
 
 void BattleOfSelfScene::drawVisuals()
 {
+    m_filter->begin();
+        AppManager::getInstance().getContourManager().draw();
+    m_filter->end();
     //m_shader.begin();
     //m_shader.setUniform1f("nshift", 0);
     //m_shader.setUniform1f("thick", 0.03);
     //ofLine(0, 0, 200, 200);
-    AppManager::getInstance().getContourManager().draw();
+    
     //m_shader.end();
 }
 
