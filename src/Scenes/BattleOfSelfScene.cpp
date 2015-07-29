@@ -31,6 +31,7 @@ void BattleOfSelfScene::setup()
     
     this->setupShaders();
     
+    m_fluid.setup("xmls/BattleOfSelfFluid.xml");
     m_initialized = true;
     
     ofLogNotice("BattleOfSelfScene::setup");
@@ -51,25 +52,48 @@ void BattleOfSelfScene::setupShaders()
 
 void BattleOfSelfScene::update()
 {
-    ///
+    this->updateFluid();
+}
+
+
+void BattleOfSelfScene::updateFluid()
+{
+    auto source = AppManager::getInstance().getContourManager().getSource();
+    m_fluid.setSource(source);
+    m_fluid.update();
 }
 
 
 void BattleOfSelfScene::draw() {
     ofBackground(0,50,0);
-    this->drawVisuals();
+    this->drawFluid();
 }
 
 
 void BattleOfSelfScene::drawVisuals()
 {
-    m_shader.begin();
+    //m_shader.begin();
     //m_shader.setUniform1f("nshift", 0);
     //m_shader.setUniform1f("thick", 0.03);
-    ofLine(0, 0, 200, 200);
+    //ofLine(0, 0, 200, 200);
     AppManager::getInstance().getContourManager().draw();
-    m_shader.end();
+    //m_shader.end();
 }
+
+void BattleOfSelfScene::drawFluid()
+{
+    ofPushStyle();
+    ofEnableBlendMode(OF_BLENDMODE_DISABLED);
+    
+    AppManager::getInstance().getContourManager().draw();
+    
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    m_fluid.draw();
+    m_fluid.drawGui();
+    ofPopStyle();
+    
+}
+
 
 void BattleOfSelfScene::willFadeIn() {
     ofLogNotice("BattleOfSelfScene::willFadeIn");

@@ -21,7 +21,7 @@
 
 
 class ContourManager: public Manager
- {
+{
     
 public:
     
@@ -39,45 +39,44 @@ public:
     
     //! Draw the Contour Manager
     void draw();
-     
+    
     const ofFbo& getSource() const;
-     
+    
     void resetContours();
-     
+    
     void setContour(vector<float> contourPoints);
     
     void setOffset(ofVec2f & offset);
     
     void setScale(ofVec2f & scale);
-     
+    
     void setContourThickness(float & value);
-     
+    
 private:
-     
+    
     void setupFbo();
     
     void setupShader();
     
-     
+    
 private:
-     
-    typedef vector< ofPtr<ofPath> > ContourVector;
+    
+    typedef vector< ofPtr< ofPolyline> > ContourVector;
     
     ofVec2f             m_contourOffset;
     ofVec2f             m_contourScale;
-     
+    
     ContourVector       m_contours;
-     
+    
     ofFbo				m_contourFbo;
     
     bool                m_isFrameNew;
-     
+    
     ofShader            m_thickLineShader;
     
-     
+    
     float               m_contourThickness;
-     
+    
 };
-
 
 

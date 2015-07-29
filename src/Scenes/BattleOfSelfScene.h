@@ -9,7 +9,9 @@
 #pragma once
 
 
+#include "FluidVisual.h"
 #include "ofxScene.h"
+#include "ofxFilterLibrary.h"
 
 class BattleOfSelfScene : public ofxScene {
 
@@ -46,13 +48,19 @@ private:
     
     void setupShaders();
     
+    void drawFluid();
+    
+    void updateFluid();
+    
     void drawVisuals();
     
 private:
     
     bool            m_initialized;
     
-    ofShader        m_shader;
+    ofShader                m_shader;
+    FluidVisual             m_fluid;
+    ofPtr<AbstractFilter>   m_filter;
 
 };
 

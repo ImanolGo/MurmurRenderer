@@ -56,25 +56,25 @@ void ContourManager::setupFbo()
 
 void ContourManager::update()
 {
-
+    
     if(m_isFrameNew)
     {
         ofPushStyle();
         //ofEnableBlendMode(OF_BLENDMODE_DISABLED);
-            m_contourFbo.begin();
-            m_thickLineShader.begin();
-            m_thickLineShader.setUniform1f("thickness", m_contourThickness);
-            ofClear(0);
-            for (auto contour: m_contours){
-                contour->draw();
-            }
-            m_thickLineShader.end();
-            m_contourFbo.end();
+        m_contourFbo.begin();
+        m_thickLineShader.begin();
+        m_thickLineShader.setUniform1f("thickness", m_contourThickness);
+        ofClear(0);
+        for (auto contour: m_contours){
+            contour->draw();
+        }
+        m_thickLineShader.end();
+        m_contourFbo.end();
         ofPopStyle();
         
         m_isFrameNew = false;
     }
-   
+    
 }
 
 void ContourManager::draw()
@@ -91,7 +91,7 @@ void ContourManager::setContour(vector<float> contourPoints)
 {
     //ofLogNotice() <<"ContourManager::setContour-> NEW FRAME!!!!!!!!";
     
-    ofPtr<ofPath> contour = ofPtr<ofPath> (new ofPath());
+    auto contour = ofPtr<ofPolyline> (new ofPolyline());
     
     for (int i = 0; i < contourPoints.size(); i = i + 2) {
         float x = (contourPoints[i] * m_contourScale.x + m_contourOffset.x )*FluidVisual::FLUID_WIDTH;
@@ -100,16 +100,18 @@ void ContourManager::setContour(vector<float> contourPoints)
         //float x = (contourPoints[i])*FluidVisual::FLUID_WIDTH;
         //float y = (contourPoints[i+1])*FluidVisual::FLUID_HEIGHT;
         
-        contour->lineTo(x,y);
+        contour->addVertex(x,y);
+        //contour->lineTo(x,y);
     }
-   
+    
     //contour->setMode(ofPath::POLYLINES);
-    contour->setStrokeColor(ofColor::white);
-    contour->setFillColor(ofColor::white);
-    contour->setFilled(false);
-    contour->setStrokeWidth(0.1);
+    //contour->setStrokeColor(ofColor::white);
+    //contour->setFillColor(ofColor::white);
+    //contour->setFilled(false);
+    //contour->setStrokeWidth(0.1);
     //contour->setPolyWindingMode((ofPolyWindingMode) 2);
     contour->close(); // close the shape
+    
     m_contours.push_back(contour);
     
     m_isFrameNew = true;
@@ -131,7 +133,7 @@ void ContourManager::setOffset(ofVec2f & offset)
 void ContourManager::setScale(ofVec2f & scale)
 {
     m_contourScale = scale;
-     ofLogNotice() <<"ContourManager::setScale-> x = " << m_contourScale.x << ", y = " << m_contourScale.y;
+    ofLogNotice() <<"ContourManager::setScale-> x = " << m_contourScale.x << ", y = " << m_contourScale.y;
 }
 
 void ContourManager::setContourThickness(float & value)
