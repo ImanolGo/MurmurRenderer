@@ -44,7 +44,16 @@ void BattleOfSelfScene::setupShaders()
     m_shader.setGeometryInputType(GL_LINES);
     m_shader.setGeometryOutputType(GL_TRIANGLE_STRIP);
     m_shader.setGeometryOutputCount(24);
-    m_shader.load("shaders/shadersGL3/BattleOfSelfVert.glsl", "shaders/shadersGL3/BattleOfSelfFrag.glsl", "shaders/shadersGL3/BattleOfSelfGeom.glsl");
+    
+    
+    if(ofIsGLProgrammableRenderer()){
+        m_shader.load("shaders/shadersGL3/BattleOfSelfVert.glsl", "shaders/shadersGL3/BattleOfSelfFrag.glsl", "shaders/shadersGL3/BattleOfSelfGeom.glsl");
+    }
+    else{
+       m_shader.load("shaders/shadersGL2/BattleOfSelfVert.glsl", "shaders/shadersGL2/BattleOfSelfFrag.glsl", "shaders/shadersGL2/BattleOfSelfGeom.glsl");
+        
+    }
+
     
     
     ofLogNotice() << "BattleOfSelfScene::setupShaders -> Geometry Max Output Count: " << m_shader.getGeometryMaxOutputCount();

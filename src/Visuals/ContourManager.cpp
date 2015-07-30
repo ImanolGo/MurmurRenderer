@@ -36,17 +36,16 @@ void ContourManager::setup()
 
 void ContourManager::setupShader()
 {
+    m_thickLineShader.setGeometryInputType(GL_LINES);
+    m_thickLineShader.setGeometryOutputType(GL_TRIANGLE_STRIP);
+    m_thickLineShader.setGeometryOutputCount(4);
+    
     if(ofIsGLProgrammableRenderer()){
         m_thickLineShader.load("shaders/shadersGL3/ThickLineShaderVert.glsl", "shaders/shadersGL3/ThickLineShaderFrag.glsl", "shaders/shadersGL3/ThickLineShaderGeom.glsl");
     }
     else{
         m_thickLineShader.load("shaders/shadersGL2/ThickLineShaderVert.glsl", "shaders/shadersGL2/ThickLineShaderFrag.glsl", "shaders/shadersGL2/ThickLineShaderGeom.glsl");
     }
-    
-    //m_thickLineShader.setGeometryInputType(GL_LINES);
-    //m_thickLineShader.setGeometryOutputType(GL_TRIANGLE_STRIP);
-    //m_thickLineShader.setGeometryOutputCount(4);
-    
     
     m_contourThickness = 0.3;
     ofLogNotice() <<"ContourManager::setupShader";

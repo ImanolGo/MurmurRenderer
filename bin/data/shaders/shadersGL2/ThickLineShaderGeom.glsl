@@ -8,10 +8,13 @@
 #version 120
 #extension GL_EXT_geometry_shader4 : enable
 
+//layout(lines) in;
+//layout(triangle_strip, max_vertices = 4) out;
+
 uniform float thickness;
-//uniform vec3 lightDir;
 
 void main() {
+
 	vec3 p0 = gl_PositionIn[0].xyz;
 	vec3 p1 = gl_PositionIn[1].xyz;
 	
@@ -26,19 +29,19 @@ void main() {
 	right *= thickness;
 	
 	gl_Position = gl_ModelViewProjectionMatrix * vec4(p0 - right, 1.0);
-	//gl_FrontColor = gl_FrontColorIn[0] * colMult;
+	gl_FrontColor = gl_FrontColorIn[0] ;
 	EmitVertex();
 	
 	gl_Position = gl_ModelViewProjectionMatrix * vec4(p0 + right, 1.0);
-	//gl_FrontColor = gl_FrontColorIn[0] * colMult;
+	gl_FrontColor = gl_FrontColorIn[0] ;
 	EmitVertex();
 	
 	gl_Position = gl_ModelViewProjectionMatrix * vec4(p1 - right, 1.0);
-	//gl_FrontColor = gl_FrontColorIn[1] * colMult;
+	gl_FrontColor = gl_FrontColorIn[1];
 	EmitVertex();
 
 	gl_Position = gl_ModelViewProjectionMatrix * vec4(p1 + right, 1.0);
-	//gl_FrontColor = gl_FrontColorIn[1] * colMult;
+	gl_FrontColor = gl_FrontColorIn[1] ;
 	EmitVertex();
 
 }
