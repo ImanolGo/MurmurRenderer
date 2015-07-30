@@ -42,9 +42,9 @@ public:
     //! Draw the Audio Manager
     void draw();
     
-    float getMaxSound(){m_fft.getUnScaledLoudestValue()/m_volumeRange;}
+    float getMaxSound();
     
-    void onChangeVolumeRange(int& value) {m_volumeRange = value;}
+    void onChangeVolumeRange(float& value);
     
 private:
     

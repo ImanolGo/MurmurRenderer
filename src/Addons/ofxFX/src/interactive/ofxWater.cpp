@@ -99,6 +99,18 @@ ofxWater& ofxWater::loadBackground(string file){
     return * this;
 }
 
+
+ofxWater& ofxWater::loadBackground(ofImage& backgroundImage){
+   
+    allocate(backgroundImage.getWidth(), backgroundImage.getHeight());
+    
+    textures[0].begin();
+    backgroundImage.draw(0,0);
+    textures[0].end();
+    
+    return * this;
+}
+
 ofxWater& ofxWater::linkBackground(ofTexture * _backText){
     textures[0].begin();
     _backText->draw(0,0);

@@ -19,6 +19,8 @@ public:
     ofxWater();
     
     ofxWater& loadBackground(string file);
+    ofxWater& loadBackground(ofImage& backgroundImage);
+    
     ofxWater& linkBackground(ofTexture * _backText);
     
     ofxWater& setDensity(float _density){ density = ofClamp(_density,0.0,1.0); return * this; };

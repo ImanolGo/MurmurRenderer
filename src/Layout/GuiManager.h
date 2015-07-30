@@ -66,6 +66,8 @@ public:
     
     void onSetFluidFloorScene(bool& value);
     
+    void onSetKathakScene(bool& value);
+    
     void setContourThickness(float value) {m_contourThickness = value;}
     
     void setContourOffset(ofVec2f value) {m_contourOffset = value;}
@@ -97,6 +99,8 @@ private:
     
     void setupScenesGui();
     
+    void setupAudioGui();
+    
     void setupContourGui();
     
     void setupHandsGui();
@@ -121,6 +125,7 @@ private:
     ofParameterGroup        m_parametersFloor;
     ofParameterGroup        m_parametersBeautifulMind;
     ofParameterGroup        m_parametersLayout;
+    ofParameterGroup        m_parametersAudio;
    
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
@@ -134,12 +139,15 @@ private:
     ofParameter<bool>       m_sceneHandsWriting;
     ofParameter<bool>       m_sceneFluidFloor;
     ofParameter<bool>       m_sceneBeautifulMind;
+    ofParameter<bool>       m_sceneKathak;
     
     ofParameter<int>     m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
     
     ofParameter<float>      m_contourThickness;
     ofParameter<ofVec2f>    m_contourOffset;
     ofParameter<ofVec2f>    m_contourScale;
+    
+    ofParameter<float>      m_audioVolume;
     
     ofParameter<ofVec2f>    m_handsOffset;
     ofParameter<ofVec2f>    m_handsScale;

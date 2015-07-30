@@ -16,6 +16,7 @@
 #include "HandsWritingScene.h"
 #include "BeautifulMindScene.h"
 #include "FluidFloorScene.h"
+#include "KathakScene.h"
 
 #include "AppManager.h"
 
@@ -140,6 +141,10 @@ void SceneManager::createTopScenes()
     
     scene = ofPtr<ofxScene> (new FluidFloorScene());
     this->createScene("FluidFloorScene", SceneIndex(i), scene, WindowIndex(TOP));
+    i++;
+    
+    scene = ofPtr<ofxScene> (new KathakScene());
+    this->createScene("KathakScene", SceneIndex(i), scene, WindowIndex(TOP));
     i++;
 }
 
