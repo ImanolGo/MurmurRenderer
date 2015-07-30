@@ -28,6 +28,7 @@
 #include "FloorManager.h"
 #include "BeautifulMindManager.h"
 
+
 //========================== class AppManager ==============================
 //============================================================================
 /** \class AppManager AppManager.h
@@ -151,6 +152,7 @@ private:
     HandsManager                    m_handsManager;             ///< Manages the hand information coming from the laser ranger
     UdpManager                      m_udpManager;               ///< Manages the UDP messages
     BeautifulMindManager            m_beautifulMindManager;     ///< Manages the Beautiful Mind Scene
+    
 
     bool                            m_debugMode;
 };

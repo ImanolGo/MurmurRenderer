@@ -56,7 +56,14 @@ void FluidFloorScene::setupFbos()
 
 void FluidFloorScene::setupShaders()
 {
-    m_maskShader.load("shaders/shadersGL3/BlackMask");
+    if(ofIsGLProgrammableRenderer()){
+        m_maskShader.load("shaders/shadersGL3/BlackMask");
+    }
+    else{
+        m_maskShader.load("shaders/shadersGL2/BlackMask");
+    }
+    
+    
 }
 
 void FluidFloorScene::update()

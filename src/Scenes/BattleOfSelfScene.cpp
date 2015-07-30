@@ -30,7 +30,7 @@ void BattleOfSelfScene::setup()
     }
     
     this->setupShaders();
-    this->setupFilters();
+    this->setupPostProcessing();
     
     m_fluid.setup("xmls/BattleOfSelfFluid.xml");
     m_initialized = true;
@@ -51,14 +51,14 @@ void BattleOfSelfScene::setupShaders()
     
 }
 
-void BattleOfSelfScene::setupFilters()
+void BattleOfSelfScene::setupPostProcessing()
 {
-     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     
-     FilterChain * battleOfSelfFilterChain = new FilterChain(windowsSettings.width, windowsSettings.height, "BattleOfSelfFilterChain");
-     battleOfSelfFilterChain->addFilter(new GaussianBlurFilter(windowsSettings.width, windowsSettings.height, 2.f ));
-    
-    m_filter = ofPtr<AbstractFilter> (battleOfSelfFilterChain);
+    // Setup post-processing chain
+    m_postProcessing.init(windowsSettings.width, windowsSettings.height);
+    m_postProcessing.createPass<FxaaPass>()->setEnabled(true);
+    m_postProcessing.createPass<BloomPass>()->setEnabled(true);
 }
 
 void BattleOfSelfScene::update()
@@ -83,9 +83,27 @@ void BattleOfSelfScene::draw() {
 
 void BattleOfSelfScene::drawVisuals()
 {
-    m_filter->begin();
+    // copy enable part of gl state
+    glPushAttrib(GL_ENABLE_BIT);
+    
+    // setup gl state
+    //glEnable(GL_DEPTH_TEST);
+   // glEnable(GL_CULL_FACE);
+    
+    // begin scene to post process
+    m_postProcessing.begin();
+    
         AppManager::getInstance().getContourManager().draw();
-    m_filter->end();
+    
+    // end scene and draw
+    m_postProcessing.end();
+    
+    // set gl state back to original
+    glPopAttrib();
+    
+    //m_filter->begin();
+        //AppManager::getInstance().getContourManager().draw();
+    //m_filter->end();
     //m_shader.begin();
     //m_shader.setUniform1f("nshift", 0);
     //m_shader.setUniform1f("thick", 0.03);
@@ -103,7 +121,7 @@ void BattleOfSelfScene::drawFluid()
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     m_fluid.draw();
-    m_fluid.drawGui();
+    //m_fluid.drawGui();
     ofPopStyle();
     
 }

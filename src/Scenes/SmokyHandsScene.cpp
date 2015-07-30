@@ -61,7 +61,7 @@ void SmokyHandsScene::drawFluid()
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     m_smokeFluid.draw();
-    m_smokeFluid.drawGui();
+    //m_smokeFluid.drawGui();
     ofPopStyle();
     
 }

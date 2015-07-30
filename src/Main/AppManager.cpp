@@ -37,7 +37,7 @@ void AppManager::setup()
 {
 	if(m_initialized)
 		return;
-
+    
 	Manager::setup();
     
     this->setupOF();

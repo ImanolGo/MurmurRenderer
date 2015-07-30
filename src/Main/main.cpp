@@ -7,10 +7,11 @@
 //========================================================================
 int main( ){
 
-    ofSetCurrentRenderer(ofGLProgrammableRenderer::TYPE);
+    //ofSetCurrentRenderer(ofGLProgrammableRenderer::TYPE);
     
     ofxMultiGLFWWindow glfw;
-    glfw.setOpenGLVersion(3,2); // must be set
+    glfw.setOpenGLVersion(2,1); // must be set
+    glfw.setStencilBits(8);
     
     glfw.windowCount = 2;
     ofSetupOpenGL(&glfw,1024,768,OF_WINDOW);

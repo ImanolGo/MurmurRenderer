@@ -11,7 +11,7 @@
 
 #include "FluidVisual.h"
 #include "ofxScene.h"
-#include "ofxFilterLibrary.h"
+#include "ofxPostProcessing.h"
 
 class BattleOfSelfScene : public ofxScene {
 
@@ -48,7 +48,7 @@ private:
     
     void setupShaders();
     
-    void setupFilters();
+    void setupPostProcessing();
     
     void drawFluid();
     
@@ -62,7 +62,8 @@ private:
     
     ofShader                m_shader;
     FluidVisual             m_fluid;
-    ofPtr<AbstractFilter>   m_filter;
+    
+     ofxPostProcessing      m_postProcessing;
 
 };
 
