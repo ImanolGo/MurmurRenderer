@@ -121,11 +121,13 @@ void AppManager::setupManagers()
     m_oscManager.setup();
     m_udpManager.setup();
     m_sceneManager.setup();
+    m_audioManager.setup();
     m_keyboardManager.setup();
 }
 
 void AppManager::update()
 {
+    m_audioManager.update();
     m_visualEffectsManager.update();
     m_sceneManager.update();
     m_oscManager.update();

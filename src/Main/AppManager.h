@@ -27,6 +27,7 @@
 #include "UdpManager.h"
 #include "FloorManager.h"
 #include "BeautifulMindManager.h"
+#include "AudioManager.h"
 
 
 //========================== class AppManager ==============================
@@ -98,6 +99,9 @@ public:
     
     //! Returns the Beautiful Mind Manager
     BeautifulMindManager&  getBeautifulMindManager() { return m_beautifulMindManager; }
+    
+    //! Returns the Audio Manager
+    AudioManager&  getAudioManager() { return m_audioManager; }
 
     
     //==========================================================================
@@ -152,6 +156,7 @@ private:
     HandsManager                    m_handsManager;             ///< Manages the hand information coming from the laser ranger
     UdpManager                      m_udpManager;               ///< Manages the UDP messages
     BeautifulMindManager            m_beautifulMindManager;     ///< Manages the Beautiful Mind Scene
+    AudioManager                    m_audioManager;             ///< Manages the audio input
     
 
     bool                            m_debugMode;

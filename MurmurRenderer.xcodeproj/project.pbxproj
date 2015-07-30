@@ -51,6 +51,23 @@
 		08D4015C1B6A368C0035C289 /* ToonPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401411B6A368B0035C289 /* ToonPass.cpp */; };
 		08D4015D1B6A368C0035C289 /* VerticalTiltShifPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401431B6A368B0035C289 /* VerticalTiltShifPass.cpp */; };
 		08D4015E1B6A368C0035C289 /* ZoomBlurPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401451B6A368C0035C289 /* ZoomBlurPass.cpp */; };
+		08D4019C1B6A61B00035C289 /* AudioManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D4019A1B6A61B00035C289 /* AudioManager.cpp */; };
+		08D401C51B6A6B920035C289 /* KathakScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401C31B6A6B920035C289 /* KathakScene.cpp */; };
+		08D401F31B6A703B0035C289 /* license.md in Sources */ = {isa = PBXBuildFile; fileRef = 08D401D21B6A703B0035C289 /* license.md */; };
+		08D401F41B6A703B0035C289 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 08D401D31B6A703B0035C289 /* README.md */; };
+		08D401F51B6A703B0035C289 /* ofxFlocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401E61B6A703B0035C289 /* ofxFlocking.cpp */; };
+		08D401F61B6A703B0035C289 /* ofxFluid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401E81B6A703B0035C289 /* ofxFluid.cpp */; };
+		08D401F71B6A703B0035C289 /* ofxWater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401EA1B6A703B0035C289 /* ofxWater.cpp */; };
+		08D401F81B6A703B0035C289 /* ofxFXObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401ED1B6A703B0035C289 /* ofxFXObject.cpp */; };
+		08D4021B1B6A74A00035C289 /* fftw3f.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D402041B6A74A00035C289 /* fftw3f.a */; };
+		08D4021C1B6A74A00035C289 /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 08D4020A1B6A74A00035C289 /* kiss_fft.c */; };
+		08D4021D1B6A74A00035C289 /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 08D4020C1B6A74A00035C289 /* kiss_fftr.c */; };
+		08D4021E1B6A74A00035C289 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 08D4020F1B6A74A00035C289 /* readme.md */; };
+		08D4021F1B6A74A00035C289 /* ofxEasyFft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402111B6A74A00035C289 /* ofxEasyFft.cpp */; };
+		08D402201B6A74A00035C289 /* ofxFft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402131B6A74A00035C289 /* ofxFft.cpp */; };
+		08D402211B6A74A00035C289 /* ofxFftBasic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402151B6A74A00035C289 /* ofxFftBasic.cpp */; };
+		08D402221B6A74A00035C289 /* ofxFftw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402171B6A74A00035C289 /* ofxFftw.cpp */; };
+		08D402231B6A74A00035C289 /* ofxProcessFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402191B6A74A00035C289 /* ofxProcessFFT.cpp */; };
 		08EC800A1B3C3D1A000893E1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80051B3C3D1A000893E1 /* README.md */; };
 		08EC800B1B3C3D1A000893E1 /* ofxSceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80081B3C3D1A000893E1 /* ofxSceneManager.cpp */; };
 		08EC80331B3C3F0F000893E1 /* ofxEasing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80191B3C3F0F000893E1 /* ofxEasing.cpp */; };
@@ -272,6 +289,62 @@
 		08D401441B6A368B0035C289 /* VerticalTiltShifPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalTiltShifPass.h; sourceTree = "<group>"; };
 		08D401451B6A368C0035C289 /* ZoomBlurPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZoomBlurPass.cpp; sourceTree = "<group>"; };
 		08D401461B6A368C0035C289 /* ZoomBlurPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomBlurPass.h; sourceTree = "<group>"; };
+		08D4019A1B6A61B00035C289 /* AudioManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioManager.cpp; path = Visuals/AudioManager.cpp; sourceTree = "<group>"; };
+		08D4019B1B6A61B00035C289 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioManager.h; path = Visuals/AudioManager.h; sourceTree = "<group>"; };
+		08D401C31B6A6B920035C289 /* KathakScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KathakScene.cpp; sourceTree = "<group>"; };
+		08D401C41B6A6B920035C289 /* KathakScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KathakScene.h; sourceTree = "<group>"; };
+		08D401D11B6A703B0035C289 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		08D401D21B6A703B0035C289 /* license.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = license.md; sourceTree = "<group>"; };
+		08D401D31B6A703B0035C289 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		08D401D61B6A703B0035C289 /* ofxBlend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBlend.h; sourceTree = "<group>"; };
+		08D401D71B6A703B0035C289 /* ofxClone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxClone.h; sourceTree = "<group>"; };
+		08D401D81B6A703B0035C289 /* ofxMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMask.h; sourceTree = "<group>"; };
+		08D401D91B6A703B0035C289 /* ofxMultiTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMultiTexture.h; sourceTree = "<group>"; };
+		08D401DB1B6A703B0035C289 /* ofxBloom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBloom.h; sourceTree = "<group>"; };
+		08D401DC1B6A703B0035C289 /* ofxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBlur.h; sourceTree = "<group>"; };
+		08D401DD1B6A703B0035C289 /* ofxBokeh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBokeh.h; sourceTree = "<group>"; };
+		08D401DE1B6A703B0035C289 /* ofxGaussianBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGaussianBlur.h; sourceTree = "<group>"; };
+		08D401DF1B6A703B0035C289 /* ofxGlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGlow.h; sourceTree = "<group>"; };
+		08D401E01B6A703B0035C289 /* ofxLUT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLUT.h; sourceTree = "<group>"; };
+		08D401E11B6A703B0035C289 /* ofxOldTv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOldTv.h; sourceTree = "<group>"; };
+		08D401E31B6A703B0035C289 /* ofxGrayScott.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGrayScott.h; sourceTree = "<group>"; };
+		08D401E41B6A703B0035C289 /* ofxTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTint.h; sourceTree = "<group>"; };
+		08D401E61B6A703B0035C289 /* ofxFlocking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFlocking.cpp; sourceTree = "<group>"; };
+		08D401E71B6A703B0035C289 /* ofxFlocking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFlocking.h; sourceTree = "<group>"; };
+		08D401E81B6A703B0035C289 /* ofxFluid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFluid.cpp; sourceTree = "<group>"; };
+		08D401E91B6A703B0035C289 /* ofxFluid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFluid.h; sourceTree = "<group>"; };
+		08D401EA1B6A703B0035C289 /* ofxWater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxWater.cpp; sourceTree = "<group>"; };
+		08D401EB1B6A703B0035C289 /* ofxWater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxWater.h; sourceTree = "<group>"; };
+		08D401EC1B6A703B0035C289 /* ofxFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFX.h; sourceTree = "<group>"; };
+		08D401ED1B6A703B0035C289 /* ofxFXObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFXObject.cpp; sourceTree = "<group>"; };
+		08D401EE1B6A703B0035C289 /* ofxFXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFXObject.h; sourceTree = "<group>"; };
+		08D401EF1B6A703B0035C289 /* ofxSwapBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSwapBuffer.h; sourceTree = "<group>"; };
+		08D401F11B6A703B0035C289 /* ofxKaleidoscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxKaleidoscope.h; sourceTree = "<group>"; };
+		08D401F21B6A703B0035C289 /* ofxRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxRotate.h; sourceTree = "<group>"; };
+		08D401FB1B6A74A00035C289 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		08D401FE1B6A74A00035C289 /* .keep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
+		08D402001B6A74A00035C289 /* fftw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fftw3.h; sourceTree = "<group>"; };
+		08D402021B6A74A00035C289 /* .keep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
+		08D402041B6A74A00035C289 /* fftw3f.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = fftw3f.a; sourceTree = "<group>"; };
+		08D402061B6A74A00035C289 /* libfftw3f-3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = "libfftw3f-3.dll"; sourceTree = "<group>"; };
+		08D402081B6A74A00035C289 /* .keep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
+		08D402091B6A74A00035C289 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _kiss_fft_guts.h; sourceTree = "<group>"; };
+		08D4020A1B6A74A00035C289 /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kiss_fft.c; sourceTree = "<group>"; };
+		08D4020B1B6A74A00035C289 /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fft.h; sourceTree = "<group>"; };
+		08D4020C1B6A74A00035C289 /* kiss_fftr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kiss_fftr.c; sourceTree = "<group>"; };
+		08D4020D1B6A74A00035C289 /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fftr.h; sourceTree = "<group>"; };
+		08D4020E1B6A74A00035C289 /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
+		08D4020F1B6A74A00035C289 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		08D402111B6A74A00035C289 /* ofxEasyFft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxEasyFft.cpp; sourceTree = "<group>"; };
+		08D402121B6A74A00035C289 /* ofxEasyFft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxEasyFft.h; sourceTree = "<group>"; };
+		08D402131B6A74A00035C289 /* ofxFft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFft.cpp; sourceTree = "<group>"; };
+		08D402141B6A74A00035C289 /* ofxFft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFft.h; sourceTree = "<group>"; };
+		08D402151B6A74A00035C289 /* ofxFftBasic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFftBasic.cpp; sourceTree = "<group>"; };
+		08D402161B6A74A00035C289 /* ofxFftBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFftBasic.h; sourceTree = "<group>"; };
+		08D402171B6A74A00035C289 /* ofxFftw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFftw.cpp; sourceTree = "<group>"; };
+		08D402181B6A74A00035C289 /* ofxFftw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFftw.h; sourceTree = "<group>"; };
+		08D402191B6A74A00035C289 /* ofxProcessFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxProcessFFT.cpp; sourceTree = "<group>"; };
+		08D4021A1B6A74A00035C289 /* ofxProcessFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxProcessFFT.h; sourceTree = "<group>"; };
 		08EC80041B3C3D1A000893E1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		08EC80051B3C3D1A000893E1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		08EC80071B3C3D1A000893E1 /* ofxScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxScene.h; sourceTree = "<group>"; };
@@ -505,6 +578,7 @@
 				E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */,
 				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
 				E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */,
+				08D4021B1B6A74A00035C289 /* fftw3f.a in Frameworks */,
 				E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */,
 				E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */,
 				E45BE97F0E8CC7DD009D7055 /* CoreAudio.framework in Frameworks */,
@@ -662,6 +736,186 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		08D401D01B6A703B0035C289 /* ofxFX */ = {
+			isa = PBXGroup;
+			children = (
+				08D401D11B6A703B0035C289 /* .gitignore */,
+				08D401D21B6A703B0035C289 /* license.md */,
+				08D401D31B6A703B0035C289 /* README.md */,
+				08D401D41B6A703B0035C289 /* src */,
+			);
+			name = ofxFX;
+			path = Addons/ofxFX;
+			sourceTree = "<group>";
+		};
+		08D401D41B6A703B0035C289 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				08D401D51B6A703B0035C289 /* composers */,
+				08D401DA1B6A703B0035C289 /* filters */,
+				08D401E21B6A703B0035C289 /* generative */,
+				08D401E51B6A703B0035C289 /* interactive */,
+				08D401EC1B6A703B0035C289 /* ofxFX.h */,
+				08D401ED1B6A703B0035C289 /* ofxFXObject.cpp */,
+				08D401EE1B6A703B0035C289 /* ofxFXObject.h */,
+				08D401EF1B6A703B0035C289 /* ofxSwapBuffer.h */,
+				08D401F01B6A703B0035C289 /* transformers */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		08D401D51B6A703B0035C289 /* composers */ = {
+			isa = PBXGroup;
+			children = (
+				08D401D61B6A703B0035C289 /* ofxBlend.h */,
+				08D401D71B6A703B0035C289 /* ofxClone.h */,
+				08D401D81B6A703B0035C289 /* ofxMask.h */,
+				08D401D91B6A703B0035C289 /* ofxMultiTexture.h */,
+			);
+			path = composers;
+			sourceTree = "<group>";
+		};
+		08D401DA1B6A703B0035C289 /* filters */ = {
+			isa = PBXGroup;
+			children = (
+				08D401DB1B6A703B0035C289 /* ofxBloom.h */,
+				08D401DC1B6A703B0035C289 /* ofxBlur.h */,
+				08D401DD1B6A703B0035C289 /* ofxBokeh.h */,
+				08D401DE1B6A703B0035C289 /* ofxGaussianBlur.h */,
+				08D401DF1B6A703B0035C289 /* ofxGlow.h */,
+				08D401E01B6A703B0035C289 /* ofxLUT.h */,
+				08D401E11B6A703B0035C289 /* ofxOldTv.h */,
+			);
+			path = filters;
+			sourceTree = "<group>";
+		};
+		08D401E21B6A703B0035C289 /* generative */ = {
+			isa = PBXGroup;
+			children = (
+				08D401E31B6A703B0035C289 /* ofxGrayScott.h */,
+				08D401E41B6A703B0035C289 /* ofxTint.h */,
+			);
+			path = generative;
+			sourceTree = "<group>";
+		};
+		08D401E51B6A703B0035C289 /* interactive */ = {
+			isa = PBXGroup;
+			children = (
+				08D401E61B6A703B0035C289 /* ofxFlocking.cpp */,
+				08D401E71B6A703B0035C289 /* ofxFlocking.h */,
+				08D401E81B6A703B0035C289 /* ofxFluid.cpp */,
+				08D401E91B6A703B0035C289 /* ofxFluid.h */,
+				08D401EA1B6A703B0035C289 /* ofxWater.cpp */,
+				08D401EB1B6A703B0035C289 /* ofxWater.h */,
+			);
+			path = interactive;
+			sourceTree = "<group>";
+		};
+		08D401F01B6A703B0035C289 /* transformers */ = {
+			isa = PBXGroup;
+			children = (
+				08D401F11B6A703B0035C289 /* ofxKaleidoscope.h */,
+				08D401F21B6A703B0035C289 /* ofxRotate.h */,
+			);
+			path = transformers;
+			sourceTree = "<group>";
+		};
+		08D401FA1B6A74A00035C289 /* ofxFft */ = {
+			isa = PBXGroup;
+			children = (
+				08D401FB1B6A74A00035C289 /* .gitignore */,
+				08D401FC1B6A74A00035C289 /* libs */,
+				08D4020E1B6A74A00035C289 /* ofxaddons_thumbnail.png */,
+				08D4020F1B6A74A00035C289 /* readme.md */,
+				08D402101B6A74A00035C289 /* src */,
+			);
+			name = ofxFft;
+			path = Addons/ofxFft;
+			sourceTree = "<group>";
+		};
+		08D401FC1B6A74A00035C289 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				08D401FD1B6A74A00035C289 /* fftw */,
+				08D402071B6A74A00035C289 /* kiss */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		08D401FD1B6A74A00035C289 /* fftw */ = {
+			isa = PBXGroup;
+			children = (
+				08D401FE1B6A74A00035C289 /* .keep */,
+				08D401FF1B6A74A00035C289 /* include */,
+				08D402011B6A74A00035C289 /* lib */,
+			);
+			path = fftw;
+			sourceTree = "<group>";
+		};
+		08D401FF1B6A74A00035C289 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				08D402001B6A74A00035C289 /* fftw3.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		08D402011B6A74A00035C289 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				08D402021B6A74A00035C289 /* .keep */,
+				08D402031B6A74A00035C289 /* osx */,
+				08D402051B6A74A00035C289 /* win32 */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		08D402031B6A74A00035C289 /* osx */ = {
+			isa = PBXGroup;
+			children = (
+				08D402041B6A74A00035C289 /* fftw3f.a */,
+			);
+			path = osx;
+			sourceTree = "<group>";
+		};
+		08D402051B6A74A00035C289 /* win32 */ = {
+			isa = PBXGroup;
+			children = (
+				08D402061B6A74A00035C289 /* libfftw3f-3.dll */,
+			);
+			path = win32;
+			sourceTree = "<group>";
+		};
+		08D402071B6A74A00035C289 /* kiss */ = {
+			isa = PBXGroup;
+			children = (
+				08D402081B6A74A00035C289 /* .keep */,
+				08D402091B6A74A00035C289 /* _kiss_fft_guts.h */,
+				08D4020A1B6A74A00035C289 /* kiss_fft.c */,
+				08D4020B1B6A74A00035C289 /* kiss_fft.h */,
+				08D4020C1B6A74A00035C289 /* kiss_fftr.c */,
+				08D4020D1B6A74A00035C289 /* kiss_fftr.h */,
+			);
+			path = kiss;
+			sourceTree = "<group>";
+		};
+		08D402101B6A74A00035C289 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				08D402111B6A74A00035C289 /* ofxEasyFft.cpp */,
+				08D402121B6A74A00035C289 /* ofxEasyFft.h */,
+				08D402131B6A74A00035C289 /* ofxFft.cpp */,
+				08D402141B6A74A00035C289 /* ofxFft.h */,
+				08D402151B6A74A00035C289 /* ofxFftBasic.cpp */,
+				08D402161B6A74A00035C289 /* ofxFftBasic.h */,
+				08D402171B6A74A00035C289 /* ofxFftw.cpp */,
+				08D402181B6A74A00035C289 /* ofxFftw.h */,
+				08D402191B6A74A00035C289 /* ofxProcessFFT.cpp */,
+				08D4021A1B6A74A00035C289 /* ofxProcessFFT.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		08EC80021B3C3D1A000893E1 /* ofxSceneManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,6 +993,8 @@
 		08EC80401B3C3FEF000893E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				08D401C31B6A6B920035C289 /* KathakScene.cpp */,
+				08D401C41B6A6B920035C289 /* KathakScene.h */,
 				08B074551B45944C008D71BB /* BeautifulMindScene.cpp */,
 				08B074561B45944C008D71BB /* BeautifulMindScene.h */,
 				08B074571B45944C008D71BB /* FluidFloorScene.cpp */,
@@ -1152,6 +1408,8 @@
 		AD642137CCDF61FB3E6CCEA2 /* Addons */ = {
 			isa = PBXGroup;
 			children = (
+				08D401FA1B6A74A00035C289 /* ofxFft */,
+				08D401D01B6A703B0035C289 /* ofxFX */,
 				08D401131B6A368B0035C289 /* ofxPostProcessing */,
 				08EEBC121B44354300061FB1 /* ofxNetwork */,
 				08EC80101B3C3F0F000893E1 /* ofxTween */,
@@ -1265,6 +1523,8 @@
 		C02C33831C66F04FEBAE29DE /* Visuals */ = {
 			isa = PBXGroup;
 			children = (
+				08D4019A1B6A61B00035C289 /* AudioManager.cpp */,
+				08D4019B1B6A61B00035C289 /* AudioManager.h */,
 				08F31D9B1B47F6310053C234 /* BeautifulMindManager.cpp */,
 				08F31D9C1B47F6310053C234 /* BeautifulMindManager.h */,
 				08B0745B1B4595E3008D71BB /* FloorManager.cpp */,
@@ -1479,6 +1739,7 @@
 				08EEBC231B44354300061FB1 /* ofxUDPManager.cpp in Sources */,
 				19D0A302C3A681F97EEAE033 /* ftDrawForce.cpp in Sources */,
 				6960C2659A81B7936347DA8D /* ftFluidSimulation.cpp in Sources */,
+				08D401C51B6A6B920035C289 /* KathakScene.cpp in Sources */,
 				3E08E879CDB133B2B1D5F23B /* ftVelocityMask.cpp in Sources */,
 				08D401581B6A368C0035C289 /* RenderPass.cpp in Sources */,
 				08EC803D1B3C3F0F000893E1 /* ofxEasingQuint.cpp in Sources */,
@@ -1491,6 +1752,7 @@
 				08B074A01B46D588008D71BB /* Font.cpp in Sources */,
 				08D401481B6A368C0035C289 /* BloomPass.cpp in Sources */,
 				9A15495FA2EE8F23378413B2 /* ofxBaseGui.cpp in Sources */,
+				08D4021E1B6A74A00035C289 /* readme.md in Sources */,
 				08D401521B6A368C0035C289 /* KaleidoscopePass.cpp in Sources */,
 				08B0749D1B46D588008D71BB /* CameraManager.cpp in Sources */,
 				1E777E277DAB367779E7E89A /* ofxButton.cpp in Sources */,
@@ -1516,8 +1778,10 @@
 				A17FD063CDFB818E826A6080 /* ofxMultiGLFWWindow.cpp in Sources */,
 				85EE6C4774B9737FF97A89E8 /* IpEndpointName.cpp in Sources */,
 				A6ACA0F494E98AF780199B78 /* NetworkingUtils.cpp in Sources */,
+				08D4021F1B6A74A00035C289 /* ofxEasyFft.cpp in Sources */,
 				08D4014C1B6A368C0035C289 /* DofPass.cpp in Sources */,
 				08EC80501B3CABAC000893E1 /* SmokyHandsScene.cpp in Sources */,
+				08D401F71B6A703B0035C289 /* ofxWater.cpp in Sources */,
 				08EEBC221B44354300061FB1 /* ofxTCPServer.cpp in Sources */,
 				08D4015D1B6A368C0035C289 /* VerticalTiltShifPass.cpp in Sources */,
 				1D8CD25882E2AD645377A32C /* UdpSocket.cpp in Sources */,
@@ -1545,10 +1809,12 @@
 				08EC80351B3C3F0F000893E1 /* ofxEasingBounce.cpp in Sources */,
 				08B074A51B46D588008D71BB /* ViewManager.cpp in Sources */,
 				08EC80431B3C3FEF000893E1 /* SceneManager.cpp in Sources */,
+				08D402231B6A74A00035C289 /* ofxProcessFFT.cpp in Sources */,
 				854D16924B6DD2C209FD11C2 /* ofxOscReceiver.cpp in Sources */,
 				08F31D9D1B47F6310053C234 /* BeautifulMindManager.cpp in Sources */,
 				08D4014D1B6A368C0035C289 /* EdgePass.cpp in Sources */,
 				78903FED64B0BFD8EED1E552 /* ofxOscSender.cpp in Sources */,
+				08D401F81B6A703B0035C289 /* ofxFXObject.cpp in Sources */,
 				9D3E5A7C189607A50D28E499 /* src_colors.cpp in Sources */,
 				A417B50DA594FBD304CFF2CA /* svgtiny.cpp in Sources */,
 				08B0749E1B46D588008D71BB /* LightManager.cpp in Sources */,
@@ -1561,6 +1827,7 @@
 				D75E4524BBB94FF34BF7DD48 /* ReleaseNotes in Sources */,
 				08B074A61B46D588008D71BB /* VisualEffects.cpp in Sources */,
 				08EC800B1B3C3D1A000893E1 /* ofxSceneManager.cpp in Sources */,
+				08D4021D1B6A74A00035C289 /* kiss_fftr.c in Sources */,
 				82C668F7D0DF704AD7D1BB1C /* utf8cpp.html in Sources */,
 				B7993B374B98F50CBD9EC220 /* README.md in Sources */,
 				08EC803C1B3C3F0F000893E1 /* ofxEasingQuart.cpp in Sources */,
@@ -1568,18 +1835,27 @@
 				7E78555D595408C86F902937 /* ofUnicode.cpp in Sources */,
 				08EC80371B3C3F0F000893E1 /* ofxEasingCubic.cpp in Sources */,
 				EC108074DB75C3CD93A7DADF /* ofUTF8.cpp in Sources */,
+				08D401F31B6A703B0035C289 /* license.md in Sources */,
+				08D4019C1B6A61B00035C289 /* AudioManager.cpp in Sources */,
 				08EEBC261B444F0E00061FB1 /* HandsManager.cpp in Sources */,
+				08D401F41B6A703B0035C289 /* README.md in Sources */,
 				08AC0E111B45251200574154 /* HandsWritingScene.cpp in Sources */,
+				08D402211B6A74A00035C289 /* ofxFftBasic.cpp in Sources */,
 				08D4015A1B6A368C0035C289 /* RimHighlightingPass.cpp in Sources */,
 				08EC80341B3C3F0F000893E1 /* ofxEasingBack.cpp in Sources */,
+				08D402221B6A74A00035C289 /* ofxFftw.cpp in Sources */,
 				08D4015E1B6A368C0035C289 /* ZoomBlurPass.cpp in Sources */,
 				08B0745A1B45944C008D71BB /* FluidFloorScene.cpp in Sources */,
+				08D4021C1B6A74A00035C289 /* kiss_fft.c in Sources */,
+				08D401F51B6A703B0035C289 /* ofxFlocking.cpp in Sources */,
 				08EEBC201B44354300061FB1 /* ofxTCPClient.cpp in Sources */,
 				08B074A11B46D588008D71BB /* ImageVisual.cpp in Sources */,
 				08D401541B6A368C0035C289 /* LUTPass.cpp in Sources */,
 				08EC800A1B3C3D1A000893E1 /* README.md in Sources */,
 				08EC80331B3C3F0F000893E1 /* ofxEasing.cpp in Sources */,
+				08D401F61B6A703B0035C289 /* ofxFluid.cpp in Sources */,
 				08EC805E1B3D81EA000893E1 /* ContourManager.cpp in Sources */,
+				08D402201B6A74A00035C289 /* ofxFft.cpp in Sources */,
 				08EC80361B3C3F0F000893E1 /* ofxEasingCirc.cpp in Sources */,
 				5D33A9513B2A4C6DBD3188C7 /* GuiManager.cpp in Sources */,
 				08D401511B6A368C0035C289 /* HorizontalTiltShifPass.cpp in Sources */,
@@ -1864,6 +2140,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
+					"$(PROJECT_DIR)/src/Addons/ofxFft/libs/fftw/lib/osx",
 				);
 				LIB_GLFW = "\"$(OF_PATH)/libs/glfw/lib/osx/libglfw3.a\"";
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
@@ -1990,6 +2267,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_49)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
+					"$(PROJECT_DIR)/src/Addons/ofxFft/libs/fftw/lib/osx",
 				);
 				LIB_GLFW = "\"$(OF_PATH)/libs/glfw/lib/osx/libglfw3.a\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";

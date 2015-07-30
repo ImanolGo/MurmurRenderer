@@ -68,6 +68,9 @@ void BattleOfSelfScene::setupPostProcessing()
     m_postProcessing.init(windowsSettings.width, windowsSettings.height);
     m_postProcessing.createPass<FxaaPass>()->setEnabled(true);
     m_postProcessing.createPass<BloomPass>()->setEnabled(true);
+
+    //m_postProcessing.createPass<ZoomBlurPass>()->setEnabled(true);
+    //m_postProcessing.createPass<NoiseWarpPass>()->setEnabled(true);
 }
 
 void BattleOfSelfScene::update()
