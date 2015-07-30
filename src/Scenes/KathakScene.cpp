@@ -92,7 +92,7 @@ void KathakScene::draw() {
     m_maskShader.begin();
     m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
         AppManager::getInstance().getHandsManager().draw();
-        this->drawFluid();
+        //this->drawFluid();
         this->drawWaterDrops();
     m_maskShader.end();
     
@@ -114,23 +114,27 @@ void KathakScene::updateWaterDrops()
     auto position = AppManager::getInstance().getFloorManager().getPosition();
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     
+    position.x *= windowsSettings.width;
+    position.y *= windowsSettings.height;
+    
     //ofLogNotice() << "KathakScene::updateWaterDrops: " << volume;
     
     m_water.begin();
         ofNoFill();
         ofSetLineWidth(10);
-        ofSetColor(ofNoise( ofGetFrameNum() ) * 255 * 5, 255);
+        ofColor color = ofColor::blue;
+        color.setSaturation( 100 + ofNoise( ofGetFrameNum() ) * 255 );
+        ofSetColor(color);
+        //ofSetColor(ofNoise( ofGetFrameNum() ) * 255 * 5, 255);
+        //ofSetColor(ofColor::blue);
         float radius = ofMap(volume, 0.0, 1.0, 30, windowsSettings.height/3);
-        //ofCircle(position, radius);
-        ofCircle(ofGetMouseX(), ofGetMouseY(), radius);
+        ofCircle(position, radius);
+        //ofCircle(ofGetMouseX(), ofGetMouseY(), radius);
     m_water.end();
     
     m_water.update();
 
 }
-
-
-
 
 void KathakScene::drawFluid()
 {
@@ -151,10 +155,7 @@ void KathakScene::drawFluid()
 
 void KathakScene::drawWaterDrops()
 {
-    ofPushStyle();
-        ofSetColor(ofColor::blue);
-        m_water[1].draw(0,0);
-    ofPopStyle();
+    m_water[1].draw(0,0);
 }
 
 
