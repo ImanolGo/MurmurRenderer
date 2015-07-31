@@ -36,6 +36,9 @@ public:
     //! Setup the Hands Manager
     void setup();
     
+    //! Update Hands the Hands Manager
+    void update();
+     
     //! Draw the Hands Manager
     void draw();
      

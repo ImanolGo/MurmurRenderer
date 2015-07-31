@@ -128,11 +128,12 @@ void AppManager::setupManagers()
 void AppManager::update()
 {
     m_audioManager.update();
-    m_visualEffectsManager.update();
-    m_sceneManager.update();
     m_oscManager.update();
     m_udpManager.update();
+    m_visualEffectsManager.update();
     m_contourManager.update();
+    m_sceneManager.update();
+    m_handsManager.update();
 }
 
 

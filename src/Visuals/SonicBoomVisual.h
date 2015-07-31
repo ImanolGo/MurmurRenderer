@@ -49,6 +49,7 @@ private:
     
     float m_time;                //Time of living
     float m_lifeTime;            //Allowed lifetime
+    float m_size;                ///Max size
     bool  m_live;                //Is particle live
 };
 

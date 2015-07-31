@@ -35,6 +35,11 @@ void HandsManager::setup()
 }
 
 
+void HandsManager::update()
+{
+    m_hands.clear();
+}
+
 void HandsManager::draw()
 {
     ofPushMatrix();

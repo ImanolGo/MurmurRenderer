@@ -13,7 +13,7 @@
 
 SonicBoomParticle::SonicBoomParticle(const ofPoint& pos): BasicVisual(pos,0,0), m_lifeTime(5), m_live(true), m_time(0)
 {
-    //Intentionaly left empty
+    this->setup();
 }
 
 
@@ -26,7 +26,8 @@ SonicBoomParticle::~SonicBoomParticle()
 void SonicBoomParticle::setup()
 {
     m_time = 0;
-    m_lifeTime = 10;
+    m_lifeTime = 1 + ofNoise( ofGetElapsedTimef()/2)*7 ;
+    m_size = 50 + ofNoise( ofGetElapsedTimef()/2)*550 ;
     m_color = ofColor::white;
 }
 
@@ -37,8 +38,8 @@ void SonicBoomParticle::update()
     
     m_time += ofGetLastFrameTime();
     
-    m_width = ofMap(m_time, 0, m_lifeTime, 0, 200);
-    m_color.a = ofMap(m_time, 0, m_lifeTime, 255, 0);
+    m_width = ofMap(m_time, 0, m_lifeTime, 4, m_size);
+    m_color.a = ofMap(m_time, 0, m_lifeTime, 255, 0, true);
     
     if(m_time>=m_lifeTime){
         m_live = false;
@@ -71,7 +72,6 @@ SonicBoomVisual::~SonicBoomVisual()
 
 void SonicBoomVisual::update()
 {
-    ofLogNotice()<< "Number particles " << m_particles.size();
     for(ParticlesVector::iterator it = m_particles.begin(); it != m_particles.end();)
     {
         (*it)->update();
@@ -97,7 +97,6 @@ void SonicBoomVisual::addParticle(const ofPoint &pos)
 {
     auto particle = ofPtr<SonicBoomParticle> (new SonicBoomParticle(pos));
     m_particles.push_back(particle);
-    ofLogNotice()<< "Added particle";
 }
 
 void SonicBoomVisual::clear()

@@ -79,14 +79,14 @@ void BattleOfSelfScene::setupPostProcessing()
     // Setup post-processing chain
     m_postProcessing.init(windowsSettings.width, windowsSettings.height);
     m_postProcessing.createPass<FxaaPass>()->setEnabled(true);
-    m_postProcessing.createPass<BloomPass>()->setEnabled(true);
+    //m_postProcessing.createPass<BloomPass>()->setEnabled(true);
     
     //ofPtr<ZoomBlurPass> zoomBlurPass =  m_postProcessing.createPass<ZoomBlurPass>();
     //zoomBlurPass->setDensity(0.5);
     //zoomBlurPass->setEnabled(true);
     
     ofPtr<NoiseWarpPass> noisePass =  m_postProcessing.createPass<NoiseWarpPass>();
-    noisePass->setAmplitude(0.001);
+    noisePass->setAmplitude(0.007);
     noisePass->setSpeed(0.5);
     noisePass->setFrequency(10);
     noisePass->setEnabled(true);
@@ -191,7 +191,9 @@ void BattleOfSelfScene::drawContour()
 
 void BattleOfSelfScene::drawSonicBoom()
 {
-    m_sonicBoomVisual.draw();
+    m_postProcessing.begin();
+        m_sonicBoomVisual.draw();
+    m_postProcessing.end();
 }
 
 void BattleOfSelfScene::drawFluid()
