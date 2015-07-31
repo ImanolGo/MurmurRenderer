@@ -50,6 +50,8 @@ public:
     void setOffset(ofVec2f & offset);
      
     void setScale(ofVec2f & scale);
+     
+    void setHandsOn(bool & value) {m_handsOn = value;}
     
      
 private:
@@ -74,6 +76,8 @@ private:
     ofVec2f             m_handsOffset;
     ofVec2f             m_handsScale;
     ofRectangle         m_handsRectangleSpace;
+     
+    bool                m_handsOn;
      
 };
 

@@ -147,6 +147,10 @@ void GuiManager::setupHandsGui()
     auto handsManager = &AppManager::getInstance().getHandsManager();
     m_parametersHands.setName("Hands");
     
+    m_handsOn.set("On", false);
+    m_handsOn.addListener(handsManager, &HandsManager::setHandsOn);
+    m_parametersHands.add(m_handsOn);
+    
     m_handsOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
     m_handsOffset.addListener(handsManager, &HandsManager::setOffset);
     m_parametersHands.add(m_handsOffset);

@@ -74,6 +74,11 @@ void HandsManager::setupHandsRectangleSpace()
 
 void HandsManager::readHands(char const* data)
 {
+    
+    if(!m_handsOn){
+        return;
+    }
+    
     //Formatting the message: 'X' <len(c8)> [<xpos(f32),ypos(f32)>] 'x'
     
     char const* p = data;
