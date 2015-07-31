@@ -11,7 +11,7 @@
 
 
 
-SonicBoomParticle::SonicBoomParticle(const ofPoint& pos): BasicVisual(pos,0,0), m_lifeTime(10), m_live(true), m_time(0)
+SonicBoomParticle::SonicBoomParticle(const ofPoint& pos): BasicVisual(pos,0,0), m_lifeTime(5), m_live(true), m_time(0)
 {
     //Intentionaly left empty
 }
@@ -39,6 +39,10 @@ void SonicBoomParticle::update()
     
     m_width = ofMap(m_time, 0, m_lifeTime, 0, 200);
     m_color.a = ofMap(m_time, 0, m_lifeTime, 255, 0);
+    
+    if(m_time>=m_lifeTime){
+        m_live = false;
+    }
 }
 
 void SonicBoomParticle::draw()
@@ -67,10 +71,13 @@ SonicBoomVisual::~SonicBoomVisual()
 
 void SonicBoomVisual::update()
 {
-    for(ParticlesVector::iterator it = m_particle.begin(); it != m_particle.end();)
+    ofLogNotice()<< "Number particles " << m_particles.size();
+    for(ParticlesVector::iterator it = m_particles.begin(); it != m_particles.end();)
     {
+        (*it)->update();
+        
         if(!(*it)->isAlive()){
-            it = m_particle.erase(it);
+            it = m_particles.erase(it);
         }
         else{
             ++it;
@@ -80,7 +87,8 @@ void SonicBoomVisual::update()
 
 void SonicBoomVisual::draw()
 {
-    for (auto particle: m_particle) {
+    
+    for (auto particle: m_particles) {
         particle->draw();
     }
 }
@@ -88,10 +96,11 @@ void SonicBoomVisual::draw()
 void SonicBoomVisual::addParticle(const ofPoint &pos)
 {
     auto particle = ofPtr<SonicBoomParticle> (new SonicBoomParticle(pos));
-    m_particle.push_back(particle);
+    m_particles.push_back(particle);
+    ofLogNotice()<< "Added particle";
 }
 
 void SonicBoomVisual::clear()
 {
-    m_particle.clear();
+    m_particles.clear();
 }

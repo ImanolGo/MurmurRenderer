@@ -87,7 +87,7 @@ public:
 private:
      
      typedef vector< ofPtr<SonicBoomParticle> > ParticlesVector;
-     ParticlesVector  m_particle;
+     ParticlesVector  m_particles;
 
 };
 
