@@ -12,6 +12,8 @@
 #include "FluidVisual.h"
 #include "ofxScene.h"
 #include "ofxPostProcessing.h"
+#include "ofxBlur.h"
+#include "SonicBoomVisual.h"
 
 class BattleOfSelfScene : public ofxScene {
 
@@ -46,15 +48,24 @@ public:
     
 private:
     
+    void setupFbos();
+    
     void setupShaders();
     
     void setupPostProcessing();
     
     void drawFluid();
     
+    void updateSonicBoom();
+    
     void updateFluid();
     
-    void drawVisuals();
+    void updateContour();
+    
+    void drawContour();
+    
+    void drawSonicBoom();
+
     
 private:
     
@@ -62,8 +73,10 @@ private:
     
     ofShader                m_shader;
     FluidVisual             m_fluid;
-    
-     ofxPostProcessing      m_postProcessing;
+    ofFbo                   m_fbo;
+    ofxPostProcessing       m_postProcessing;
+    ofxBlur                 m_blur;
+    SonicBoomVisual         m_sonicBoomVisual;
 
 };
 

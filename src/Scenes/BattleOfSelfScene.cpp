@@ -29,6 +29,7 @@ void BattleOfSelfScene::setup()
         return;
     }
     
+    this->setupFbos();
     this->setupShaders();
     this->setupPostProcessing();
     
@@ -36,6 +37,15 @@ void BattleOfSelfScene::setup()
     m_initialized = true;
     
     ofLogNotice("BattleOfSelfScene::setup");
+    
+}
+
+void BattleOfSelfScene::setupFbos()
+{
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+
+    m_fbo.allocate(windowsSettings.width, windowsSettings.height);
+    m_fbo.begin(); ofClear(0); m_fbo.end();
     
 }
 
@@ -47,16 +57,18 @@ void BattleOfSelfScene::setupShaders()
     
     
     if(ofIsGLProgrammableRenderer()){
-        m_shader.load("shaders/shadersGL3/BattleOfSelfVert.glsl", "shaders/shadersGL3/BattleOfSelfFrag.glsl", "shaders/shadersGL3/BattleOfSelfGeom.glsl");
+        m_shader.load("shaders/shadersGL3/BattleOfSelfVert");
     }
     else{
-       m_shader.load("shaders/shadersGL2/BattleOfSelfVert.glsl", "shaders/shadersGL2/BattleOfSelfFrag.glsl", "shaders/shadersGL2/BattleOfSelfGeom.glsl");
+       m_shader.load("shaders/shadersGL2/LiquifyShader");
         
     }
 
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    m_blur.setup(windowsSettings.width, windowsSettings.height, 2, .2, 4);
+    //m_blur.setScale(5);
     
-    
-    ofLogNotice() << "BattleOfSelfScene::setupShaders -> Geometry Max Output Count: " << m_shader.getGeometryMaxOutputCount();
+    //ofLogNotice() << "BattleOfSelfScene::setupShaders -> Geometry Max Output Count: " << m_shader.getGeometryMaxOutputCount();
     
 }
 
@@ -68,7 +80,18 @@ void BattleOfSelfScene::setupPostProcessing()
     m_postProcessing.init(windowsSettings.width, windowsSettings.height);
     m_postProcessing.createPass<FxaaPass>()->setEnabled(true);
     m_postProcessing.createPass<BloomPass>()->setEnabled(true);
-
+    
+    //ofPtr<ZoomBlurPass> zoomBlurPass =  m_postProcessing.createPass<ZoomBlurPass>();
+    //zoomBlurPass->setDensity(0.5);
+    //zoomBlurPass->setEnabled(true);
+    
+    ofPtr<NoiseWarpPass> noisePass =  m_postProcessing.createPass<NoiseWarpPass>();
+    noisePass->setAmplitude(0.001);
+    noisePass->setSpeed(0.5);
+    noisePass->setFrequency(10);
+    noisePass->setEnabled(true);
+    
+    
     //m_postProcessing.createPass<ZoomBlurPass>()->setEnabled(true);
     //m_postProcessing.createPass<NoiseWarpPass>()->setEnabled(true);
 }
@@ -76,6 +99,8 @@ void BattleOfSelfScene::setupPostProcessing()
 void BattleOfSelfScene::update()
 {
     this->updateFluid();
+    this->updateContour();
+    this->updateSonicBoom();
 }
 
 
@@ -87,28 +112,63 @@ void BattleOfSelfScene::updateFluid()
 }
 
 
+void BattleOfSelfScene::updateContour()
+{
+    ofEnableAlphaBlending();
+    m_fbo.begin();
+        ofPushStyle();
+            ofClear(0);
+            //ofSetColor(0,0,0, 255);
+            //ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
+            ofSetColor(255,255,255);
+            AppManager::getInstance().getContourManager().draw();
+        ofPopStyle();
+    m_fbo.end();
+    ofDisableAlphaBlending();
+}
+
+void BattleOfSelfScene::updateSonicBoom()
+{
+    auto hands = AppManager::getInstance().getHandsManager().getHands();
+    
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    
+    for (auto hand : hands) {
+        ofPoint pos = hand;
+        pos.x *= windowsSettings.width;
+        pos.y *= windowsSettings.height;
+        m_sonicBoomVisual.addParticle(pos);
+    }
+
+    
+    m_sonicBoomVisual.update();
+}
+
 void BattleOfSelfScene::draw() {
-    ofBackground(0,0,0);
-    this->drawVisuals();
+    
+    this->drawContour();
+    this->drawSonicBoom();
 }
 
 
-void BattleOfSelfScene::drawVisuals()
+void BattleOfSelfScene::drawContour()
 {
     // copy enable part of gl state
     glPushAttrib(GL_ENABLE_BIT);
     
-    // setup gl state
-    //glEnable(GL_DEPTH_TEST);
-   // glEnable(GL_CULL_FACE);
-    
-    // begin scene to post process
-    m_postProcessing.begin();
-    
-        AppManager::getInstance().getContourManager().draw();
+    /*m_postProcessing.begin();
+   
+        ofPushMatrix();
+        //ofSetColor(255,255,255);
+        ofScale(1, -1);
+        ofTranslate(0, -ofGetHeight());
+        m_fbo.draw(0,0);
+       // AppManager::getInstance().getContourManager().draw();
+        ofPopMatrix();
     
     // end scene and draw
-    m_postProcessing.end();
+    m_postProcessing.end();*/
+    
     
     // set gl state back to original
     glPopAttrib();
@@ -116,12 +176,22 @@ void BattleOfSelfScene::drawVisuals()
     //m_filter->begin();
         //AppManager::getInstance().getContourManager().draw();
     //m_filter->end();
+    m_blur.begin();
     //m_shader.begin();
-    //m_shader.setUniform1f("nshift", 0);
-    //m_shader.setUniform1f("thick", 0.03);
-    //ofLine(0, 0, 200, 200);
+    float time = ofGetElapsedTimef();
+    //m_shader.setUniform1f( "time", time );	//Passing float parameter "time" to shader
+    //m_shader.setUniform1f( "amplitude", .4f );	//Passing float parameter "time" to shader
+    m_fbo.draw(0,0);
     
     //m_shader.end();
+    m_blur.end();
+    
+    m_blur.draw();
+}
+
+void BattleOfSelfScene::drawSonicBoom()
+{
+    m_sonicBoomVisual.draw();
 }
 
 void BattleOfSelfScene::drawFluid()
@@ -153,4 +223,6 @@ void BattleOfSelfScene::willFadeOut() {
 
 void BattleOfSelfScene::willExit() {
     ofLogNotice("BattleOfSelfScene::willExit");
+    
+    m_sonicBoomVisual.clear();
 }

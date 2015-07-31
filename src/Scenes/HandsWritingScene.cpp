@@ -70,6 +70,11 @@ void HandsWritingScene::drawFluid()
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     m_fluid.draw();
+    
+    if(AppManager::getInstance().getDebugMode()){
+        m_fluid.drawGui();
+    }
+    
     ofPopStyle();
     
 }

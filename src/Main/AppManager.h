@@ -110,6 +110,8 @@ public:
     
     void setDebugMode(bool showDebug);
     
+    bool getDebugMode() const {return m_debugMode;}
+    
 
 private:
 

@@ -81,7 +81,10 @@ void FluidFloorScene::draw() {
         this->drawFluid();
     m_maskShader.end();
     
-    m_fluid.drawGui();
+    
+    if(AppManager::getInstance().getDebugMode()){
+        m_fluid.drawGui();
+    }
 
 }
 

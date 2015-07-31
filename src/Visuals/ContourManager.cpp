@@ -73,7 +73,7 @@ void ContourManager::update()
         m_contourFbo.begin();
         m_thickLineShader.begin();
         m_thickLineShader.setUniform1f("thickness", m_contourThickness);
-       // m_thickLineShader.setUniform3f("lightDir", sin(ofGetElapsedTimef()/10), cos(ofGetElapsedTimef()/10), 0);
+        m_thickLineShader.setUniform3f("lightDir", sin(ofGetElapsedTimef()/10), cos(ofGetElapsedTimef()/10), 0);
         ofClear(0);
         for (auto contour: m_contours){
             contour->draw();
@@ -121,6 +121,7 @@ void ContourManager::setContour(vector<float> contourPoints)
     //contour->setStrokeWidth(0.1);
     //contour->setPolyWindingMode((ofPolyWindingMode) 2);
     contour->close(); // close the shape
+    //contour->simplify(5.0);
     
     m_contours.push_back(contour);
     

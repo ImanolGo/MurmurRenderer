@@ -57,11 +57,15 @@ void SmokyHandsScene::drawFluid()
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-    AppManager::getInstance().getContourManager().draw();
+    //AppManager::getInstance().getContourManager().draw();
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     m_smokeFluid.draw();
-    //m_smokeFluid.drawGui();
+    
+    if(AppManager::getInstance().getDebugMode()){
+        m_smokeFluid.drawGui();
+    }
+    
     ofPopStyle();
     
 }

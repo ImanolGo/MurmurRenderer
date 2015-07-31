@@ -3,6 +3,7 @@
 #extension GL_EXT_gpu_shader4 : enable
 uniform sampler2DRect texture0;
 uniform float time;
+uniform float amplitude;
 
 //Classic Perlin noise function declaration
 //See definition in the end of file
@@ -15,7 +16,8 @@ void main(){
 	vec2 shift;
 	shift.x = cnoise( vec3(pos*0.02, time * 0.5 + 17.0) )*30.0;
 	shift.y = cnoise( vec3(pos*0.02, time * 0.5 + 12.0) )*30.0;
-	pos += shift;
+	pos += (shift*amplitude);
+  //pos += shift;
 	
 	vec4 color = texture2DRect(texture0, pos);
 	//Output of the shader
