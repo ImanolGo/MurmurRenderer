@@ -54,6 +54,8 @@ public:
     
     void setSceneTransitionTime(float value) {m_sceneTransitionTime = value;}
     
+    void setScene(const string& sceneName);
+    
     void onSetBlankScene(bool& value);
     
     void onSetSmokyHandsScene(bool& value);
@@ -67,6 +69,8 @@ public:
     void onSetFluidFloorScene(bool& value);
     
     void onSetKathakScene(bool& value);
+    
+    void setAudioVolume(float& value){m_audioVolume = value;}
     
     void setContourThickness(float value) {m_contourThickness = value;}
     

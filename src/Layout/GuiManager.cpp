@@ -343,5 +343,15 @@ void GuiManager::onSetKathakScene(bool& value)
     }
 }
 
+void GuiManager::setScene(const string &sceneName)
+{
+    if(!m_parametersScenes.contains(sceneName)){
+        return;
+    }
+    
+    ofParameter<bool>& scene = (ofParameter<bool>&) m_parametersScenes.get(sceneName);
+    scene.set(true);
+}
+
 
 

@@ -109,13 +109,20 @@ void OscManager::update()
        
         if(m.getAddress() == "/MurmurRenderer/Scene"){
             string sceneName = m.getArgAsString(0);
-            AppManager::getInstance().getSceneManager().changeScene(sceneName);
+            //AppManager::getInstance().getSceneManager().changeScene(sceneName);
+            AppManager::getInstance().getGuiManager().setScene(sceneName);
             this->updateReceiveText();
         }
         
         else if(m.getAddress() == "/MurmurRenderer/SceneTransparency"){
             float value = m.getArgAsFloat(0);
             AppManager::getInstance().getGuiManager().setSceneTransparency(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/AudioVolume"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setAudioVolume(value);
             this->updateReceiveText();
         }
 
@@ -215,6 +222,30 @@ void OscManager::update()
             scale.x = m.getArgAsFloat(0);
             scale.y = m.getArgAsFloat(1);
             AppManager::getInstance().getGuiManager().setBeautifulMindScale(scale);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/CropLeft"){
+            int value  =  m.getArgAsInt32(0);
+            AppManager::getInstance().getGuiManager().setCropLeft(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/CropRight"){
+            int value  =  m.getArgAsInt32(0);
+            AppManager::getInstance().getGuiManager().setCropRight(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/CropTop"){
+            int value  =  m.getArgAsInt32(0);
+            AppManager::getInstance().getGuiManager().setCropTop(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/CropBottom"){
+            int value  =  m.getArgAsInt32(0);
+            AppManager::getInstance().getGuiManager().setCropBottom(value);
             this->updateReceiveText();
         }
 
