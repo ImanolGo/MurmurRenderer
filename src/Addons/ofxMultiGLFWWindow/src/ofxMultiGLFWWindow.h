@@ -36,6 +36,8 @@ public:
 
     int getWindowIndex();
 
+    void undecorate(bool undecorated);
+        
     void makeContextCurrent();
     void makeContextNull();
     

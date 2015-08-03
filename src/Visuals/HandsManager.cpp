@@ -81,10 +81,15 @@ void HandsManager::readHands(char const* data)
     
     //Formatting the message: 'X' <len(c8)> [<xpos(f32),ypos(f32)>] 'x'
     
+    
+    //ofLogNotice() <<"HandsManager::readHands << headbyte -> " << data[0];
+    
     char const* p = data;
     
     char headerByte;
     p = extract(p, headerByte); // p contains next position to read
+    
+    //ofLogNotice() <<"HandsManager::readHands << headbyte -> " << headerByte;
     
     if(headerByte == 'X') //Beginning of message
     {
@@ -95,6 +100,8 @@ void HandsManager::readHands(char const* data)
         
         int numberOfHands = charNumberOfHands;
         
+        //ofLogNotice() <<"HandsManager::readHands << numberOfHands -> " << numberOfHands;
+        
         for(int i = 0; i < numberOfHands; i++) //Extract all the hands
         {
             Float32 x, y;
@@ -102,11 +109,18 @@ void HandsManager::readHands(char const* data)
             
             //x = htonl(x);
             p = extract(p, y); // p contains next position to read
-            //y = htonl(y);
+            //y = ntohs(y);
             
+            ofLogNotice() <<"HandsManager::readHands << y -> " << y;
             ofVec2f hand = ofVec2f(x,y) - 0.5;
             hand *= m_handsScale;
             hand = hand + 0.5 + m_handsOffset;
+            
+            hand.x = ofClamp(hand.x, 0, 1);
+            hand.y = ofClamp(hand.y, 0, 1);
+            
+            //ofLogNotice() <<"HandsManager::readHands << y -> " << hand.y;
+            //ofLogNotice() <<"HandsManager::readHands << x -> " << hand.x;
             
             m_hands.push_back(hand);
             
@@ -145,7 +159,7 @@ char const* HandsManager::extract(char const* data, Type& type)
     // This union will ensure the integral data type is correctly aligned
     union tx_t
     {
-        unsigned char cdata[sizeof(Type)];
+        char cdata[sizeof(Type)];
         Type tdata;
     } tx;
     

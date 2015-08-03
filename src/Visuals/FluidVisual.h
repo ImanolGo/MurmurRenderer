@@ -43,6 +43,9 @@ public:
     //! Draw the Fluid Visual
     void draw();
     
+     //! Draw the Fluid Visual within a given area
+    void draw(const ofRectangle& area);
+    
     //! Draw the Fluid Visual GUI
     void drawGui();
     

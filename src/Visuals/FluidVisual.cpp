@@ -181,6 +181,11 @@ void FluidVisual::updateFluid()
     m_fluid.update();
 }
 
+void FluidVisual::draw(const ofRectangle& area)
+{
+    m_fluid.draw(area.x, area.y, area.width, area.height);
+}
+
 void FluidVisual::draw()
 {
     m_fluid.draw(0, 0, ofGetWidth(), ofGetHeight());

@@ -83,6 +83,7 @@ void AppManager::setupGlfwWidows()
         ofSetWindowPosition(windowSettings.x, windowSettings.y);    // business as usual...
         ofSetWindowShape(windowSettings.width, windowSettings.height);
         ofSetWindowTitle(windowSettings.title);
+        m_glfw->undecorate(windowSettings.fullscreen);
         ofSetFullscreen(windowSettings.fullscreen);        // order important with fullscreen
         //ofLogNotice() << "AppManager::setupGlfwWidows -> width = " << ofGetWidth() << ", height = " << ofGetHeight();
         

@@ -54,8 +54,12 @@ void HandsWritingScene::updateFluid()
 {
     auto hands = AppManager::getInstance().getHandsManager().getHands();
     
+    //ofLogNotice() <<"HandsManager::readHands << size -> " << hands.size();
+    
     for (auto hand : hands) {
         m_fluid.addForce(hand);
+         //ofLogNotice() <<"HandsManager::readHands << y -> " << hand.y;
+         //ofLogNotice() <<"HandsManager::readHands << x -> " << hand.x;
     }
     
     m_fluid.update();
@@ -66,7 +70,7 @@ void HandsWritingScene::drawFluid()
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-    AppManager::getInstance().getHandsManager().draw();
+    //AppManager::getInstance().getHandsManager().draw();
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     m_fluid.draw();

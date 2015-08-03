@@ -197,7 +197,7 @@ bool SceneManager::changeScene(string sceneName)
             m_sceneManagers[scene->window_index]->changeScene((int) scene->index);
         }
         else{
-            m_sceneManagers[scene->window_index]->changeScene(0);
+            //m_sceneManagers[scene->window_index]->changeScene(0);
         }
     }
     

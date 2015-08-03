@@ -13,7 +13,7 @@
 #include "AppManager.h"
 
 
-const int UdpManager::UDP_MESSAGE_LENGHT = 100;
+const int UdpManager::UDP_MESSAGE_LENGHT = 1000;
 
 UdpManager::UdpManager(): Manager()
 {
@@ -85,24 +85,20 @@ void UdpManager::update()
     
     string text = ">>UdpManager::update -> " ;
     
-    while (getNext) {
-        m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
-        tempMessage=udpMessage;
-        
-        if (tempMessage==""){
-            getNext = false;
-        }
-        else{
-            message = tempMessage;
-        }
     
+    int bytesReceived =  m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
+    if(bytesReceived>0){
+        message = udpMessage;
     }
-   
+    
+    
     //ofLogNotice() <<">>UdpManager::update -> message: " << message;
     
     AppManager::getInstance().getHandsManager().readHands(message.c_str());
     
-    m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
+    //AppManager::getInstance().getHandsManager().readHands(udpMessage);
+    
+    //m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
    
     //ofLogNotice() << message;
     //this->updateReceiveText(message);

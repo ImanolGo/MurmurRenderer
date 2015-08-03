@@ -282,6 +282,15 @@ void ofxMultiGLFWWindow::initializeWindow(){
 
 }
 
+void ofxMultiGLFWWindow::undecorate(bool undecorated){
+    //----------------------
+    // setup the callbacks
+    if(!windowP) return;
+    
+    glfwWindowHint(GLFW_DECORATED, !undecorated);
+    
+}
+
 #ifdef TARGET_LINUX
 //------------------------------------------------------------
 void ofxMultiGLFWWindow::setWindowIcon(const string & path){
