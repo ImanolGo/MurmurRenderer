@@ -62,26 +62,28 @@ void AppManager::setupMultipleWidows()
     
     m_glfw = (ofxMultiGLFWWindow*)ofGetWindowPtr();
     
-    // vector of windows, count set in main
-    m_windows = &m_glfw->windows;
-    
     WindowSettingsVector windowSettingsVector = AppManager::getInstance().getSettingsManager().getWindowsSettings();
+    
+    m_windows = &m_glfw->windows;
     
     int i = 0;
     for(auto windowSettings : windowSettingsVector) {
         ofLogNotice() << "AppManager::setupMultipleWidows -> creating window: " << i;
         
-        if(i>1){
-            m_glfw->createWindow();
+        m_glfw->undecorate(windowSettings.fullscreen);
+        if (i>0) {
+            m_glfw->createWindow(windowSettings.width, windowSettings.height);
         }
-        
         m_glfw->setWindow(m_windows->at(i));    // set window pointer
         m_glfw->initializeWindow();       // initialize events (mouse, keyboard, etc) on window (optional)
-        ofSetWindowPosition(windowSettings.x, windowSettings.y);    // business as usual...
-        ofSetWindowShape(windowSettings.width, windowSettings.height);
+        m_glfw->setWindowPosition(windowSettings.x, windowSettings.y);
+        //m_glfw->setWindowShape(windowSettings.width, windowSettings.height);
+        //m_glfw->undecorate(windowSettings.fullscreen);
+        //ofSetWindowPosition(windowSettings.x, windowSettings.y);    // business as usual...
+        //ofSetWindowShape(windowSettings.width, windowSettings.height);
         ofSetWindowTitle(windowSettings.title);
-        m_glfw->undecorate(windowSettings.fullscreen);
-        ofSetFullscreen(windowSettings.fullscreen);        // order important with fullscreen
+       
+        //ofSetFullscreen(windowSettings.fullscreen);        // order important with fullscreen
         //ofLogNotice() << "AppManager::setupGlfwWidows -> width = " << ofGetWidth() << ", height = " << ofGetHeight();
         
         if(windowSettings.showCursor){
@@ -96,7 +98,8 @@ void AppManager::setupMultipleWidows()
         i++;
     }
     
-    
+    // vector of windows, count set in main
+    m_windows = &m_glfw->windows;
     m_glfw->setWindow(m_windows->at(0));
 }
 
@@ -136,6 +139,9 @@ void AppManager::update()
 void AppManager::draw()
 {
     int wIndex = m_glfw->getWindowIndex();
+    
+    //glfwWindowHint(GLFW_DECORATED, false);
+    //m_glfw->undecorate(true);
     
     switch (wIndex) { // switch on window index
         case 0:

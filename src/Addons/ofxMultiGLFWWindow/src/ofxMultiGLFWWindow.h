@@ -44,6 +44,7 @@ public:
     GLFWwindow* getEventWindow();
     GLFWwindow* eventWindow;
     
+    GLFWwindow* createWindow(int width, int height);
     GLFWwindow* createWindow();
     GLFWwindow* createFSWindow(int monitorIndex);
 

@@ -284,9 +284,6 @@ void ofxMultiGLFWWindow::initializeWindow(){
 
 void ofxMultiGLFWWindow::undecorate(bool undecorated){
     //----------------------
-    // setup the callbacks
-    if(!windowP) return;
-    
     glfwWindowHint(GLFW_DECORATED, !undecorated);
     
 }
@@ -466,9 +463,18 @@ GLFWwindow* ofxMultiGLFWWindow::getEventWindow(){
 }
 
 //------------------------------------------------------------
+GLFWwindow* ofxMultiGLFWWindow::createWindow(int width, int height) {
+    setWindow(windows[0]);
+    windows.push_back(glfwCreateWindow(width, height, "", NULL, glfwGetCurrentContext()));
+    setWindow(windows[windows.size()-1]);
+    return windows[windows.size()-1];
+}
+
+
+//------------------------------------------------------------
 GLFWwindow* ofxMultiGLFWWindow::createWindow() {
     setWindow(windows[0]);
-    windows.push_back(glfwCreateWindow(1024, 768, "", NULL, glfwGetCurrentContext()));
+    windows.push_back(glfwCreateWindow(1920, 1200, "", NULL, glfwGetCurrentContext()));
     setWindow(windows[windows.size()-1]);
     return windows[windows.size()-1];
 }
@@ -692,7 +698,8 @@ void ofxMultiGLFWWindow::setWindowPosition(int x, int y){
 
 //------------------------------------------------------------
 void ofxMultiGLFWWindow::setWindowShape(int w, int h){
-	glfwSetWindowSize(windowP,w/pixelScreenCoordScale,h/pixelScreenCoordScale);
+	//glfwSetWindowSize(windowP,w/pixelScreenCoordScale,h/pixelScreenCoordScale);
+    glfwSetWindowSize(windowP,w/pixelScreenCoordScale,h/pixelScreenCoordScale);
 	// this is useful, esp if we are in the first frame (setup):
 	requestedWidth  = w;
 	requestedHeight = h;

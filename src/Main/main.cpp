@@ -13,10 +13,10 @@ int main( ){
     glfw.setOpenGLVersion(2,1); // must be set
     //glfw.setStencilBits(8);
     
-    glfw.windowCount = 2;
+    glfw.windowCount = 1;
     
     //glfw.setMultiDisplayFullscreen(true);
-    ofSetupOpenGL(&glfw,1024,768,OF_WINDOW);
+    ofSetupOpenGL(&glfw,1920,1200,OF_WINDOW);
     
     ofRunApp(new MurmurRendererApp());
     
