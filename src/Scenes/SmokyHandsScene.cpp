@@ -31,6 +31,10 @@ void SmokyHandsScene::setup()
     
     ofLogNotice("SmokyHandsScene::setup");
     m_smokeFluid.setup("xmls/SmokyHandsFluid.xml");
+    
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    m_drawArea = ofRectangle(0, 0, windowsSettings.width, windowsSettings.height);
+    
     m_initialized = true;
 }
 
@@ -57,10 +61,10 @@ void SmokyHandsScene::drawFluid()
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-    //AppManager::getInstance().getContourManager().draw();
+    //AppManager::getInstance().getContourManager().draw(m_drawArea);
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-    m_smokeFluid.draw();
+    m_smokeFluid.draw(m_drawArea);
     
     if(AppManager::getInstance().getDebugMode()){
         m_smokeFluid.drawGui();

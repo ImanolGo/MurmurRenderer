@@ -45,7 +45,13 @@ void AudioManager::setupFFT()
 
 void AudioManager::update()
 {
+    if (!m_audioOn) {
+        return;
+    }
+    
     m_fft.update();
+    m_audioMax = ofMap(m_fft.getUnScaledLoudestValue(), 0.0, m_volumeRange, 0.0, 1.0, true);
+    
     //ofLogNotice() <<"AudioManager::update: " << m_fft.getUnScaledLoudestValue();
     //ofLogNotice() <<"AudioManager::update2: " << m_fft.getLoudBand();
 }
@@ -62,8 +68,24 @@ void AudioManager::onChangeVolumeRange(float& value)
 
 }
 
-float AudioManager::getMaxSound() 
+void AudioManager::setAudioMax(float audioMax)
 {
-    return ofMap(m_fft.getUnScaledLoudestValue(), 0.0, m_volumeRange, 0.0, 1.0, true);
+    if(m_audioOn){
+        return;
+    }
+    
+    m_audioMax = audioMax;
+}
+
+void AudioManager::onChangeAudioOn(bool& value)
+{
+    m_audioOn = value;
+    
+}
+
+
+float AudioManager::getAudioMax()
+{
+    return m_audioMax;
 }
 

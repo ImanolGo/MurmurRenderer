@@ -72,6 +72,8 @@ public:
     
     void setAudioVolume(float& value){m_audioVolume = value;}
     
+    void setAudioOn(bool& value){m_audioOn = value;}
+    
     void setContourThickness(float value) {m_contourThickness = value;}
     
     void setContourOffset(ofVec2f value) {m_contourOffset = value;}
@@ -99,6 +101,8 @@ public:
     void setCropTop(unsigned int value) {m_cropTop = value;}
     
     void setCropBottom(unsigned int value) {m_cropBottom = value;}
+    
+    void setFullScreen(bool value) {m_fullscreen = value;}
     
     
 private:
@@ -147,13 +151,15 @@ private:
     ofParameter<bool>       m_sceneBeautifulMind;
     ofParameter<bool>       m_sceneKathak;
     
-    ofParameter<int>     m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
+    ofParameter<int>        m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
+    ofParameter<bool>       m_fullscreen;
     
     ofParameter<float>      m_contourThickness;
     ofParameter<ofVec2f>    m_contourOffset;
     ofParameter<ofVec2f>    m_contourScale;
     
     ofParameter<float>      m_audioVolume;
+    ofParameter<bool>       m_audioOn;
     
     ofParameter<ofVec2f>    m_handsOffset;
     ofParameter<ofVec2f>    m_handsScale;

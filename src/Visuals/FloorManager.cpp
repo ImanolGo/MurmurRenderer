@@ -54,6 +54,27 @@ void FloorManager::draw()
     ofPopMatrix();
 }
 
+void FloorManager::draw(const ofRectangle& area)
+{
+    ofPushMatrix();
+    ofPushStyle();
+    
+    ofSetColor(ofColor::white);
+    
+    ofNoFill();
+    
+    auto transformedPosition = m_floorPosition;
+    transformedPosition.x *= area.width;
+    transformedPosition.y *= area.height;
+    
+    ofCircle(transformedPosition, FLOOR_POS_CIRCLE_RADIUS);
+    ofCircle(transformedPosition, FLOOR_POS_CIRCLE_RADIUS/10);
+    //ofLogNotice() <<"FloorManager::draw << x:  " << transformedPosition << ", y: " << transformedPosition.y;
+    
+    ofPopStyle();
+    ofPopMatrix();
+}
+
 
 void FloorManager::setPosition(const ofVec2f& position)
 {

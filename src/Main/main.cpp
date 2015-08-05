@@ -6,12 +6,12 @@
 
 //========================================================================
 int main( ){
-
+    
     //ofSetCurrentRenderer(ofGLProgrammableRenderer::TYPE);
     
     ofxMultiGLFWWindow glfw;
     glfw.setOpenGLVersion(2,1); // must be set
-    glfw.setStencilBits(8);
+    //glfw.setStencilBits(8);
     
     glfw.windowCount = 2;
     
@@ -19,5 +19,5 @@ int main( ){
     ofSetupOpenGL(&glfw,1024,768,OF_WINDOW);
     
     ofRunApp(new MurmurRendererApp());
-
+    
 }

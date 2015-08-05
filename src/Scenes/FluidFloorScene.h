@@ -59,6 +59,7 @@ private:
     bool            m_initialized;
     ofShader        m_maskShader;
     ofFbo           m_fboMask;
+    ofRectangle     m_drawArea;
 
 };
 

@@ -42,7 +42,7 @@ void AppManager::setup()
     
     this->setupOF();
 	this->setupManagers();
-    this->setupGlfwWidows();
+    this->setupMultipleWidows();
     m_guiManager.setup();
     
     setDebugMode(m_debugMode);
@@ -57,11 +57,8 @@ void AppManager::setupOF()
     ofSetVerticalSync(true);
     ofSetEscapeQuitsApp(false);
 }
-void AppManager::setupGlfwWidows()
+void AppManager::setupMultipleWidows()
 {
-    ofLogNotice() << "AppManager::setupGlfwWidows";
-    
-    //ofVbo::disableVAOs();
     
     m_glfw = (ofxMultiGLFWWindow*)ofGetWindowPtr();
     
@@ -72,12 +69,12 @@ void AppManager::setupGlfwWidows()
     
     int i = 0;
     for(auto windowSettings : windowSettingsVector) {
-        ofLogNotice() << "AppManager::setupGlfwWidows -> creating window: " << i;
+        ofLogNotice() << "AppManager::setupMultipleWidows -> creating window: " << i;
         
         if(i>1){
             m_glfw->createWindow();
         }
-      
+        
         m_glfw->setWindow(m_windows->at(i));    // set window pointer
         m_glfw->initializeWindow();       // initialize events (mouse, keyboard, etc) on window (optional)
         ofSetWindowPosition(windowSettings.x, windowSettings.y);    // business as usual...
@@ -95,14 +92,12 @@ void AppManager::setupGlfwWidows()
         }
         
         m_sceneManager.run(WindowIndex(i));
-
+        
         i++;
     }
     
     
     m_glfw->setWindow(m_windows->at(0));
-    
-    //m_sceneManager.changeScene("SmokyHandsScene");
 }
 
 
@@ -140,9 +135,6 @@ void AppManager::update()
 
 void AppManager::draw()
 {
-    // draw is called once on each window every frame
-    
-    // the window index will increment
     int wIndex = m_glfw->getWindowIndex();
     
     switch (wIndex) { // switch on window index
@@ -163,7 +155,6 @@ void AppManager::draw()
             m_sceneManager.draw(WindowIndex(wIndex));
             break;
     }
-
 }
 
 void AppManager::toggleDebugMode()
@@ -188,6 +179,10 @@ void AppManager::setDebugMode(bool showDebug)
     
     m_guiManager.showGui(m_debugMode);
 
+}
+
+void AppManager::setFullScreen(bool& value)
+{
 }
 
 

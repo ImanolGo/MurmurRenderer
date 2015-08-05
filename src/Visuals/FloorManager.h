@@ -38,6 +38,9 @@ public:
     
     //! Draw the Contour Manager
     void draw();
+    
+    //! Draw the Contour Manager
+    void draw(const ofRectangle& area);
      
     const ofVec2f& getPosition() const {return m_floorPosition;}
      

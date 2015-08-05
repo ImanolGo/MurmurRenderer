@@ -112,6 +112,8 @@ public:
     
     bool getDebugMode() const {return m_debugMode;}
     
+    void setFullScreen(bool& value);
+    
 
 private:
 
@@ -132,8 +134,8 @@ private:
     //! Set-up OpenFrameworks
     void setupOF();
     
-    //! Set-up GLFW windows
-    void setupGlfwWidows();
+    //! Set-up windows
+    void setupMultipleWidows();
 
     //! update all the managers
     void updateManagers();

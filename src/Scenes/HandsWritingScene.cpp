@@ -33,6 +33,9 @@ void HandsWritingScene::setup()
     
     m_fluid.setup("xmls/HandsWritingFluid.xml");
     
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    m_drawArea = ofRectangle(windowsSettings.x, windowsSettings.y, windowsSettings.width, windowsSettings.height);
+    
     ofLogNotice("HandsWritingScene::setup");
     
 }
@@ -70,10 +73,10 @@ void HandsWritingScene::drawFluid()
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-    //AppManager::getInstance().getHandsManager().draw();
+    //AppManager::getInstance().getHandsManager().draw(m_drawArea);
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-    m_fluid.draw();
+    m_fluid.draw(m_drawArea);
     
     if(AppManager::getInstance().getDebugMode()){
         m_fluid.drawGui();

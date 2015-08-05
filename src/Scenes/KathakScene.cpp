@@ -54,6 +54,8 @@ void KathakScene::setupFbos()
         ofClear(0);
         gradientMask.draw();
     m_fboMask.end();
+    
+    m_drawArea = ofRectangle(0, 0, windowsSettings.width, windowsSettings.height);
 }
 
 void KathakScene::setupShaders()
@@ -110,7 +112,7 @@ void KathakScene::updateFluid()
 
 void KathakScene::updateWaterDrops()
 {
-    float volume = AppManager::getInstance().getAudioManager().getMaxSound();
+    float volume = AppManager::getInstance().getAudioManager().getAudioMax();
     auto position = AppManager::getInstance().getFloorManager().getPosition();
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     
@@ -146,7 +148,7 @@ void KathakScene::drawFluid()
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
-        m_fluid.draw();
+        m_fluid.draw(m_drawArea);
     
     ofPopStyle();
     ofPopMatrix();

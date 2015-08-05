@@ -42,9 +42,13 @@ public:
     //! Draw the Audio Manager
     void draw();
     
-    float getMaxSound();
+    float getAudioMax();
     
     void onChangeVolumeRange(float& value);
+    
+    void onChangeAudioOn(bool& value);
+    
+    void setAudioMax(float audioMax);
     
 private:
     
@@ -55,6 +59,8 @@ private:
     
     int         m_volumeRange;
     ProcessFFT  m_fft;
+    bool        m_audioOn;
+    float       m_audioMax;
     
 };
 

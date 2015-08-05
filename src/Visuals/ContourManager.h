@@ -40,6 +40,9 @@ public:
     //! Draw the Contour Manager
     void draw();
     
+    //! Draw the Contour Manager
+    void draw(const ofRectangle& area);
+    
     const ofFbo& getSource() const;
     
     void resetContours();

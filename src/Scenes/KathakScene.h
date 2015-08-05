@@ -68,6 +68,8 @@ private:
     ofFbo           m_fboMask;
 
     ofxWater        m_water;
+    
+    ofRectangle     m_drawArea;
 
 };
 

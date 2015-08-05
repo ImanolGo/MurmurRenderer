@@ -52,6 +52,7 @@ private:
     
     FluidVisual     m_fluid;
     bool            m_initialized;
-
+    ofRectangle     m_drawArea;
+    
 };
 

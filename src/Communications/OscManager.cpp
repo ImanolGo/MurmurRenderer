@@ -248,6 +248,12 @@ void OscManager::update()
             AppManager::getInstance().getGuiManager().setCropBottom(value);
             this->updateReceiveText();
         }
+        
+        else if(m.getAddress() == "/MurmurRenderer/AudioMax"){
+            float value  =  m.getArgAsFloat(0);
+            AppManager::getInstance().getAudioManager().setAudioMax(value);
+            this->updateReceiveText();
+        }
 
         else{
             

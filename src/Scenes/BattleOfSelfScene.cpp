@@ -47,6 +47,8 @@ void BattleOfSelfScene::setupFbos()
     m_fbo.allocate(windowsSettings.width, windowsSettings.height);
     m_fbo.begin(); ofClear(0); m_fbo.end();
     
+    m_drawArea = ofRectangle(0,0, windowsSettings.width, windowsSettings.height );
+    
 }
 
 void BattleOfSelfScene::setupShaders()
@@ -146,8 +148,8 @@ void BattleOfSelfScene::updateSonicBoom()
 
 void BattleOfSelfScene::draw() {
     ofBackground(0);
-    this->drawContour();
     this->drawSonicBoom();
+    this->drawContour();
 }
 
 
@@ -201,10 +203,10 @@ void BattleOfSelfScene::drawFluid()
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-    AppManager::getInstance().getContourManager().draw();
+    AppManager::getInstance().getContourManager().draw(m_drawArea);
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-    m_fluid.draw();
+    m_fluid.draw(m_drawArea);
     //m_fluid.drawGui();
     ofPopStyle();
     

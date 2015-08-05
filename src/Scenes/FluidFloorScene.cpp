@@ -52,6 +52,8 @@ void FluidFloorScene::setupFbos()
         ofClear(0);
         gradientMask.draw();
     m_fboMask.end();
+    
+    m_drawArea = ofRectangle(0,0, windowsSettings.width, windowsSettings.height);
 }
 
 void FluidFloorScene::setupShaders()
@@ -102,13 +104,13 @@ void FluidFloorScene::drawFluid()
 {
     ofPushMatrix();
     ofPushStyle();
-    ofEnableBlendMode(OF_BLENDMODE_DISABLED);
+    //ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-        AppManager::getInstance().getFloorManager().draw();
+        //AppManager::getInstance().getFloorManager().draw(m_drawArea);
     
-    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    //ofEnableBlendMode(OF_BLENDMODE_ADD);
     
-        m_fluid.draw();
+        m_fluid.draw(m_drawArea);
     
     ofPopStyle();
     ofPopMatrix();

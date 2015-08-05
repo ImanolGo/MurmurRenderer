@@ -77,6 +77,8 @@ private:
     ofxPostProcessing       m_postProcessing;
     ofxBlur                 m_blur;
     SonicBoomVisual         m_sonicBoomVisual;
+    
+    ofRectangle             m_drawArea;
 
 };
 

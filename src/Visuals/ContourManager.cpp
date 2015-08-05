@@ -92,6 +92,12 @@ void ContourManager::draw()
     m_contourFbo.draw(0,0, ofGetWidth(), ofGetHeight());
 }
 
+void ContourManager::draw(const ofRectangle& area)
+{
+    m_contourFbo.draw(0,0, area.width, area.height);
+}
+
+
 void ContourManager::resetContours()
 {
     m_contours.clear();

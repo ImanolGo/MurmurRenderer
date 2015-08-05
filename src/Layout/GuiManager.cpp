@@ -111,6 +111,10 @@ void GuiManager::setupAudioGui()
     auto audioManager = &AppManager::getInstance().getAudioManager();
     m_parametersAudio.setName("Audio");
     
+    m_audioOn.set("AudioOn", false);
+    m_audioOn.addListener(audioManager, &AudioManager::onChangeAudioOn);
+    m_parametersAudio.add(m_audioOn);
+    
     m_audioVolume.set("Volume", 0.5, 0.0, 1.0);
     m_audioVolume.addListener(audioManager, &AudioManager::onChangeVolumeRange);
     m_parametersAudio.add(m_audioVolume);
@@ -200,9 +204,14 @@ void GuiManager::setupBeautifulMindGui()
 
 void GuiManager::setupLayoutGui()
 {
+    auto appManager = &AppManager::getInstance();
     auto layoutManager = &AppManager::getInstance().getLayoutManager();
-    m_parametersLayout.setName("Crop");
     
+    m_parametersLayout.setName("Layout");
+    m_fullscreen.set("Fullscreen", true);
+    m_fullscreen.addListener(appManager, &AppManager::setFullScreen);
+    m_parametersLayout.add(m_fullscreen);
+
     m_cropLeft.set("CropLeft", 0.0, 0.0, 500.0);
     m_cropLeft.addListener(layoutManager, &LayoutManager::onCropLeft);
     m_parametersLayout.add(m_cropLeft);

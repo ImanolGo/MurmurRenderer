@@ -477,11 +477,12 @@ void BeautifulMindScene::drawScene() {
 ofRectangle BeautifulMindScene::getDrawingArea()
 {
     auto rect = AppManager::getInstance().getBeautifulMindManager().getRectangleSpace();
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     
-    rect.x *= ofGetWidth();
-    rect.width *= ofGetWidth();
-    rect.y *= ofGetHeight();
-    rect.height *= ofGetHeight();
+    rect.x *= windowsSettings.width;
+    rect.width *= windowsSettings.width;
+    rect.y *= windowsSettings.height;
+    rect.height *= windowsSettings.height;
     
     //rect.x = AppManager::getInstance().getLayoutManager().getCropLeft();
     //rect.y = AppManager::getInstance().getLayoutManager().getCropTop();
