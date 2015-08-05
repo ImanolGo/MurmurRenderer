@@ -106,6 +106,12 @@ public:
     
     void setFullScreen(bool value) {m_fullscreen = value;}
     
+    void setBirdsPosition(const ofVec3f& pos) {m_birdsPosition = pos;}
+    
+    void setBirdsSize(float value) {m_birdsSize = value;}
+    
+    void setBirdsSwarmSize(float value) {m_birdsSwarmSize = value;}
+    
     
 private:
     

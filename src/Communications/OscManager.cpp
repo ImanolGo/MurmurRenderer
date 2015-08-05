@@ -254,6 +254,27 @@ void OscManager::update()
             AppManager::getInstance().getAudioManager().setAudioMax(value);
             this->updateReceiveText();
         }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BirdsPosition"){
+            ofVec3f pos;
+            pos.x = m.getArgAsFloat(0);
+            pos.y = m.getArgAsFloat(1);
+            pos.z = m.getArgAsFloat(2);
+            AppManager::getInstance().getGuiManager().setBirdsPosition(pos);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BirdsSize"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setBirdsSize(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BirdsSwarmSize"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setBirdsSwarmSize(value);
+            this->updateReceiveText();
+        }
 
         else{
             
