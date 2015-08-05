@@ -78,15 +78,15 @@ void ViewManager::setupTextVisuals()
     string fontName ="fonts/helvetica-neue-medium.ttf";
     ofColor textColor = ofColor::white;
 
-    m_frameRateText = ofPtr<TextVisual> (new TextVisual(position,width,height));
-    m_frameRateText->setText(text,fontName,fontSize,textColor);
+    //m_frameRateText = ofPtr<TextVisual> (new TextVisual(position,width,height));
+    //m_frameRateText->setText(text,fontName,fontSize,textColor);
 }
 
 void ViewManager::update()
 {
     if(m_showDebugInfo){
-        string text = "fps: " + ofToString(ofGetFrameRate(), 2);
-        m_frameRateText->setText(text);
+        //string text = "fps: " + ofToString(ofGetFrameRate(), 2);
+        //m_frameRateText->setText(text);
 	}
 }
 
@@ -94,14 +94,15 @@ void ViewManager::update()
 
 void ViewManager::draw()
 {
-    this->drawBackround();
-    this->drawOverlays();
-    this->drawVisuals();
-	
-
-	if(m_showDebugInfo){
-        m_frameRateText->draw();
-	}
+    if(!m_showDebugInfo){
+        string text = "fps: " + ofToString(ofGetFrameRate(), 2);
+        ofDrawBitmapString(text, 20, 20);
+    }
+    else{
+        this->drawBackround();
+        this->drawOverlays();
+        this->drawVisuals();
+    }
 }
 
 void ViewManager::drawBackround()

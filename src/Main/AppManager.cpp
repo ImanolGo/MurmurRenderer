@@ -122,6 +122,7 @@ void AppManager::setupManagers()
     m_sceneManager.setup();
     m_audioManager.setup();
     m_keyboardManager.setup();
+    m_birdsManager.setup();
 }
 
 void AppManager::update()
@@ -167,6 +168,7 @@ void AppManager::toggleDebugMode()
 {
     m_debugMode = !m_debugMode;
     setDebugMode(m_debugMode);
+    m_viewManager.showDebugMode(m_debugMode);
 }
 
 

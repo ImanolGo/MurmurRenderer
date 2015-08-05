@@ -38,6 +38,9 @@ public:
     //! updates the manager
     void update();
     
+    //! draw the manager
+    void draw();
+    
 
 private:
     

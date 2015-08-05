@@ -85,24 +85,24 @@ void UdpManager::update()
     
     string text = ">>UdpManager::update -> " ;
     
-    
-    int bytesReceived =  m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
-    if(bytesReceived>0){
-        message = udpMessage;
+    while (getNext) {
+        m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
+        tempMessage=udpMessage;
+        
+        if (tempMessage==""){
+            getNext = false;
+        }
+        else{
+            message = tempMessage;
+        }
+        
     }
-    
     
     //ofLogNotice() <<">>UdpManager::update -> message: " << message;
     
     AppManager::getInstance().getHandsManager().readHands(message.c_str());
-    
-    //AppManager::getInstance().getHandsManager().readHands(udpMessage);
-    
-    //m_udpConnection.Receive(udpMessage,UDP_MESSAGE_LENGHT);
-   
-    //ofLogNotice() << message;
-    //this->updateReceiveText(message);
 }
+
 
 
 void UdpManager::updateReceiveText(const string& message)

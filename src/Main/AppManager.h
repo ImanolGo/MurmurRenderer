@@ -28,6 +28,7 @@
 #include "FloorManager.h"
 #include "BeautifulMindManager.h"
 #include "AudioManager.h"
+#include "BirdsManager.h"
 
 
 //========================== class AppManager ==============================
@@ -102,6 +103,9 @@ public:
     
     //! Returns the Audio Manager
     AudioManager&  getAudioManager() { return m_audioManager; }
+    
+    //! Returns the Birds Manager
+    BirdsManager&  getBirdsManager() { return m_birdsManager; }
 
     
     //==========================================================================
@@ -161,6 +165,7 @@ private:
     UdpManager                      m_udpManager;               ///< Manages the UDP messages
     BeautifulMindManager            m_beautifulMindManager;     ///< Manages the Beautiful Mind Scene
     AudioManager                    m_audioManager;             ///< Manages the audio input
+    BirdsManager                    m_birdsManager;             ///< Manages the birds
     
 
     bool                            m_debugMode;

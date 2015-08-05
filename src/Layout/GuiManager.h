@@ -70,6 +70,8 @@ public:
     
     void onSetKathakScene(bool& value);
     
+    void onSetBirdsScene(bool& value);
+    
     void setAudioVolume(float& value){m_audioVolume = value;}
     
     void setAudioOn(bool& value){m_audioOn = value;}
@@ -121,6 +123,8 @@ private:
     
     void setupLayoutGui();
     
+    void setupBirdsGui();
+    
     
 public:
     
@@ -136,6 +140,7 @@ private:
     ofParameterGroup        m_parametersBeautifulMind;
     ofParameterGroup        m_parametersLayout;
     ofParameterGroup        m_parametersAudio;
+    ofParameterGroup        m_parametersBirds;
    
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
@@ -150,6 +155,7 @@ private:
     ofParameter<bool>       m_sceneFluidFloor;
     ofParameter<bool>       m_sceneBeautifulMind;
     ofParameter<bool>       m_sceneKathak;
+    ofParameter<bool>       m_birdsScene;
     
     ofParameter<int>        m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
     ofParameter<bool>       m_fullscreen;
@@ -170,6 +176,10 @@ private:
     
     ofParameter<ofVec2f>    m_beautifulMindOffset;
     ofParameter<ofVec2f>    m_beautifulMindScale;
+    
+    ofParameter<ofVec3f>    m_birdsPosition;
+    ofParameter<float>      m_birdsSize;
+    ofParameter<float>      m_birdsSwarmSize;
     
 };
 

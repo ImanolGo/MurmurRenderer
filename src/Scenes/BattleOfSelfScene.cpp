@@ -81,7 +81,7 @@ void BattleOfSelfScene::setupPostProcessing()
     // Setup post-processing chain
     m_postProcessing.init(windowsSettings.width, windowsSettings.height);
     m_postProcessing.createPass<FxaaPass>()->setEnabled(true);
-    //m_postProcessing.createPass<BloomPass>()->setEnabled(true);
+    m_postProcessing.createPass<BloomPass>()->setEnabled(true);
     
     //ofPtr<ZoomBlurPass> zoomBlurPass =  m_postProcessing.createPass<ZoomBlurPass>();
     //zoomBlurPass->setDensity(0.5);
@@ -119,9 +119,9 @@ void BattleOfSelfScene::updateContour()
     ofEnableAlphaBlending();
     m_fbo.begin();
         ofPushStyle();
-            ofClear(0);
-            //ofSetColor(0,0,0, 255);
-            //ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
+            //ofClear(0);
+            ofSetColor(0,0,0, 40);
+            ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
             ofSetColor(255,255,255);
             AppManager::getInstance().getContourManager().draw();
         ofPopStyle();
@@ -149,7 +149,7 @@ void BattleOfSelfScene::updateSonicBoom()
 void BattleOfSelfScene::draw() {
     ofBackground(0);
     this->drawSonicBoom();
-    this->drawContour();
+    //this->drawContour();
 }
 
 
@@ -180,10 +180,12 @@ void BattleOfSelfScene::drawContour()
     //m_filter->end();
     m_blur.begin();
     //m_shader.begin();
-    float time = ofGetElapsedTimef();
+    //float time = ofGetElapsedTimef();
     //m_shader.setUniform1f( "time", time );	//Passing float parameter "time" to shader
     //m_shader.setUniform1f( "amplitude", .4f );	//Passing float parameter "time" to shader
+   
     m_fbo.draw(0,0);
+    ofPopStyle();
     
     //m_shader.end();
     m_blur.end();
@@ -194,7 +196,12 @@ void BattleOfSelfScene::drawContour()
 void BattleOfSelfScene::drawSonicBoom()
 {
     m_postProcessing.begin();
+    ofPushMatrix();
+        ofScale(1, -1);
+        ofTranslate(0, -m_fbo.getHeight());
+        this->drawContour();
         m_sonicBoomVisual.draw();
+    ofPopMatrix();
     m_postProcessing.end();
 }
 

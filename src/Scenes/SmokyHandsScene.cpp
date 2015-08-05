@@ -67,7 +67,7 @@ void SmokyHandsScene::drawFluid()
     m_smokeFluid.draw(m_drawArea);
     
     if(AppManager::getInstance().getDebugMode()){
-        m_smokeFluid.drawGui();
+        //m_smokeFluid.drawGui();
     }
     
     ofPopStyle();

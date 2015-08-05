@@ -34,7 +34,7 @@ void HandsWritingScene::setup()
     m_fluid.setup("xmls/HandsWritingFluid.xml");
     
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
-    m_drawArea = ofRectangle(windowsSettings.x, windowsSettings.y, windowsSettings.width, windowsSettings.height);
+    m_drawArea = ofRectangle(0, 0, windowsSettings.width, windowsSettings.height);
     
     ofLogNotice("HandsWritingScene::setup");
     
