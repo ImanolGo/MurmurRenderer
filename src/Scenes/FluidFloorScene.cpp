@@ -47,9 +47,11 @@ void FluidFloorScene::setupFbos()
     m_fboMask.allocate(windowsSettings.width, windowsSettings.height);
     
     ImageVisual gradientMask = ImageVisual(ofPoint(windowsSettings.width*0.5, windowsSettings.height*0.5), "floor_mask", true );
+    gradientMask.setHeight(windowsSettings.height);
     
     m_fboMask.begin();
         ofClear(0);
+        ofBackground(0, 0, 0);
         gradientMask.draw();
     m_fboMask.end();
     
@@ -85,7 +87,7 @@ void FluidFloorScene::draw() {
     
     
     if(AppManager::getInstance().getDebugMode()){
-        m_fluid.drawGui();
+        //m_fluid.drawGui();
     }
 
 }

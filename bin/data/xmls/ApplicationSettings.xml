@@ -8,7 +8,7 @@
 
   	<window title="Murmur Renderer GUI" x="0" y="0" width="1920" height="1200" fullscreen="0" showCursor="1"/>
     <window title="Murmur Renderer Front" x="0" y="0" width="1920" height="1200" fullscreen="0" showCursor="1"/>
-    <window title="Murmur Renderer Top" x="3840" y="0" width="1400" height="1050" fullscreen="1" showCursor="1"/>
+    <window title="Murmur Renderer Top" x="0" y="0" width="1400" height="1050" fullscreen="0" showCursor="1"/>
 
   </of_settings>
   

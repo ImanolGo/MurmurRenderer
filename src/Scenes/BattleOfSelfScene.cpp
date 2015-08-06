@@ -43,11 +43,9 @@ void BattleOfSelfScene::setup()
 void BattleOfSelfScene::setupFbos()
 {
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
-
+    
     m_fbo.allocate(windowsSettings.width, windowsSettings.height);
     m_fbo.begin(); ofClear(0); m_fbo.end();
-    
-    m_drawArea = ofRectangle(0,0, windowsSettings.width, windowsSettings.height );
     
 }
 
@@ -62,10 +60,10 @@ void BattleOfSelfScene::setupShaders()
         m_shader.load("shaders/shadersGL3/BattleOfSelfVert");
     }
     else{
-       m_shader.load("shaders/shadersGL2/LiquifyShader");
+        m_shader.load("shaders/shadersGL2/LiquifyShader");
         
     }
-
+    
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     m_blur.setup(windowsSettings.width, windowsSettings.height, 2, .2, 4);
     //m_blur.setScale(5);
@@ -81,7 +79,7 @@ void BattleOfSelfScene::setupPostProcessing()
     // Setup post-processing chain
     m_postProcessing.init(windowsSettings.width, windowsSettings.height);
     m_postProcessing.createPass<FxaaPass>()->setEnabled(true);
-    m_postProcessing.createPass<BloomPass>()->setEnabled(true);
+    //m_postProcessing.createPass<BloomPass>()->setEnabled(true);
     
     //ofPtr<ZoomBlurPass> zoomBlurPass =  m_postProcessing.createPass<ZoomBlurPass>();
     //zoomBlurPass->setDensity(0.5);
@@ -118,13 +116,13 @@ void BattleOfSelfScene::updateContour()
 {
     ofEnableAlphaBlending();
     m_fbo.begin();
-        ofPushStyle();
-            //ofClear(0);
-            ofSetColor(0,0,0, 40);
-            ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
-            ofSetColor(255,255,255);
-            AppManager::getInstance().getContourManager().draw();
-        ofPopStyle();
+    ofPushStyle();
+    //ofClear(0);
+    ofSetColor(0,0,0, 40);
+    ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
+    ofSetColor(255,255,255);
+    AppManager::getInstance().getContourManager().draw();
+    ofPopStyle();
     m_fbo.end();
     ofDisableAlphaBlending();
 }
@@ -141,51 +139,51 @@ void BattleOfSelfScene::updateSonicBoom()
         pos.y *= windowsSettings.height;
         m_sonicBoomVisual.addParticle(pos);
     }
-
+    
     
     m_sonicBoomVisual.update();
 }
 
 void BattleOfSelfScene::draw() {
-    ofBackground(0, 0,0);
+    ofEnableAlphaBlending();
+    //ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofBackground(0);
+    this->drawContour();
     this->drawSonicBoom();
-    //this->drawContour();
 }
 
 
 void BattleOfSelfScene::drawContour()
 {
     // copy enable part of gl state
-    glPushAttrib(GL_ENABLE_BIT);
+    //glPushAttrib(GL_ENABLE_BIT);
     
     /*m_postProcessing.begin();
-   
-        ofPushMatrix();
-        //ofSetColor(255,255,255);
-        ofScale(1, -1);
-        ofTranslate(0, -ofGetHeight());
-        m_fbo.draw(0,0);
-       // AppManager::getInstance().getContourManager().draw();
-        ofPopMatrix();
-    
-    // end scene and draw
-    m_postProcessing.end();*/
+     
+     ofPushMatrix();
+     //ofSetColor(255,255,255);
+     ofScale(1, -1);
+     ofTranslate(0, -ofGetHeight());
+     m_fbo.draw(0,0);
+     // AppManager::getInstance().getContourManager().draw();
+     ofPopMatrix();
+     
+     // end scene and draw
+     m_postProcessing.end();*/
     
     
     // set gl state back to original
-    glPopAttrib();
+    //glPopAttrib();
     
     //m_filter->begin();
-        //AppManager::getInstance().getContourManager().draw();
+    //AppManager::getInstance().getContourManager().draw();
     //m_filter->end();
     m_blur.begin();
-    //m_shader.begin();
-    //float time = ofGetElapsedTimef();
-    //m_shader.setUniform1f( "time", time );	//Passing float parameter "time" to shader
-    //m_shader.setUniform1f( "amplitude", .4f );	//Passing float parameter "time" to shader
-   
+    m_shader.begin();
+    float time = ofGetElapsedTimef();
+    m_shader.setUniform1f( "time", time );	//Passing float parameter "time" to shader
+    m_shader.setUniform1f( "amplitude", .4f );	//Passing float parameter "time" to shader
     m_fbo.draw(0,0);
-    ofPopStyle();
     
     //m_shader.end();
     m_blur.end();
@@ -197,9 +195,8 @@ void BattleOfSelfScene::drawSonicBoom()
 {
     m_postProcessing.begin();
     ofPushMatrix();
-        ofScale(1, -1);
-        ofTranslate(0, -m_fbo.getHeight());
-        this->drawContour();
+        //ofScale(1, -1);
+        //ofTranslate(0, -m_fbo.getHeight());
         m_sonicBoomVisual.draw();
     ofPopMatrix();
     m_postProcessing.end();
@@ -210,10 +207,10 @@ void BattleOfSelfScene::drawFluid()
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-    AppManager::getInstance().getContourManager().draw(m_drawArea);
+    AppManager::getInstance().getContourManager().draw();
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-    m_fluid.draw(m_drawArea);
+    //m_fluid.draw();
     //m_fluid.drawGui();
     ofPopStyle();
     
