@@ -27,7 +27,7 @@ void SonicBoomParticle::setup()
 {
     m_time = 0;
     m_lifeTime = 1 + ofNoise( ofGetElapsedTimef()/2)*7 ;
-    m_size = 50 + ofNoise( ofGetElapsedTimef()/2)*350 ;
+    m_size = 50 + ofNoise( ofGetElapsedTimef()/2)*550 ;
     m_color = ofColor::white;
 }
 

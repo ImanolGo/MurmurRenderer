@@ -61,7 +61,10 @@ void HandsWritingScene::setupBrush()
     m_brush.setResource(resourceName);
     m_brush.setColor(ofColor::blue);
     m_brush.setCentred(true);
-    m_brush.setWidth(300,true);
+    
+    float size = AppManager::getInstance().getHandsManager().getSize();
+
+    m_brush.setWidth(m_brush.getOriginalWidth()*size,true);
 }
 
 
@@ -79,6 +82,10 @@ void HandsWritingScene::updateHands()
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     
     float fadeTime = AppManager::getInstance().getHandsManager().getFadeTime();
+    
+    float size = AppManager::getInstance().getHandsManager().getSize();
+    
+    m_brush.setWidth(m_brush.getOriginalWidth()*size,true);
     
     float decrease = 2.0;
     float framesToDie = 255.0/2.0;

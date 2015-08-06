@@ -55,7 +55,11 @@ public:
      
     void setFadeTime(float & value) {m_fadeTime = value;}
      
+    void setSize(float & value) {m_size = value;}
+     
     float getFadeTime() const {return m_fadeTime;}
+     
+    float getSize() const {return m_size;}
     
      
 private:
@@ -81,6 +85,7 @@ private:
     ofVec2f             m_handsScale;
     ofRectangle         m_handsRectangleSpace;
     float               m_fadeTime;
+    float               m_size;
      
     bool                m_handsOn;
      

@@ -69,6 +69,11 @@ private:
     ofLight                              m_light; 
     ofSpherePrimitive                    m_sphere;
     
+    ofLight pointLight;
+    ofLight pointLight2;
+    ofLight pointLight3;
+    ofMaterial material;
+    
     ofVec3f    m_target;
     float      m_birdsSize;
     float      m_birdsSwarmSize;

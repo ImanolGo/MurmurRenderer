@@ -71,7 +71,7 @@ void GuiManager::setupBirdsGui()
     m_birdsPosition.addListener(birdsManager, &BirdsManager::onChangePosition);
     m_parametersBirds.add(m_birdsPosition);
 
-    m_birdsSize.set("Size", 1.0, 0.0, 10.0);
+    m_birdsSize.set("Size", 1.0, 0.0, 4.0);
     m_birdsSize.addListener(birdsManager, &BirdsManager::onChangeSize);
     m_parametersBirds.add(m_birdsSize);
     
@@ -215,6 +215,10 @@ void GuiManager::setupHandsGui()
     m_handsScale.addListener(handsManager, &HandsManager::setScale);
     m_parametersHands.add(m_handsScale);
     
+    m_handsSize.set("Size", 1.0, 0.0, 5.0);
+    m_handsSize.addListener(handsManager, &HandsManager::setSize);
+    m_parametersHands.add(m_handsSize);
+
     m_handsFadeTime.set("FadeTime", 2.0, 0.0, 10.0);
     m_handsFadeTime.addListener(handsManager, &HandsManager::setFadeTime);
     m_parametersHands.add(m_handsFadeTime);

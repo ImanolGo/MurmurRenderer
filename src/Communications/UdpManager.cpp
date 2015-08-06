@@ -99,6 +99,7 @@ void UdpManager::update()
     }
     
     //ofLogNotice() <<">>UdpManager::update -> message: " << message;
+    this->updateReceiveText(message);
     
     AppManager::getInstance().getHandsManager().readHands(message.c_str());
 }

@@ -147,7 +147,7 @@ void BattleOfSelfScene::updateSonicBoom()
 }
 
 void BattleOfSelfScene::draw() {
-    ofBackground(0);
+    ofBackground(0, 0,0);
     this->drawSonicBoom();
     //this->drawContour();
 }

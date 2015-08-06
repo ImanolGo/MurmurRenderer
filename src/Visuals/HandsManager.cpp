@@ -11,7 +11,7 @@
 
 const int HandsManager::HANDS_CIRCLE_RADIUS = 20;
 
-HandsManager::HandsManager(): m_handsOffset(ofVec2f(0,0)), m_handsScale(ofVec2f(1,1))
+HandsManager::HandsManager(): m_handsOffset(ofVec2f(0,0)), m_handsScale(ofVec2f(1,1)), m_size(1.0), m_fadeTime(2)
 {
     //Intentionaly left empty
 }

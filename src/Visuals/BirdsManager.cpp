@@ -25,8 +25,7 @@ BirdsManager::~BirdsManager()
 
 void BirdsManager::setup()
 {
-    return;
-    
+
     Manager::setup();
     
     ofLogNotice() <<"BirdsManager::initialized" ;
@@ -55,11 +54,23 @@ void BirdsManager::setup()
     //ofEnableNormalizedTexCoords();
 
     
-    GLfloat color[] = { 1.0, 0.2, 0.2 };
+    ofSetSmoothLighting(true);
+    pointLight.setDiffuseColor( ofFloatColor(.95, .95, .95) );
+    pointLight.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
     
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glLightfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, color);
+    pointLight2.setDiffuseColor( ofFloatColor( 238.f/255.f, 57.f/255.f, 135.f/255.f ));
+    pointLight2.setSpecularColor(ofFloatColor(.8f, .8f, .9f));
+    
+    pointLight3.setDiffuseColor( ofFloatColor(19.f/255.f,94.f/255.f,77.f/255.f) );
+    pointLight3.setSpecularColor( ofFloatColor(18.f/255.f,150.f/255.f,135.f/255.f) );
+    
+    // shininess is a value between 0 - 128, 128 being the most shiny //
+    material.setShininess( 120 );
+    // the light highlight of the material //
+    material.setSpecularColor(ofColor(255, 255, 255, 255));
+    
+    ofSetSphereResolution(12);
+
     
 }
 
@@ -68,11 +79,18 @@ void BirdsManager::setup()
 void BirdsManager::update()
 {
     ofPoint p;
-    p.x = ofMap(ofGetMouseX(), 0, ofGetWidth(), -500, 500);
-    p.y = ofMap(ofGetMouseY(), 0, ofGetHeight(), 500, -500);
-    p.z = ofRandom(-100, 100);
+    //p.x = ofMap(ofGetMouseX(), 0, ofGetWidth(), -500, 500);
+    //p.y = ofMap(ofGetMouseY(), 0, ofGetHeight(), 500, -500);
+    //p.z = ofRandom(-100, 100);
+    
+    p.x = m_target.x * ofGetWidth();
+    p.y = m_target.y * ofGetHeight();
+    p.z = m_target.z * ofGetWidth();
+    
     for (int i = 0; i < m_boids.size(); i++)
     {
+        
+        p.z = ofGetHeight()*0.5*ofSignedNoise(ofGetElapsedTimef() + i*1000);
         
         m_boids[i].seek(p);
         m_boids[i].flock(m_boids);
@@ -83,27 +101,34 @@ void BirdsManager::update()
 
 void BirdsManager::draw()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glEnable(GL_DEPTH_TEST);
+    ofEnableDepthTest();
+    
+    ofEnableLighting();
+    pointLight.enable();
+    pointLight2.enable();
+    pointLight3.enable();
+    
+    material.begin();
+
     
     m_camera.begin();
     
     for (int i = 0; i < m_boids.size(); i++)
     {
         glPushMatrix();
-        glTranslatef(m_boids[i].position.x, m_boids[i].position.y, m_boids[i].position.z);
+        //glTranslatef(m_boids[i].position.x, m_boids[i].position.y, m_boids[i].position.z);
         
-        GLfloat color[] = { 0.8, 0.2, 0.2, 1.0 };
-        
-        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, color);
-        ofFill();
-        ofSetColor(255);
-        ofDrawBox(2);
+        ofDrawSphere(m_boids[i].position.x, m_boids[i].position.y, m_boids[i].position.z, m_birdsSize);
 
         glPopMatrix();
     }
     
     m_camera.end();
+    
+    material.end();
+    ofDisableLighting();
+    
+    ofDisableDepthTest();
 }
 
 
