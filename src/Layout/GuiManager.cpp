@@ -215,6 +215,10 @@ void GuiManager::setupHandsGui()
     m_handsScale.addListener(handsManager, &HandsManager::setScale);
     m_parametersHands.add(m_handsScale);
     
+    m_handsFadeTime.set("FadeTime", 2.0, 0.0, 10.0);
+    m_handsFadeTime.addListener(handsManager, &HandsManager::setFadeTime);
+    m_parametersHands.add(m_handsFadeTime);
+    
     m_gui.add(m_parametersHands);
     
 }

@@ -13,7 +13,7 @@
 #include "HandsWritingScene.h"
 
 
-HandsWritingScene::HandsWritingScene():m_initialized(false)
+HandsWritingScene::HandsWritingScene():m_initialized(false), m_skipFrames(0)
 {
     
 }
@@ -78,12 +78,22 @@ void HandsWritingScene::updateHands()
     
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     
+    float fadeTime = AppManager::getInstance().getHandsManager().getFadeTime();
+    
+    float decrease = 2.0;
+    float framesToDie = 255.0/2.0;
+    float dt = ofGetLastFrameTime();
+    int numSkipFrames = fadeTime/(framesToDie*dt);
+    m_skipFrames++;
+    
     ofEnableAlphaBlending();
     m_fbo.begin();
     ofPushStyle();
-        //ofEnableBlendMode(OF_BLENDMODE_DISABLED);
-        ofSetColor(0,0,0,2);
-        ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
+        if(m_skipFrames>=numSkipFrames){
+            ofSetColor(0,0,0,decrease);
+            ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
+            m_skipFrames = 0;
+        }
     
         ofEnableBlendMode(OF_BLENDMODE_ADD);
         for (auto hand : hands) {
@@ -179,6 +189,7 @@ void HandsWritingScene::drawFluid()
 
 void HandsWritingScene::willFadeIn() {
     ofLogNotice("HandsWritingScene::willFadeIn");
+    m_skipFrames = 0;
 }
 
 void HandsWritingScene::willDraw() {

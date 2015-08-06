@@ -169,6 +169,12 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
+        else if(m.getAddress() == "/MurmurRenderer/HandsFadeTime"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setHandsFadeTime(value);
+            this->updateReceiveText();
+        }
+        
         else if(m.getAddress() == "/MurmurRenderer/HandsOffset"){
             ofVec2f pos;
             pos.x = m.getArgAsFloat(0);

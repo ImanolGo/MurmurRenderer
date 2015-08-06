@@ -84,6 +84,8 @@ public:
     
     void setHandsOn(bool value) {m_handsOn = value;}
     
+    void setHandsFadeTime(float value) {m_handsFadeTime = value;}
+    
     void setHandsOffset(ofVec2f value) {m_handsOffset = value;}
     
     void setHandsScale(ofVec2f value) {m_handsScale = value;}
@@ -176,6 +178,7 @@ private:
     ofParameter<ofVec2f>    m_handsOffset;
     ofParameter<ofVec2f>    m_handsScale;
     ofParameter<bool>       m_handsOn;
+    ofParameter<float>      m_handsFadeTime;
     
     ofParameter<ofVec2f>    m_floorOffset;
     ofParameter<ofVec2f>    m_floorScale;

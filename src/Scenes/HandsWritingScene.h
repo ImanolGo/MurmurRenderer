@@ -66,6 +66,7 @@ private:
     ofRectangle     m_drawArea;
     ImageVisual     m_brush;
     ofFbo           m_fbo;
+    int             m_skipFrames;
     
 };
 

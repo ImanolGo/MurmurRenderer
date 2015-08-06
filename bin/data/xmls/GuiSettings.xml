@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>58.6127</FPS>
+	<FPS>60.0347</FPS>
 	<Scenes>
 		<TransitionTime>1.216</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -22,6 +22,7 @@
 		<Offset>0.00874639, 0.000416517</Offset>
 		<Scale>1, 1</Scale>
 	<On>1</On>
+	<FadeTime>2.81633</FadeTime>
 	</Hands>
 <Floor>
 		<Offset>0, -0.18284</Offset>
