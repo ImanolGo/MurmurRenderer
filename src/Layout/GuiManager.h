@@ -186,6 +186,16 @@ private:
     ofParameter<ofVec3f>    m_birdsPosition;
     ofParameter<float>      m_birdsSize;
     ofParameter<float>      m_birdsSwarmSize;
+    ofParameter<int>        m_birdsNumber;
+    ofParameter<float>      m_birdsMaxForce;
+    ofParameter<float>      m_wanderDistance;
+    ofParameter<float>      m_wanderRadius;
+    ofParameter<float>      m_wanderRange;
+    ofParameter<float>      m_inSightDist;
+    ofParameter<float>      m_tooCloseDist;
+
+    
+    
     
 };
 

@@ -79,6 +79,30 @@ void GuiManager::setupBirdsGui()
     m_birdsSwarmSize.addListener(birdsManager, &BirdsManager::onChangeSwarmSize);
     m_parametersBirds.add(m_birdsSwarmSize);
     
+    m_birdsMaxForce.set("MaxForce", 1.0, 0.0, 50.0);
+    m_birdsMaxForce.addListener(birdsManager, &BirdsManager::onChangeMaxForce);
+    m_parametersBirds.add(m_birdsMaxForce);
+    
+    m_wanderDistance.set("WanderDistance", 10.0, 0.0, 100.0);
+    m_wanderDistance.addListener(birdsManager, &BirdsManager::onChangeWanderDistance);
+    m_parametersBirds.add(m_wanderDistance);
+    
+    m_wanderRadius.set("WanderRadius", 5.0, 0.0, 40.0);
+    m_wanderRadius.addListener(birdsManager, &BirdsManager::onChangeWanderRadius);
+    m_parametersBirds.add(m_wanderRadius);
+    
+    m_wanderRange.set("WanderRange", 10.0, 0.0, 100.0);
+    m_wanderRange.addListener(birdsManager, &BirdsManager::onChangeWanderRadius);
+    m_parametersBirds.add(m_wanderRange);
+    
+    m_inSightDist.set("InSightDist", 120.0, 0.0, 1000.0);
+    m_inSightDist.addListener(birdsManager, &BirdsManager::onChangeInSightDist);
+    m_parametersBirds.add(m_inSightDist);
+    
+    m_tooCloseDist.set("TooCloseDist", 20.0, 0.0, 200.0);
+    m_tooCloseDist.addListener(birdsManager, &BirdsManager::onChangeTooCloseDist);
+    m_parametersBirds.add(m_tooCloseDist);
+    
     m_gui.add(m_parametersBirds);
     
 }

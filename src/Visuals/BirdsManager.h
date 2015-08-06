@@ -48,16 +48,30 @@ public:
     
     void onChangeSwarmSize(float& value){m_birdsSwarmSize = value;}
     
+    void onChangeMaxForce(float& value);
+    
+    void onChangeWanderDistance(float& value);
+    
+    void onChangeWanderRadius(float& value);
+    
+    void onChangeWanderRange(float& value);
+    
+    void onChangeInSightDist(float& value);
+    
+    void onChangeTooCloseDist(float& value);
+    
     
 private:
     
-    int                         m_boidsNumber;
-    vector<SteeredVehicle>      m_boids;
+    int                                  m_boidsNumber;
+    vector<SteeredVehicle>               m_boids;
+    ofEasyCam                            m_camera;
+    ofLight                              m_light; 
+    ofSpherePrimitive                    m_sphere;
     
-    ofVec3f                 m_target;
-    float                   m_birdsSize;
-    float                   m_birdsSwarmSize;
-    
+    ofVec3f    m_target;
+    float      m_birdsSize;
+    float      m_birdsSwarmSize;
 };
 
 

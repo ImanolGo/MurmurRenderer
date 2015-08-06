@@ -31,26 +31,82 @@ void HandsWritingScene::setup()
     
     m_initialized = true;
     
-    m_fluid.setup("xmls/HandsWritingFluid.xml");
+    this->setupFbo();
+    //this->setupFluid();
+    this->setupBrush();
     
-    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
-    m_drawArea = ofRectangle(0, 0, windowsSettings.width, windowsSettings.height);
     
     ofLogNotice("HandsWritingScene::setup");
     
 }
 
+void HandsWritingScene::setupFbo()
+{
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    m_drawArea = ofRectangle(0, 0, windowsSettings.width, windowsSettings.height);
+    
+    m_fbo.allocate(windowsSettings.width, windowsSettings.height);
+    m_fbo.begin(); ofClear(0); m_fbo.end();
+}
+
+void HandsWritingScene::setupFluid()
+{
+    m_fluid.setup("xmls/HandsWritingFluid.xml");
+}
+
+
+void HandsWritingScene::setupBrush()
+{
+    string resourceName = "hands_brush";
+    m_brush.setResource(resourceName);
+    m_brush.setColor(ofColor::blue);
+    m_brush.setCentred(true);
+    m_brush.setWidth(300,true);
+}
+
+
 
 void HandsWritingScene::update()
 {
-    this->updateFluid();
+    //this->updateFluid();
+    this->updateHands();
+}
+
+void HandsWritingScene::updateHands()
+{
+    auto hands = AppManager::getInstance().getHandsManager().getHands();
+    
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    
+    ofEnableAlphaBlending();
+    m_fbo.begin();
+    ofPushStyle();
+        //ofEnableBlendMode(OF_BLENDMODE_DISABLED);
+        ofSetColor(0,0,0,2);
+        ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
+    
+        ofEnableBlendMode(OF_BLENDMODE_ADD);
+        for (auto hand : hands) {
+            
+            ofPoint pos = hand;
+            pos.x *= windowsSettings.width;
+            pos.y *= windowsSettings.height;
+            m_brush.setPosition(pos);
+            //ofSetColor(255,255,255);
+            m_brush.draw();
+        }
+    ofPopStyle();
+    m_fbo.end();
+    ofDisableAlphaBlending();
 }
 
 
 void HandsWritingScene::draw() {
-    ofBackground(0,0,0);
+    //ofBackground(0,0,0);
     //AppManager::getInstance().getHandsManager().draw();
-    this->drawFluid();
+    //this->drawFluid();
+
+    this->drawHands();
 }
 
 void HandsWritingScene::updateFluid()
@@ -66,6 +122,40 @@ void HandsWritingScene::updateFluid()
     }
     
     m_fluid.update();
+}
+
+void HandsWritingScene::drawHands()
+{
+    ofBackground(0, 0, 0);
+    m_fbo.draw(0, 0);
+    
+    /* ofEnableBlendMode(OF_BLENDMODE_ADD);
+    int maxRadius = 50;  // Increase for a wider brush
+    int radiusStepSize = 5;  // Decrease for more circles (i.e. a more opaque brush)
+    int alpha = 3;  // Increase for a more opaque brush
+    int maxOffsetDistance = 100;  // Increase for a larger spread of circles
+    for (int radius=maxRadius; radius>0; radius-=radiusStepSize) {
+        
+        // Formula for converting from polar to Cartesian coordinates:
+        //    x = cos(polar angle) * (polar distance)
+        //    y = sin(polar angle) * (polar distance)
+        // We need our angle to be in radians if we want to use sin() or cos()
+        // so we can make use of an openFrameworks function to convert from degrees
+        // to radians
+        float angle = ofRandom(ofDegToRad(360.0));
+        float distance = ofRandom(maxOffsetDistance);
+        float xOffset = cos(angle) * distance;
+        float yOffset = sin(angle) * distance;
+        
+        // Using the ofColor class, we will randomly select a color between orange and red
+        ofColor myOrange(255, 132, 0, alpha);
+        ofColor myRed(255, 6, 0, alpha);
+        ofColor inBetween = myOrange.getLerped(myRed, ofRandom(1.0));
+        ofSetColor(inBetween);
+        
+        ofCircle(ofGetMouseX()+xOffset, ofGetMouseY()+yOffset, radius);
+    }*/
+    
 }
 
 void HandsWritingScene::drawFluid()

@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "ImageVisual.h"
 #include "FluidVisual.h"
 #include "ofxScene.h"
 
@@ -44,15 +45,27 @@ public:
     
 private:
     
+    void setupBrush();
+    
+    void setupFbo();
+    
+    void setupFluid();
+    
     void drawFluid();
     
     void updateFluid();
+    
+    void updateHands();
+    
+    void drawHands();
     
 private:
     
     FluidVisual     m_fluid;
     bool            m_initialized;
     ofRectangle     m_drawArea;
+    ImageVisual     m_brush;
+    ofFbo           m_fbo;
     
 };
 
