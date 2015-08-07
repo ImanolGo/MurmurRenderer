@@ -196,6 +196,8 @@ bool SceneManager::changeScene(string sceneName)
 {
     bool sceneFound = false;
     
+    
+    
     for(auto scene : m_scenes) {
         
         if(scene->name == sceneName && m_sceneManagers.find(scene->window_index)!= m_sceneManagers.end()){

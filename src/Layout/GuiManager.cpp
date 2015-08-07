@@ -207,7 +207,7 @@ void GuiManager::setupHandsGui()
     m_handsOn.addListener(handsManager, &HandsManager::setHandsOn);
     m_parametersHands.add(m_handsOn);
     
-    m_handsOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
+    m_handsOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-0.5,-0.5) , ofVec2f(0.5,0.5) );
     m_handsOffset.addListener(handsManager, &HandsManager::setOffset);
     m_parametersHands.add(m_handsOffset);
     
@@ -233,11 +233,11 @@ void GuiManager::setupFloorGui()
     auto floorManager = &AppManager::getInstance().getFloorManager();
     m_parametersFloor.setName("Floor");
     
-    m_floorOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
+    m_floorOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-0.5,-0.5) , ofVec2f(0.5,0.5) );
     m_floorOffset.addListener(floorManager, &FloorManager::setOffset);
     m_parametersFloor.add(m_floorOffset);
     
-    m_floorScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
+    m_floorScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-2.0,-2.0) , ofVec2f(2.0,2.0) );
     m_floorScale.addListener(floorManager, &FloorManager::setScale);
     m_parametersFloor.add(m_floorScale);
     

@@ -49,6 +49,7 @@ void KathakScene::setupFbos()
     m_fboMask.allocate(windowsSettings.width, windowsSettings.height);
     
     ImageVisual gradientMask = ImageVisual(ofPoint(windowsSettings.width*0.5, windowsSettings.height*0.5), "floor_mask", true );
+    gradientMask.setHeight(windowsSettings.height, true);
     
     m_fboMask.begin();
         ofClear(0);
@@ -83,7 +84,7 @@ void KathakScene::setupWaterDrops()
 
 void KathakScene::update()
 {
-    this->updateFluid();
+    //this->updateFluid();
     this->updateWaterDrops();
 }
 
@@ -97,7 +98,9 @@ void KathakScene::draw() {
         this->drawWaterDrops();
     m_maskShader.end();
     
-    m_fluid.drawGui();
+    //m_fboMask.draw(0,0);
+    
+    //m_fluid.drawGui();
 
 }
 
@@ -122,9 +125,9 @@ void KathakScene::updateWaterDrops()
     
     m_water.begin();
         ofNoFill();
-        ofSetLineWidth(14);
+        ofSetLineWidth(16);
         ofColor color = ofColor::lightSeaGreen;
-        color.setSaturation( 100 + ofNoise( ofGetFrameNum() ) * 255 );
+        color.setSaturation( 50 + ofNoise( ofGetFrameNum() ) * 255 );
         ofSetColor(color);
         //ofSetColor(ofNoise( ofGetFrameNum() ) * 255 * 5, 255);
         //ofSetColor(ofColor::blue);

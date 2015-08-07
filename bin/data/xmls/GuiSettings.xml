@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>58.5503</FPS>
+	<FPS>29.9458</FPS>
 	<Scenes>
 		<TransitionTime>1.216</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -8,7 +8,7 @@
 	<HandsWritingScene>0</HandsWritingScene>
 	<FluidFloorScene>1</FluidFloorScene>
 		<BeautifulMindScene>0</BeautifulMindScene>
-	<Transparency>0.285714</Transparency>
+	<Transparency>0</Transparency>
 	<KathakScene>0</KathakScene>
 	<BirdsScene>0</BirdsScene>
 	</Scenes>
@@ -19,7 +19,7 @@
 	</Contour>
 <MurmurRenderer/>
 <Hands>
-		<Offset>0.00874639, 0.000416517</Offset>
+		<Offset>0.00437319, 0.000416517</Offset>
 		<Scale>1, 1</Scale>
 	<On>1</On>
 	<FadeTime>2.81633</FadeTime>
@@ -27,7 +27,7 @@
 	</Hands>
 <Floor>
 		<Offset>0, -0.18284</Offset>
-		<Scale>0.258642, 1</Scale>
+		<Scale>2, 2</Scale>
 	</Floor>
 <BeautifulMind>
 		<Offset>0.000416517, 0.000416517</Offset>
@@ -41,7 +41,7 @@
 	</Crop>
 <Audio>
 		<Volume>0.861224</Volume>
-	<AudioOn>0</AudioOn>
+	<AudioOn>1</AudioOn>
 	</Audio>
 <Layout>
 		<Fullscreen>1</Fullscreen>

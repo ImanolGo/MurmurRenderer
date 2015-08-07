@@ -45,15 +45,22 @@ void FluidFloorScene::setupFbos()
 {
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     m_fboMask.allocate(windowsSettings.width, windowsSettings.height);
+    m_fboFluid.allocate(windowsSettings.width, windowsSettings.height);
     
     ImageVisual gradientMask = ImageVisual(ofPoint(windowsSettings.width*0.5, windowsSettings.height*0.5), "floor_mask", true );
-    gradientMask.setHeight(windowsSettings.height);
+    gradientMask.setHeight(windowsSettings.height,true);
+    
+    ofLogNotice()<<"FluidFloorScene::mask width = " << gradientMask.getWidth() << ", height = " << gradientMask.getHeight() ;
     
     m_fboMask.begin();
         ofClear(0);
         ofBackground(0, 0, 0);
         gradientMask.draw();
     m_fboMask.end();
+    
+    m_fboFluid.begin();
+        ofClear(0);
+    m_fboFluid.end();
     
     m_drawArea = ofRectangle(0,0, windowsSettings.width, windowsSettings.height);
 }
@@ -78,17 +85,27 @@ void FluidFloorScene::update()
 
 void FluidFloorScene::draw() {
     ofBackground(0,0,0);
-    
+
     m_maskShader.begin();
     m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
-        AppManager::getInstance().getHandsManager().draw();
-        this->drawFluid();
+        //AppManager::getInstance().getHandsManager().draw();
+        //this->drawFluid();
+        m_fboFluid.draw(0, 0);
     m_maskShader.end();
+    //m_maskShader.end();
+    //ofPushStyle();
+    //ofEnableAlphaBlending();
+    //ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+    
+    //m_fboMask.draw(0,0);
+    //ofPopStyle();
     
     
-    if(AppManager::getInstance().getDebugMode()){
-        //m_fluid.drawGui();
-    }
+    //ofEnableAlphaBlending();
+    //this->drawFluid();
+    
+     //ofEnableAlphaBlending();
+    
 
 }
 
@@ -98,6 +115,11 @@ void FluidFloorScene::updateFluid()
     
     m_fluid.addForce(floorPosition);
     m_fluid.update();
+    
+    m_fboFluid.begin();
+        ofBackground(0, 0, 0);
+        m_fluid.draw(m_drawArea);
+    m_fboFluid.end();
 }
 
 
