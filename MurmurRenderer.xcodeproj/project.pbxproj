@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0466B9E6A55078A9F39B1B4B /* svgtiny_gradient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4F639B12AA5C1013177E49 /* svgtiny_gradient.cpp */; };
 		04DF616AA21AD331DF08C325 /* ftParticleFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D9822CFA7F77387B3BBDBC /* ftParticleFlow.cpp */; };
+		0848D6F41B8F62A600672D56 /* VideoVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D6F21B8F62A600672D56 /* VideoVisual.cpp */; };
 		089A81FF1B42CAF700928D12 /* BattleOfSelfScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 089A81FD1B42CAF700928D12 /* BattleOfSelfScene.cpp */; };
 		08AC0E111B45251200574154 /* HandsWritingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0E0F1B45251200574154 /* HandsWritingScene.cpp */; };
 		08B074591B45944C008D71BB /* BeautifulMindScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08B074551B45944C008D71BB /* BeautifulMindScene.cpp */; };
@@ -212,6 +213,8 @@
 		05F8E3C8BC749A2D7EFC7E4D /* ftTemperatureFieldShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ftTemperatureFieldShader.h; path = src/Addons/ofxFlowTools/src/visualisation/ftTemperatureFieldShader.h; sourceTree = SOURCE_ROOT; };
 		067A0CB3F8E32F33532D73DE /* ofxGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGui.h; path = src/Addons/ofxGui/src/ofxGui.h; sourceTree = SOURCE_ROOT; };
 		074978820820325AB8737225 /* README.md */ = {isa = PBXFileReference; explicitFileType = file; fileEncoding = 30; name = README.md; path = src/Addons/ofxUnicode/README.md; sourceTree = SOURCE_ROOT; };
+		0848D6F21B8F62A600672D56 /* VideoVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoVisual.cpp; sourceTree = "<group>"; };
+		0848D6F31B8F62A600672D56 /* VideoVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoVisual.h; sourceTree = "<group>"; };
 		089A81FD1B42CAF700928D12 /* BattleOfSelfScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleOfSelfScene.cpp; sourceTree = "<group>"; };
 		089A81FE1B42CAF700928D12 /* BattleOfSelfScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleOfSelfScene.h; sourceTree = "<group>"; };
 		08AC0E0F1B45251200574154 /* HandsWritingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HandsWritingScene.cpp; sourceTree = "<group>"; };
@@ -687,6 +690,8 @@
 		08B0748B1B46D588008D71BB /* Visuals */ = {
 			isa = PBXGroup;
 			children = (
+				0848D6F21B8F62A600672D56 /* VideoVisual.cpp */,
+				0848D6F31B8F62A600672D56 /* VideoVisual.h */,
 				08B0748C1B46D588008D71BB /* BasicVisual.h */,
 				08B0748D1B46D588008D71BB /* ImageVisual.cpp */,
 				08B0748E1B46D588008D71BB /* ImageVisual.h */,
@@ -1931,6 +1936,7 @@
 				854D16924B6DD2C209FD11C2 /* ofxOscReceiver.cpp in Sources */,
 				08F4182E1B6B683B00D190B7 /* ofxBlur.cpp in Sources */,
 				08F31D9D1B47F6310053C234 /* BeautifulMindManager.cpp in Sources */,
+				0848D6F41B8F62A600672D56 /* VideoVisual.cpp in Sources */,
 				08D4014D1B6A368C0035C289 /* EdgePass.cpp in Sources */,
 				78903FED64B0BFD8EED1E552 /* ofxOscSender.cpp in Sources */,
 				08D401F81B6A703B0035C289 /* ofxFXObject.cpp in Sources */,

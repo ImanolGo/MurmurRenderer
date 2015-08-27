@@ -76,8 +76,8 @@ void AppManager::setupMultipleWidows()
         }
         m_glfw->setWindow(m_windows->at(i));    // set window pointer
         m_glfw->initializeWindow();       // initialize events (mouse, keyboard, etc) on window (optional)
+        m_glfw->setWindowShape(windowSettings.width, windowSettings.height);
         m_glfw->setWindowPosition(windowSettings.x, windowSettings.y);
-        //m_glfw->setWindowShape(windowSettings.width, windowSettings.height);
         //m_glfw->undecorate(windowSettings.fullscreen);
         //ofSetWindowPosition(windowSettings.x, windowSettings.y);    // business as usual...
         //ofSetWindowShape(windowSettings.width, windowSettings.height);
