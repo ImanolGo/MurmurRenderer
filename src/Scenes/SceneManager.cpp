@@ -194,31 +194,31 @@ void SceneManager::draw(WindowIndex w)
 
 bool SceneManager::changeScene(string sceneName)
 {
-    bool sceneFound = false;
     
-    
-    
-    for(auto scene : m_scenes) {
+    for(auto sceneManager : m_sceneManagers)
+    {
+        bool sceneFound = false;
         
-        if(scene->name == sceneName && m_sceneManagers.find(scene->window_index)!= m_sceneManagers.end()){
-            sceneFound = true;
-            m_sceneManagers[scene->window_index]->changeScene((int) scene->index);
+        //ofLogNotice() <<"SceneManager::changeScene -> sceneManager "<< sceneManager.first ;
+        
+        for(auto scene : m_scenes)
+        {
+            if(scene->name == sceneName && sceneManager.first == scene->window_index ){
+                sceneFound = true;
+                ofLogNotice() <<"SceneManager::changeScene -> Changed screen "<< sceneManager.first  <<" to scene  " << sceneName;
+                sceneManager.second->changeScene((int) scene->index);
+                break;
+            }
         }
-        else{
-            //m_sceneManagers[scene->window_index]->changeScene(0);
+        
+        if(!sceneFound){
+            ofLogNotice() <<"SceneManager::changeScene ->  Changed screen "<< sceneManager.first  <<" to Black Scene ";
+            sceneManager.second->changeScene(0);
         }
+       
+
     }
     
-    
-    if(sceneFound){
-        ofLogNotice() <<"SceneManager::changeScene -> Changed to scene  " << sceneName;
-        return true;
-    }
-    else{
-        ofLogNotice() <<"SceneManager::changeScene -> No scene found with name  " << sceneName;
-        return false;
-    }
-   
 }
 
 
