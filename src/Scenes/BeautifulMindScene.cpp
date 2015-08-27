@@ -37,6 +37,7 @@ void BeautifulMindScene::setup() {
     m_initialized = true;
     
     this->setupFbo();
+    this->setupVideo();
     this->setupScenes();
     
     ofLogNotice("BeautifulMindScene::setup");
@@ -47,6 +48,14 @@ void BeautifulMindScene::setupFbo()
 {
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     m_fbo.allocate(windowsSettings.width, windowsSettings.height);
+}
+
+void BeautifulMindScene::setupVideo()
+{
+    string videoFileName = "videos/Aged.mp4";
+    m_video.setResource(videoFileName);
+    m_video.setWidth(m_fbo.getWidth()); m_video.setHeight(m_fbo.getHeight());
+    m_video.setLoopState(OF_LOOP_NORMAL);
 }
 
 void BeautifulMindScene::setupScenes()
@@ -427,6 +436,9 @@ void BeautifulMindScene::updateScene4()
 
 void BeautifulMindScene::update() {
     
+    
+    this->updateVideo();
+    
     m_elapsedTime += ofGetLastFrameTime();
     if(m_elapsedTime >= m_duration){
         this->nextScene();
@@ -455,6 +467,12 @@ void BeautifulMindScene::update() {
     m_fbo.end();
 }
 
+void BeautifulMindScene::updateVideo()
+{
+    m_video.update();
+}
+
+
 void BeautifulMindScene::draw() {
    
     ofBackground(0,0,0);
@@ -470,6 +488,8 @@ void BeautifulMindScene::drawScene() {
     for (auto image: m_images) {
         image.second->draw();
     }
+    
+    m_video.draw();
     
     ofPopStyle();
 }
@@ -500,6 +520,8 @@ void BeautifulMindScene::willFadeIn() {
     }
     
      this->setScene(0);
+    
+     m_video.play();
 }
 
 void BeautifulMindScene::willDraw() {
@@ -512,4 +534,6 @@ void BeautifulMindScene::willFadeOut() {
 
 void BeautifulMindScene::willExit() {
     ofLogNotice("BeautifulMindScene::willExit");
+    
+    m_video.stop();
 }

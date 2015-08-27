@@ -54,6 +54,12 @@ public:
     
     //! Get the original height
     float getOriginalHeight() const {return m_originalHeight;}
+    
+    void setLoopState(ofLoopType state) {m_video.setLoopState(state);}
+    
+    void play() {m_video.play();}
+    
+    void stop() {m_video.stop();}
 
 
 protected:

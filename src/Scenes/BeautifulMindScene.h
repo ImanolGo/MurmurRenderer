@@ -9,6 +9,8 @@
 #pragma once
 
 #include "ImageVisual.h"
+#include "VideoVisual.h"
+
 #include "ofxScene.h"
 
 
@@ -53,6 +55,15 @@ private:
     
     //! Setup Fbo
     void   setupFbo();
+    
+    //! Setup video
+    void   setupVideo();
+    
+    //! update video
+    void   updateVideo();
+    
+    //! update video
+    void   drawVideo();
     
     //! Setup all the scenes
     void   setupScenes();
@@ -106,6 +117,7 @@ private:
      typedef   map < string, ofPtr< ImageVisual > >  ImageMap;
     
      bool          m_initialized;
+     VideoVisual   m_video;
      ImageMap      m_images;
      int           m_sceneNumber;
      float         m_elapsedTime;
