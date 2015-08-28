@@ -11,7 +11,7 @@
 #include "AudioManager.h"
 
 
-AudioManager::AudioManager(): m_volumeRange(100)
+AudioManager::AudioManager(): m_volume(0.5)
 {
     //Intentionaly left empty
 }
@@ -35,11 +35,12 @@ void AudioManager::setup()
 
 void AudioManager::setupFFT()
 {
+    m_fft.setMirrorData(false);
     m_fft.setup();
-    m_fft.setNumFFTBins(8);
-    m_fft.setVolumeRange(m_volumeRange);
-    //m_fft.setNormalize(true);
-   
+    m_fft.setPeakDecay(0.915);
+    m_fft.setMaxDecay(0.995);
+    m_fft.setThreshold(1.0);
+    m_fft.setVolume(m_volume);
 }
 
 
@@ -50,7 +51,7 @@ void AudioManager::update()
     }
     
     m_fft.update();
-    m_audioMax = ofMap(m_fft.getUnScaledLoudestValue(), 0.0, m_volumeRange, 0.0, 1.0, true);
+    m_audioMax = ofMap(m_fft.getAveragePeak(), 0.0, 0.1, 0.0, 1.0, true);
     
     //ofLogNotice() <<"AudioManager::update: " << m_fft.getUnScaledLoudestValue();
     //ofLogNotice() <<"AudioManager::update2: " << m_fft.getLoudBand();
@@ -58,14 +59,17 @@ void AudioManager::update()
 
 void AudioManager::draw()
 {
-    m_fft.drawBars();
+    if (!m_audioOn) {
+        return;
+    }
+
+    m_fft.draw(340,600);
 }
 
 void AudioManager::onChangeVolumeRange(float& value)
 {
-    m_volumeRange = ofMap(value, 0, 1, 2000, 1);
-    m_fft.setVolumeRange(m_volumeRange);
-
+    m_volume = value;
+    m_fft.setVolume(m_volume);
 }
 
 void AudioManager::setAudioMax(float audioMax)

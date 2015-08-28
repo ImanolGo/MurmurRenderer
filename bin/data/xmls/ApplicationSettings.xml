@@ -6,7 +6,7 @@
     <debug showCursor="1" setVerbose="0"/>
     <network ipAddress="127.0.0.1" portOscSend="5555" portOscReceive="50000" portUdpReceive="44409"/>
 
-  	<window title="Murmur Renderer GUI" x="0" y="0" width="1920" height="1200" fullscreen="0" showCursor="1"/>
+  	<window title="Murmur Renderer GUI" x="0" y="0" width="700" height="1080" fullscreen="0" showCursor="1"/>
     <window title="Murmur Renderer Front" x="0" y="0" width="1920" height="1200" fullscreen="0" showCursor="1"/>
     <window title="Murmur Renderer Top" x="0" y="0" width="1400" height="1050" fullscreen="0" showCursor="1"/>
 

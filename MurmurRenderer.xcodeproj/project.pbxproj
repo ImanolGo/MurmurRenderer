@@ -18,6 +18,10 @@
 		0848D7311B904C6800672D56 /* ofxSyphonServerDirectory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0848D72B1B904C6800672D56 /* ofxSyphonServerDirectory.mm */; };
 		0848D7321B904CEE00672D56 /* Syphon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0848D71E1B904C6800672D56 /* Syphon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0848D7351B904DD700672D56 /* SyphonVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7331B904DD700672D56 /* SyphonVisual.cpp */; };
+		0848D75C1B90872600672D56 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7511B90872600672D56 /* fft.cpp */; };
+		0848D75D1B90872600672D56 /* ofxFFTBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7561B90872600672D56 /* ofxFFTBase.cpp */; };
+		0848D75E1B90872600672D56 /* ofxFFTFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7581B90872600672D56 /* ofxFFTFile.cpp */; };
+		0848D75F1B90872600672D56 /* ofxFFTLive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D75A1B90872600672D56 /* ofxFFTLive.cpp */; };
 		089A81FF1B42CAF700928D12 /* BattleOfSelfScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 089A81FD1B42CAF700928D12 /* BattleOfSelfScene.cpp */; };
 		08AC0E111B45251200574154 /* HandsWritingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0E0F1B45251200574154 /* HandsWritingScene.cpp */; };
 		08B074591B45944C008D71BB /* BeautifulMindScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08B074551B45944C008D71BB /* BeautifulMindScene.cpp */; };
@@ -68,15 +72,6 @@
 		08D401F61B6A703B0035C289 /* ofxFluid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401E81B6A703B0035C289 /* ofxFluid.cpp */; };
 		08D401F71B6A703B0035C289 /* ofxWater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401EA1B6A703B0035C289 /* ofxWater.cpp */; };
 		08D401F81B6A703B0035C289 /* ofxFXObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401ED1B6A703B0035C289 /* ofxFXObject.cpp */; };
-		08D4021B1B6A74A00035C289 /* fftw3f.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D402041B6A74A00035C289 /* fftw3f.a */; };
-		08D4021C1B6A74A00035C289 /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 08D4020A1B6A74A00035C289 /* kiss_fft.c */; };
-		08D4021D1B6A74A00035C289 /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 08D4020C1B6A74A00035C289 /* kiss_fftr.c */; };
-		08D4021E1B6A74A00035C289 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 08D4020F1B6A74A00035C289 /* readme.md */; };
-		08D4021F1B6A74A00035C289 /* ofxEasyFft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402111B6A74A00035C289 /* ofxEasyFft.cpp */; };
-		08D402201B6A74A00035C289 /* ofxFft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402131B6A74A00035C289 /* ofxFft.cpp */; };
-		08D402211B6A74A00035C289 /* ofxFftBasic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402151B6A74A00035C289 /* ofxFftBasic.cpp */; };
-		08D402221B6A74A00035C289 /* ofxFftw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402171B6A74A00035C289 /* ofxFftw.cpp */; };
-		08D402231B6A74A00035C289 /* ofxProcessFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D402191B6A74A00035C289 /* ofxProcessFFT.cpp */; };
 		08EBB62F1B721185005F510F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB62B1B721185005F510F /* README.md */; };
 		08EBB6301B721185005F510F /* ofxSecondWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB62D1B721185005F510F /* ofxSecondWindow.cpp */; };
 		08EBB64F1B729E8A005F510F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB6461B729E8A005F510F /* README.md */; };
@@ -239,6 +234,17 @@
 		0848D72B1B904C6800672D56 /* ofxSyphonServerDirectory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ofxSyphonServerDirectory.mm; sourceTree = "<group>"; };
 		0848D7331B904DD700672D56 /* SyphonVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SyphonVisual.cpp; path = Visuals/SyphonVisual.cpp; sourceTree = "<group>"; };
 		0848D7341B904DD700672D56 /* SyphonVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyphonVisual.h; path = Visuals/SyphonVisual.h; sourceTree = "<group>"; };
+		0848D74F1B90872600672D56 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		0848D7511B90872600672D56 /* fft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fft.cpp; sourceTree = "<group>"; };
+		0848D7521B90872600672D56 /* fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fft.h; sourceTree = "<group>"; };
+		0848D7531B90872600672D56 /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
+		0848D7541B90872600672D56 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		0848D7561B90872600672D56 /* ofxFFTBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTBase.cpp; sourceTree = "<group>"; };
+		0848D7571B90872600672D56 /* ofxFFTBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTBase.h; sourceTree = "<group>"; };
+		0848D7581B90872600672D56 /* ofxFFTFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTFile.cpp; sourceTree = "<group>"; };
+		0848D7591B90872600672D56 /* ofxFFTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTFile.h; sourceTree = "<group>"; };
+		0848D75A1B90872600672D56 /* ofxFFTLive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTLive.cpp; sourceTree = "<group>"; };
+		0848D75B1B90872600672D56 /* ofxFFTLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTLive.h; sourceTree = "<group>"; };
 		089A81FD1B42CAF700928D12 /* BattleOfSelfScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleOfSelfScene.cpp; sourceTree = "<group>"; };
 		089A81FE1B42CAF700928D12 /* BattleOfSelfScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleOfSelfScene.h; sourceTree = "<group>"; };
 		08AC0E0F1B45251200574154 /* HandsWritingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HandsWritingScene.cpp; sourceTree = "<group>"; };
@@ -359,30 +365,6 @@
 		08D401EF1B6A703B0035C289 /* ofxSwapBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSwapBuffer.h; sourceTree = "<group>"; };
 		08D401F11B6A703B0035C289 /* ofxKaleidoscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxKaleidoscope.h; sourceTree = "<group>"; };
 		08D401F21B6A703B0035C289 /* ofxRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxRotate.h; sourceTree = "<group>"; };
-		08D401FB1B6A74A00035C289 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		08D401FE1B6A74A00035C289 /* .keep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
-		08D402001B6A74A00035C289 /* fftw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fftw3.h; sourceTree = "<group>"; };
-		08D402021B6A74A00035C289 /* .keep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
-		08D402041B6A74A00035C289 /* fftw3f.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = fftw3f.a; sourceTree = "<group>"; };
-		08D402061B6A74A00035C289 /* libfftw3f-3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = "libfftw3f-3.dll"; sourceTree = "<group>"; };
-		08D402081B6A74A00035C289 /* .keep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
-		08D402091B6A74A00035C289 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _kiss_fft_guts.h; sourceTree = "<group>"; };
-		08D4020A1B6A74A00035C289 /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kiss_fft.c; sourceTree = "<group>"; };
-		08D4020B1B6A74A00035C289 /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fft.h; sourceTree = "<group>"; };
-		08D4020C1B6A74A00035C289 /* kiss_fftr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kiss_fftr.c; sourceTree = "<group>"; };
-		08D4020D1B6A74A00035C289 /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fftr.h; sourceTree = "<group>"; };
-		08D4020E1B6A74A00035C289 /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
-		08D4020F1B6A74A00035C289 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
-		08D402111B6A74A00035C289 /* ofxEasyFft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxEasyFft.cpp; sourceTree = "<group>"; };
-		08D402121B6A74A00035C289 /* ofxEasyFft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxEasyFft.h; sourceTree = "<group>"; };
-		08D402131B6A74A00035C289 /* ofxFft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFft.cpp; sourceTree = "<group>"; };
-		08D402141B6A74A00035C289 /* ofxFft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFft.h; sourceTree = "<group>"; };
-		08D402151B6A74A00035C289 /* ofxFftBasic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFftBasic.cpp; sourceTree = "<group>"; };
-		08D402161B6A74A00035C289 /* ofxFftBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFftBasic.h; sourceTree = "<group>"; };
-		08D402171B6A74A00035C289 /* ofxFftw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFftw.cpp; sourceTree = "<group>"; };
-		08D402181B6A74A00035C289 /* ofxFftw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFftw.h; sourceTree = "<group>"; };
-		08D402191B6A74A00035C289 /* ofxProcessFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxProcessFFT.cpp; sourceTree = "<group>"; };
-		08D4021A1B6A74A00035C289 /* ofxProcessFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxProcessFFT.h; sourceTree = "<group>"; };
 		08EBB62A1B721185005F510F /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
 		08EBB62B1B721185005F510F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		08EBB62D1B721185005F510F /* ofxSecondWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSecondWindow.cpp; sourceTree = "<group>"; };
@@ -641,7 +623,6 @@
 				E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */,
 				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
 				E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */,
-				08D4021B1B6A74A00035C289 /* fftw3f.a in Frameworks */,
 				E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */,
 				0848D72C1B904C6800672D56 /* Syphon.framework in Frameworks */,
 				E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */,
@@ -733,6 +714,41 @@
 				0848D7291B904C6800672D56 /* ofxSyphonServer.mm */,
 				0848D72A1B904C6800672D56 /* ofxSyphonServerDirectory.h */,
 				0848D72B1B904C6800672D56 /* ofxSyphonServerDirectory.mm */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		0848D74E1B90872600672D56 /* ofxFFT */ = {
+			isa = PBXGroup;
+			children = (
+				0848D74F1B90872600672D56 /* .gitignore */,
+				0848D7501B90872600672D56 /* libs */,
+				0848D7531B90872600672D56 /* ofxaddons_thumbnail.png */,
+				0848D7541B90872600672D56 /* README */,
+				0848D7551B90872600672D56 /* src */,
+			);
+			name = ofxFFT;
+			path = Addons/ofxFFT;
+			sourceTree = "<group>";
+		};
+		0848D7501B90872600672D56 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				0848D7511B90872600672D56 /* fft.cpp */,
+				0848D7521B90872600672D56 /* fft.h */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		0848D7551B90872600672D56 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				0848D7561B90872600672D56 /* ofxFFTBase.cpp */,
+				0848D7571B90872600672D56 /* ofxFFTBase.h */,
+				0848D7581B90872600672D56 /* ofxFFTFile.cpp */,
+				0848D7591B90872600672D56 /* ofxFFTFile.h */,
+				0848D75A1B90872600672D56 /* ofxFFTLive.cpp */,
+				0848D75B1B90872600672D56 /* ofxFFTLive.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -956,102 +972,6 @@
 				08D401F21B6A703B0035C289 /* ofxRotate.h */,
 			);
 			path = transformers;
-			sourceTree = "<group>";
-		};
-		08D401FA1B6A74A00035C289 /* ofxFft */ = {
-			isa = PBXGroup;
-			children = (
-				08D401FB1B6A74A00035C289 /* .gitignore */,
-				08D401FC1B6A74A00035C289 /* libs */,
-				08D4020E1B6A74A00035C289 /* ofxaddons_thumbnail.png */,
-				08D4020F1B6A74A00035C289 /* readme.md */,
-				08D402101B6A74A00035C289 /* src */,
-			);
-			name = ofxFft;
-			path = Addons/ofxFft;
-			sourceTree = "<group>";
-		};
-		08D401FC1B6A74A00035C289 /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				08D401FD1B6A74A00035C289 /* fftw */,
-				08D402071B6A74A00035C289 /* kiss */,
-			);
-			path = libs;
-			sourceTree = "<group>";
-		};
-		08D401FD1B6A74A00035C289 /* fftw */ = {
-			isa = PBXGroup;
-			children = (
-				08D401FE1B6A74A00035C289 /* .keep */,
-				08D401FF1B6A74A00035C289 /* include */,
-				08D402011B6A74A00035C289 /* lib */,
-			);
-			path = fftw;
-			sourceTree = "<group>";
-		};
-		08D401FF1B6A74A00035C289 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				08D402001B6A74A00035C289 /* fftw3.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		08D402011B6A74A00035C289 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				08D402021B6A74A00035C289 /* .keep */,
-				08D402031B6A74A00035C289 /* osx */,
-				08D402051B6A74A00035C289 /* win32 */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		08D402031B6A74A00035C289 /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				08D402041B6A74A00035C289 /* fftw3f.a */,
-			);
-			path = osx;
-			sourceTree = "<group>";
-		};
-		08D402051B6A74A00035C289 /* win32 */ = {
-			isa = PBXGroup;
-			children = (
-				08D402061B6A74A00035C289 /* libfftw3f-3.dll */,
-			);
-			path = win32;
-			sourceTree = "<group>";
-		};
-		08D402071B6A74A00035C289 /* kiss */ = {
-			isa = PBXGroup;
-			children = (
-				08D402081B6A74A00035C289 /* .keep */,
-				08D402091B6A74A00035C289 /* _kiss_fft_guts.h */,
-				08D4020A1B6A74A00035C289 /* kiss_fft.c */,
-				08D4020B1B6A74A00035C289 /* kiss_fft.h */,
-				08D4020C1B6A74A00035C289 /* kiss_fftr.c */,
-				08D4020D1B6A74A00035C289 /* kiss_fftr.h */,
-			);
-			path = kiss;
-			sourceTree = "<group>";
-		};
-		08D402101B6A74A00035C289 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				08D402111B6A74A00035C289 /* ofxEasyFft.cpp */,
-				08D402121B6A74A00035C289 /* ofxEasyFft.h */,
-				08D402131B6A74A00035C289 /* ofxFft.cpp */,
-				08D402141B6A74A00035C289 /* ofxFft.h */,
-				08D402151B6A74A00035C289 /* ofxFftBasic.cpp */,
-				08D402161B6A74A00035C289 /* ofxFftBasic.h */,
-				08D402171B6A74A00035C289 /* ofxFftw.cpp */,
-				08D402181B6A74A00035C289 /* ofxFftw.h */,
-				08D402191B6A74A00035C289 /* ofxProcessFFT.cpp */,
-				08D4021A1B6A74A00035C289 /* ofxProcessFFT.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		08EBB6291B721185005F510F /* ofxSecondWindow */ = {
@@ -1612,11 +1532,11 @@
 		AD642137CCDF61FB3E6CCEA2 /* Addons */ = {
 			isa = PBXGroup;
 			children = (
+				0848D74E1B90872600672D56 /* ofxFFT */,
 				0848D7181B904C6800672D56 /* ofxSyphon */,
 				08EBB6451B729E8A005F510F /* ofxBoids */,
 				08EBB6291B721185005F510F /* ofxSecondWindow */,
 				08F418271B6B683B00D190B7 /* ofxBlur */,
-				08D401FA1B6A74A00035C289 /* ofxFft */,
 				08D401D01B6A703B0035C289 /* ofxFX */,
 				08D401131B6A368B0035C289 /* ofxPostProcessing */,
 				08EEBC121B44354300061FB1 /* ofxNetwork */,
@@ -1968,11 +1888,11 @@
 				08B074A01B46D588008D71BB /* Font.cpp in Sources */,
 				08D401481B6A368C0035C289 /* BloomPass.cpp in Sources */,
 				9A15495FA2EE8F23378413B2 /* ofxBaseGui.cpp in Sources */,
-				08D4021E1B6A74A00035C289 /* readme.md in Sources */,
 				08D401521B6A368C0035C289 /* KaleidoscopePass.cpp in Sources */,
 				08B0749D1B46D588008D71BB /* CameraManager.cpp in Sources */,
 				1E777E277DAB367779E7E89A /* ofxButton.cpp in Sources */,
 				08EC80391B3C3F0F000893E1 /* ofxEasingExpo.cpp in Sources */,
+				0848D75C1B90872600672D56 /* fft.cpp in Sources */,
 				08D4015C1B6A368C0035C289 /* ToonPass.cpp in Sources */,
 				08D401591B6A368C0035C289 /* RGBShiftPass.cpp in Sources */,
 				089A81FF1B42CAF700928D12 /* BattleOfSelfScene.cpp in Sources */,
@@ -1995,7 +1915,6 @@
 				A17FD063CDFB818E826A6080 /* ofxMultiGLFWWindow.cpp in Sources */,
 				85EE6C4774B9737FF97A89E8 /* IpEndpointName.cpp in Sources */,
 				A6ACA0F494E98AF780199B78 /* NetworkingUtils.cpp in Sources */,
-				08D4021F1B6A74A00035C289 /* ofxEasyFft.cpp in Sources */,
 				08D4014C1B6A368C0035C289 /* DofPass.cpp in Sources */,
 				08EC80501B3CABAC000893E1 /* SmokyHandsScene.cpp in Sources */,
 				08D401F71B6A703B0035C289 /* ofxWater.cpp in Sources */,
@@ -2004,8 +1923,10 @@
 				1D8CD25882E2AD645377A32C /* UdpSocket.cpp in Sources */,
 				08B074A41B46D588008D71BB /* TextVisual.cpp in Sources */,
 				08D4014B1B6A368C0035C289 /* DofAltPass.cpp in Sources */,
+				0848D75F1B90872600672D56 /* ofxFFTLive.cpp in Sources */,
 				2A295D66A6FB5F4733D49A37 /* NetworkingUtilsWin.cpp in Sources */,
 				0848D7301B904C6800672D56 /* ofxSyphonServer.mm in Sources */,
+				0848D75D1B90872600672D56 /* ofxFFTBase.cpp in Sources */,
 				08F4182D1B6B683B00D190B7 /* readme.md in Sources */,
 				08D401531B6A368C0035C289 /* LimbDarkeningPass.cpp in Sources */,
 				08B0749F1B46D588008D71BB /* ResourceManager.cpp in Sources */,
@@ -2031,7 +1952,6 @@
 				08B074A51B46D588008D71BB /* ViewManager.cpp in Sources */,
 				08EC80431B3C3FEF000893E1 /* SceneManager.cpp in Sources */,
 				08EBB6301B721185005F510F /* ofxSecondWindow.cpp in Sources */,
-				08D402231B6A74A00035C289 /* ofxProcessFFT.cpp in Sources */,
 				08EBB6581B72B52B005F510F /* BirdsScene.cpp in Sources */,
 				854D16924B6DD2C209FD11C2 /* ofxOscReceiver.cpp in Sources */,
 				08F4182E1B6B683B00D190B7 /* ofxBlur.cpp in Sources */,
@@ -2049,12 +1969,12 @@
 				0848D72E1B904C6800672D56 /* README.md in Sources */,
 				FCA1CD00EA2BBEEEBA5C4AC9 /* svgtiny_list.cpp in Sources */,
 				08B0745D1B4595E3008D71BB /* FloorManager.cpp in Sources */,
+				0848D75E1B90872600672D56 /* ofxFFTFile.cpp in Sources */,
 				E76816EF014518B0B3E83C39 /* ofxSvg.cpp in Sources */,
 				08B0749C1B46D588008D71BB /* CameraAnimationsManager.cpp in Sources */,
 				D75E4524BBB94FF34BF7DD48 /* ReleaseNotes in Sources */,
 				08B074A61B46D588008D71BB /* VisualEffects.cpp in Sources */,
 				08EC800B1B3C3D1A000893E1 /* ofxSceneManager.cpp in Sources */,
-				08D4021D1B6A74A00035C289 /* kiss_fftr.c in Sources */,
 				82C668F7D0DF704AD7D1BB1C /* utf8cpp.html in Sources */,
 				B7993B374B98F50CBD9EC220 /* README.md in Sources */,
 				0848D72D1B904C6800672D56 /* SyphonNameboundClient.m in Sources */,
@@ -2070,13 +1990,10 @@
 				08EEBC261B444F0E00061FB1 /* HandsManager.cpp in Sources */,
 				08D401F41B6A703B0035C289 /* README.md in Sources */,
 				08AC0E111B45251200574154 /* HandsWritingScene.cpp in Sources */,
-				08D402211B6A74A00035C289 /* ofxFftBasic.cpp in Sources */,
 				08D4015A1B6A368C0035C289 /* RimHighlightingPass.cpp in Sources */,
 				08EC80341B3C3F0F000893E1 /* ofxEasingBack.cpp in Sources */,
-				08D402221B6A74A00035C289 /* ofxFftw.cpp in Sources */,
 				08D4015E1B6A368C0035C289 /* ZoomBlurPass.cpp in Sources */,
 				08B0745A1B45944C008D71BB /* FluidFloorScene.cpp in Sources */,
-				08D4021C1B6A74A00035C289 /* kiss_fft.c in Sources */,
 				08D401F51B6A703B0035C289 /* ofxFlocking.cpp in Sources */,
 				08EEBC201B44354300061FB1 /* ofxTCPClient.cpp in Sources */,
 				08B074A11B46D588008D71BB /* ImageVisual.cpp in Sources */,
@@ -2085,7 +2002,6 @@
 				08EC80331B3C3F0F000893E1 /* ofxEasing.cpp in Sources */,
 				08D401F61B6A703B0035C289 /* ofxFluid.cpp in Sources */,
 				08EC805E1B3D81EA000893E1 /* ContourManager.cpp in Sources */,
-				08D402201B6A74A00035C289 /* ofxFft.cpp in Sources */,
 				08EC80361B3C3F0F000893E1 /* ofxEasingCirc.cpp in Sources */,
 				5D33A9513B2A4C6DBD3188C7 /* GuiManager.cpp in Sources */,
 				08D401511B6A368C0035C289 /* HorizontalTiltShifPass.cpp in Sources */,
