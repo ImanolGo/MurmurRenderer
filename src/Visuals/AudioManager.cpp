@@ -35,8 +35,8 @@ void AudioManager::setup()
 
 void AudioManager::setupFFT()
 {
-    m_fft.setMirrorData(false);
     m_fft.setup();
+    m_fft.setMirrorData(false);
     m_fft.setPeakDecay(0.915);
     m_fft.setMaxDecay(0.995);
     m_fft.setThreshold(1.0);
@@ -51,7 +51,7 @@ void AudioManager::update()
     }
     
     m_fft.update();
-    m_audioMax = ofMap(m_fft.getAveragePeak(), 0.0, 0.1, 0.0, 1.0, true);
+    m_audioMax = ofMap(m_fft.getAveragePeak(), 0.0, 0.8, 0.0, 1.0, true);
     
     //ofLogNotice() <<"AudioManager::update: " << m_fft.getUnScaledLoudestValue();
     //ofLogNotice() <<"AudioManager::update2: " << m_fft.getLoudBand();
@@ -66,7 +66,7 @@ void AudioManager::draw()
     m_fft.draw(340,600);
 }
 
-void AudioManager::onChangeVolumeRange(float& value)
+void AudioManager::onChangeVolume(float& value)
 {
     m_volume = value;
     m_fft.setVolume(m_volume);

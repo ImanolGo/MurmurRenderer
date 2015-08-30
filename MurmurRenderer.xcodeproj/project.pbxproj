@@ -234,10 +234,8 @@
 		0848D72B1B904C6800672D56 /* ofxSyphonServerDirectory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ofxSyphonServerDirectory.mm; sourceTree = "<group>"; };
 		0848D7331B904DD700672D56 /* SyphonVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SyphonVisual.cpp; path = Visuals/SyphonVisual.cpp; sourceTree = "<group>"; };
 		0848D7341B904DD700672D56 /* SyphonVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyphonVisual.h; path = Visuals/SyphonVisual.h; sourceTree = "<group>"; };
-		0848D74F1B90872600672D56 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0848D7511B90872600672D56 /* fft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fft.cpp; sourceTree = "<group>"; };
 		0848D7521B90872600672D56 /* fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fft.h; sourceTree = "<group>"; };
-		0848D7531B90872600672D56 /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
 		0848D7541B90872600672D56 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		0848D7561B90872600672D56 /* ofxFFTBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTBase.cpp; sourceTree = "<group>"; };
 		0848D7571B90872600672D56 /* ofxFFTBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTBase.h; sourceTree = "<group>"; };
@@ -721,9 +719,7 @@
 		0848D74E1B90872600672D56 /* ofxFFT */ = {
 			isa = PBXGroup;
 			children = (
-				0848D74F1B90872600672D56 /* .gitignore */,
 				0848D7501B90872600672D56 /* libs */,
-				0848D7531B90872600672D56 /* ofxaddons_thumbnail.png */,
 				0848D7541B90872600672D56 /* README */,
 				0848D7551B90872600672D56 /* src */,
 			);

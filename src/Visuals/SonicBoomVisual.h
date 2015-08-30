@@ -47,6 +47,7 @@ public:
     
 private:
     
+    float m_initSize;            //Initial size of the particle
     float m_time;                //Time of living
     float m_lifeTime;            //Allowed lifetime
     float m_size;                ///Max size

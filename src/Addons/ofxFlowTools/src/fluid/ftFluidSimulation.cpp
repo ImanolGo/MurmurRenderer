@@ -47,7 +47,7 @@ namespace flowTools {
 		parameters.add(numJacobiIterations.set("iterations", 40, 1, 100));
 		parameters.add(viscosity.set("viscosity", 0.005, 0, 1));
 		parameters.add(vorticity.set("vorticity", 0.1, 0.0, 1));
-		parameters.add(dissipation.set("dissipation", 0.01f, 0, 0.02));
+		parameters.add(dissipation.set("dissipation", 0.01f, 0, 0.3));
 		advancedDissipationParameters.setName("advanced dissipation");
 		advancedDissipationParameters.add(velocityOffset.set("velocity offset", 0, -0.01, 0.01));
 		advancedDissipationParameters.add(densityOffset.set("density offset", 0, -0.01, 0.01));

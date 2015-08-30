@@ -146,25 +146,19 @@ void BattleOfSelfScene::updateSonicBoom()
 }
 
 void BattleOfSelfScene::draw() {
-    ofEnableAlphaBlending();
-    //ofEnableBlendMode(OF_BLENDMODE_ADD);
-    ofBackground(0);
     
     ofPushStyle();
-    //ofEnableBlendMode(OF_BLENDMODE_DISABLED);
-    this->drawContour();
-    //this->drawSonicBoom();
-    //ofEnableBlendMode(OF_BLENDMODE_ADD);
+        ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-    //m_fluid.draw(m_drawArea);
-    //this->drawContour();
+        this->drawSonicBoom();
     
-   
+        ofEnableBlendMode(OF_BLENDMODE_ADD);
+    
+        m_fluid.draw(m_drawArea);
+        m_fluid.drawGui();
     
     ofPopStyle();
     
-    
-   
 }
 
 
@@ -198,7 +192,7 @@ void BattleOfSelfScene::drawContour()
     float time = ofGetElapsedTimef();
     m_shader.setUniform1f( "time", time );	//Passing float parameter "time" to shader
     m_shader.setUniform1f( "amplitude", .4f );	//Passing float parameter "time" to shader
-    //m_fbo.draw(0,0);
+    m_fbo.draw(0,0);
     
     m_shader.end();
     m_blur.end();
@@ -231,11 +225,11 @@ void BattleOfSelfScene::drawFluid()
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
-    AppManager::getInstance().getContourManager().draw();
+    //AppManager::getInstance().getContourManager().draw();
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-    //m_fluid.draw();
-    //m_fluid.drawGui();
+    m_fluid.draw(m_drawArea);
+    m_fluid.drawGui();
     ofPopStyle();
     
 }

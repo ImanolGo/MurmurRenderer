@@ -168,7 +168,7 @@ void GuiManager::setupAudioGui()
     m_parametersAudio.add(m_audioOn);
     
     m_audioVolume.set("Volume", 0.5, 0.0, 1.0);
-    m_audioVolume.addListener(audioManager, &AudioManager::onChangeVolumeRange);
+    m_audioVolume.addListener(audioManager, &AudioManager::onChangeVolume);
     m_parametersAudio.add(m_audioVolume);
     
     m_gui.add(m_parametersAudio);
@@ -180,7 +180,7 @@ void GuiManager::setupContourGui()
     auto contourManager = &AppManager::getInstance().getContourManager();
     m_parametersContour.setName("Contour");
     
-    m_contourThickness.set("Thickness", 1.0, 0.0, 10.0);
+    m_contourThickness.set("Thickness", 1.0, 0.0, 4.0);
     m_contourThickness.addListener(contourManager, &ContourManager::setContourThickness);
     m_parametersContour.add(m_contourThickness);
     

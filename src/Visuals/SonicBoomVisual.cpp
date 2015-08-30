@@ -11,7 +11,7 @@
 
 
 
-SonicBoomParticle::SonicBoomParticle(const ofPoint& pos): BasicVisual(pos,0,0), m_lifeTime(5), m_live(true), m_time(0)
+SonicBoomParticle::SonicBoomParticle(const ofPoint& pos): BasicVisual(pos,0,0), m_lifeTime(5), m_live(true), m_time(0), m_initSize(0.0)
 {
     this->setup();
 }
@@ -26,6 +26,7 @@ SonicBoomParticle::~SonicBoomParticle()
 void SonicBoomParticle::setup()
 {
     m_time = 0;
+    m_initSize = 10 + ofNoise( ofGetElapsedTimef()/4)*10;
     m_lifeTime = 1 + ofNoise( ofGetElapsedTimef()/2)*7 ;
     m_size = 50 + ofNoise( ofGetElapsedTimef()/2)*550 ;
     m_color = ofColor::white;
@@ -38,7 +39,7 @@ void SonicBoomParticle::update()
     
     m_time += ofGetLastFrameTime();
     
-    m_width = ofMap(m_time, 0, m_lifeTime, 4, m_size);
+    m_width = ofMap(m_time, 0, m_lifeTime, m_initSize, m_size);
     m_color.a = ofMap(m_time, 0, m_lifeTime, 255, 0, true);
     
     if(m_time>=m_lifeTime){

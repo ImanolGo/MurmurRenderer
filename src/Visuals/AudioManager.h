@@ -44,7 +44,7 @@ public:
     
     float getAudioMax();
     
-    void onChangeVolumeRange(float& value);
+    void onChangeVolume(float& value);
     
     void onChangeAudioOn(bool& value);
     
