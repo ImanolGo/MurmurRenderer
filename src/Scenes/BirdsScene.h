@@ -9,6 +9,7 @@
 #pragma once
 
 
+#include "SyphonVisual.h"
 #include "ofxScene.h"
 
 class BirdsScene : public ofxScene {
@@ -36,5 +37,14 @@ public:
     //! Called when exit
     void willExit();
 
+private:
+    
+    //! Setup the syphon visual
+    void setupSyphonVisual();
+    
+private:
+    
+    
+    SyphonVisual    m_syphonVisual;
 };
 
