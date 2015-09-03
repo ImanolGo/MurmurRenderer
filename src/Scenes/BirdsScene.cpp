@@ -23,8 +23,8 @@ void BirdsScene::setupSyphonVisual() {
     m_syphonVisual.setWidth(windowsSettings.width); m_syphonVisual.setHeight(windowsSettings.height);
     
     //m_syphonVisual.setup("","Simple Server");
-    //m_syphonVisual.setup("Main Camera","Unity");
-    m_syphonVisual.setup("Main Camera","birds");
+    m_syphonVisual.setup("Main Camera","Unity");
+    //m_syphonVisual.setup("Main Camera","birds");
     
 }
 

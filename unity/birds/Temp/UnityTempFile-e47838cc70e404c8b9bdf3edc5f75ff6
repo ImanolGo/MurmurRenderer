@@ -1,13 +1,13 @@
 -debug
 -target:library
 -nowarn:0169
--out:'Temp/Assembly-CSharp-firstpass.dll'
+-out:'Temp/Assembly-CSharp.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll'
+-r:'Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll'
--r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
--r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
 -r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll'
 -define:UNITY_5_1_3
@@ -70,15 +70,7 @@
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
-'Assets/Plugins/PlaneScaler.cs'
-'Assets/Plugins/Syphon.cs'
-'Assets/Plugins/SyphonObject/SyphonClientObject.cs'
-'Assets/Plugins/SyphonObject/SyphonServerObject.cs'
-'Assets/Plugins/SyphonTexture-AdvancedUsers/ControlSurfaceExample.cs'
-'Assets/Plugins/SyphonTexture-AdvancedUsers/SyphonClientTextureProjector.cs'
-'Assets/Plugins/SyphonTexture-AdvancedUsers/SyphonServerAlphaOne.cs'
-'Assets/Plugins/SyphonTexture-AdvancedUsers/SyphonServerTextureCustomResolution.cs'
-'Assets/Plugins/SyphonTexture/SyphonClientTexture.cs'
-'Assets/Plugins/SyphonTexture/SyphonServerTexture.cs'
+'Assets/Bird Flocks/Scripts/Addons/UnluckDistanceDisabler.cs'
+'Assets/Bird Flocks/Scripts/Demo/SmoothCameraOrbit.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
