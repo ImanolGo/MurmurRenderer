@@ -1,18 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OSC/OSCHandler.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/osc/Scripts/OSCReceiver.js">
     <Files>
-      <File FileName="Assets/Bird Flocks/Scripts/FlockController.js" Line="76" Column="37" />
+      <File FileName="Assets/Bird Flocks/Scripts/FlockController.js" Line="199" Column="35" />
+      <File FileName="Assets/osc/Scripts/OSCReceiver.js" Line="18" Column="1" />
       <File FileName="Assets/Bird Flocks/Scripts/FlockChild.js" Line="1" Column="1" />
+      <File FileName="Assets/Bird Flocks/Scripts/FlockChildSound.js" Line="1" Column="1" />
       <File FileName="Assets/Bird Flocks/Scripts/FlockWaypointTrigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Bird Flocks/Scripts/Addons/UnluckDistanceDisabler.cs" Line="1" Column="1" />
-      <File FileName="Assets/Bird Flocks/Bird Flock Readme.txt" Line="1" Column="1" />
-      <File FileName="Assets/Bird Flocks/Scripts/LandingSpotController.js" Line="1" Column="1" />
-      <File FileName="Assets/Bird Flocks/Scripts/LandingSpot.js" Line="1" Column="1" />
       <File FileName="Assets/Bird Flocks/Scripts/LandingButtons.js" Line="1" Column="1" />
-      <File FileName="Assets/Plugins/SyphonTexture/SyphonClientTexture.cs" Line="1" Column="1" />
-      <File FileName="Assets/Plugins/SyphonTexture/SyphonServerTexture.cs" Line="28" Column="49" />
-      <File FileName="Assets/OSC/OSCHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Bird Flocks/Scripts/LandingSpot.js" Line="1" Column="1" />
+      <File FileName="Assets/Bird Flocks/Scripts/LandingSpotController.js" Line="1" Column="1" />
+      <File FileName="Assets/osc/Scripts/OSCTestSender.js" Line="36" Column="26" />
+      <File FileName="Assets/osc/Scripts/OSCReceiver2.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

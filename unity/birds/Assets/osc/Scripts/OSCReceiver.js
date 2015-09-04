@@ -7,7 +7,14 @@ public var gameReceiver = "Cube"; //the tag of the object on stage that you want
 private var handler : Osc;
 
 //VARIABLES YOU WANT TO BE ANIMATED
-private var yRot : int = 0; //the rotation around the y axis
+private var scaleVal : float = 1;
+private var xVal: float = 0;
+private var yVal: float = 0;
+private var zVal: float = 0;
+
+private var scaleValX: int = 1;
+private var scaleValY: int = 1;
+private var scaleValZ: int = 1;
 
 public function Start ()
 {
@@ -25,7 +32,8 @@ Debug.Log("Running");
 
 function Update () {
 	var go = GameObject.Find(gameReceiver);
-	go.transform.Rotate(0, yRot, 0);
+	go.transform.localScale = new Vector3(scaleVal, scaleVal, scaleVal);	
+	go.transform.localPosition = new Vector3(xVal,yVal,zVal);
 }
 
 //These functions are called when messages are received
@@ -41,8 +49,23 @@ public function AllMessageHandler(oscMessage: OscMessage){
 
 	//FUNCTIONS YOU WANT CALLED WHEN A SPECIFIC MESSAGE IS RECEIVED
 	switch (msgAddress){
+		case "/MurmurBirds/position/x":
+			xVal = msgValue;
+			//go.transform.Translate(xVal,0,0,Space.World);
+			break;
+		case "/MurmurBirds/position/y":
+			yVal = msgValue;
+			//go.transform.Translate(0,yVal,0,Space.World);
+			break;
+		case "/MurmurBirds/position/z":
+			zVal = msgValue;
+			//go.transform.Translate(0,0,zVal,Space.World);
+			break;
+		case "/MurmurBirds/swarmScale":
+			scaleVal = msgValue;
+			break;
 		default:
-			Rotate(msgValue);
+			//
 			break;
 	}
 
