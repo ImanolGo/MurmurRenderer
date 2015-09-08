@@ -34,6 +34,7 @@ function Update () {
 	var go = GameObject.Find(gameReceiver);
 	go.transform.localScale = new Vector3(scaleVal, scaleVal, scaleVal);	
 	go.transform.localPosition = new Vector3(xVal,yVal,zVal);
+
 }
 
 //These functions are called when messages are received
