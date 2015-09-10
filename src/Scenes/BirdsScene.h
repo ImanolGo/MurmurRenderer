@@ -37,14 +37,5 @@ public:
     //! Called when exit
     void willExit();
 
-private:
-    
-    //! Setup the syphon visual
-    void setupSyphonVisual();
-    
-private:
-    
-    
-    SyphonVisual    m_syphonVisual;
 };
 

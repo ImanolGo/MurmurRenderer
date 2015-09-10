@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>29.992</FPS>
+	<FPS>29.9984</FPS>
 	<Scenes>
 		<TransitionTime>1.42857</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -62,5 +62,6 @@
 		<WanderRange>93.8776</WanderRange>
 		<InSightDist>644.898</InSightDist>
 		<TooCloseDist>22.8571</TooCloseDist>
+	<BirdsNumber>250</BirdsNumber>
 	</Birds>
 </MurmurRenderer>

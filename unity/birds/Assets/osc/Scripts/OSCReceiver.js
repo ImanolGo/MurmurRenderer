@@ -26,13 +26,13 @@ public function Start ()
 	handler = GetComponent("Osc");
 	handler.init(udp);
 	handler.SetAllMessageHandler(AllMessageHandler);
-
+	
 }
 Debug.Log("Running");
 
 function Update () {
 	var go = GameObject.Find(gameReceiver);
-	go.transform.localScale = new Vector3(scaleVal, scaleVal, scaleVal);	
+	//go.transform.localScale = new Vector3(scaleVal, scaleVal, scaleVal);	
 	go.transform.localPosition = new Vector3(xVal,yVal,zVal);
 
 }
@@ -41,7 +41,6 @@ function Update () {
 //Access values via: oscMessage.Values[0], oscMessage.Values[1], etc
 
 public function AllMessageHandler(oscMessage: OscMessage){
-
 
 	var msgString = Osc.OscMessageToString(oscMessage); //the message and value combined
 	var msgAddress = oscMessage.Address; //the message parameters
@@ -52,15 +51,12 @@ public function AllMessageHandler(oscMessage: OscMessage){
 	switch (msgAddress){
 		case "/MurmurBirds/position/x":
 			xVal = msgValue;
-			//go.transform.Translate(xVal,0,0,Space.World);
 			break;
 		case "/MurmurBirds/position/y":
 			yVal = msgValue;
-			//go.transform.Translate(0,yVal,0,Space.World);
 			break;
 		case "/MurmurBirds/position/z":
 			zVal = msgValue;
-			//go.transform.Translate(0,0,zVal,Space.World);
 			break;
 		case "/MurmurBirds/swarmScale":
 			scaleVal = msgValue;

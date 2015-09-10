@@ -12,13 +12,13 @@
 #include "ofMain.h"
 #include "Manager.h"
 
-#include "ofxBoids.h"
+#include "SyphonVisual.h"
 
 //========================== class BirdsManager ==============================
 //============================================================================
 /** \class BirdsManager BirdsManager.h
- *	\brief Class managing the birds
- *	\details It calculates the birds position, size and speed
+ *	\brief Class managing the bird swarm created in unity
+ *	\details It communicates the values to Unity through OSC and it gets the render window using Syphon
  */
 
 
@@ -33,13 +33,13 @@ public:
     //! Destructor
     ~BirdsManager();
     
-    //! Setup the Audio Manager
+    //! Setup the Birds Manager
     void setup();
     
-    //! Update the Audio Manager
+    //! Update the Birds Manager
     void update();
     
-    //! Draw the Audio Manager
+    //! Draw the Birds Manager
     void draw();
     
     void onChangePosition(ofVec3f& target){m_target = target;}
@@ -48,35 +48,25 @@ public:
     
     void onChangeSwarmSize(float& value){m_birdsSwarmSize = value;}
     
-    void onChangeMaxForce(float& value);
+    void onChangeSwarmNumber(int& value){m_birdsSwarmNumber = value;}
     
-    void onChangeWanderDistance(float& value);
+private:
     
-    void onChangeWanderRadius(float& value);
+    void setupSyphon();
     
-    void onChangeWanderRange(float& value);
-    
-    void onChangeInSightDist(float& value);
-    
-    void onChangeTooCloseDist(float& value);
+    void setupShader();
     
     
 private:
     
-    int                                  m_boidsNumber;
-    vector<SteeredVehicle>               m_boids;
-    ofEasyCam                            m_camera;
-    ofLight                              m_light; 
-    ofSpherePrimitive                    m_sphere;
     
-    ofLight pointLight;
-    ofLight pointLight2;
-    ofLight pointLight3;
-    ofMaterial material;
-    
+    int        m_birdsSwarmNumber;
     ofVec3f    m_target;
     float      m_birdsSize;
     float      m_birdsSwarmSize;
+    
+    SyphonVisual    m_syphonVisual;
+    ofShader        m_shader;
 };
 
 

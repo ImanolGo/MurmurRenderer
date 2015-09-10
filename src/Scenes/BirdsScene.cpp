@@ -12,20 +12,6 @@
 
 void BirdsScene::setup() {
     ofLogNotice("BirdsScene::setup");
-    this->setupSyphonVisual();
-}
-
-
-void BirdsScene::setupSyphonVisual() {
-    
-    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
-    
-    m_syphonVisual.setWidth(windowsSettings.width); m_syphonVisual.setHeight(windowsSettings.height);
-    
-    //m_syphonVisual.setup("","Simple Server");
-    m_syphonVisual.setup("Main Camera","Unity");
-    //m_syphonVisual.setup("Main Camera","birds");
-    
 }
 
 
@@ -36,8 +22,7 @@ void BirdsScene::update() {
 
 void BirdsScene::draw() {
     ofBackground(0,0,0);
-    //AppManager::getInstance().getBirdsManager().draw();
-    m_syphonVisual.draw();
+    AppManager::getInstance().getBirdsManager().draw();
 }
 
 void BirdsScene::willFadeIn() {
