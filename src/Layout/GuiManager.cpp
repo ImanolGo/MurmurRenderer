@@ -67,21 +67,25 @@ void GuiManager::setupBirdsGui()
     
     m_parametersBirds.setName("Birds");
     
-    m_birdsPosition.set("Position", ofVec3f(0.5,0.5,0.5) , ofVec3f(-2.0,-2.0,-2.0) , ofVec3f(2.0,2.0,2.0));
+    m_birdsPosition.set("Position", ofVec3f(0,0,0) , ofVec3f(-1.0,-1.0,-1.0) , ofVec3f(1.0,1.0,1.0));
     m_birdsPosition.addListener(birdsManager, &BirdsManager::onChangePosition);
     m_parametersBirds.add(m_birdsPosition);
 
-    m_birdsSize.set("Size", 1.0, 0.0, 4.0);
+    m_birdsSize.set("Size", 1.0, 0.0, 5.0);
     m_birdsSize.addListener(birdsManager, &BirdsManager::onChangeSize);
     m_parametersBirds.add(m_birdsSize);
     
-    m_birdsSwarmSize.set("SwarmSize", 1.0, 0.0, 10.0);
+    m_birdsSwarmSize.set("SwarmSize", 4.0, 0.0, 30.0);
     m_birdsSwarmSize.addListener(birdsManager, &BirdsManager::onChangeSwarmSize);
     m_parametersBirds.add(m_birdsSwarmSize);
     
     m_birdsNumber.set("BirdsNumber", 250, 0, 500);
     m_birdsNumber.addListener(birdsManager, &BirdsManager::onChangeSwarmNumber);
     m_parametersBirds.add(m_birdsNumber);
+    
+    m_birdsSpeed.set("Speed", 10, 0, 20);
+    m_birdsSpeed.addListener(birdsManager, &BirdsManager::onChangeSpeed);
+    m_parametersBirds.add(m_birdsSpeed);
 
     m_gui.add(m_parametersBirds);
     

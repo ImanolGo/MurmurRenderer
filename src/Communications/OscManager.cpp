@@ -57,7 +57,12 @@ void OscManager::setupOscSender()
     
     m_oscSender.setup(host, portSend);
     
-   
+    portSend = AppManager::getInstance().getSettingsManager().getOscPortUnity();
+    host = "127.0.0.1";
+    
+    ofLogNotice() <<"OscManager::setupOscSenderUnity -> open osc connection " << host << ":" << portSend;
+    
+    m_oscSenderUnity.setup(host, portSend);
 }
 
 void OscManager::setupText()
@@ -303,6 +308,10 @@ void OscManager::update()
     }
 }
 
+void OscManager::sendMessageToUnity(ofxOscMessage& message)
+{
+    m_oscSenderUnity.sendMessage(message);
+}
 
 void OscManager::updateSendText()
 {

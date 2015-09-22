@@ -16,7 +16,7 @@ const string SettingsManager::APPLICATION_SETTINGS_FILE_NAME = "xmls/Application
 const string SettingsManager::LOCALHOST = "127.0.0.1";
 
 
-SettingsManager::SettingsManager(): Manager(), m_portUdpReceive(0), m_portOscReceive(0), m_portOscSend(0), m_ipAddress(LOCALHOST)
+SettingsManager::SettingsManager(): Manager(), m_portUdpReceive(0), m_portOscReceive(0), m_portOscSend(0), m_portOscUnity(0), m_ipAddress(LOCALHOST)
 {
     //Intentionally left empty
 }
@@ -118,10 +118,11 @@ void SettingsManager::setNetworkProperties()
         m_portUdpReceive = ofToInt(attributes["portUdpReceive"]);
         m_portOscReceive = ofToInt(attributes["portOscReceive"]);
         m_portOscSend  =   ofToInt(attributes["portOscSend"]);
+        m_portOscUnity = ofToInt(attributes["portOscUnity"]);
         m_ipAddress  =  ofToString(attributes["ipAddress"]);
-
+        
         ofLogNotice() <<"SettingsManager::setNetworkProperties->  receive UDP port = " << m_portUdpReceive << ". receive OSC port = "<< m_portOscReceive<<", send OSC port = " << m_portOscSend<<", host = "
-        <<m_ipAddress ; 
+        <<m_ipAddress << ", send OSC Unity = "<< m_portOscUnity;
 
         ofLogNotice() <<"SettingsManager::setNetworkProperties->  successfully loaded the network settings" ;
         return;

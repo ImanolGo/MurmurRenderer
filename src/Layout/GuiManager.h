@@ -193,7 +193,7 @@ private:
     ofParameter<float>      m_birdsSize;
     ofParameter<float>      m_birdsSwarmSize;
     ofParameter<int>        m_birdsNumber;
-
+    ofParameter<float>      m_birdsSpeed;
     
     
     

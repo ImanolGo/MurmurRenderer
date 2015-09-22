@@ -42,13 +42,15 @@ public:
     //! Draw the Birds Manager
     void draw();
     
-    void onChangePosition(ofVec3f& target){m_target = target;}
+    void onChangePosition(ofVec3f& target);
     
-    void onChangeSize(float& value){m_birdsSize = value;}
+    void onChangeSize(float& value);
     
-    void onChangeSwarmSize(float& value){m_birdsSwarmSize = value;}
+    void onChangeSpeed(float& value);
     
-    void onChangeSwarmNumber(int& value){m_birdsSwarmNumber = value;}
+    void onChangeSwarmSize(float& value);
+    
+    void onChangeSwarmNumber(int& value);
     
 private:
     
@@ -63,6 +65,7 @@ private:
     int        m_birdsSwarmNumber;
     ofVec3f    m_target;
     float      m_birdsSize;
+    float      m_birdsSpeed;
     float      m_birdsSwarmSize;
     
     SyphonVisual    m_syphonVisual;

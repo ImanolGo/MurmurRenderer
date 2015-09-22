@@ -41,6 +41,9 @@ public:
     //! draw the manager
     void draw();
     
+    // Send Osc message to Unity 3D
+    void sendMessageToUnity(ofxOscMessage& message);
+    
 
 private:
     
@@ -67,6 +70,7 @@ private:
     
      ofxOscReceiver m_oscReceiver;          ///< OSC receiver class
      ofxOscSender   m_oscSender;            ///< OSC sender class
+     ofxOscSender   m_oscSenderUnity;       ///< OSC sender connected with Unity 3D
      ofxOscMessage  m_latestOscMessage;    ///< latest OSC message
     
      ofPtr<TextVisual>     m_sendingInformation;

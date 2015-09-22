@@ -75,6 +75,8 @@ class SettingsManager: public Manager
         int getOscPortSend() const {return m_portOscSend;}
     
         int getUdpPortReceive() const {return m_portUdpReceive;}
+    
+        int getOscPortUnity() const {return m_portOscUnity;}
 
 
     private:
@@ -119,6 +121,7 @@ class SettingsManager: public Manager
         int                     m_portUdpReceive;       ///< stores the UDP port to receive UDP messages from
         int                     m_portOscReceive;       ///< stores the UDP port to receive OSC messages from
         int                     m_portOscSend;          ///< stores the UDP port to send OSC messages to
+        int                     m_portOscUnity;         ///< stores the UDP port to send OSC messages to Unity 3D
         string                  m_ipAddress;            ///< stores the Ip Address used for the Network communications
 };
 

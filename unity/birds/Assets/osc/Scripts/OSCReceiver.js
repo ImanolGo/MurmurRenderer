@@ -3,7 +3,9 @@ public var RemoteIP : String = "127.0.0.1"; //127.0.0.1 signifies a local host (
 public var SendToPort : int = 9000; //the port you will be sending from
 public var ListenerPort : int = 8050; //the port you will be listening on
 public var controller : Transform;
-public var gameReceiver = "Cube"; //the tag of the object on stage that you want to manipulate
+public var gameReceiver = "Murmur Birds"; //the tag of the object on stage that you want to manipulate
+public var gameReceiverScript = "FlockController"; 
+
 private var handler : Osc;
 
 //VARIABLES YOU WANT TO BE ANIMATED
@@ -12,9 +14,14 @@ private var xVal: float = 0;
 private var yVal: float = 0;
 private var zVal: float = 0;
 
-private var scaleValX: int = 1;
-private var scaleValY: int = 1;
-private var scaleValZ: int = 1;
+private var flockSize: float = 15;
+private var birdSize: float = 1.0;
+
+private var speed: float = 15;
+private var childAmount: int = 150;
+
+//private var go: GameObject;
+//var go = GameObject.Find(gameReceiver);
 
 public function Start ()
 {
@@ -32,9 +39,23 @@ Debug.Log("Running");
 
 function Update () {
 	var go = GameObject.Find(gameReceiver);
-	//go.transform.localScale = new Vector3(scaleVal, scaleVal, scaleVal);	
+	
 	go.transform.localPosition = new Vector3(xVal,yVal,zVal);
-
+	
+	go.GetComponent(gameReceiverScript)._maxSpeed = speed;
+	go.GetComponent(gameReceiverScript)._minSpeed = speed*0.6;
+	
+	go.GetComponent(gameReceiverScript)._maxAnimationSpeed = speed/5.0;
+	go.GetComponent(gameReceiverScript)._minAnimationSpeed = speed/10.0;
+	
+	
+	go.GetComponent(gameReceiverScript)._maxScale = birdSize;
+	go.GetComponent(gameReceiverScript)._minScale = birdSize*0.7;
+	go.GetComponent(gameReceiverScript)._childAmount = childAmount;
+		
+	go.GetComponent(gameReceiverScript)._spawnSphere = flockSize;
+	go.GetComponent(gameReceiverScript)._spawnSphereHeight = flockSize;
+	go.GetComponent(gameReceiverScript)._spawnSphereDepth = flockSize;
 }
 
 //These functions are called when messages are received
@@ -58,8 +79,19 @@ public function AllMessageHandler(oscMessage: OscMessage){
 		case "/MurmurBirds/position/z":
 			zVal = msgValue;
 			break;
-		case "/MurmurBirds/swarmScale":
-			scaleVal = msgValue;
+		case "/MurmurBirds/birdSize":
+			birdSize = msgValue;
+			break;
+			
+		case "/MurmurBirds/swarmSize":
+			flockSize = msgValue;
+			break;
+			
+		case "/MurmurBirds/speed":
+			speed = msgValue;
+			break;
+		case "/MurmurBirds/swarmNumber":
+			childAmount = msgValue;
 			break;
 		default:
 			//

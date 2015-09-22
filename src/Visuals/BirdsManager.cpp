@@ -43,8 +43,8 @@ void BirdsManager::setupSyphon()
     m_syphonVisual.setWidth(windowsSettings.width); m_syphonVisual.setHeight(windowsSettings.height);
     
     //m_syphonVisual.setup("","Simple Server");
-    m_syphonVisual.setup("Main Camera","Unity");
-    //m_syphonVisual.setup("Main Camera","birds");
+    //m_syphonVisual.setup("Main Camera","Unity");
+    m_syphonVisual.setup("Main Camera","birds");
 }
 
 void BirdsManager::setupShader()
@@ -68,11 +68,78 @@ void BirdsManager::update()
 
 void BirdsManager::draw()
 {
-    m_shader.begin();
-        m_syphonVisual.draw();
-    m_shader.end();
+    //m_shader.begin();
+      //  m_syphonVisual.draw();
+    //m_shader.end();
+    
+    m_syphonVisual.draw();
 }
 
+
+void BirdsManager::onChangePosition(ofVec3f& target)
+{
+    float scale = 50;
+    m_target = target;
+    
+    ofxOscMessage m;
+    m.setAddress("/MurmurBirds/position/x");
+    m.addFloatArg(m_target.x*scale);
+    AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+    
+    scale = 30;
+    m.clear();
+    m.setAddress("/MurmurBirds/position/y");
+    m.addFloatArg(m_target.y*scale);
+    AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+    
+    scale = 30;
+    m.clear();
+    m.setAddress("/MurmurBirds/position/z");
+    m.addFloatArg(m_target.z*scale);
+    AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+}
+
+void BirdsManager::onChangeSize(float& value)
+{
+    m_birdsSize = value;
+    
+    ofxOscMessage m;
+    m.setAddress("/MurmurBirds/birdSize");
+    m.addFloatArg(m_birdsSize);
+    AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+
+}
+
+void BirdsManager::onChangeSpeed(float& value)
+{
+    m_birdsSpeed = value;
+    
+    ofxOscMessage m;
+    m.setAddress("/MurmurBirds/speed");
+    m.addFloatArg(m_birdsSpeed);
+    AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+    
+}
+
+void BirdsManager::onChangeSwarmSize(float& value)
+{
+    m_birdsSwarmSize = value;
+    
+    ofxOscMessage m;
+    m.setAddress("/MurmurBirds/swarmSize");
+    m.addFloatArg(m_birdsSwarmSize);
+    AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+}
+
+void BirdsManager::onChangeSwarmNumber(int& value)
+{
+    m_birdsSwarmNumber = value;
+    
+    ofxOscMessage m;
+    m.setAddress("/MurmurBirds/swarmNumber");
+    m.addFloatArg(m_birdsSwarmNumber);
+    AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+}
 
 
 
