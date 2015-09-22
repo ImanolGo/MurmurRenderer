@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>58.5472</FPS>
+	<FPS>54.3813</FPS>
 	<Scenes>
 		<TransitionTime>1.42857</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -11,6 +11,8 @@
 	<Transparency>0</Transparency>
 	<KathakScene>0</KathakScene>
 	<BirdsScene>1</BirdsScene>
+	<BirdsOpeningScene>0</BirdsOpeningScene>
+		<BirdsAndPaperScene>1</BirdsAndPaperScene>
 	</Scenes>
 	<Contour>
 		<Thickness>1.56735</Thickness>
@@ -53,7 +55,7 @@
 <Birds>
 		<Offset>0, 0</Offset>
 		<Transparency>0.285714</Transparency>
-		<SwarmSize>9.67347</SwarmSize>
+		<SwarmSize>30, 30, 30</SwarmSize>
 	<Position>0.0420659, 0.0753853, 0.0837152</Position>
 		<Size>0.408163</Size>
 	<MaxForce>2.85714</MaxForce>
@@ -62,7 +64,7 @@
 		<WanderRange>93.8776</WanderRange>
 		<InSightDist>644.898</InSightDist>
 		<TooCloseDist>22.8571</TooCloseDist>
-	<BirdsNumber>387</BirdsNumber>
+	<BirdsNumber>500</BirdsNumber>
 	<Speed>10</Speed>
 	</Birds>
 </MurmurRenderer>

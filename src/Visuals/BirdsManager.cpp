@@ -121,7 +121,7 @@ void BirdsManager::onChangeSpeed(float& value)
     
 }
 
-void BirdsManager::onChangeSwarmSize(float& value)
+/*void BirdsManager::onChangeSwarmSize(float& value)
 {
     m_birdsSwarmSize = value;
     
@@ -129,6 +129,25 @@ void BirdsManager::onChangeSwarmSize(float& value)
     m.setAddress("/MurmurBirds/swarmSize");
     m.addFloatArg(m_birdsSwarmSize);
     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+}*/
+
+void BirdsManager::onChangeSwarmSize(ofVec3f& size)
+ {
+     
+     ofxOscMessage m;
+     m.setAddress("/MurmurBirds/swarmSize/width");
+     m.addFloatArg(size.x);
+     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+     
+     m.clear();
+     m.setAddress("/MurmurBirds/swarmSize/height");
+     m.addFloatArg(size.y);
+     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+     
+     m.clear();
+     m.setAddress("/MurmurBirds/swarmSize/depth");
+     m.addFloatArg(size.z);
+     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
 }
 
 void BirdsManager::onChangeSwarmNumber(int& value)

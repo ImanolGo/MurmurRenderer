@@ -76,10 +76,14 @@ void GuiManager::setupBirdsGui()
     m_parametersBirds.add(m_birdsSize);
     
     m_birdsSwarmSize.set("SwarmSize", 4.0, 0.0, 30.0);
-    m_birdsSwarmSize.addListener(birdsManager, &BirdsManager::onChangeSwarmSize);
+    m_birdsSwarmSize.addListener(this, &GuiManager::onSetBirdsSwarmSize);
     m_parametersBirds.add(m_birdsSwarmSize);
     
-    m_birdsNumber.set("BirdsNumber", 250, 0, 500);
+    m_birdsSwarmSizeVector.set("SwarmSize",  ofVec3f(4,4,4) , ofVec3f(0.0,0.0,0.0) , ofVec3f(30,30,30));
+    m_birdsSwarmSizeVector.addListener(birdsManager, &BirdsManager::onChangeSwarmSize);
+    m_parametersBirds.add(m_birdsSwarmSizeVector);
+    
+    m_birdsNumber.set("BirdsNumber", 250, 0, 1000);
     m_birdsNumber.addListener(birdsManager, &BirdsManager::onChangeSwarmNumber);
     m_parametersBirds.add(m_birdsNumber);
     
@@ -134,9 +138,13 @@ void GuiManager::setupScenesGui()
     m_sceneBeautifulMind.addListener(this, &GuiManager::onSetBeautifulMindScene);
     m_parametersScenes.add(m_sceneBeautifulMind);
     
-    m_birdsScene.set("BirdsScene", false);
-    m_birdsScene.addListener(this, &GuiManager::onSetBirdsScene);
-    m_parametersScenes.add(m_birdsScene);
+    m_birdsOpeningScene.set("BirdsOpeningScene", false);
+    m_birdsOpeningScene.addListener(this, &GuiManager::onSetBirdsOpeningScene);
+    m_parametersScenes.add(m_birdsOpeningScene);
+    
+    m_birdsAndPaperScene.set("BirdsAndPaperScene", false);
+    m_birdsAndPaperScene.addListener(this, &GuiManager::onSetBirdsAndPaperScene);
+    m_parametersScenes.add(m_birdsAndPaperScene);
     
     m_gui.add(m_parametersScenes);
     
@@ -314,7 +322,8 @@ void GuiManager::onSetBlankScene(bool& value)
         m_sceneBeautifulMind = false;
         m_sceneFluidFloor = false;
         m_sceneKathak = false;
-        m_birdsScene = false;
+        m_birdsAndPaperScene = false;
+        m_birdsOpeningScene = false;
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBlank.getName());
     }
 }
@@ -328,7 +337,9 @@ void GuiManager::onSetSmokyHandsScene(bool& value)
         m_sceneBeautifulMind = false;
         m_sceneFluidFloor = false;
         m_sceneKathak = false;
-        m_birdsScene = false;
+        m_birdsAndPaperScene = false;
+        m_birdsOpeningScene = false;
+
         AppManager::getInstance().getSceneManager().changeScene(m_sceneSmokyHands.getName());
     }
 }
@@ -342,7 +353,9 @@ void GuiManager::onSetBattleOfSelfScene(bool& value)
         m_sceneBeautifulMind = false;
         m_sceneFluidFloor = false;
         m_sceneKathak = false;
-        m_birdsScene = false;
+        m_birdsAndPaperScene = false;
+        m_birdsOpeningScene = false;
+
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBattleOfSelf.getName());
     }
 }
@@ -356,7 +369,9 @@ void GuiManager::onSetHandsWritingScene(bool& value)
         m_sceneBeautifulMind = false;
         m_sceneFluidFloor = false;
         m_sceneKathak = false;
-        m_birdsScene = false;
+        m_birdsAndPaperScene = false;
+        m_birdsOpeningScene = false;
+
         AppManager::getInstance().getSceneManager().changeScene(m_sceneHandsWriting.getName());
     }
 }
@@ -370,7 +385,9 @@ void GuiManager::onSetBeautifulMindScene(bool& value)
         m_sceneHandsWriting = false;
         m_sceneFluidFloor = false;
         m_sceneKathak = false;
-        m_birdsScene = false;
+        m_birdsAndPaperScene = false;
+        m_birdsOpeningScene = false;
+
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBeautifulMind.getName());
     }
 }
@@ -384,7 +401,9 @@ void GuiManager::onSetFluidFloorScene(bool& value)
         m_sceneHandsWriting = false;
         m_sceneBeautifulMind = false;
         m_sceneKathak = false;
-        m_birdsScene = false;
+        m_birdsAndPaperScene = false;
+        m_birdsOpeningScene = false;
+
         AppManager::getInstance().getSceneManager().changeScene(m_sceneFluidFloor.getName());
     }
 }
@@ -398,12 +417,14 @@ void GuiManager::onSetKathakScene(bool& value)
         m_sceneHandsWriting = false;
         m_sceneBeautifulMind = false;
         m_sceneFluidFloor = false;
-        m_birdsScene = false;
+        m_birdsAndPaperScene = false;
+        m_birdsOpeningScene = false;
+
         AppManager::getInstance().getSceneManager().changeScene(m_sceneKathak.getName());
     }
 }
 
-void GuiManager::onSetBirdsScene(bool& value)
+void GuiManager::onSetBirdsOpeningScene(bool& value)
 {
     if(value == true){
         m_sceneBlank = false;
@@ -413,8 +434,34 @@ void GuiManager::onSetBirdsScene(bool& value)
         m_sceneBeautifulMind = false;
         m_sceneFluidFloor = false;
         m_sceneKathak = false;
-        AppManager::getInstance().getSceneManager().changeScene(m_birdsScene.getName());
+        m_birdsAndPaperScene = false;
+        
+        AppManager::getInstance().getSceneManager().changeScene(m_birdsOpeningScene.getName());
     }
+}
+
+void GuiManager::onSetBirdsAndPaperScene(bool& value)
+{
+    if(value == true){
+        m_sceneBlank = false;
+        m_sceneSmokyHands = false;
+        m_sceneBattleOfSelf = false;
+        m_sceneHandsWriting = false;
+        m_sceneBeautifulMind = false;
+        m_sceneFluidFloor = false;
+        m_sceneKathak = false;
+        m_birdsOpeningScene = false;
+        
+        AppManager::getInstance().getSceneManager().changeScene(m_birdsAndPaperScene.getName());
+    }
+}
+
+ void GuiManager::onSetBirdsSwarmSize(float& value)
+{
+    m_birdsSwarmSize = value;
+    ofVec3f size(value,value,value);
+    m_birdsSwarmSizeVector.set(size);
+    
 }
 
 

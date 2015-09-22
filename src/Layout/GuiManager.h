@@ -70,7 +70,9 @@ public:
     
     void onSetKathakScene(bool& value);
     
-    void onSetBirdsScene(bool& value);
+    void onSetBirdsAndPaperScene(bool& value);
+    
+    void onSetBirdsOpeningScene(bool& value);
     
     void setAudioVolume(float& value){m_audioVolume = value;}
     
@@ -114,7 +116,11 @@ public:
     
     void setBirdsSize(float value) {m_birdsSize = value;}
     
-    void setBirdsSwarmSize(float value) {m_birdsSwarmSize = value;}
+    void setBirdsSpeed(float value) {m_birdsSpeed = value;}
+    
+    void setBirdsNumber(float value) {m_birdsNumber = value;}
+    
+    void onSetBirdsSwarmSize(float& value);
     
     
 private:
@@ -165,7 +171,8 @@ private:
     ofParameter<bool>       m_sceneFluidFloor;
     ofParameter<bool>       m_sceneBeautifulMind;
     ofParameter<bool>       m_sceneKathak;
-    ofParameter<bool>       m_birdsScene;
+    ofParameter<bool>       m_birdsOpeningScene;
+    ofParameter<bool>       m_birdsAndPaperScene;
     
     ofParameter<int>        m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
     ofParameter<bool>       m_fullscreen;
@@ -190,6 +197,7 @@ private:
     ofParameter<ofVec2f>    m_beautifulMindScale;
     
     ofParameter<ofVec3f>    m_birdsPosition;
+    ofParameter<ofVec3f>    m_birdsSwarmSizeVector;
     ofParameter<float>      m_birdsSize;
     ofParameter<float>      m_birdsSwarmSize;
     ofParameter<int>        m_birdsNumber;

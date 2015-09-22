@@ -17,7 +17,8 @@
 #include "BeautifulMindScene.h"
 #include "FluidFloorScene.h"
 #include "KathakScene.h"
-#include "BirdsScene.h"
+#include "BirdsAndPaperScene.h"
+#include "BirdsOpeningScene.h"
 
 #include "AppManager.h"
 
@@ -95,9 +96,14 @@ void SceneManager::createFrontScenes()
     this->createScene("BeautifulMindScene", SceneIndex(i), scene, WindowIndex(FRONT));
     i++;
     
-    //Create Birds Scene
-    scene = ofPtr<ofxScene> (new BirdsScene());
-    this->createScene("BirdsScene", SceneIndex(i), scene, WindowIndex(FRONT));
+    //Create Birds And Paper Scene
+    scene = ofPtr<ofxScene> (new BirdsAndPaperScene());
+    this->createScene("BirdsAndPaperScene", SceneIndex(i), scene, WindowIndex(FRONT));
+    i++;
+    
+    //Create Birds Opening Scene
+    scene = ofPtr<ofxScene> (new BirdsOpeningScene());
+    this->createScene("BirdsOpeningScene", SceneIndex(i), scene, WindowIndex(FRONT));
     i++;
     
 }

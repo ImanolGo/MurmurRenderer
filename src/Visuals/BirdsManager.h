@@ -48,7 +48,9 @@ public:
     
     void onChangeSpeed(float& value);
     
-    void onChangeSwarmSize(float& value);
+    //void onChangeSwarmSize(float& value);
+    
+    void onChangeSwarmSize(ofVec3f& size);
     
     void onChangeSwarmNumber(int& value);
     

@@ -79,7 +79,6 @@
 		08EBB6511B729E8A005F510F /* SteeredVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB64B1B729E8A005F510F /* SteeredVehicle.cpp */; };
 		08EBB6521B729E8A005F510F /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB64D1B729E8A005F510F /* Vehicle.cpp */; };
 		08EBB6551B72B380005F510F /* BirdsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB6531B72B380005F510F /* BirdsManager.cpp */; };
-		08EBB6581B72B52B005F510F /* BirdsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB6561B72B52B005F510F /* BirdsScene.cpp */; };
 		08EC800A1B3C3D1A000893E1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80051B3C3D1A000893E1 /* README.md */; };
 		08EC800B1B3C3D1A000893E1 /* ofxSceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80081B3C3D1A000893E1 /* ofxSceneManager.cpp */; };
 		08EC80331B3C3F0F000893E1 /* ofxEasing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80191B3C3F0F000893E1 /* ofxEasing.cpp */; };
@@ -111,6 +110,8 @@
 		08F4182D1B6B683B00D190B7 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 08F418291B6B683B00D190B7 /* readme.md */; };
 		08F4182E1B6B683B00D190B7 /* ofxBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F4182B1B6B683B00D190B7 /* ofxBlur.cpp */; };
 		08F418461B6BC26500D190B7 /* SonicBoomVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F418441B6BC26500D190B7 /* SonicBoomVisual.cpp */; };
+		08FFBCF21BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FFBCEE1BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp */; };
+		08FFBCF31BB17D4100B4CCF2 /* BirdsOpeningScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FFBCF01BB17D4100B4CCF2 /* BirdsOpeningScene.cpp */; };
 		10071661D0AA59C4EC246B6C /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4A1CE60B1AC164DA8880771 /* ofxGuiGroup.cpp */; };
 		19D0A302C3A681F97EEAE033 /* ftDrawForce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF05B308B6DFDCF026864B2 /* ftDrawForce.cpp */; };
 		1AF15FCF93D2DDD6D4285C8E /* AppManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5056FC61E30B9810903B814D /* AppManager.cpp */; };
@@ -377,8 +378,6 @@
 		08EBB64E1B729E8A005F510F /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
 		08EBB6531B72B380005F510F /* BirdsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BirdsManager.cpp; path = Visuals/BirdsManager.cpp; sourceTree = "<group>"; };
 		08EBB6541B72B380005F510F /* BirdsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BirdsManager.h; path = Visuals/BirdsManager.h; sourceTree = "<group>"; };
-		08EBB6561B72B52B005F510F /* BirdsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BirdsScene.cpp; sourceTree = "<group>"; };
-		08EBB6571B72B52B005F510F /* BirdsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdsScene.h; sourceTree = "<group>"; };
 		08EC80041B3C3D1A000893E1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		08EC80051B3C3D1A000893E1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		08EC80071B3C3D1A000893E1 /* ofxScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxScene.h; sourceTree = "<group>"; };
@@ -452,6 +451,10 @@
 		08F418371B6BA4CB00D190B7 /* ofxNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxNoise.h; sourceTree = "<group>"; };
 		08F418441B6BC26500D190B7 /* SonicBoomVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SonicBoomVisual.cpp; path = Visuals/SonicBoomVisual.cpp; sourceTree = "<group>"; };
 		08F418451B6BC26500D190B7 /* SonicBoomVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SonicBoomVisual.h; path = Visuals/SonicBoomVisual.h; sourceTree = "<group>"; };
+		08FFBCEE1BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BirdsAndPaperScene.cpp; sourceTree = "<group>"; };
+		08FFBCEF1BB17D4100B4CCF2 /* BirdsAndPaperScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdsAndPaperScene.h; sourceTree = "<group>"; };
+		08FFBCF01BB17D4100B4CCF2 /* BirdsOpeningScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BirdsOpeningScene.cpp; sourceTree = "<group>"; };
+		08FFBCF11BB17D4100B4CCF2 /* BirdsOpeningScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdsOpeningScene.h; sourceTree = "<group>"; };
 		0A72D47C9CAB86AC2081453B /* README.md */ = {isa = PBXFileReference; explicitFileType = file; fileEncoding = 30; name = README.md; path = src/Addons/ofxMultiGLFWWindow/README.md; sourceTree = SOURCE_ROOT; };
 		0ACA94EAF2C7DCA9EE906D69 /* svgtiny_internal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = svgtiny_internal.h; path = src/Addons/ofxSvg/libs/svgTiny/src/svgtiny_internal.h; sourceTree = SOURCE_ROOT; };
 		0C1C0F60B9ED693828ED32A8 /* ofUnicode.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofUnicode.h; path = src/Addons/ofxUnicode/src/ofUnicode.h; sourceTree = SOURCE_ROOT; };
@@ -1091,8 +1094,10 @@
 		08EC80401B3C3FEF000893E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				08EBB6561B72B52B005F510F /* BirdsScene.cpp */,
-				08EBB6571B72B52B005F510F /* BirdsScene.h */,
+				08FFBCEE1BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp */,
+				08FFBCEF1BB17D4100B4CCF2 /* BirdsAndPaperScene.h */,
+				08FFBCF01BB17D4100B4CCF2 /* BirdsOpeningScene.cpp */,
+				08FFBCF11BB17D4100B4CCF2 /* BirdsOpeningScene.h */,
 				08D401C31B6A6B920035C289 /* KathakScene.cpp */,
 				08D401C41B6A6B920035C289 /* KathakScene.h */,
 				08B074551B45944C008D71BB /* BeautifulMindScene.cpp */,
@@ -1908,6 +1913,7 @@
 				F79E74E14D9ADD817F5560E9 /* LICENSE in Sources */,
 				CCFE08BE342AD4527F595CA8 /* README.md in Sources */,
 				08EC803A1B3C3F0F000893E1 /* ofxEasingLinear.cpp in Sources */,
+				08FFBCF31BB17D4100B4CCF2 /* BirdsOpeningScene.cpp in Sources */,
 				A17FD063CDFB818E826A6080 /* ofxMultiGLFWWindow.cpp in Sources */,
 				85EE6C4774B9737FF97A89E8 /* IpEndpointName.cpp in Sources */,
 				A6ACA0F494E98AF780199B78 /* NetworkingUtils.cpp in Sources */,
@@ -1942,13 +1948,13 @@
 				08EC803F1B3C3F0F000893E1 /* ofxTween.cpp in Sources */,
 				F958C23C5A1E903B1FDCA40F /* ofxOscBundle.cpp in Sources */,
 				4E68AF926303EA00B9BA44E3 /* ofxOscMessage.cpp in Sources */,
+				08FFBCF21BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp in Sources */,
 				08B074A71B46D588008D71BB /* VisualEffectsManager.cpp in Sources */,
 				6221E2F850BE14E91A5FC425 /* ofxOscParameterSync.cpp in Sources */,
 				08EC80351B3C3F0F000893E1 /* ofxEasingBounce.cpp in Sources */,
 				08B074A51B46D588008D71BB /* ViewManager.cpp in Sources */,
 				08EC80431B3C3FEF000893E1 /* SceneManager.cpp in Sources */,
 				08EBB6301B721185005F510F /* ofxSecondWindow.cpp in Sources */,
-				08EBB6581B72B52B005F510F /* BirdsScene.cpp in Sources */,
 				854D16924B6DD2C209FD11C2 /* ofxOscReceiver.cpp in Sources */,
 				08F4182E1B6B683B00D190B7 /* ofxBlur.cpp in Sources */,
 				08F31D9D1B47F6310053C234 /* BeautifulMindManager.cpp in Sources */,

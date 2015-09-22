@@ -283,9 +283,22 @@ void OscManager::update()
         
         else if(m.getAddress() == "/MurmurRenderer/BirdsSwarmSize"){
             float value = m.getArgAsFloat(0);
-            AppManager::getInstance().getGuiManager().setBirdsSwarmSize(value);
+            AppManager::getInstance().getGuiManager().onSetBirdsSwarmSize(value);
             this->updateReceiveText();
         }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BirdsNumber"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setBirdsNumber(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BirdsSpeed"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setBirdsSpeed(value);
+            this->updateReceiveText();
+        }
+
 
         else{
             

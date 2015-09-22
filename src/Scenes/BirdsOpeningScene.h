@@ -1,8 +1,8 @@
 /*
- *  BirdsScene.h
+ *  BirdsOpeningScene.h
  *  Murmur
  *
- *  Created by Imanol Gomez on 05/08/15.
+ *  Created by Imanol Gomez on 22/09/15.
  *
  */
 
@@ -12,7 +12,7 @@
 #include "SyphonVisual.h"
 #include "ofxScene.h"
 
-class BirdsScene : public ofxScene {
+class BirdsOpeningScene : public ofxScene {
 
 public:
 
@@ -36,6 +36,16 @@ public:
 
     //! Called when exit
     void willExit();
+    
+private:
+    
+    void setInitialParameters();
+    
+    void startBirds();
+    
+private:
+    
+    float m_swarmSize;
 
 };
 
