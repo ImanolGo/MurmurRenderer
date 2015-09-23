@@ -56,9 +56,13 @@ public:
     
     void onChangeSwarmNumber(int& value);
     
-    void addMoveEffect(const ofVec3f& targetPosition, double duration);
+    void onChangeSwarmRandomness(float& value);
     
-    void addScaleEffect(const ofVec3f& targetScale, double duration);
+    void addMoveEffect(const ofVec3f& targetPosition, double duration, double startTime = 0);
+    
+    void addScaleEffect(const ofVec3f& targetScale, double duration, double startTime = 0);
+    
+    void stopEffects();
     
 private:
     

@@ -177,25 +177,41 @@ void BirdsManager::onChangeSwarmNumber(int& value)
     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
 }
 
+void BirdsManager::onChangeSwarmRandomness(float& value)
+{
+    m_swarm->m_randomness = value;
+    
+    ofxOscMessage m;
+    m.setAddress("/MurmurBirds/swarmRandomness");
+    m.addFloatArg(value);
+    AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+}
 
-void BirdsManager::addMoveEffect(const ofVec3f& targetPosition, double duration)
+
+void BirdsManager::addMoveEffect(const ofVec3f& targetPosition, double duration, double startTime)
 {
     m_moveEffect->stop();
     m_moveEffect->setParameters(targetPosition, duration);
-    m_moveEffect->start();
+    m_moveEffect->start(startTime);
     
     AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_moveEffect);
 }
 
-void BirdsManager::addScaleEffect(const ofVec3f& targetScale, double duration)
+void BirdsManager::addScaleEffect(const ofVec3f& targetScale, double duration, double startTime)
 {
     m_scaleEffect->stop();
     m_scaleEffect->setParameters(targetScale, duration);
-    m_scaleEffect->start();
+    m_scaleEffect->start(startTime);
     
     AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_scaleEffect);
     
 }
+
+void BirdsManager::stopEffects()
+{
+    m_scaleEffect->stop();    
+}
+
 
 
 

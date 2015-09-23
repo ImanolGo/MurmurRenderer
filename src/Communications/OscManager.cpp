@@ -298,6 +298,12 @@ void OscManager::update()
             AppManager::getInstance().getGuiManager().setBirdsSpeed(value);
             this->updateReceiveText();
         }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BirdsRandomness"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setBirdsRandomness(value);
+            this->updateReceiveText();
+        }
 
 
         else{

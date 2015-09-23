@@ -39,6 +39,7 @@ public:
     float   m_size;                ///< Size of the swarm
     int     m_number;              ///< Number of the birds
     float   m_birdSize;            ///< Size of the swarm
+    float   m_randomness;          ///< Size of the swarm
 
 };
 

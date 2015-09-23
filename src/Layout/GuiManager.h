@@ -122,6 +122,8 @@ public:
     
     void setBirdsNumber(float value) {m_birdsNumber = value;}
     
+    void setBirdsRandomness(float value) {m_birdsRandomness = value;}
+    
     void onSetBirdsSwarmSize(float& value);
     
     
@@ -204,6 +206,7 @@ private:
     ofParameter<float>      m_birdsSwarmSize;
     ofParameter<int>        m_birdsNumber;
     ofParameter<float>      m_birdsSpeed;
+    ofParameter<float>      m_birdsRandomness;
     
     
     

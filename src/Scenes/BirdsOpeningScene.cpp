@@ -37,6 +37,8 @@ void BirdsOpeningScene::willFadeIn() {
 
 void BirdsOpeningScene::setInitialParameters() {
     
+    AppManager::getInstance().getBirdsManager().stopEffects();
+    
     AppManager::getInstance().getGuiManager().setBirdsSize(1.4);
     AppManager::getInstance().getGuiManager().setBirdsNumber(100);
     
@@ -64,8 +66,12 @@ void BirdsOpeningScene::startBirds()
     ofVec3f position(0,0.3,0);
     AppManager::getInstance().getGuiManager().setBirdsPosition(position);
     
+    //AppManager::getInstance().getBirdsManager().addMoveEffect(position, 4);
+    
     m_swarmSize = 1.0;
     AppManager::getInstance().getGuiManager().onSetBirdsSwarmSize(m_swarmSize);
+    
+    AppManager::getInstance().getGuiManager().setBirdsRandomness(5);
     
 
 }

@@ -37,6 +37,8 @@ void BirdsAndPaperScene::willFadeIn() {
 
 void BirdsAndPaperScene::setInitialParameters()
 {
+    AppManager::getInstance().getBirdsManager().stopEffects();
+    
     m_visual.setScale(ofVec3f(1.0,1.0,1.0));
     m_visual.setPosition(ofVec3f(0,-0.7,0));
     
@@ -57,17 +59,18 @@ void BirdsAndPaperScene::willDraw()
 
 void BirdsAndPaperScene::startBirds()
 {
-    m_visual.setScale(ofVec3f(30,30,30));
+    m_visual.setScale(ofVec3f(20,20,20));
     m_visual.setPosition(ofVec3f(0,0,0));
     
     
     AppManager::getInstance().getBirdsManager().addMoveEffect(m_visual.getPosition(), 10);
-    //AppManager::getInstance().getBirdsManager().addScaleEffect(m_visual.getScale(), 100);
+    AppManager::getInstance().getBirdsManager().addScaleEffect(m_visual.getScale(), 50, 30);
     
     //AppManager::getInstance().getGuiManager().setBirdsPosition(m_visual.getPosition());
     //AppManager::getInstance().getGuiManager().setBirdsSize(m_visual.getScale());
 
     AppManager::getInstance().getGuiManager().setBirdsNumber(500);
+    AppManager::getInstance().getGuiManager().setBirdsRandomness(10);
 }
 
 void BirdsAndPaperScene::willFadeOut() {

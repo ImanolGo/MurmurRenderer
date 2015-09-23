@@ -90,6 +90,10 @@ void GuiManager::setupBirdsGui()
     m_birdsSpeed.set("Speed", 10, 0, 20);
     m_birdsSpeed.addListener(birdsManager, &BirdsManager::onChangeSpeed);
     m_parametersBirds.add(m_birdsSpeed);
+    
+    m_birdsRandomness.set("Randomness", 0, 0, 50);
+    m_birdsRandomness.addListener(birdsManager, &BirdsManager::onChangeSwarmRandomness);
+    m_parametersBirds.add(m_birdsRandomness);
 
     m_gui.add(m_parametersBirds);
     

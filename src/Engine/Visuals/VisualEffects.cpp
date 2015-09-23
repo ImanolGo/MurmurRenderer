@@ -317,6 +317,7 @@ void ScaleVisual::update()
 
     m_scale.x = this->function(m_elapsedTime,m_startScale.x,m_endScale.x,m_animationTime);
 	m_scale.y = this->function(m_elapsedTime,m_startScale.y,m_endScale.y,m_animationTime);
+    m_scale.z = this->function(m_elapsedTime,m_startScale.z,m_endScale.z,m_animationTime);
 	m_visual->setScale(m_scale);
 }
 

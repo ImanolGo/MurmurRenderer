@@ -15,6 +15,7 @@ private var yVal: float = 0;
 private var zVal: float = 0;
 
 private var swarmSize: float = 15;
+private var swarmRandomness: float = 0;
 
 private var swarmWidth: float = swarmSize;
 private var swarmHeight: float = swarmSize;
@@ -62,6 +63,10 @@ function Update () {
 	go.GetComponent(gameReceiverScript)._spawnSphere = swarmWidth;
 	go.GetComponent(gameReceiverScript)._spawnSphereHeight = swarmHeight;
 	go.GetComponent(gameReceiverScript)._spawnSphereDepth = swarmDepth;
+	
+	go.GetComponent(gameReceiverScript)._positionSphere = swarmRandomness;
+	go.GetComponent(gameReceiverScript)._positionSphereHeight = swarmRandomness;
+	go.GetComponent(gameReceiverScript)._positionSphereDepth = swarmRandomness;
 }
 
 //These functions are called when messages are received
@@ -105,8 +110,13 @@ public function AllMessageHandler(oscMessage: OscMessage){
 		case "/MurmurBirds/speed":
 			speed = msgValue;
 			break;
+			
 		case "/MurmurBirds/swarmNumber":
 			childAmount = msgValue;
+			break;
+			
+		case "/MurmurBirds/swarmRandomness":
+			swarmRandomness = msgValue;
 			break;
 		default:
 			//
