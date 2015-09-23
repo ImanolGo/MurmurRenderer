@@ -77,8 +77,6 @@ public:
 	//! Creates a certain color visual effect
 	void popUpAnimation(ofPtr<BasicVisual> visual, double startAnimation, double animationTime);
 
-private:
-
     //! Adds a certain visual effect
 	void addVisualEffect(ofPtr<VisualEffect> visualEffect);
 

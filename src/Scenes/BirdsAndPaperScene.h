@@ -9,7 +9,7 @@
 #pragma once
 
 
-#include "SyphonVisual.h"
+#include "BasicVisual.h"
 #include "ofxScene.h"
 
 class BirdsAndPaperScene : public ofxScene {
@@ -36,6 +36,16 @@ public:
 
     //! Called when exit
     void willExit();
+    
+private:
+    
+    void setInitialParameters();
+    
+    void startBirds();
+    
+private:
+    
+    BasicVisual         m_visual;   ///< Visual representing position and size of the swarm. Used for animations
 
 };
 

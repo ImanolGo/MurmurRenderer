@@ -114,6 +114,8 @@ public:
     
     void setBirdsPosition(const ofVec3f& pos) {m_birdsPosition = pos;}
     
+    void setBirdsSize(const ofVec3f& size) {m_birdsSwarmSizeVector = size;}
+    
     void setBirdsSize(float value) {m_birdsSize = value;}
     
     void setBirdsSpeed(float value) {m_birdsSpeed = value;}

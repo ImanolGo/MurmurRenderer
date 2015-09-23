@@ -13,6 +13,8 @@
 #include "Manager.h"
 
 #include "SyphonVisual.h"
+#include "BirdsSwarmVisual.h"
+#include "VisualEffects.h"
 
 //========================== class BirdsManager ==============================
 //============================================================================
@@ -54,24 +56,27 @@ public:
     
     void onChangeSwarmNumber(int& value);
     
+    void addMoveEffect(const ofVec3f& targetPosition, double duration);
+    
+    void addScaleEffect(const ofVec3f& targetScale, double duration);
+    
 private:
     
     void setupSyphon();
     
     void setupShader();
     
+    void setupEffects();
+    
     
 private:
     
+    ofPtr<BirdsSwarmVisual>    m_swarm;
+    ofPtr<MoveVisual>          m_moveEffect;
+    ofPtr<ScaleVisual>         m_scaleEffect;
     
-    int        m_birdsSwarmNumber;
-    ofVec3f    m_target;
-    float      m_birdsSize;
-    float      m_birdsSpeed;
-    float      m_birdsSwarmSize;
-    
-    SyphonVisual    m_syphonVisual;
-    ofShader        m_shader;
+    SyphonVisual        m_syphonVisual;
+    ofShader            m_shader;
 };
 
 

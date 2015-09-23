@@ -7,7 +7,7 @@
 
 #include <math.h>
 
-#include "../Main/AppManager.h"
+#include "AppManager.h"
 #include "VisualEffectsManager.h"
 #include "VisualEffects.h"
 #include "BasicVisual.h"

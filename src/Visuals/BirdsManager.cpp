@@ -32,6 +32,7 @@ void BirdsManager::setup()
     
     this->setupSyphon();
     this->setupShader();
+    this->setupEffects();
 }
 
 
@@ -59,11 +60,25 @@ void BirdsManager::setupShader()
     ofLogNotice() <<"ContourManager::setupShader";
 }
 
+void BirdsManager::setupEffects()
+{
+    m_swarm =  ofPtr<BirdsSwarmVisual>(new BirdsSwarmVisual());
+    m_moveEffect = ofPtr<MoveVisual>(new MoveVisual(m_swarm));
+    m_scaleEffect = ofPtr<ScaleVisual>(new ScaleVisual(m_swarm));
+}
+
 
 
 void BirdsManager::update()
 {
-
+    if(!m_moveEffect->isFinished()){
+         //ofLogNotice() <<"ContourManager::update -> " << m_swarm->getPosition().y ;
+        AppManager::getInstance().getGuiManager().setBirdsPosition(m_swarm->getPosition());
+    }
+    
+    if(!m_scaleEffect->isFinished()){
+        AppManager::getInstance().getGuiManager().setBirdsSize(m_swarm->getScale());
+    }
 }
 
 void BirdsManager::draw()
@@ -79,44 +94,44 @@ void BirdsManager::draw()
 void BirdsManager::onChangePosition(ofVec3f& target)
 {
     float scale = 50;
-    m_target = target;
+    m_swarm->setPosition(target);
     
     ofxOscMessage m;
     m.setAddress("/MurmurBirds/position/x");
-    m.addFloatArg(m_target.x*scale);
+    m.addFloatArg(target.x*scale);
     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
     
     scale = 30;
     m.clear();
     m.setAddress("/MurmurBirds/position/y");
-    m.addFloatArg(m_target.y*scale);
+    m.addFloatArg(target.y*scale);
     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
     
     scale = 30;
     m.clear();
     m.setAddress("/MurmurBirds/position/z");
-    m.addFloatArg(m_target.z*scale);
+    m.addFloatArg(target.z*scale);
     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
 }
 
 void BirdsManager::onChangeSize(float& value)
 {
-    m_birdsSize = value;
+    m_swarm->m_birdSize = value;
     
     ofxOscMessage m;
     m.setAddress("/MurmurBirds/birdSize");
-    m.addFloatArg(m_birdsSize);
+    m.addFloatArg(value);
     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
 
 }
 
 void BirdsManager::onChangeSpeed(float& value)
 {
-    m_birdsSpeed = value;
+    m_swarm->m_speed = value;
     
     ofxOscMessage m;
     m.setAddress("/MurmurBirds/speed");
-    m.addFloatArg(m_birdsSpeed);
+    m.addFloatArg(value);
     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
     
 }
@@ -133,6 +148,8 @@ void BirdsManager::onChangeSpeed(float& value)
 
 void BirdsManager::onChangeSwarmSize(ofVec3f& size)
  {
+     
+     m_swarm->setScale(size);
      
      ofxOscMessage m;
      m.setAddress("/MurmurBirds/swarmSize/width");
@@ -152,12 +169,32 @@ void BirdsManager::onChangeSwarmSize(ofVec3f& size)
 
 void BirdsManager::onChangeSwarmNumber(int& value)
 {
-    m_birdsSwarmNumber = value;
+    m_swarm->m_number = value;
     
     ofxOscMessage m;
     m.setAddress("/MurmurBirds/swarmNumber");
-    m.addFloatArg(m_birdsSwarmNumber);
+    m.addFloatArg(value);
     AppManager::getInstance().getOscManager().sendMessageToUnity(m);
+}
+
+
+void BirdsManager::addMoveEffect(const ofVec3f& targetPosition, double duration)
+{
+    m_moveEffect->stop();
+    m_moveEffect->setParameters(targetPosition, duration);
+    m_moveEffect->start();
+    
+    AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_moveEffect);
+}
+
+void BirdsManager::addScaleEffect(const ofVec3f& targetScale, double duration)
+{
+    m_scaleEffect->stop();
+    m_scaleEffect->setParameters(targetScale, duration);
+    m_scaleEffect->start();
+    
+    AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_scaleEffect);
+    
 }
 
 

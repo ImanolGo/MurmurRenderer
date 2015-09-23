@@ -76,7 +76,12 @@ void AppManager::setupMultipleWidows()
         }
         m_glfw->setWindow(m_windows->at(i));    // set window pointer
         m_glfw->initializeWindow();       // initialize events (mouse, keyboard, etc) on window (optional)
-        m_glfw->setWindowShape(windowSettings.width, windowSettings.height);
+        
+        if (i>0) {
+            m_glfw->setWindowShape(windowSettings.width, windowSettings.height);
+
+        }
+        
         m_glfw->setWindowPosition(windowSettings.x, windowSettings.y);
         //m_glfw->undecorate(windowSettings.fullscreen);
         //ofSetWindowPosition(windowSettings.x, windowSettings.y);    // business as usual...
@@ -101,6 +106,9 @@ void AppManager::setupMultipleWidows()
     // vector of windows, count set in main
     m_windows = &m_glfw->windows;
     m_glfw->setWindow(m_windows->at(0));
+    
+    auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
+    m_glfw->setWindowShape(windowSettings.width, windowSettings.height);
 }
 
 
@@ -132,6 +140,7 @@ void AppManager::update()
     m_udpManager.update();
     m_visualEffectsManager.update();
     m_contourManager.update();
+    m_birdsManager.update();
     m_sceneManager.update();
     m_handsManager.update();
 }

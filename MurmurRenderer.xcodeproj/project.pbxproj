@@ -112,6 +112,7 @@
 		08F418461B6BC26500D190B7 /* SonicBoomVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F418441B6BC26500D190B7 /* SonicBoomVisual.cpp */; };
 		08FFBCF21BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FFBCEE1BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp */; };
 		08FFBCF31BB17D4100B4CCF2 /* BirdsOpeningScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FFBCF01BB17D4100B4CCF2 /* BirdsOpeningScene.cpp */; };
+		08FFBCF61BB1946D00B4CCF2 /* BirdsSwarmVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FFBCF41BB1946D00B4CCF2 /* BirdsSwarmVisual.cpp */; };
 		10071661D0AA59C4EC246B6C /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4A1CE60B1AC164DA8880771 /* ofxGuiGroup.cpp */; };
 		19D0A302C3A681F97EEAE033 /* ftDrawForce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF05B308B6DFDCF026864B2 /* ftDrawForce.cpp */; };
 		1AF15FCF93D2DDD6D4285C8E /* AppManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5056FC61E30B9810903B814D /* AppManager.cpp */; };
@@ -455,6 +456,8 @@
 		08FFBCEF1BB17D4100B4CCF2 /* BirdsAndPaperScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdsAndPaperScene.h; sourceTree = "<group>"; };
 		08FFBCF01BB17D4100B4CCF2 /* BirdsOpeningScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BirdsOpeningScene.cpp; sourceTree = "<group>"; };
 		08FFBCF11BB17D4100B4CCF2 /* BirdsOpeningScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdsOpeningScene.h; sourceTree = "<group>"; };
+		08FFBCF41BB1946D00B4CCF2 /* BirdsSwarmVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BirdsSwarmVisual.cpp; path = Visuals/BirdsSwarmVisual.cpp; sourceTree = "<group>"; };
+		08FFBCF51BB1946D00B4CCF2 /* BirdsSwarmVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BirdsSwarmVisual.h; path = Visuals/BirdsSwarmVisual.h; sourceTree = "<group>"; };
 		0A72D47C9CAB86AC2081453B /* README.md */ = {isa = PBXFileReference; explicitFileType = file; fileEncoding = 30; name = README.md; path = src/Addons/ofxMultiGLFWWindow/README.md; sourceTree = SOURCE_ROOT; };
 		0ACA94EAF2C7DCA9EE906D69 /* svgtiny_internal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = svgtiny_internal.h; path = src/Addons/ofxSvg/libs/svgTiny/src/svgtiny_internal.h; sourceTree = SOURCE_ROOT; };
 		0C1C0F60B9ED693828ED32A8 /* ofUnicode.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofUnicode.h; path = src/Addons/ofxUnicode/src/ofUnicode.h; sourceTree = SOURCE_ROOT; };
@@ -1652,10 +1655,12 @@
 		C02C33831C66F04FEBAE29DE /* Visuals */ = {
 			isa = PBXGroup;
 			children = (
-				0848D7331B904DD700672D56 /* SyphonVisual.cpp */,
-				0848D7341B904DD700672D56 /* SyphonVisual.h */,
+				08FFBCF41BB1946D00B4CCF2 /* BirdsSwarmVisual.cpp */,
+				08FFBCF51BB1946D00B4CCF2 /* BirdsSwarmVisual.h */,
 				08EBB6531B72B380005F510F /* BirdsManager.cpp */,
 				08EBB6541B72B380005F510F /* BirdsManager.h */,
+				0848D7331B904DD700672D56 /* SyphonVisual.cpp */,
+				0848D7341B904DD700672D56 /* SyphonVisual.h */,
 				08F418441B6BC26500D190B7 /* SonicBoomVisual.cpp */,
 				08F418451B6BC26500D190B7 /* SonicBoomVisual.h */,
 				08D4019A1B6A61B00035C289 /* AudioManager.cpp */,
@@ -1916,6 +1921,7 @@
 				08FFBCF31BB17D4100B4CCF2 /* BirdsOpeningScene.cpp in Sources */,
 				A17FD063CDFB818E826A6080 /* ofxMultiGLFWWindow.cpp in Sources */,
 				85EE6C4774B9737FF97A89E8 /* IpEndpointName.cpp in Sources */,
+				08FFBCF61BB1946D00B4CCF2 /* BirdsSwarmVisual.cpp in Sources */,
 				A6ACA0F494E98AF780199B78 /* NetworkingUtils.cpp in Sources */,
 				08D4014C1B6A368C0035C289 /* DofPass.cpp in Sources */,
 				08EC80501B3CABAC000893E1 /* SmokyHandsScene.cpp in Sources */,

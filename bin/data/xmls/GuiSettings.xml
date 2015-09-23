@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>54.3813</FPS>
+	<FPS>54.9375</FPS>
 	<Scenes>
 		<TransitionTime>1.42857</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -55,16 +55,16 @@
 <Birds>
 		<Offset>0, 0</Offset>
 		<Transparency>0.285714</Transparency>
-		<SwarmSize>30, 30, 30</SwarmSize>
-	<Position>0.0420659, 0.0753853, 0.0837152</Position>
-		<Size>0.408163</Size>
+		<SwarmSize>11.6327, 11.6327, 11.6327</SwarmSize>
+	<Position>0, -1.24889e-12, -0.0162432</Position>
+		<Size>2.28571</Size>
 	<MaxForce>2.85714</MaxForce>
 		<WanderDistance>15.5102</WanderDistance>
 		<WanderRadius>22.8571</WanderRadius>
 		<WanderRange>93.8776</WanderRange>
 		<InSightDist>644.898</InSightDist>
 		<TooCloseDist>22.8571</TooCloseDist>
-	<BirdsNumber>500</BirdsNumber>
-	<Speed>10</Speed>
+	<BirdsNumber>514</BirdsNumber>
+	<Speed>15</Speed>
 	</Birds>
 </MurmurRenderer>

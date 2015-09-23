@@ -12,12 +12,14 @@
 
 void BirdsAndPaperScene::setup() {
     ofLogNotice("BirdsAndPaperScene::setup");
+    this->setInitialParameters();
 }
 
 
 void BirdsAndPaperScene::update() {
     
     //AppManager::getInstance().getBirdsManager().update();
+    
 }
 
 void BirdsAndPaperScene::draw() {
@@ -26,11 +28,46 @@ void BirdsAndPaperScene::draw() {
 }
 
 void BirdsAndPaperScene::willFadeIn() {
-     ofLogNotice("BirdsAndPaperScene::willFadeIn");
+    ofLogNotice("BirdsAndPaperScene::willFadeIn");
+    
+    this->setInitialParameters();
+    AppManager::getInstance().getGuiManager().update();
 }
 
-void BirdsAndPaperScene::willDraw() {
+
+void BirdsAndPaperScene::setInitialParameters()
+{
+    m_visual.setScale(ofVec3f(1.0,1.0,1.0));
+    m_visual.setPosition(ofVec3f(0,-0.7,0));
+    
+    AppManager::getInstance().getGuiManager().setBirdsSize(1.2);
+    AppManager::getInstance().getGuiManager().setBirdsNumber(500);
+    
+    AppManager::getInstance().getGuiManager().setBirdsPosition(m_visual.getPosition());
+    AppManager::getInstance().getGuiManager().setBirdsSize(m_visual.getScale().x);
+    
+    AppManager::getInstance().getGuiManager().setBirdsSpeed(15.0);
+}
+
+void BirdsAndPaperScene::willDraw()
+{
     ofLogNotice("BirdsAndPaperScene::willDraw");
+    this->startBirds();
+}
+
+void BirdsAndPaperScene::startBirds()
+{
+    m_visual.setScale(ofVec3f(30,30,30));
+    m_visual.setPosition(ofVec3f(0,0,0));
+    
+    
+    AppManager::getInstance().getBirdsManager().addMoveEffect(m_visual.getPosition(), 10);
+    //AppManager::getInstance().getBirdsManager().addScaleEffect(m_visual.getScale(), 100);
+    
+    //AppManager::getInstance().getGuiManager().setBirdsPosition(m_visual.getPosition());
+    //AppManager::getInstance().getGuiManager().setBirdsSize(m_visual.getScale());
+
+    AppManager::getInstance().getGuiManager().setBirdsNumber(500);
 }
 
 void BirdsAndPaperScene::willFadeOut() {
@@ -39,4 +76,5 @@ void BirdsAndPaperScene::willFadeOut() {
 
 void BirdsAndPaperScene::willExit() {
     ofLogNotice("BirdsAndPaperScene::willExit");
+    this->setInitialParameters();
 }

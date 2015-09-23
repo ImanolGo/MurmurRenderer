@@ -9,7 +9,6 @@
 #pragma once
 
 
-#include "SyphonVisual.h"
 #include "ofxScene.h"
 
 class BirdsOpeningScene : public ofxScene {

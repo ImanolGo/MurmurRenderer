@@ -37,8 +37,8 @@ void BirdsOpeningScene::willFadeIn() {
 
 void BirdsOpeningScene::setInitialParameters() {
     
-    AppManager::getInstance().getGuiManager().setBirdsSize(1.7);
-    AppManager::getInstance().getGuiManager().setBirdsNumber(0);
+    AppManager::getInstance().getGuiManager().setBirdsSize(1.4);
+    AppManager::getInstance().getGuiManager().setBirdsNumber(100);
     
     ofVec3f position(0,-0.7,0);
     AppManager::getInstance().getGuiManager().setBirdsPosition(position);
@@ -58,7 +58,7 @@ void BirdsOpeningScene::willDraw() {
 
 void BirdsOpeningScene::startBirds()
 {
-    AppManager::getInstance().getGuiManager().setBirdsSize(1.2);
+    AppManager::getInstance().getGuiManager().setBirdsSize(1.4);
     AppManager::getInstance().getGuiManager().setBirdsNumber(100);
     
     ofVec3f position(0,0.3,0);
