@@ -131,6 +131,7 @@ void AppManager::setupManagers()
     m_audioManager.setup();
     m_keyboardManager.setup();
     m_birdsManager.setup();
+    m_midiManager.setup();
 }
 
 void AppManager::update()

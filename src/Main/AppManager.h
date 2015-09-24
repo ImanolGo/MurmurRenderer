@@ -29,7 +29,7 @@
 #include "BeautifulMindManager.h"
 #include "AudioManager.h"
 #include "BirdsManager.h"
-
+#include "MidiManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -106,6 +106,9 @@ public:
     
     //! Returns the Birds Manager
     BirdsManager&  getBirdsManager() { return m_birdsManager; }
+    
+    //! Returns the Midi Manager
+    MidiManager&  getMidiManager() { return m_midiManager; }
 
     
     //==========================================================================
@@ -166,6 +169,7 @@ private:
     BeautifulMindManager            m_beautifulMindManager;     ///< Manages the Beautiful Mind Scene
     AudioManager                    m_audioManager;             ///< Manages the audio input
     BirdsManager                    m_birdsManager;             ///< Manages the birds
+    MidiManager                     m_midiManager;              ///< Manages the midi input messages
     
 
     bool                            m_debugMode;
