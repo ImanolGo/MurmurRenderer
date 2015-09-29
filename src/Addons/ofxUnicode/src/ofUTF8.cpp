@@ -6,14 +6,14 @@ bool ofUTF8::isValid(ofUTF8String txt) {
         ofUTF8String::iterator end_it = utf8::find_invalid(txt.begin(), txt.end());
         if(end_it != txt.end()) {
             ofUTF8String validPart(txt.begin(),end_it);
-            ofLog(OF_LOG_ERROR,"ofUTF8::isValid - detected invalid UTF8 - valid part: " + validPart);
+            ofLog(OF_LOG_VERBOSE,"ofUTF8::isValid - detected invalid UTF8 - valid part: " + validPart);
             return false;
         } else {
             return true;
         }
     } catch(const utf8::exception& utfcpp_ex) {
         string err = utfcpp_ex.what();
-        ofLog(OF_LOG_ERROR, "ofUTF8::isValid : " + err);
+        ofLog(OF_LOG_VERBOSE, "ofUTF8::isValid : " + err);
         return false;
     }
 }
@@ -23,13 +23,13 @@ bool ofUTF8::isValid(ofUTF8Ptr iter, ofUTF8Ptr end) {
     try {
         bool isValid = utf8::is_valid(iter,end);
         if(!isValid) {
-            ofLog(OF_LOG_ERROR,"ofUTF8::isValid - detected invalid UTF8");
+            ofLog(OF_LOG_VERBOSE,"ofUTF8::isValid - detected invalid UTF8");
             return false;
         } else {
             return true;
         }
     } catch(const utf8::exception& utfcpp_ex) {
-        ofLog(OF_LOG_ERROR, "ofUTF8::isValid : " + ofToString(utfcpp_ex.what()));
+        ofLog(OF_LOG_VERBOSE, "ofUTF8::isValid : " + ofToString(utfcpp_ex.what()));
         return false;
     }
 
@@ -55,7 +55,7 @@ ofUTF8String ofUTF8::repair(ofUTF8String txt, ofUniChar replacement) {
             utf8::replace_invalid(txt.begin(), txt.end(), back_inserter(temp), replacement);
         }
     } catch(const utf8::exception& utfcpp_ex) {
-        ofLog(OF_LOG_ERROR, "ofUTF8::repair : " + ofToString(utfcpp_ex.what()));
+        ofLog(OF_LOG_VERBOSE, "ofUTF8::repair : " + ofToString(utfcpp_ex.what()));
     }
     return temp;
 }
@@ -70,7 +70,7 @@ int ofUTF8::distance(ofUTF8String txt) {
     try {
         return utf8::distance(txt.begin(), txt.end());
     } catch(const utf8::exception& utfcpp_ex) {
-        ofLog(OF_LOG_ERROR, "ofUTF8::distance : " + ofToString(utfcpp_ex.what()));
+        ofLog(OF_LOG_VERBOSE, "ofUTF8::distance : " + ofToString(utfcpp_ex.what()));
     }
 }
 
@@ -79,7 +79,7 @@ int ofUTF8::distance(ofUTF8Ptr iter, ofUTF8Ptr end) {
     try {
         return utf8::distance(iter, end);
     } catch(const utf8::exception& utfcpp_ex) {
-        ofLog(OF_LOG_ERROR, "ofUTF8::distance : " + ofToString(utfcpp_ex.what()));
+        ofLog(OF_LOG_VERBOSE, "ofUTF8::distance : " + ofToString(utfcpp_ex.what()));
     }
 }
 
@@ -137,7 +137,7 @@ ofUniChar ofUTF8::getNext(ofUTF8Ptr& iter, ofUTF8Ptr end) {
     try {
         return utf8::next(iter,end);
     } catch(const utf8::exception& utfcpp_ex) {
-        ofLog(OF_LOG_ERROR, "ofUTF8::getNext : " + ofToString(utfcpp_ex.what()));
+        ofLog(OF_LOG_VERBOSE, "ofUTF8::getNext : " + ofToString(utfcpp_ex.what()));
         return -1;
     }
 }
@@ -147,7 +147,7 @@ ofUniChar ofUTF8::getPrior(ofUTF8Ptr& iter, ofUTF8Ptr end) {
     try {
         return utf8::prior(iter,end);
     } catch(const utf8::exception& utfcpp_ex) {
-        ofLog(OF_LOG_ERROR, "ofUTF8::getPrior : " + ofToString(utfcpp_ex.what()));
+        ofLog(OF_LOG_VERBOSE, "ofUTF8::getPrior : " + ofToString(utfcpp_ex.what()));
         return -1;
     }
 }
@@ -159,7 +159,7 @@ ofUTF8Ptr ofUTF8::advance(ofUTF8Ptr& iter, ofUTF8Ptr end, int numToSkip) {
         return iter;
     } catch(const utf8::exception& utfcpp_ex) {
         string err = utfcpp_ex.what();
-        ofLog(OF_LOG_ERROR, "ofUTF8::advance : " + err);
+        ofLog(OF_LOG_VERBOSE, "ofUTF8::advance : " + err);
         return NULL;
     }
 }

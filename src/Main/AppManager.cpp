@@ -132,6 +132,7 @@ void AppManager::setupManagers()
     m_keyboardManager.setup();
     m_birdsManager.setup();
     m_midiManager.setup();
+    m_previewManager.setup();
 }
 
 void AppManager::update()
@@ -159,17 +160,24 @@ void AppManager::draw()
             ofBackground(0,0,0); // change background color on each window
             m_viewManager.draw();
             m_sceneManager.draw(WindowIndex(wIndex));
-            m_audioManager.draw();
+            m_previewManager.draw();
             m_guiManager.draw();
+            
             break;
         case 1:
+            m_previewManager.begin(wIndex);
             ofBackground(0,0,0); // change background color on each window
             m_sceneManager.draw(WindowIndex(wIndex));
             m_layoutManager.draw();
+            m_previewManager.end(wIndex);
+            m_previewManager.draw(wIndex);
             break;
         case 2:
+            m_previewManager.begin(wIndex);
             ofBackground(0,0,0); // change background color on each window
             m_sceneManager.draw(WindowIndex(wIndex));
+            m_previewManager.end(wIndex);
+             m_previewManager.draw(wIndex);
             break;
     }
 }

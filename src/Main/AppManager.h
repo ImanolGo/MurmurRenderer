@@ -30,6 +30,7 @@
 #include "AudioManager.h"
 #include "BirdsManager.h"
 #include "MidiManager.h"
+#include "PreviewManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -109,6 +110,9 @@ public:
     
     //! Returns the Midi Manager
     MidiManager&  getMidiManager() { return m_midiManager; }
+    
+    //! Returns the Preview Manager
+    PreviewManager&  getPreviewManager() { return m_previewManager; }
 
     
     //==========================================================================
@@ -170,6 +174,7 @@ private:
     AudioManager                    m_audioManager;             ///< Manages the audio input
     BirdsManager                    m_birdsManager;             ///< Manages the birds
     MidiManager                     m_midiManager;              ///< Manages the midi input messages
+    PreviewManager                  m_previewManager;           ///< Manages the preview
     
 
     bool                            m_debugMode;

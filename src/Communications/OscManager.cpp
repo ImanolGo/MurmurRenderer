@@ -196,6 +196,12 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
+        else if(m.getAddress() == "/MurmurRenderer/HandsSize"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setHandsSize(value);
+            this->updateReceiveText();
+        }
+        
         else if(m.getAddress() == "/MurmurRenderer/FloorTrackingPos"){
             ofVec2f pos;
             pos.x = m.getArgAsFloat(0);
@@ -336,18 +342,18 @@ void OscManager::updateSendText()
 {
     int portSend = AppManager::getInstance().getSettingsManager().getOscPortSend();
     string host = AppManager::getInstance().getSettingsManager().getIpAddress();
-    string text = ">> OSC sending -> Host: " + host + ", Port: " + ofToString(portSend);
+    string text = ">> OSC sending -> Host: " + host + ", Port: " + ofToString(portSend) + "\n";
     
-    text += ("\n   " + this->getMessageAsString(m_latestOscMessage));
+    text += this->getMessageAsString(m_latestOscMessage);
     m_sendingInformation->setText(text);
 }
 
 void OscManager::updateReceiveText()
 {
     int porReceive = AppManager::getInstance().getSettingsManager().getOscPortReceive();
-    string text = ">> OSC receiving -> Port: " + ofToString(porReceive);
+    string text = ">> OSC receiving -> Port: " + ofToString(porReceive) + "\n";
     
-    text += ("\n   " + this->getMessageAsString(m_latestOscMessage));
+    text +=  this->getMessageAsString(m_latestOscMessage);
     m_receivingInformation->setText(text);
 }
 

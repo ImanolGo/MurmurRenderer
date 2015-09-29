@@ -145,7 +145,7 @@ ofUTF8String ofTextConverter::toUTF8(const ofUTF16String& input) {
     try {
         utf8::utf16to8(input.begin(),input.end(), back_inserter(utf8result));
     } catch(const utf8::exception& utfcpp_ex) {
-        ofLog(OF_LOG_ERROR, "ofTextConverter::toUTF8 : " + ofToString(utfcpp_ex.what()));
+        ofLog(OF_LOG_VERBOSE, "ofTextConverter::toUTF8 : " + ofToString(utfcpp_ex.what()));
     }
     
     return utf8result;
@@ -158,7 +158,7 @@ ofUTF8String ofTextConverter::toUTF8(const ofUniChar& input) {
 //    try {
 //        utf8::utf32to8(&input,&input, back_inserter(utf8result));
 //    } catch(const utf8::exception& utfcpp_ex) {
-//        ofLog(OF_LOG_ERROR, "ofTextConverter::toUTF8 : " + ofToString(utfcpp_ex.what()));
+//        ofLog(OF_LOG_VERBOSE, "ofTextConverter::toUTF8 : " + ofToString(utfcpp_ex.what()));
 //    }
 //    
 //    return utf8result;
@@ -170,7 +170,7 @@ ofUTF8String ofTextConverter::toUTF8(const ofUniChar& input) {
         utf8::append(input, back_inserter(txt));
     } catch(const utf8::exception& utfcpp_ex) {
         string err = utfcpp_ex.what();
-        ofLog(OF_LOG_ERROR, "ofUTF8::append : " + err);
+        ofLog(OF_LOG_VERBOSE, "ofUTF8::append : " + err);
     }
     return txt;
 }
@@ -180,7 +180,7 @@ ofUTF8String ofTextConverter::toUTF8(const ofUniString& input) {
     try {
         utf8::utf32to8(input.begin(),input.end(), back_inserter(utf8result));
     } catch(const utf8::exception& utfcpp_ex) {
-        ofLog(OF_LOG_ERROR, "ofTextConverter::toUniChar::toUniString : " + ofToString(utfcpp_ex.what()));
+        ofLog(OF_LOG_VERBOSE, "ofTextConverter::toUniChar::toUniString : " + ofToString(utfcpp_ex.what()));
     }
     return utf8result;
     
@@ -196,7 +196,7 @@ ofUTF8String ofTextConverter::toUTF8(const ofUniString& input) {
 //    try {
 //        utf8::utf32to8(&input,&input, back_inserter(utf16result));
 //    } catch(const utf8::exception& utfcpp_ex) {
-//        ofLog(OF_LOG_ERROR, "ofTextConverter::toUniChar::toUniString : " + ofToString(utfcpp_ex.what()));
+//        ofLog(OF_LOG_VERBOSE, "ofTextConverter::toUniChar::toUniString : " + ofToString(utfcpp_ex.what()));
 //    }
 //    return utf16result;
 //}
@@ -221,7 +221,7 @@ ofUniString ofTextConverter::toUTF32(const ofUTF8String& input) {
     try {
         utf8::utf8to32(ofUTF8::beginPtr(input),ofUTF8::endPtr(input), back_inserter(utf32result));
     } catch(const utf8::exception& utfcpp_ex) {
-        ofLog(OF_LOG_ERROR, "ofTextConverter::toUniChar::toUniString : " + ofToString(utfcpp_ex.what()));
+        ofLog(OF_LOG_VERBOSE, "ofTextConverter::toUniChar::toUniString : " + ofToString(utfcpp_ex.what()));
     }
     
     return utf32result;

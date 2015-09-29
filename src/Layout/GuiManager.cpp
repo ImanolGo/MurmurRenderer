@@ -264,9 +264,6 @@ void GuiManager::setupLayoutGui()
     auto layoutManager = &AppManager::getInstance().getLayoutManager();
     
     m_parametersLayout.setName("Layout");
-    m_fullscreen.set("Fullscreen", true);
-    m_fullscreen.addListener(appManager, &AppManager::setFullScreen);
-    m_parametersLayout.add(m_fullscreen);
 
     m_cropLeft.set("CropLeft", 0.0, 0.0, 500.0);
     m_cropLeft.addListener(layoutManager, &LayoutManager::onCropLeft);

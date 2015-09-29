@@ -45,6 +45,9 @@ public:
     //! parses the hands information coming from the laser ranger
     void readHands(char const* udpMessage);
      
+     //! parses the hands information coming from the laser ranger
+     void readHands2(char const* udpMessage);
+     
     const vector< ofVec2f >& getHands() const {return m_hands;}
      
     void setOffset(ofVec2f & offset);

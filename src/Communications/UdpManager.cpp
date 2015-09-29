@@ -67,12 +67,19 @@ void UdpManager::setupText()
     int porReceive = AppManager::getInstance().getSettingsManager().getUdpPortReceive();
     string text = ">> UDP receiving -> Port: " + ofToString(porReceive);
     
-    m_receivingInformation =  ofPtr<TextVisual> (new TextVisual(position, width, height));
-    m_receivingInformation->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
-    m_receivingInformation->setColor(ofColor::white);
-    m_receivingInformation->setLineHeight(2.5);
+    m_udpReceiveTextFont =  ofPtr<TextVisual> (new TextVisual(position, width, height));
+    m_udpReceiveTextFont->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    m_udpReceiveTextFont->setColor(ofColor::white);
+    m_udpReceiveTextFont->setLineHeight(2.5);
     
-    AppManager::getInstance().getViewManager().addOverlay(m_receivingInformation);
+    position.y += LayoutManager::MARGIN + fontSize;
+    m_udpReceiveMessageFont =  ofPtr<TextVisual> (new TextVisual(position, width, height));
+    m_udpReceiveMessageFont->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    m_udpReceiveMessageFont->setColor(ofColor::white);
+    m_udpReceiveMessageFont->setLineHeight(2.5);
+    
+    AppManager::getInstance().getViewManager().addOverlay(m_udpReceiveTextFont);
+    AppManager::getInstance().getViewManager().addOverlay(m_udpReceiveMessageFont);
 }
 
 
@@ -102,16 +109,19 @@ void UdpManager::update()
     this->updateReceiveText(message);
     
     AppManager::getInstance().getHandsManager().readHands(message.c_str());
+    //AppManager::getInstance().getHandsManager().readHands2(message.c_str());
 }
-
 
 
 void UdpManager::updateReceiveText(const string& message)
 {
     int porReceive = AppManager::getInstance().getSettingsManager().getUdpPortReceive();
-    string text = ">> UDP receiving -> Port: " + ofToString(porReceive);
-    text += "\n   " + message;
-    m_receivingInformation->setText(text);
+    string text = ">> UDP receiving -> Port: " + ofToString(porReceive) ;
+    //text += "   " + message;
+    m_udpReceiveTextFont->setText(text);
+    
+    m_udpReceiveMessageFont->setText("   " + message);
+
 }
 
 

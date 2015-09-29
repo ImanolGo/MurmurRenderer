@@ -33,6 +33,7 @@
 		0848D75D1B90872600672D56 /* ofxFFTBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7561B90872600672D56 /* ofxFFTBase.cpp */; };
 		0848D75E1B90872600672D56 /* ofxFFTFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7581B90872600672D56 /* ofxFFTFile.cpp */; };
 		0848D75F1B90872600672D56 /* ofxFFTLive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D75A1B90872600672D56 /* ofxFFTLive.cpp */; };
+		087761EA1BBAD9E700898648 /* PreviewManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087761E81BBAD9E700898648 /* PreviewManager.cpp */; };
 		089A81FF1B42CAF700928D12 /* BattleOfSelfScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 089A81FD1B42CAF700928D12 /* BattleOfSelfScene.cpp */; };
 		08AC0E111B45251200574154 /* HandsWritingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0E0F1B45251200574154 /* HandsWritingScene.cpp */; };
 		08B074591B45944C008D71BB /* BeautifulMindScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08B074551B45944C008D71BB /* BeautifulMindScene.cpp */; };
@@ -282,6 +283,8 @@
 		0848D7591B90872600672D56 /* ofxFFTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTFile.h; sourceTree = "<group>"; };
 		0848D75A1B90872600672D56 /* ofxFFTLive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTLive.cpp; sourceTree = "<group>"; };
 		0848D75B1B90872600672D56 /* ofxFFTLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTLive.h; sourceTree = "<group>"; };
+		087761E81BBAD9E700898648 /* PreviewManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PreviewManager.cpp; path = Layout/PreviewManager.cpp; sourceTree = "<group>"; };
+		087761E91BBAD9E700898648 /* PreviewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewManager.h; path = Layout/PreviewManager.h; sourceTree = "<group>"; };
 		089A81FD1B42CAF700928D12 /* BattleOfSelfScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleOfSelfScene.cpp; sourceTree = "<group>"; };
 		089A81FE1B42CAF700928D12 /* BattleOfSelfScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleOfSelfScene.h; sourceTree = "<group>"; };
 		08AC0E0F1B45251200574154 /* HandsWritingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HandsWritingScene.cpp; sourceTree = "<group>"; };
@@ -1396,6 +1399,8 @@
 		375D8B140B52B55EB32EB487 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				087761E81BBAD9E700898648 /* PreviewManager.cpp */,
+				087761E91BBAD9E700898648 /* PreviewManager.h */,
 				4907E8B0250B798D3E6F09A1 /* GuiManager.cpp */,
 				FF71FE1412779C0AE111BC56 /* GuiManager.h */,
 				4229475864D5EBC7913C8351 /* LayoutManager.cpp */,
@@ -2011,6 +2016,7 @@
 				08D401591B6A368C0035C289 /* RGBShiftPass.cpp in Sources */,
 				089A81FF1B42CAF700928D12 /* BattleOfSelfScene.cpp in Sources */,
 				08D401561B6A368C0035C289 /* PixelatePass.cpp in Sources */,
+				087761EA1BBAD9E700898648 /* PreviewManager.cpp in Sources */,
 				08D4015B1B6A368C0035C289 /* SSAOPass.cpp in Sources */,
 				10071661D0AA59C4EC246B6C /* ofxGuiGroup.cpp in Sources */,
 				08D4014E1B6A368C0035C289 /* FakeSSSPass.cpp in Sources */,

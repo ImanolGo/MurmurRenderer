@@ -56,7 +56,8 @@ private:
     
  
      ofxUDPManager          m_udpConnection;        ///< ofxUdpManager  class
-     ofPtr<TextVisual>      m_receivingInformation;
+     ofPtr<TextVisual>      m_udpReceiveTextFont;
+     ofPtr<TextVisual>       m_udpReceiveMessageFont;
     
 };
 

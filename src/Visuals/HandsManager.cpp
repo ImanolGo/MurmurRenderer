@@ -146,6 +146,42 @@ void HandsManager::readHands(char const* data)
 }
 
 
+void HandsManager::readHands2(char const* data)
+{
+    
+    if(!m_handsOn){
+        return;
+    }
+    
+    
+    char const* buff = data;
+
+     m_hands.clear();
+    
+    int num=buff[1];
+       
+    
+        for(int i = 0; i < num; i++) //Extract all the hands
+        {
+            float x=*((float*)(buff+2+i*4*2));
+            float y=*((float*)(buff+2+i*4*2+4));
+            
+            ofVec2f hand = ofVec2f(x,y) - 0.5;
+            hand *= m_handsScale;
+            hand = hand + 0.5 + m_handsOffset;
+            
+            hand.x = ofClamp(hand.x, 0, 1);
+            hand.y = ofClamp(hand.y, 0, 1);
+            
+            //ofLogNotice() <<"HandsManager::readHands << y -> " << hand.y;
+            //ofLogNotice() <<"HandsManager::readHands << x -> " << hand.x;
+            
+            m_hands.push_back(hand);
+        }
+}
+
+
+
 /**
  * General routing to extract aligned integral types
  * from the UDP packet.
