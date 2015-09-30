@@ -226,3 +226,14 @@ void FluidVisual::setSource(const ofFbo& source)
 
 
 
+void FluidVisual::reset()
+{
+
+    for (int i=0; i<m_numDrawForces; i++) {
+        m_flexDrawForces[i].reset();
+    }
+    
+    m_fluid.reset();
+
+}
+

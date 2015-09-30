@@ -1,11 +1,11 @@
 <MurmurRenderer>
-	<FPS>58.8985</FPS>
+	<FPS>41.2541</FPS>
 	<Scenes>
 		<TransitionTime>1.42857</TransitionTime>
-		<BlankScene>0</BlankScene>
+		<BlankScene>1</BlankScene>
 		<SmokyHandsScene>0</SmokyHandsScene>
 	<BattleOfSelfScene>0</BattleOfSelfScene>
-	<HandsWritingScene>1</HandsWritingScene>
+	<HandsWritingScene>0</HandsWritingScene>
 	<FluidFloorScene>0</FluidFloorScene>
 		<BeautifulMindScene>0</BeautifulMindScene>
 	<Transparency>0</Transparency>
@@ -55,18 +55,18 @@
 <Birds>
 		<Offset>0, 0</Offset>
 		<Transparency>0.285714</Transparency>
-		<SwarmSize>20, 20, 20</SwarmSize>
+		<SwarmSize>1, 1, 1</SwarmSize>
 	<Position>0, -0.7, 0</Position>
-		<Size>1</Size>
+		<Size>1.4</Size>
 	<MaxForce>2.85714</MaxForce>
 		<WanderDistance>15.5102</WanderDistance>
 		<WanderRadius>22.8571</WanderRadius>
 		<WanderRange>93.8776</WanderRange>
 		<InSightDist>644.898</InSightDist>
 		<TooCloseDist>22.8571</TooCloseDist>
-	<BirdsNumber>500</BirdsNumber>
-	<Speed>15</Speed>
-	<Randomness>10</Randomness>
+	<BirdsNumber>100</BirdsNumber>
+	<Speed>7</Speed>
+	<Randomness>5</Randomness>
 	</Birds>
 <group>
 		<CropLeft>0</CropLeft>

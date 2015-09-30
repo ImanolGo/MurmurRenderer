@@ -144,6 +144,7 @@ void FluidFloorScene::drawFluid()
 
 void FluidFloorScene::willFadeIn() {
     ofLogNotice("FluidFloorScene::willFadeIn");
+    m_fluid.reset();
 }
 
 void FluidFloorScene::willDraw() {
@@ -156,4 +157,6 @@ void FluidFloorScene::willFadeOut() {
 
 void FluidFloorScene::willExit() {
     ofLogNotice("FluidFloorScene::willExit");
+    
+     m_fluid.reset();
 }

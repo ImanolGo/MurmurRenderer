@@ -29,9 +29,9 @@ void BattleOfSelfScene::setup()
         return;
     }
     
-    this->setupFbos();
-    this->setupShaders();
-    this->setupPostProcessing();
+    //this->setupFbos();
+    //this->setupShaders();
+    //this->setupPostProcessing();
     
     m_fluid.setup("xmls/BattleOfSelfFluid.xml");
     m_initialized = true;
@@ -155,7 +155,7 @@ void BattleOfSelfScene::draw() {
         ofEnableBlendMode(OF_BLENDMODE_ADD);
     
         m_fluid.draw(m_drawArea);
-        m_fluid.drawGui();
+        //m_fluid.drawGui();
     
     ofPopStyle();
     

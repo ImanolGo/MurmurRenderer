@@ -46,6 +46,7 @@ void PreviewManager::setupFbos()
     {
         ofPtr<ofFbo> fbo =  ofPtr<ofFbo>(new ofFbo());
         fbo->allocate(windowSettings.width, windowSettings.height, GL_RGBA);
+        fbo->begin(); ofClear(0); fbo->end();
         m_fbos.push_back(fbo);
     }
 
@@ -54,8 +55,60 @@ void PreviewManager::setupFbos()
 
 void PreviewManager::draw()
 {
-   
+    this->drawPreviewWindowFront();
+    this->drawPreviewWindowTop();
 }
+
+void PreviewManager::drawPreviewWindowFront()
+{
+    int indexWindow = 1;
+    
+    if(indexWindow<0 ||  indexWindow > (m_fbos.size()-1)){
+        return;
+    }
+
+    
+    int fontSize = 12;
+    int height = fontSize*3;
+    
+    float w = GuiManager::GUI_WIDTH*3;
+    float h = w* m_fbos[indexWindow]->getHeight() / m_fbos[indexWindow]->getWidth();
+
+    
+    ofVec3f position;
+    
+    position.y = LayoutManager::MARGIN + 16*fontSize;
+    position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH ;
+    
+    
+    m_fbos[indexWindow]->draw(position.x, position.y, w, h);
+}
+
+void PreviewManager::drawPreviewWindowTop()
+{
+    int indexWindow = 2;
+    
+    if(indexWindow<0 ||  indexWindow > (m_fbos.size()-1)){
+        return;
+    }
+    
+    
+    int fontSize = 12;
+    int height = fontSize*3;
+    
+    float w = GuiManager::GUI_WIDTH*3;
+    float h = w * m_fbos[indexWindow]->getHeight() / m_fbos[indexWindow]->getWidth();
+    
+    
+    ofVec3f position;
+    
+    position.y = 2*LayoutManager::MARGIN + 16*fontSize + h;
+    position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH ;
+    
+    
+    m_fbos[indexWindow]->draw(position.x, position.y, w, h);
+}
+
 
 void PreviewManager::draw(int windowIndex)
 {

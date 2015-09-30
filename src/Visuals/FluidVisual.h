@@ -100,6 +100,13 @@ public:
     ofParameter<bool>	visualisationLineSmooth;
     
     
+    void reset();
+    
+private:
+    
+    
+    
+    
     ftOpticalFlow		m_opticalFlow;
     ftVelocityMask		m_velocityMask;
     ftFluidSimulation	m_fluid;

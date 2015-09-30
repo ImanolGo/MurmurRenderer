@@ -50,6 +50,11 @@ private:
 
     //! Set-up the fbos
     void setupFbos();
+    
+    void drawPreviewWindowFront();
+    
+    void drawPreviewWindowTop();
+    
 
 private:
     
