@@ -49,6 +49,7 @@ void ImageVisual::draw()
 
 
     ofPushMatrix();
+    ofPushStyle();
 
         ofTranslate(m_position);
 
@@ -66,6 +67,7 @@ void ImageVisual::draw()
         ofSetColor(m_color);
         m_texture->draw(0,0);
 
+    ofPopStyle();
     ofPopMatrix();
 }
 

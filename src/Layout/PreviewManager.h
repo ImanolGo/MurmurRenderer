@@ -9,9 +9,8 @@
 #pragma once
 
 #include "Manager.h"
+#include "RectangleVisual.h"
 #include "TextVisual.h"
-#include "SvgVisual.h"
-#include "ImageVisual.h"
 
 //========================== class PreviewManager ==============================
 //============================================================================
@@ -51,6 +50,12 @@ private:
     //! Set-up the fbos
     void setupFbos();
     
+    //! Set-up the rectangle visuals
+    void setupRectangles();
+    
+    //! Set-up the text visuals
+    void setupText();
+    
     void drawPreviewWindowFront();
     
     void drawPreviewWindowTop();
@@ -58,10 +63,13 @@ private:
 
 private:
     
-    typedef  vector<ofPtr<ofFbo> >      FboVector;            ///< defines a vector of FBOs
+    typedef  vector<ofPtr<ofFbo> >                  FboVector;        ///< defines a vector of FBOs
+    typedef  map< string, ofPtr<RectangleVisual> >  RectanglesMap;    ///< defines a map of Rectangle Visuals sorted by name
+    typedef  map<string, ofPtr<TextVisual> >        TextMap;         ///< defines a map of Text Visuals sorted by name
     
-    FboVector                           m_fbos;
-
+    FboVector          m_fbos;
+    RectanglesMap      m_rectangles;
+    TextMap            m_texts;
 
 };
 

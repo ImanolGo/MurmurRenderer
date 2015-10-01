@@ -69,8 +69,8 @@ void OscManager::setupText()
 {
     ofVec3f position;
    
-    position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN;
-    position.y = LayoutManager::MARGIN;
+    position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN ;
+    position.y = LayoutManager::MARGIN+ 600;
     
     int width = 700;
     int fontSize = 12;

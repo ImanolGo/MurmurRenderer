@@ -37,7 +37,6 @@ void VisualEffectsManager::update()
         
         
         if((*it)->isFinished()) {
-            ofLogNotice() <<"VisualEffectsManager::isFinished";
             it = m_visualEffects.erase(it);
         }
         else{

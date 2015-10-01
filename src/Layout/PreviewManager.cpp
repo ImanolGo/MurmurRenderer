@@ -33,7 +33,9 @@ void PreviewManager::setup()
 	Manager::setup();
     
     this->setupFbos();
-
+    this->setupText();
+    this->setupRectangles();
+    
     ofLogNotice() <<"PreviewManager::initialized";
 
 }
@@ -46,11 +48,122 @@ void PreviewManager::setupFbos()
     {
         ofPtr<ofFbo> fbo =  ofPtr<ofFbo>(new ofFbo());
         fbo->allocate(windowSettings.width, windowSettings.height, GL_RGBA);
+        ofLogNotice() <<"PreviewManager::setupFbos -> width =  " << windowSettings.width << ", height =  " << windowSettings.height;
+
         fbo->begin(); ofClear(0); fbo->end();
         m_fbos.push_back(fbo);
     }
 
     
+}
+
+void PreviewManager::setupText()
+{
+    ofVec3f position;
+    
+    position.x = GuiManager::GUI_WIDTH + 2.5*LayoutManager::MARGIN;
+    position.y = 1.5*LayoutManager::MARGIN;
+    
+    int width = 700;
+    int fontSize = 12;
+    int height = fontSize*3;
+  
+    string text = "FRONT";
+    ofPtr<TextVisual> textVisual = ofPtr<TextVisual>(new TextVisual(position, width, height));
+    textVisual->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    textVisual->setColor(ofColor::white);
+    
+    m_texts[text] = textVisual;
+    AppManager::getInstance().getViewManager().addOverlay(textVisual);
+    
+    int indexWindow = 1;
+    int width_offset = 0;
+    auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
+    
+    if(indexWindow > 0 ||  indexWindow < m_fbos.size()){
+        width_offset = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
+    }
+    
+    
+    position.x = GuiManager::GUI_WIDTH + 2.5*LayoutManager::MARGIN + LayoutManager::MARGIN  + width_offset;
+    position.y = 1.5*LayoutManager::MARGIN;
+    
+    text = "TOP";
+    textVisual = ofPtr<TextVisual>(new TextVisual(position, width, height));
+    textVisual->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    textVisual->setColor(ofColor::white);
+    m_texts[text] = textVisual;
+    
+    AppManager::getInstance().getViewManager().addOverlay(textVisual);
+    
+}
+
+void PreviewManager::setupRectangles()
+{
+    string key = "FRONT";
+    ofVec3f position = m_texts[key]->getPosition();
+    position.x -= LayoutManager::MARGIN*0.5;
+    position.y -= LayoutManager::MARGIN*0.5;
+    float height = m_texts[key]->getHeight() + LayoutManager::MARGIN;
+    float width = m_texts[key]->getWidth() + LayoutManager::MARGIN;
+    ofPtr<RectangleVisual> rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    ofColor color(60,60,60);
+    rectangleVisual->setColor(color);
+    
+    AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
+    
+    
+    key = "TOP";
+    position = m_texts[key]->getPosition();
+    position.x -= LayoutManager::MARGIN*0.5;
+    position.y -= LayoutManager::MARGIN*0.5;
+    height = m_texts[key]->getHeight() + LayoutManager::MARGIN;
+    width = m_texts[key]->getWidth() + LayoutManager::MARGIN;
+    rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    rectangleVisual->setColor(color);
+    
+    AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
+    
+    
+    key = "FRONT";
+    int indexWindow = 1;
+    if(indexWindow < m_fbos.size()){
+        auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
+        
+        width = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
+        height = width *  m_fbos[indexWindow]->getHeight()/  m_fbos[indexWindow]->getWidth();
+        //height = windowSettings.height * 0.4;
+        //width = height * m_fbos[indexWindow]->getWidth() / m_fbos[indexWindow]->getHeight();
+        position.y = 3*LayoutManager::MARGIN;
+        position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH ;
+    }
+    
+    rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    rectangleVisual->setColor(color);
+    
+    m_rectangles[key] = rectangleVisual;
+    AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
+    
+    
+    key = "TOP";
+    indexWindow = 2;
+    if(indexWindow < m_fbos.size()){
+        auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
+        
+        position.x = 3*LayoutManager::MARGIN + GuiManager::GUI_WIDTH + width;
+        width = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
+        height = width *  m_fbos[indexWindow]->getHeight()/  m_fbos[indexWindow]->getWidth();
+        position.y = 3*LayoutManager::MARGIN;
+        
+    }
+    
+    rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    rectangleVisual->setColor(color);
+    
+    m_rectangles[key] = rectangleVisual;
+    AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
+
+
 }
 
 void PreviewManager::draw()
@@ -67,18 +180,15 @@ void PreviewManager::drawPreviewWindowFront()
         return;
     }
 
+    string key = "FRONT";
     
-    int fontSize = 12;
-    int height = fontSize*3;
-    
-    float w = GuiManager::GUI_WIDTH*3;
-    float h = w* m_fbos[indexWindow]->getHeight() / m_fbos[indexWindow]->getWidth();
+    float w = m_rectangles[key]->getWidth() - LayoutManager::MARGIN;
+    float h = m_rectangles[key]->getHeight() - LayoutManager::MARGIN;
 
     
-    ofVec3f position;
-    
-    position.y = LayoutManager::MARGIN + 16*fontSize;
-    position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH ;
+    ofVec3f position = m_rectangles[key]->getPosition();
+    position.y += 0.5*LayoutManager::MARGIN;
+    position.x += 0.5*LayoutManager::MARGIN;
     
     
     m_fbos[indexWindow]->draw(position.x, position.y, w, h);
@@ -93,18 +203,15 @@ void PreviewManager::drawPreviewWindowTop()
     }
     
     
-    int fontSize = 12;
-    int height = fontSize*3;
+    string key = "TOP";
     
-    float w = GuiManager::GUI_WIDTH*3;
-    float h = w * m_fbos[indexWindow]->getHeight() / m_fbos[indexWindow]->getWidth();
+    float w = m_rectangles[key]->getWidth() - LayoutManager::MARGIN;
+    float h = m_rectangles[key]->getHeight() - LayoutManager::MARGIN;
     
     
-    ofVec3f position;
-    
-    position.y = 2*LayoutManager::MARGIN + 16*fontSize + h;
-    position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH ;
-    
+    ofVec3f position = m_rectangles[key]->getPosition();
+    position.y += 0.5*LayoutManager::MARGIN;
+    position.x += 0.5*LayoutManager::MARGIN;
     
     m_fbos[indexWindow]->draw(position.x, position.y, w, h);
 }

@@ -10,6 +10,7 @@ int main( ){
     //ofSetCurrentRenderer(ofGLProgrammableRenderer::TYPE);
     
     ofxMultiGLFWWindow glfw;
+    //glfw.hideBorder();
     glfw.setOpenGLVersion(2,1); // must be set
     //glfw.setStencilBits(8);
     

@@ -49,6 +49,7 @@ void VideoVisual::draw()
 {
 
     ofPushMatrix();
+    ofPushStyle();
 
         ofTranslate(m_position);
 
@@ -65,6 +66,7 @@ void VideoVisual::draw()
         ofSetColor(m_color);
         m_video.draw(0,0, m_width, m_height);
 
+    ofPopStyle();
     ofPopMatrix();
 }
 

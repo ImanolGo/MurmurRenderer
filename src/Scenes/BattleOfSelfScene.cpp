@@ -237,6 +237,9 @@ void BattleOfSelfScene::drawFluid()
 
 void BattleOfSelfScene::willFadeIn() {
     ofLogNotice("BattleOfSelfScene::willFadeIn");
+    
+    m_sonicBoomVisual.clear();
+    m_fluid.reset();
 }
 
 void BattleOfSelfScene::willDraw() {
@@ -251,4 +254,5 @@ void BattleOfSelfScene::willExit() {
     ofLogNotice("BattleOfSelfScene::willExit");
     
     m_sonicBoomVisual.clear();
+    m_fluid.reset();
 }

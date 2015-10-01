@@ -76,6 +76,8 @@ void SmokyHandsScene::drawFluid()
 
 void SmokyHandsScene::willFadeIn() {
     ofLogNotice("SmokyHandsScene::willFadeIn");
+    
+    m_smokeFluid.reset();
 }
 
 void SmokyHandsScene::willDraw() {
@@ -88,4 +90,6 @@ void SmokyHandsScene::willFadeOut() {
 
 void SmokyHandsScene::willExit() {
     ofLogNotice("SmokyHandsScene::willExit");
+    
+    m_smokeFluid.reset();
 }

@@ -71,15 +71,18 @@ void AppManager::setupMultipleWidows()
         ofLogNotice() << "AppManager::setupMultipleWidows -> creating window: " << i;
         
         m_glfw->undecorate(windowSettings.fullscreen);
+       // m_glfw->hideBorder();
         if (i>0) {
             m_glfw->createWindow(windowSettings.width, windowSettings.height);
         }
         m_glfw->setWindow(m_windows->at(i));    // set window pointer
+        
         m_glfw->initializeWindow();       // initialize events (mouse, keyboard, etc) on window (optional)
+        
+        //m_glfw->setWindowShape(windowSettings.width, windowSettings.height);
         
         if (i>0) {
             m_glfw->setWindowShape(windowSettings.width, windowSettings.height);
-
         }
         
         m_glfw->setWindowPosition(windowSettings.x, windowSettings.y);
@@ -152,32 +155,32 @@ void AppManager::draw()
 {
     int wIndex = m_glfw->getWindowIndex();
     
-    //glfwWindowHint(GLFW_DECORATED, false);
-    //m_glfw->undecorate(true);
-    
     switch (wIndex) { // switch on window index
         case 0:
             ofBackground(0,0,0); // change background color on each window
-            m_viewManager.draw();
-            m_sceneManager.draw(WindowIndex(wIndex));
-            m_previewManager.draw();
-            m_guiManager.draw();
             
+            if (m_debugMode) {
+                m_viewManager.draw();
+                m_sceneManager.draw(WindowIndex(wIndex));
+                m_previewManager.draw();
+                m_guiManager.draw();
+            }
+           
             break;
         case 1:
             m_previewManager.begin(wIndex);
-            ofBackground(0,0,0); // change background color on each window
-            m_sceneManager.draw(WindowIndex(wIndex));
-            m_layoutManager.draw();
+                ofBackground(0,0,0); // change background color on each window
+                m_sceneManager.draw(WindowIndex(wIndex));
+                m_layoutManager.draw();
             m_previewManager.end(wIndex);
             m_previewManager.draw(wIndex);
             break;
         case 2:
             m_previewManager.begin(wIndex);
-            ofBackground(0,0,0); // change background color on each window
-            m_sceneManager.draw(WindowIndex(wIndex));
-            m_previewManager.end(wIndex);
-             m_previewManager.draw(wIndex);
+                ofBackground(0,0,0); // change background color on each window
+                m_sceneManager.draw(WindowIndex(wIndex));
+                m_previewManager.end(wIndex);
+            m_previewManager.draw(wIndex);
             break;
     }
 }
@@ -186,7 +189,7 @@ void AppManager::toggleDebugMode()
 {
     m_debugMode = !m_debugMode;
     setDebugMode(m_debugMode);
-    m_viewManager.showDebugMode(m_debugMode);
+    //m_viewManager.showDebugMode(m_debugMode);
 }
 
 
@@ -203,7 +206,7 @@ void AppManager::setDebugMode(bool showDebug)
         ofSetLogLevel(OF_LOG_NOTICE);
     }
     
-    m_guiManager.showGui(m_debugMode);
+   // m_guiManager.showGui(m_debugMode);
 
 }
 

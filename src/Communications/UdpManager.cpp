@@ -61,7 +61,7 @@ void UdpManager::setupText()
     ofVec3f position;
     
     //position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN;
-    position.y = LayoutManager::MARGIN + 12*fontSize;
+    position.y = LayoutManager::MARGIN + 12*fontSize + 600;
     position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH ;
     
     int porReceive = AppManager::getInstance().getSettingsManager().getUdpPortReceive();
