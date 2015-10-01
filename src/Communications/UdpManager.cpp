@@ -53,16 +53,17 @@ void UdpManager::setupUdpReceiver()
 
 void UdpManager::setupText()
 {
+    auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
     
-    int width = 700;
+    int width =  (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5 - LayoutManager::MARGIN;
     int fontSize = 12;
     int height = fontSize*3;
     
     ofVec3f position;
     
     //position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN;
-    position.y = LayoutManager::MARGIN + 12*fontSize + 600;
-    position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH ;
+    position.y = 9*LayoutManager::MARGIN + windowSettings.height*0.5;
+    position.x = 2.5*LayoutManager::MARGIN + GuiManager::GUI_WIDTH;
     
     int porReceive = AppManager::getInstance().getSettingsManager().getUdpPortReceive();
     string text = ">> UDP receiving -> Port: " + ofToString(porReceive);
@@ -80,6 +81,18 @@ void UdpManager::setupText()
     
     AppManager::getInstance().getViewManager().addOverlay(m_udpReceiveTextFont);
     AppManager::getInstance().getViewManager().addOverlay(m_udpReceiveMessageFont);
+    
+    
+    position.y = 8.5*LayoutManager::MARGIN + windowSettings.height*0.5;
+    position.x -= 0.5*LayoutManager::MARGIN;
+    width += LayoutManager::MARGIN;
+    height = 4*LayoutManager::MARGIN;
+    
+    ofPtr<RectangleVisual> rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    ofColor color(60,60,60);
+    rectangleVisual->setColor(color);
+    
+    AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
 }
 
 

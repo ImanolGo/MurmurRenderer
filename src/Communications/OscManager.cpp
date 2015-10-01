@@ -67,18 +67,46 @@ void OscManager::setupOscSender()
 
 void OscManager::setupText()
 {
-    ofVec3f position;
-   
-    position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN ;
-    position.y = LayoutManager::MARGIN+ 600;
+    auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
     
-    int width = 700;
+    ofVec3f position;
+  
+    int width =  (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5 - LayoutManager::MARGIN;
     int fontSize = 12;
     int height = fontSize*3;
     
+    
+    string text = "COMMUNICATIONS";
+    position.x = GuiManager::GUI_WIDTH + 2.5*LayoutManager::MARGIN;
+    position.y = LayoutManager::MARGIN + windowSettings.height*0.5;
+    
+    ofPtr<TextVisual> textVisual = ofPtr<TextVisual>(new TextVisual(position, width, height));
+    textVisual->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    textVisual->setColor(ofColor::white);
+    
+    AppManager::getInstance().getViewManager().addOverlay(textVisual);
+    
+    position.x -= LayoutManager::MARGIN*0.5;
+    position.y -= LayoutManager::MARGIN*0.5;
+    height = textVisual->getHeight() + LayoutManager::MARGIN;
+    width = textVisual->getWidth() + LayoutManager::MARGIN;
+    ofPtr<RectangleVisual> rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    ofColor color(60,60,60);
+    rectangleVisual->setColor(color);
+    
+    AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
+    
+    
     int portSend = AppManager::getInstance().getSettingsManager().getOscPortSend();
     string host = AppManager::getInstance().getSettingsManager().getIpAddress();
-    string text = ">> OSC sending -> Host: " + host + ", Port: " + ofToString(portSend);
+    text = ">> OSC sending -> Host: " + host + ", Port: " + ofToString(portSend);
+    
+    
+    width =  (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5 - LayoutManager::MARGIN;
+    height = fontSize*3;
+    
+    position.x = GuiManager::GUI_WIDTH + 2.5*LayoutManager::MARGIN ;
+    position.y = LayoutManager::MARGIN + rectangleVisual->getPosition().y + rectangleVisual->getHeight();
     
     m_sendingInformation =  ofPtr<TextVisual> (new TextVisual(position, width, height));
     m_sendingInformation->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
@@ -98,6 +126,20 @@ void OscManager::setupText()
     m_receivingInformation->setLineHeight(2.5);
     
     AppManager::getInstance().getViewManager().addOverlay(m_receivingInformation);
+    
+    
+    
+    width += LayoutManager::MARGIN;
+    height = 5.5*LayoutManager::MARGIN;
+    
+    position.x -= LayoutManager::MARGIN*0.5;
+    position.y =  0.5*LayoutManager::MARGIN + rectangleVisual->getPosition().y + rectangleVisual->getHeight();
+    
+    rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    rectangleVisual->setColor(color);
+    
+    AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
+    
 }
 
 

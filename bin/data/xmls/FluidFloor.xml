@@ -67,7 +67,7 @@
 		<draw_flow_res_1>
 			<non_den_vel_tem_prs_ob>2</non_den_vel_tem_prs_ob>
 			<is_temporary>1</is_temporary>
-			<force>0, 0, 0, 1</force>
+			<force>-0.00034678, 0.00073266, 0, 1</force>
 			<strength>1.48063</strength>
 			<radius>0.0658476</radius>
 			<edge>1</edge>
