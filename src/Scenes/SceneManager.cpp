@@ -43,6 +43,7 @@ void SceneManager::setup()
 
     this->createSceneManagers();
     this->createScenes();
+    this->setupText();
 
     ofLogNotice() <<"SceneManager::initialized";
 
@@ -139,6 +140,76 @@ bool SceneManager::addSceneToSceneManager(ofPtr<Scene> scene, WindowIndex w)
 }
   
 
+void SceneManager::setupText()
+{
+    auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
+    
+    ofVec3f position;
+    
+    float width =  (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5 - LayoutManager::MARGIN;
+    int fontSize = 12;
+    float height = fontSize*3;
+    
+    
+    string text = "SCENE";
+    float width_offset = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
+    
+    position.x = GuiManager::GUI_WIDTH + 2.5*LayoutManager::MARGIN + LayoutManager::MARGIN  + width_offset;
+    position.y = LayoutManager::MARGIN + windowSettings.height*0.5;
+    
+    ofPtr<TextVisual> textVisual = ofPtr<TextVisual>(new TextVisual(position, width, height));
+    textVisual->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    textVisual->setColor(ofColor::white);
+    
+    AppManager::getInstance().getViewManager().addOverlay(textVisual);
+    
+    position.x -= LayoutManager::MARGIN*0.5;
+    position.y -= LayoutManager::MARGIN*0.5;
+    height = textVisual->getHeight() + LayoutManager::MARGIN;
+    width = textVisual->getWidth() + LayoutManager::MARGIN;
+    ofPtr<RectangleVisual> rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    ofColor color(60,60,60);
+    rectangleVisual->setColor(color);
+    
+    AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
+    
+    
+    width =  (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5 - LayoutManager::MARGIN;
+    height = fontSize*3;
+    
+    position.x = GuiManager::GUI_WIDTH + 2.5*LayoutManager::MARGIN + LayoutManager::MARGIN  + width_offset;
+    position.y = LayoutManager::MARGIN + rectangleVisual->getPosition().y + rectangleVisual->getHeight();
+    
+    m_sceneText =  ofPtr<TextVisual>(new TextVisual(position, width, height));
+    m_sceneText->setText("", "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    m_sceneText->setColor(ofColor::white);
+    AppManager::getInstance().getViewManager().addOverlay(m_sceneText);
+    
+    
+    width = m_sceneText->getWidth() + LayoutManager::MARGIN;
+    height = m_sceneText->getHeight() + LayoutManager::MARGIN;
+    
+    position.x -= LayoutManager::MARGIN*0.5;
+    position.y =  0.5*LayoutManager::MARGIN + rectangleVisual->getPosition().y + rectangleVisual->getHeight();
+    
+    m_sceneRect = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    m_sceneRect->setColor(color);
+    
+    AppManager::getInstance().getViewManager().addOverlay(m_sceneRect,2);
+}
+
+
+void SceneManager::updateText(const string& text)
+{
+    
+    m_sceneText->setText(text);
+    
+    float width = m_sceneText->getWidth() + LayoutManager::MARGIN;
+    float height = m_sceneText->getHeight() + LayoutManager::MARGIN;
+    m_sceneRect->setHeight(height);
+    m_sceneRect->setWidth(width);
+    
+}
 
 void SceneManager::createTopScenes()
 {
@@ -213,6 +284,8 @@ bool SceneManager::changeScene(string sceneName)
                 sceneFound = true;
                 ofLogNotice() <<"SceneManager::changeScene -> Changed screen "<< sceneManager.first  <<" to scene  " << sceneName;
                 sceneManager.second->changeScene((int) scene->index);
+                this->updateText(sceneName);
+
                 break;
             }
         }

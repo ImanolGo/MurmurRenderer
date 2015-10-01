@@ -11,6 +11,8 @@
 #include "Manager.h"
 #include "Scene.h"
 #include "SettingsManager.h"
+#include "TextVisual.h"
+#include "RectangleVisual.h"
 #include "ofxSceneManager.h"
 
 //========================== class SceneManager ==============================
@@ -77,7 +79,11 @@ private:
     //! Create the top scenes
     void createTopScenes();
     
+    //! setups the text layout
+    void setupText();
     
+    //! updates the text layout
+    void updateText(const string& text);
 
 private:
 
@@ -87,6 +93,9 @@ private:
     
     SceneManagerMap     m_sceneManagers;
     SceneVector         m_scenes;
+    
+    ofPtr<TextVisual>        m_sceneText;
+    ofPtr<RectangleVisual>   m_sceneRect;
 };
 
 //==========================================================================
