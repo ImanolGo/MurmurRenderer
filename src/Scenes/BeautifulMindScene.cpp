@@ -38,7 +38,7 @@ void BeautifulMindScene::setup() {
     
     this->setupFbo();
     this->setupVideo();
-    this->setupScenes();
+    //this->setupScenes();
     
     ofLogNotice("BeautifulMindScene::setup");
     
@@ -52,7 +52,7 @@ void BeautifulMindScene::setupFbo()
 
 void BeautifulMindScene::setupVideo()
 {
-    string videoFileName = "videos/Aged.mp4";
+    string videoFileName = "videos/murmur beautiful mind 2.mov";
     m_video.setResource(videoFileName);
     m_video.setWidth(m_fbo.getWidth()); m_video.setHeight(m_fbo.getHeight());
     m_video.setLoopState(OF_LOOP_NORMAL);
@@ -439,6 +439,8 @@ void BeautifulMindScene::update() {
     
     this->updateVideo();
     
+    
+    /*
     m_elapsedTime += ofGetLastFrameTime();
     if(m_elapsedTime >= m_duration){
         this->nextScene();
@@ -460,7 +462,7 @@ void BeautifulMindScene::update() {
             
         default:
             break;
-    }
+    }*/
     
     m_fbo.begin();
         this->drawScene();
@@ -480,18 +482,24 @@ void BeautifulMindScene::draw() {
 }
 
 void BeautifulMindScene::drawScene() {
-    ofBackground(0,0,0);
     
+    /*
+    ofBackground(0,0,0);
+  
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
     for (auto image: m_images) {
         image.second->draw();
     }
+     
+    m_video.draw();
+     
+    ofPopStyle();
+    */
     
     m_video.draw();
     
-    ofPopStyle();
 }
 
 ofRectangle BeautifulMindScene::getDrawingArea()
@@ -515,13 +523,18 @@ ofRectangle BeautifulMindScene::getDrawingArea()
 void BeautifulMindScene::willFadeIn() {
      ofLogNotice("BeautifulMindScene::willFadeIn");
     
+     m_video.stop();
+     m_video.setFrame(0);
+     m_video.play();
+    
+    /*
     for (auto image: m_images) {
         image.second->setAlpha(0);
     }
     
      this->setScene(0);
+    */
     
-     m_video.play();
 }
 
 void BeautifulMindScene::willDraw() {

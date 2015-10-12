@@ -60,6 +60,8 @@ public:
     void play() {m_video.play();}
     
     void stop() {m_video.stop();}
+    
+    void setFrame(int frame) {m_video.setFrame(frame);}
 
 
 protected:
