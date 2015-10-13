@@ -99,6 +99,10 @@ void HandsManager::readHands(char const* data)
         p = extract(p, charNumberOfHands); // p contains next position to read
         
         int numberOfHands = charNumberOfHands;
+        char tail = p[numberOfHands*4*2];
+        if(tail!='x'){
+            return;
+        }
         
         //ofLogNotice() <<"HandsManager::readHands << numberOfHands -> " << numberOfHands;
         
@@ -112,20 +116,17 @@ void HandsManager::readHands(char const* data)
             //y = ntohs(y);
             
             //ofLogNotice() <<"HandsManager::readHands << y -> " << y;
+            ofVec2f hand = ofVec2f(x,y) - 0.5;
+            hand *= m_handsScale;
+            hand = hand + 0.5 + m_handsOffset;
             
-            if(y>0.01&&x>0.01){
-                ofVec2f hand = ofVec2f(x,y) - 0.5;
-                hand *= m_handsScale;
-                hand = hand + 0.5 + m_handsOffset;
-                
-                hand.x = ofClamp(hand.x, 0, 1);
-                hand.y = ofClamp(hand.y, 0, 1);
-                
-                //ofLogNotice() <<"HandsManager::readHands << y -> " << hand.y;
-                //ofLogNotice() <<"HandsManager::readHands << x -> " << hand.x;
-                
-                m_hands.push_back(hand);
-            }
+            hand.x = ofClamp(hand.x, 0, 1);
+            hand.y = ofClamp(hand.y, 0, 1);
+            
+            //ofLogNotice() <<"HandsManager::readHands << y -> " << hand.y;
+            //ofLogNotice() <<"HandsManager::readHands << x -> " << hand.x;
+            
+            m_hands.push_back(hand);
         }
         
         //ofLogNotice() <<"HandsManager::readHands << x:  " << m_hands[0].x << ", y: " << m_hands[0].y;

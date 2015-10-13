@@ -1,10 +1,10 @@
 <MurmurRenderer>
-	<FPS>60.026</FPS>
+	<FPS>29.184</FPS>
 	<Scenes>
 		<TransitionTime>1.42857</TransitionTime>
-		<BlankScene>1</BlankScene>
+		<BlankScene>0</BlankScene>
 		<SmokyHandsScene>0</SmokyHandsScene>
-	<BattleOfSelfScene>0</BattleOfSelfScene>
+	<BattleOfSelfScene>1</BattleOfSelfScene>
 	<HandsWritingScene>0</HandsWritingScene>
 	<FluidFloorScene>0</FluidFloorScene>
 		<BeautifulMindScene>0</BeautifulMindScene>

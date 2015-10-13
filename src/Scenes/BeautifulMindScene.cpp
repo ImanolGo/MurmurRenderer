@@ -52,7 +52,7 @@ void BeautifulMindScene::setupFbo()
 
 void BeautifulMindScene::setupVideo()
 {
-    string videoFileName = "videos/murmur beautiful mind 2.mov";
+    string videoFileName = "videos/BeautifulMind.mov";
     m_video.setResource(videoFileName);
     m_video.setWidth(m_fbo.getWidth()); m_video.setHeight(m_fbo.getHeight());
     m_video.setLoopState(OF_LOOP_NORMAL);

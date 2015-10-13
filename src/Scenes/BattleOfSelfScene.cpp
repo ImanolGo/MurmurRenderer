@@ -29,9 +29,9 @@ void BattleOfSelfScene::setup()
         return;
     }
     
-    //this->setupFbos();
+    this->setupFbos();
     //this->setupShaders();
-    //this->setupPostProcessing();
+    this->setupPostProcessing();
     
     m_fluid.setup("xmls/BattleOfSelfFluid.xml");
     m_initialized = true;
@@ -147,6 +147,8 @@ void BattleOfSelfScene::updateSonicBoom()
 
 void BattleOfSelfScene::draw() {
     
+    //ofLogNotice("BattleOfSelfScene::draw");
+
     ofPushStyle();
         ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     

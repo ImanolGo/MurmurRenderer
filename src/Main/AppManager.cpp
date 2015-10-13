@@ -95,10 +95,10 @@ void AppManager::setupMultipleWidows()
         //ofLogNotice() << "AppManager::setupGlfwWidows -> width = " << ofGetWidth() << ", height = " << ofGetHeight();
         
         if(windowSettings.showCursor){
-            ofShowCursor();
+            m_glfw->showCursor();
         }
         else{
-            ofHideCursor();
+            m_glfw->hideCursor();
         }
         
         m_sceneManager.run(WindowIndex(i));
@@ -112,6 +112,14 @@ void AppManager::setupMultipleWidows()
     
     auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
     m_glfw->setWindowShape(windowSettings.width, windowSettings.height);
+   
+    if(windowSettings.showCursor){
+         m_glfw->showCursor();
+    }
+    else{
+         m_glfw->hideCursor();
+    }
+    
 }
 
 
