@@ -82,7 +82,15 @@ public:
     
     void setContourOffset(ofVec2f value) {m_contourOffset = value;}
     
+    void setContourOffsetX(float value) {m_contourOffset = ofVec2f(value, m_contourOffset->y);}
+    
+    void setContourOffsetY(float value)  {m_contourOffset = ofVec2f(m_contourOffset->x, value);}
+    
     void setContourScale(ofVec2f value) {m_contourScale = value;}
+    
+    void setContourScaleX(float value) {m_contourScale = ofVec2f(value, m_contourScale->y);}
+    
+    void setContourScaleY(float value)  {m_contourScale = ofVec2f(m_contourScale->x, value);}
     
     void setHandsOn(bool value) {m_handsOn = value;}
     
@@ -92,11 +100,27 @@ public:
     
     void setHandsOffset(ofVec2f value) {m_handsOffset = value;}
     
+    void setHandsOffsetX(float value) {m_handsOffset = ofVec2f(value, m_handsOffset->y);}
+    
+    void setHandsOffsetY(float value)  {m_handsOffset = ofVec2f(m_handsOffset->x, value);}
+    
     void setHandsScale(ofVec2f value) {m_handsScale = value;}
+    
+    void setHandsScaleX(float value) {m_handsScale = ofVec2f(value, m_handsScale->y);}
+    
+    void setHandsScaleY(float value)  {m_handsScale = ofVec2f(m_handsScale->x, value);}
     
     void setFloorOffset(ofVec2f value) {m_floorOffset = value;}
     
+    void setFloorOffsetX(float value) {m_floorOffset = ofVec2f(value, m_floorOffset->y);}
+    
+    void setFloorOffsetY(float value)  {m_floorOffset = ofVec2f(m_floorOffset->x, value);}
+    
     void setFloorScale(ofVec2f value) {m_floorScale = value;}
+    
+    void setFloorScaleX(float value) {m_floorScale = ofVec2f(value, m_floorScale->y);}
+    
+    void setFloorScaleY(float value)  {m_floorScale = ofVec2f(m_floorScale->x, value);}
     
     void setBeautifulMindOffset(ofVec2f value) {m_beautifulMindOffset = value;}
     

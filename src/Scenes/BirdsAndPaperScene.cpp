@@ -42,13 +42,13 @@ void BirdsAndPaperScene::setInitialParameters()
     m_visual.setScale(ofVec3f(1.0,1.0,1.0));
     m_visual.setPosition(ofVec3f(0,-0.7,0));
     
-    AppManager::getInstance().getGuiManager().setBirdsSize(1.2);
+    //AppManager::getInstance().getGuiManager().setBirdsSize(1.2);
     AppManager::getInstance().getGuiManager().setBirdsNumber(500);
     
     AppManager::getInstance().getGuiManager().setBirdsPosition(m_visual.getPosition());
-    AppManager::getInstance().getGuiManager().setBirdsSize(m_visual.getScale().x);
+    //AppManager::getInstance().getGuiManager().setBirdsSize(m_visual.getScale().x);
     
-    AppManager::getInstance().getGuiManager().setBirdsSpeed(15.0);
+    AppManager::getInstance().getGuiManager().setBirdsSpeed(10.0);
 }
 
 void BirdsAndPaperScene::willDraw()
