@@ -61,6 +61,8 @@ public:
     
     void stop() {m_video.stop();}
     
+    void setSpeed(float speed) {m_video.setSpeed(speed);}
+    
     void setFrame(int frame) {m_video.setFrame(frame);}
 
 
