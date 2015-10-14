@@ -156,7 +156,8 @@ void BattleOfSelfScene::draw() {
     
         ofEnableBlendMode(OF_BLENDMODE_ADD);
     
-        m_fluid.draw(m_drawArea);
+        this->drawFluid();
+        //m_fluid.draw(m_drawArea);
         //m_fluid.drawGui();
     
     ofPopStyle();
@@ -211,7 +212,7 @@ void BattleOfSelfScene::drawSonicBoom()
     //ofEnableBlendMode(OF_BLENDMODE_DISABLED);
         ofScale(1, -1);
         ofTranslate(0, -m_fbo.getHeight());
-        m_fbo.draw(0,0);
+        //m_fbo.draw(0,0);
     //ofEnableBlendMode(OF_BLENDMODE_ADD);
         m_sonicBoomVisual.draw();
     
@@ -223,16 +224,27 @@ void BattleOfSelfScene::drawSonicBoom()
 
 void BattleOfSelfScene::drawFluid()
 {
-    
     ofPushStyle();
-    ofEnableBlendMode(OF_BLENDMODE_DISABLED);
+    //ofEnableBlendMode(OF_BLENDMODE_ADD);
     
-    //AppManager::getInstance().getContourManager().draw();
+    ofEnableAlphaBlending();
+    
+    m_fbo.begin();
+    
+    ofSetColor(0,0,0, 20);
+    ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofSetColor(120,120,255);
     m_fluid.draw(m_drawArea);
-    m_fluid.drawGui();
+    
+    m_fbo.end();
+    ofDisableAlphaBlending();
     ofPopStyle();
+    
+    m_fbo.draw(0,0);
+    
+    //m_fluid.drawGui();
     
 }
 

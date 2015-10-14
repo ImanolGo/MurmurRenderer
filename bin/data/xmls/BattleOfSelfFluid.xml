@@ -1,6 +1,6 @@
 <FluidGUI>
 	<optical_flow>
-		<strength>66.5306</strength>
+		<strength>90.6122</strength>
 		<offset>1</offset>
 		<labda>0.0506122</labda>
 		<treshold>0.0742857</treshold>
@@ -13,19 +13,19 @@
 		</time_blur>
 	</optical_flow>
 	<velocity_mask>
-		<strength>3.67347</strength>
+		<strength>8.89796</strength>
 		<saturation>1.96327</saturation>
 		<blur_passes>1</blur_passes>
 		<blur_radius>6</blur_radius>
 	</velocity_mask>
 	<fluid_solver>
 		<reset>0</reset>
-		<speed>54.2857</speed>
+		<speed>17.1429</speed>
 		<cell_size>0.653061</cell_size>
 		<iterations>40</iterations>
 		<viscosity>0.763265</viscosity>
-		<vorticity>0.159184</vorticity>
-		<dissipation>0.242449</dissipation>
+		<vorticity>0.0489796</vorticity>
+		<dissipation>0.15551</dissipation>
 		<advanced_dissipation>
 			<velocity_offset>0.01</velocity_offset>
 			<density_offset>0</density_offset>
