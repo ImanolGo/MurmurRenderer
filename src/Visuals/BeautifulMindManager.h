@@ -57,6 +57,15 @@ public:
     
     float getTiming(int id) const;
      
+    void setFloorSpeed(float &speed ) {m_floorSpeed = speed;}
+     
+    void setFloorOn(bool &floorOn ) {m_floorOn = floorOn;}
+     
+    float getFloorSpeed() const {return m_floorSpeed;}
+     
+    bool isFloorOn() const {return m_floorOn;}
+
+     
 private:
      
      void setupRectangleSpace();
@@ -70,6 +79,9 @@ private:
     ofVec2f             m_handsScale;
     ofRectangle         m_rectangleSpace;
     TimingMap           m_timings;              ///< stores the timings
+     
+    bool                m_floorOn;
+    float               m_floorSpeed;
      
 };
 

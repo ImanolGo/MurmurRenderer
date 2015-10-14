@@ -64,14 +64,26 @@ void BeautifulMindSceneFloor::update()
 
 void BeautifulMindSceneFloor::updateVideo()
 {
-    m_video.update();
+    bool isFloorOn = AppManager::getInstance().getBeautifulMindManager().isFloorOn();
+    if(isFloorOn)
+    {
+        float speed = AppManager::getInstance().getBeautifulMindManager().getFloorSpeed();
+        m_video.setSpeed(speed);
+        m_video.update();
+    }
+    
 }
 
 
 void BeautifulMindSceneFloor::draw() {
    
     ofBackground(0,0,0);
-    m_video.draw();
+    
+    bool isFloorOn = AppManager::getInstance().getBeautifulMindManager().isFloorOn();
+    if(isFloorOn)
+    {
+        m_video.draw();
+    }
 }
 
 void BeautifulMindSceneFloor::willFadeIn() {

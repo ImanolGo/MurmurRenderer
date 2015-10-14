@@ -254,8 +254,16 @@ void GuiManager::setupBeautifulMindGui()
     m_beautifulMindScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(0.0,0.0) , ofVec2f(1.0,1.0) );
     m_beautifulMindScale.addListener(beautifulMindManager, &BeautifulMindManager::setScale);
     m_parametersBeautifulMind.add(m_beautifulMindScale);
-    m_gui.add(m_parametersBeautifulMind);
     
+    m_beautifulMindFloorOn.set("FloorOn", false);
+    m_beautifulMindFloorOn.addListener(beautifulMindManager, &BeautifulMindManager::setFloorOn);
+    m_parametersBeautifulMind.add(m_beautifulMindFloorOn);
+    
+    m_beautifulMindFloorSpeed.set("Speed", 1.0, 0.0, 5.0);
+    m_beautifulMindFloorSpeed.addListener(beautifulMindManager, &BeautifulMindManager::setFloorSpeed);
+    m_parametersBeautifulMind.add(m_beautifulMindFloorSpeed);
+
+    m_gui.add(m_parametersBeautifulMind);
 }
 
 void GuiManager::setupLayoutGui()

@@ -425,8 +425,20 @@ void OscManager::update()
             AppManager::getInstance().getGuiManager().setBirdsRandomness(value);
             this->updateReceiveText();
         }
-
-
+        
+        else if(m.getAddress() == "/MurmurRenderer/BeautifulMindFloorSpeed"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setBeautifulMindFloorSpeed(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BeautifulMindFloorOn"){
+            int value = m.getArgAsInt32(0);
+            bool floorOn = value != 0;
+            AppManager::getInstance().getGuiManager().setBeautifulMindFloorOn(floorOn);
+            this->updateReceiveText();
+        }
+        
         else{
             
             for (int i = 0; i<m_numberOfContours; i++) {

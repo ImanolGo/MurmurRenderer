@@ -15,6 +15,7 @@
 #include "BattleOfSelfScene.h"
 #include "HandsWritingScene.h"
 #include "BeautifulMindScene.h"
+#include "BeautifulMindSceneFloor.h"
 #include "FluidFloorScene.h"
 #include "KathakScene.h"
 #include "BirdsAndPaperScene.h"
@@ -228,6 +229,10 @@ void SceneManager::createTopScenes()
     
     scene = ofPtr<ofxScene> (new KathakScene());
     this->createScene("KathakScene", SceneIndex(i), scene, WindowIndex(TOP));
+    i++;
+    
+    scene = ofPtr<ofxScene> (new BeautifulMindSceneFloor());
+    this->createScene("BeautifulMindScene", SceneIndex(i), scene, WindowIndex(TOP));
     i++;
 }
 

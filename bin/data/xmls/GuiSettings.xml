@@ -1,13 +1,13 @@
 <MurmurRenderer>
-	<FPS>58.5762</FPS>
+	<FPS>39.4045</FPS>
 	<Scenes>
 		<TransitionTime>3.18367</TransitionTime>
-		<BlankScene>1</BlankScene>
+		<BlankScene>0</BlankScene>
 		<SmokyHandsScene>0</SmokyHandsScene>
 	<BattleOfSelfScene>0</BattleOfSelfScene>
 	<HandsWritingScene>0</HandsWritingScene>
 	<FluidFloorScene>0</FluidFloorScene>
-		<BeautifulMindScene>0</BeautifulMindScene>
+		<BeautifulMindScene>1</BeautifulMindScene>
 	<Transparency>0</Transparency>
 	<KathakScene>0</KathakScene>
 	<BirdsScene>0</BirdsScene>
@@ -34,6 +34,8 @@
 <BeautifulMind>
 		<Offset>0.000416517, -0.124531</Offset>
 		<Scale>0.741774, 0.587672</Scale>
+	<FloorOn>1</FloorOn>
+		<Speed>1</Speed>
 	</BeautifulMind>
 <Crop>
 		<CropLeft>0</CropLeft>

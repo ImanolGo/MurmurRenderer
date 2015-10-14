@@ -9,7 +9,8 @@
 #include "AppManager.h"
 #include "BeautifulMindManager.h"
 
-BeautifulMindManager::BeautifulMindManager(): m_handsOffset(ofVec2f(0,0)), m_handsScale(ofVec2f(1,1))
+BeautifulMindManager::BeautifulMindManager(): m_handsOffset(ofVec2f(0,0)), m_handsScale(ofVec2f(1,1)), m_floorOn(false),
+m_floorSpeed(1.0)
 {
     //Intentionaly left empty
 }
