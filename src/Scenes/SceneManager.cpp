@@ -291,7 +291,6 @@ bool SceneManager::changeScene(string sceneName)
                 sceneManager.second->changeScene((int) scene->index);
                 this->updateText(sceneName);
 
-                break;
             }
         }
         

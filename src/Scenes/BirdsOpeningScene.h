@@ -45,6 +45,8 @@ private:
 private:
     
     float m_swarmSize;
+    
+     BasicVisual         m_visual;   ///< Visual representing position and size of the swarm. Used for animations
 
 };
 

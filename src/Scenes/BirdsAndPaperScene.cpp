@@ -43,7 +43,7 @@ void BirdsAndPaperScene::setInitialParameters()
     m_visual.setPosition(ofVec3f(0,-0.7,0));
     
     //AppManager::getInstance().getGuiManager().setBirdsSize(1.2);
-    AppManager::getInstance().getGuiManager().setBirdsNumber(500);
+    AppManager::getInstance().getGuiManager().setBirdsNumber(0);
     
     AppManager::getInstance().getGuiManager().setBirdsPosition(m_visual.getPosition());
     //AppManager::getInstance().getGuiManager().setBirdsSize(m_visual.getScale().x);
@@ -80,4 +80,5 @@ void BirdsAndPaperScene::willFadeOut() {
 void BirdsAndPaperScene::willExit() {
     ofLogNotice("BirdsAndPaperScene::willExit");
     this->setInitialParameters();
+    AppManager::getInstance().getGuiManager().setBirdsNumber(0);
 }

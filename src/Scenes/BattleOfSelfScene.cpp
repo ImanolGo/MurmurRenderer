@@ -231,7 +231,7 @@ void BattleOfSelfScene::drawFluid()
     
     m_fbo.begin();
     
-    ofSetColor(0,0,0, 20);
+    ofSetColor(0,0,0, 40);
     ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
