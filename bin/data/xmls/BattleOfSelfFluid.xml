@@ -20,12 +20,12 @@
 	</velocity_mask>
 	<fluid_solver>
 		<reset>0</reset>
-		<speed>17.1429</speed>
+		<speed>8.97959</speed>
 		<cell_size>0.653061</cell_size>
 		<iterations>40</iterations>
-		<viscosity>0.763265</viscosity>
+		<viscosity>0.673469</viscosity>
 		<vorticity>0.0489796</vorticity>
-		<dissipation>0.15551</dissipation>
+		<dissipation>0.0942857</dissipation>
 		<advanced_dissipation>
 			<velocity_offset>0.01</velocity_offset>
 			<density_offset>0</density_offset>

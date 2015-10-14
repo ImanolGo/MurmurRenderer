@@ -197,6 +197,8 @@ void HandsWritingScene::drawFluid()
 void HandsWritingScene::willFadeIn() {
     ofLogNotice("HandsWritingScene::willFadeIn");
     m_skipFrames = 0;
+    
+    AppManager::getInstance().getGuiManager().setHandsOn(true);
 }
 
 void HandsWritingScene::willDraw() {
@@ -209,4 +211,5 @@ void HandsWritingScene::willFadeOut() {
 
 void HandsWritingScene::willExit() {
     ofLogNotice("HandsWritingScene::willExit");
+    AppManager::getInstance().getGuiManager().setHandsOn(false);
 }

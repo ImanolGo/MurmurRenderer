@@ -254,6 +254,7 @@ void BattleOfSelfScene::willFadeIn() {
     
     m_sonicBoomVisual.clear();
     m_fluid.reset();
+    AppManager::getInstance().getGuiManager().setHandsOn(false);
 }
 
 void BattleOfSelfScene::willDraw() {
