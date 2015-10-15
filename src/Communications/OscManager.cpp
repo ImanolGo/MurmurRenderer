@@ -439,6 +439,22 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
+        else if(m.getAddress() == "/MurmurRenderer/PaperThrowerSpeed"){
+            int value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setPaperThrowerSpeed(value);
+            this->updateReceiveText();
+        }
+        
+        
+        else if(m.getAddress() == "/MurmurRenderer/PaperThrowerFire"){
+            this->onFirePaperThrower();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/ResetTopBackground"){
+            this->onResetTopBackground();
+        }
+
+        
         else{
             
             for (int i = 0; i<m_numberOfContours; i++) {
@@ -520,12 +536,30 @@ string OscManager::getMessageAsString(const ofxOscMessage& m) const
 }
 
 
-void OscManager::onChangePaperThrowerSpeer(float& value)
+void OscManager::onChangePaperThrowerSpeed(int& value)
 {
     ofxOscMessage m;
-    m.setAddress("/MurmurTop/PaperThrower");
-    m.addFloatArg(value);
+    m.setAddress("/MurmurFloorTracking/PaperThrowerSpeed");
+    m.addIntArg(value);
+    this->sendMessage(m);
 }
+
+void OscManager::onFirePaperThrower()
+{
+    ofxOscMessage m;
+    m.setAddress("/MurmurFloorTracking/PaperThrowerFire");
+    m.addIntArg(1);
+    this->sendMessage(m);
+}
+
+void OscManager::onResetTopBackground()
+{
+    ofxOscMessage m;
+    m.setAddress("/MurmurFloorTracking/ResetBackground");
+    m.addIntArg(1);
+    this->sendMessage(m);
+}
+
 
 
 

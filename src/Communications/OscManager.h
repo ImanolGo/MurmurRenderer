@@ -48,7 +48,13 @@ public:
     void sendMessageToUnity(ofxOscMessage& message);
     
     //Send Paper Thrower Speed
-    void onChangePaperThrowerSpeer(float& value);
+    void onChangePaperThrowerSpeed(int& value);
+    
+    //Send Paper Thrower Fire command
+    void onFirePaperThrower();
+    
+    //Send Paper Reset Background command
+    void onResetTopBackground();
     
 
 private:

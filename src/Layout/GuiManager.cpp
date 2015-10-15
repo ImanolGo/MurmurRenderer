@@ -174,14 +174,26 @@ void GuiManager::setupAudioGui()
 void GuiManager::setupTopGui()
 {
     auto oscManager = &AppManager::getInstance().getOscManager();
-    m_parametersTop.setName("Top");
+    m_parametersTop.setName("FloorTracking");
     
     
-    m_paperThrowerSpeed.set("PaperThrowerSpeed", 0.5, 0.0, 1.0);
-    m_paperThrowerSpeed.addListener(oscManager, &OscManager::onChangePaperThrowerSpeer);
+    m_paperThrowerSpeed.set("PaperThrowerSpeed", 0, 0, 100);
+    m_paperThrowerSpeed.addListener(oscManager, &OscManager::onChangePaperThrowerSpeed);
     m_parametersTop.add(m_paperThrowerSpeed);
     
     m_gui.add(m_parametersTop);
+    
+    ofxButton * paperThrowerFire = new ofxButton();
+    paperThrowerFire->setup("PaperThrowerFire");
+    paperThrowerFire->addListener(oscManager, &OscManager::onFirePaperThrower);
+    m_gui.add(paperThrowerFire);
+    
+    ofxButton * resetBackground = new ofxButton();
+    resetBackground->setup("ResetBackground");
+    resetBackground->addListener(oscManager, &OscManager::onResetTopBackground);
+    m_gui.add(resetBackground);
+    
+   
 }
 
 void GuiManager::setupContourGui()
@@ -478,6 +490,7 @@ void GuiManager::onSetBirdsAndPaperScene(bool& value)
         AppManager::getInstance().getSceneManager().changeScene(m_birdsAndPaperScene.getName());
     }
 }
+
 
  void GuiManager::onSetBirdsSwarmSize(float& value)
 {

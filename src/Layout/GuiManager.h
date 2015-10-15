@@ -152,6 +152,8 @@ public:
     
     void setBirdsRandomness(float value) {m_birdsRandomness = value;}
     
+    void setPaperThrowerSpeed(float value) {m_paperThrowerSpeed = value;}
+    
     void onSetBirdsSwarmSize(float& value);
     
     
@@ -241,7 +243,7 @@ private:
     ofParameter<float>      m_birdsSpeed;
     ofParameter<float>      m_birdsRandomness;
     
-    ofParameter<float>      m_paperThrowerSpeed;
+    ofParameter<int>        m_paperThrowerSpeed;
     
     
 };

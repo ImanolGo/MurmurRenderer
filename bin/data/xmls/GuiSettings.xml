@@ -1,7 +1,7 @@
 <MurmurRenderer>
-	<FPS>59.8214</FPS>
+	<FPS>59.1788</FPS>
 	<Scenes>
-		<TransitionTime>3.18367</TransitionTime>
+		<TransitionTime>20</TransitionTime>
 		<BlankScene>1</BlankScene>
 		<SmokyHandsScene>0</SmokyHandsScene>
 	<BattleOfSelfScene>0</BattleOfSelfScene>
@@ -74,4 +74,7 @@
 		<Volume>1</Volume>
 	<PaperThrowerSpeed>0.5</PaperThrowerSpeed>
 	</Top>
+<FloorTracking>
+		<PaperThrowerSpeed>0.5</PaperThrowerSpeed>
+	</FloorTracking>
 </MurmurRenderer>
