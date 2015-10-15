@@ -54,6 +54,7 @@ void GuiManager::setup()
     this->setupLayoutGui();
     this->setupBeautifulMindGui();
     this->setupAudioGui();
+    this->setupTopGui();
     
     m_gui.loadFromFile(GUI_SETTINGS_FILE_NAME);
     
@@ -168,6 +169,19 @@ void GuiManager::setupAudioGui()
     m_parametersAudio.add(m_audioVolume);
     
     m_gui.add(m_parametersAudio);
+}
+
+void GuiManager::setupTopGui()
+{
+    auto oscManager = &AppManager::getInstance().getOscManager();
+    m_parametersTop.setName("Top");
+    
+    
+    m_paperThrowerSpeed.set("PaperThrowerSpeed", 0.5, 0.0, 1.0);
+    m_paperThrowerSpeed.addListener(oscManager, &OscManager::onChangePaperThrowerSpeer);
+    m_parametersTop.add(m_paperThrowerSpeed);
+    
+    m_gui.add(m_parametersTop);
 }
 
 void GuiManager::setupContourGui()

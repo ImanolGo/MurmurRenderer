@@ -41,8 +41,14 @@ public:
     //! draw the manager
     void draw();
     
+    // Send Osc message to the OSC message sender
+    void sendMessage(ofxOscMessage& message);
+    
     // Send Osc message to Unity 3D
     void sendMessageToUnity(ofxOscMessage& message);
+    
+    //Send Paper Thrower Speed
+    void onChangePaperThrowerSpeer(float& value);
     
 
 private:

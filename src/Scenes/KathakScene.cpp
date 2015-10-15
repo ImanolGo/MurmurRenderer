@@ -131,7 +131,7 @@ void KathakScene::updateWaterDrops()
         ofSetColor(color);
         //ofSetColor(ofNoise( ofGetFrameNum() ) * 255 * 5, 255);
         //ofSetColor(ofColor::blue);
-        float radius = ofMap(volume, 0.0, 1.0, 50, windowsSettings.height/3);
+        float radius = ofMap(volume, 0.0, 1.0, 70, windowsSettings.height/2.5);
         ofCircle(position, radius);
         //ofCircle(ofGetMouseX(), ofGetMouseY(), radius);
     m_water.end();

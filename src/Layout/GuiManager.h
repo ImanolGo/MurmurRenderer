@@ -163,6 +163,8 @@ private:
     
     void setupContourGui();
     
+    void setupTopGui();
+    
     void setupHandsGui();
     
     void setupFloorGui();
@@ -189,6 +191,7 @@ private:
     ofParameterGroup        m_parametersLayout;
     ofParameterGroup        m_parametersAudio;
     ofParameterGroup        m_parametersBirds;
+    ofParameterGroup        m_parametersTop;
    
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
@@ -238,6 +241,7 @@ private:
     ofParameter<float>      m_birdsSpeed;
     ofParameter<float>      m_birdsRandomness;
     
+    ofParameter<float>      m_paperThrowerSpeed;
     
     
 };

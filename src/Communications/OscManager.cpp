@@ -462,7 +462,16 @@ void OscManager::update()
 
 void OscManager::sendMessageToUnity(ofxOscMessage& message)
 {
+    //m_latestOscMessage = message;
     m_oscSenderUnity.sendMessage(message);
+    //this->updateSendText();
+}
+
+void OscManager::sendMessage(ofxOscMessage& message)
+{
+    m_latestOscMessage = message;
+    m_oscSender.sendMessage(message);
+    this->updateSendText();
 }
 
 void OscManager::updateSendText()
@@ -508,6 +517,14 @@ string OscManager::getMessageAsString(const ofxOscMessage& m) const
     }
     
     return msg_string;
+}
+
+
+void OscManager::onChangePaperThrowerSpeer(float& value)
+{
+    ofxOscMessage m;
+    m.setAddress("/MurmurTop/PaperThrower");
+    m.addFloatArg(value);
 }
 
 

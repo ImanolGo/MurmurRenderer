@@ -78,6 +78,8 @@ void SmokyHandsScene::willFadeIn() {
     ofLogNotice("SmokyHandsScene::willFadeIn");
     
     m_smokeFluid.reset();
+    
+    AppManager::getInstance().getGuiManager().setContourThickness(1.7);
 }
 
 void SmokyHandsScene::willDraw() {
