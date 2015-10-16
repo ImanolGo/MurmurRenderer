@@ -14,6 +14,7 @@
 #include "ofxPostProcessing.h"
 #include "ofxBlur.h"
 #include "SonicBoomVisual.h"
+#include "ofxWater.h"
 
 class BattleOfSelfScene : public ofxScene {
 
@@ -77,6 +78,8 @@ private:
     ofxPostProcessing       m_postProcessing;
     ofxBlur                 m_blur;
     SonicBoomVisual         m_sonicBoomVisual;
+    
+    ofxWater                m_water;
     
     ofRectangle             m_drawArea;
 

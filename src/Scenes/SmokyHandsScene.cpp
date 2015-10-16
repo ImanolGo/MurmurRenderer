@@ -65,6 +65,8 @@ void SmokyHandsScene::drawFluid()
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     m_smokeFluid.draw(m_drawArea);
+    //m_smokeFluid.drawGui();
+
     
     if(AppManager::getInstance().getDebugMode()){
         //m_smokeFluid.drawGui();

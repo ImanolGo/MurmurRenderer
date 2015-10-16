@@ -107,9 +107,18 @@ void GuiManager::setupScenesGui()
     
     m_parametersScenes.setName("Scenes");
     
-    m_sceneTransparency.set("Transparency", 0.0, 0.0, 1.0);
-    m_sceneTransparency.addListener(sceneManager, &SceneManager::onTransparencyChange);
-    m_parametersScenes.add(m_sceneTransparency);
+    m_sceneOpacity.set("Opacity", 0.0, 0.0, 1.0);
+    m_sceneOpacity.addListener(this, &GuiManager::onSetSceneOpacity);
+    m_parametersScenes.add(m_sceneOpacity);
+    
+    m_sceneOpacityFront.set("OpacityFront", 0.0, 0.0, 1.0);
+    m_sceneOpacityFront.addListener(sceneManager, &SceneManager::onFrontOpacityChange);
+    m_parametersScenes.add(m_sceneOpacityFront);
+    
+    m_sceneOpacityTop.set("OpacityTop", 0.0, 0.0, 1.0);
+    m_sceneOpacityTop.addListener(sceneManager, &SceneManager::onTopOpacityChange);
+    m_parametersScenes.add(m_sceneOpacityTop);
+
     
     m_sceneTransitionTime.set("TransitionTime", 2.0, 0.0, 10);
     m_sceneTransitionTime.addListener(sceneManager, &SceneManager::onTransitionTimeChange);
@@ -511,5 +520,10 @@ void GuiManager::setScene(const string &sceneName)
     scene.set(true);
 }
 
+void GuiManager::onSetSceneOpacity(float& value)
+{
+    m_sceneOpacityFront = value;
+    m_sceneOpacityTop = value;
+}
 
 

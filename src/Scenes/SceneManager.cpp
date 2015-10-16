@@ -19,6 +19,7 @@
 #include "FluidFloorScene.h"
 #include "KathakScene.h"
 #include "BirdsAndPaperScene.h"
+#include "BirdsAndPaperSceneFloor.h"
 #include "BirdsOpeningScene.h"
 
 #include "AppManager.h"
@@ -234,6 +235,12 @@ void SceneManager::createTopScenes()
     scene = ofPtr<ofxScene> (new BeautifulMindSceneFloor());
     this->createScene("BeautifulMindScene", SceneIndex(i), scene, WindowIndex(TOP));
     i++;
+    
+    scene = ofPtr<ofxScene> (new BirdsAndPaperSceneFloor());
+    this->createScene("BirdsAndPaperScene", SceneIndex(i), scene, WindowIndex(TOP));
+    i++;
+    
+    
 }
 
 
@@ -322,7 +329,7 @@ WindowSettings SceneManager::getWindowSettings(ofxScene* scene)
     
 }
 
-void SceneManager::onTransparencyChange(float & value)
+void SceneManager::onOpacityChange(float & value)
 {
     float alpha = ofMap(value, 0, 1, 1, 0, true);
     
@@ -330,6 +337,39 @@ void SceneManager::onTransparencyChange(float & value)
         sceneManager.second->setAlpha(alpha);
     }
 }
+
+void SceneManager::onOpacityChange(float & value, WindowIndex w)
+{
+    float alpha = ofMap(value, 0, 1, 1, 0, true);
+    
+    if(m_sceneManagers.find(w)!= m_sceneManagers.end()){
+        m_sceneManagers[w]->setAlpha(alpha);
+    }
+}
+
+
+void SceneManager::onFrontOpacityChange(float & value)
+{
+    float alpha = ofMap(value, 0, 1, 1, 0, true);
+    
+    WindowIndex w =  WindowIndex(FRONT);
+    if(m_sceneManagers.find(w)!= m_sceneManagers.end()){
+        m_sceneManagers[w]->setAlpha(alpha);
+    }
+}
+
+void SceneManager::onTopOpacityChange(float & value)
+{
+    float alpha = ofMap(value, 0, 1, 1, 0, true);
+    
+    WindowIndex w =  WindowIndex(TOP);
+    if(m_sceneManagers.find(w)!= m_sceneManagers.end()){
+        m_sceneManagers[w]->setAlpha(alpha);
+    }
+}
+
+
+
 
 
 

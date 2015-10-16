@@ -55,8 +55,17 @@ public:
     //! Transition Time controlled by GUI
     void onTransitionTimeChange(float & value);
     
-    //! Transparency value controlled by GUI
-    void onTransparencyChange(float & value);
+    //! Opacity value controlled by GUI
+    void onOpacityChange(float & value);
+    
+    //! Opacity of a specific scene manager value controlled by GUI
+    void onOpacityChange(float & value, WindowIndex w);
+    
+    //! Opacity of a FRONT scene manager value controlled by GUI
+    void onFrontOpacityChange(float & value);
+    
+    //! Opacity of a TOP scene manager value controlled by GUI
+    void onTopOpacityChange(float & value);
 
 
 private:

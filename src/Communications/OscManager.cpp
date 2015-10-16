@@ -161,11 +161,24 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
-        else if(m.getAddress() == "/MurmurRenderer/SceneTransparency"){
+        else if(m.getAddress() == "/MurmurRenderer/SceneOpacity"){
             float value = m.getArgAsFloat(0);
-            AppManager::getInstance().getGuiManager().setSceneTransparency(value);
+            AppManager::getInstance().getGuiManager().setSceneOpacity(value);
             this->updateReceiveText();
         }
+        
+        else if(m.getAddress() == "/MurmurRenderer/SceneOpacityFront"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setSceneOpacityFront(value);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/SceneOpacityTop"){
+            float value = m.getArgAsFloat(0);
+            AppManager::getInstance().getGuiManager().setSceneOpacityTop(value);
+            this->updateReceiveText();
+        }
+
         
         else if(m.getAddress() == "/MurmurRenderer/AudioVolume"){
             float value = m.getArgAsFloat(0);

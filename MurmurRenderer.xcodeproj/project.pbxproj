@@ -141,6 +141,7 @@
 		5367CE7A2C5BCF846D28D246 /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81212C9B727614B22FFBEC2C /* ofxSlider.cpp */; };
 		58BCEB4034B30CB4A3456FC7 /* SettingsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73D7AA4CF4895FC3DEEC2978 /* SettingsManager.cpp */; };
 		5A7307C2BBC29E51B588C902 /* ftOpticalFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA9EEBF20EB7A81317FF9587 /* ftOpticalFlow.cpp */; };
+		5C44105E1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C44105C1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.cpp */; };
 		5C767E231BCE978E003719D6 /* BeautifulMindSceneFloor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C767E211BCE978E003719D6 /* BeautifulMindSceneFloor.cpp */; };
 		5D33A9513B2A4C6DBD3188C7 /* GuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4907E8B0250B798D3E6F09A1 /* GuiManager.cpp */; };
 		6221E2F850BE14E91A5FC425 /* ofxOscParameterSync.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F426CADEA7D4B0BD1C434406 /* ofxOscParameterSync.cpp */; };
@@ -554,6 +555,8 @@
 		5B9CF9B2B47C1875E34834E9 /* unchecked.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = unchecked.h; path = src/Addons/ofxUnicode/libs/utf8cpp/src/utf8_v2_3_1/source/utf8/unchecked.h; sourceTree = SOURCE_ROOT; };
 		5BF636D4EC50235E410ADFA3 /* ftMoveParticleShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ftMoveParticleShader.h; path = src/Addons/ofxFlowTools/src/particles/ftMoveParticleShader.h; sourceTree = SOURCE_ROOT; };
 		5C16D98E481F4B05C3F708AC /* ofxOscBundle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscBundle.cpp; path = src/Addons/ofxOsc/src/ofxOscBundle.cpp; sourceTree = SOURCE_ROOT; };
+		5C44105C1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BirdsAndPaperSceneFloor.cpp; sourceTree = "<group>"; };
+		5C44105D1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdsAndPaperSceneFloor.h; sourceTree = "<group>"; };
 		5C767E211BCE978E003719D6 /* BeautifulMindSceneFloor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeautifulMindSceneFloor.cpp; sourceTree = "<group>"; };
 		5C767E221BCE978E003719D6 /* BeautifulMindSceneFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulMindSceneFloor.h; sourceTree = "<group>"; };
 		5E1973D14232CB5E49FFB984 /* ofxBaseGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBaseGui.cpp; path = src/Addons/ofxGui/src/ofxBaseGui.cpp; sourceTree = SOURCE_ROOT; };
@@ -1209,6 +1212,8 @@
 		08EC80401B3C3FEF000893E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5C44105C1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.cpp */,
+				5C44105D1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.h */,
 				5C767E211BCE978E003719D6 /* BeautifulMindSceneFloor.cpp */,
 				5C767E221BCE978E003719D6 /* BeautifulMindSceneFloor.h */,
 				08FFBCEE1BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp */,
@@ -2019,6 +2024,7 @@
 				08B0749D1B46D588008D71BB /* CameraManager.cpp in Sources */,
 				1E777E277DAB367779E7E89A /* ofxButton.cpp in Sources */,
 				08EC80391B3C3F0F000893E1 /* ofxEasingExpo.cpp in Sources */,
+				5C44105E1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.cpp in Sources */,
 				082C27551BB3F08400EEB495 /* ofxRtMidiOut.cpp in Sources */,
 				0848D75C1B90872600672D56 /* fft.cpp in Sources */,
 				082C275D1BB3F08400EEB495 /* ofxMidiIn.cpp in Sources */,

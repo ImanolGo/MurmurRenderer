@@ -37,7 +37,7 @@ void KathakScene::setup()
     
     this->setupFbos();
     this->setupShaders();
-    this->setupWaterDrops();
+    this->setupWaterRipples();
     
     ofLogNotice("KathakScene::setup");
     
@@ -70,7 +70,7 @@ void KathakScene::setupShaders()
     
 }
 
-void KathakScene::setupWaterDrops()
+void KathakScene::setupWaterRipples()
 {
     ofSetCircleResolution(100);
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
@@ -85,7 +85,7 @@ void KathakScene::setupWaterDrops()
 void KathakScene::update()
 {
     //this->updateFluid();
-    this->updateWaterDrops();
+    this->updateWaterRipples();
 }
 
 
@@ -95,7 +95,7 @@ void KathakScene::draw() {
     m_maskShader.begin();
     m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
         //this->drawFluid();
-        this->drawWaterDrops();
+        this->drawWaterRipples();
     m_maskShader.end();
     
     //m_fboMask.draw(0,0);
@@ -112,7 +112,7 @@ void KathakScene::updateFluid()
     m_fluid.update();
 }
 
-void KathakScene::updateWaterDrops()
+void KathakScene::updateWaterRipples()
 {
     float volume = AppManager::getInstance().getAudioManager().getAudioMax();
     auto position = AppManager::getInstance().getFloorManager().getPosition();
@@ -157,7 +157,7 @@ void KathakScene::drawFluid()
     
 }
 
-void KathakScene::drawWaterDrops()
+void KathakScene::drawWaterRipples()
 {
     m_water[1].draw(0,0);
 }

@@ -46,7 +46,7 @@ public:
     
 private:
     
-    void setupWaterDrops();
+    void setupWaterRipples();
     
     void setupFbos();
     
@@ -54,11 +54,11 @@ private:
     
     void drawFluid();
     
-    void drawWaterDrops();
+    void drawWaterRipples();
     
     void updateFluid();
     
-    void updateWaterDrops();
+    void updateWaterRipples();
     
 private:
     

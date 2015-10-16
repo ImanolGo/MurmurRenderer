@@ -50,7 +50,13 @@ public:
     
     int getHeight()  {return m_gui.getHeight();}
     
-    void setSceneTransparency(float value) {m_sceneTransparency = value;}
+    void setSceneOpacity(float value) {m_sceneOpacity = value;}
+    
+    void onSetSceneOpacity(float& value);
+    
+    void setSceneOpacityTop(float value) {m_sceneOpacityTop = value;}
+    
+    void setSceneOpacityFront(float value) {m_sceneOpacityFront = value;}
     
     void setSceneTransitionTime(float value) {m_sceneTransitionTime = value;}
     
@@ -199,7 +205,9 @@ private:
     
     ofParameter<float>      m_guiFPS;
 
-    ofParameter<float>      m_sceneTransparency;
+    ofParameter<float>      m_sceneOpacity;
+    ofParameter<float>      m_sceneOpacityFront;
+    ofParameter<float>      m_sceneOpacityTop;
     ofParameter<float>      m_sceneTransitionTime;
     ofParameter<bool>       m_sceneSmokyHands;
     ofParameter<bool>       m_sceneBlank;
