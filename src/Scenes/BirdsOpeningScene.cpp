@@ -86,6 +86,7 @@ void BirdsOpeningScene::willFadeOut() {
 
 void BirdsOpeningScene::willExit() {
     ofLogNotice("BirdsOpeningScene::willExit");
-    this->setInitialParameters();
+    //this->setInitialParameters();
+    AppManager::getInstance().getBirdsManager().stopEffects();
     AppManager::getInstance().getGuiManager().setBirdsNumber(0);
 }

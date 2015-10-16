@@ -65,6 +65,9 @@ void BirdsManager::setupEffects()
     m_swarm =  ofPtr<BirdsSwarmVisual>(new BirdsSwarmVisual());
     m_moveEffect = ofPtr<MoveVisual>(new MoveVisual(m_swarm));
     m_scaleEffect = ofPtr<ScaleVisual>(new ScaleVisual(m_swarm));
+    m_numberEffect = ofPtr<BirdsNumberEffect>(new BirdsNumberEffect(m_swarm));
+    m_randEffect = ofPtr<BirdsRandonmnessEffect>(new BirdsRandonmnessEffect(m_swarm));
+    m_speedEffect = ofPtr<BirdsSpeedEffect>(new BirdsSpeedEffect(m_swarm));
 }
 
 
@@ -78,6 +81,18 @@ void BirdsManager::update()
     
     if(!m_scaleEffect->isFinished()){
         AppManager::getInstance().getGuiManager().setBirdsSize(m_swarm->getScale());
+    }
+    
+    if(!m_randEffect->isFinished()){
+        AppManager::getInstance().getGuiManager().setBirdsRandomness(m_swarm->m_randomness);
+    }
+    
+    if(!m_numberEffect->isFinished()){
+        AppManager::getInstance().getGuiManager().setBirdsNumber(m_swarm->m_number);
+    }
+    
+    if(!m_speedEffect->isFinished()){
+        AppManager::getInstance().getGuiManager().setBirdsSpeed(m_swarm->m_speed);
     }
 }
 
@@ -207,9 +222,41 @@ void BirdsManager::addScaleEffect(const ofVec3f& targetScale, double duration, d
     
 }
 
+void BirdsManager::addNumberEffect(int number, double duration, double startTime)
+{
+    m_numberEffect->stop();
+    m_numberEffect->setParameters(number, duration);
+    m_numberEffect->start(startTime);
+    
+    AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_numberEffect);
+}
+
+void BirdsManager::addRandomnessEffect(float randomness, double duration, double startTime)
+{
+    m_randEffect->stop();
+    m_randEffect->setParameters(randomness, duration);
+    m_randEffect->start(startTime);
+    
+    AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_randEffect);
+}
+
+void BirdsManager::addSpeedEffect(float speed, double duration, double startTime)
+{
+    m_speedEffect->stop();
+    m_speedEffect->setParameters(speed, duration);
+    m_speedEffect->start(startTime);
+    
+    AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_speedEffect);
+}
+
+
 void BirdsManager::stopEffects()
 {
-    m_scaleEffect->stop();    
+    m_moveEffect->stop();
+    m_scaleEffect->stop();
+    m_randEffect->stop();
+    m_numberEffect->stop();
+    m_speedEffect->stop();
 }
 
 

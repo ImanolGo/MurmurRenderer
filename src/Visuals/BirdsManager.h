@@ -62,6 +62,12 @@ public:
     
     void addScaleEffect(const ofVec3f& targetScale, double duration, double startTime = 0);
     
+    void addNumberEffect(int number, double duration, double startTime = 0);
+    
+    void addRandomnessEffect(float randomness, double duration, double startTime = 0);
+    
+    void addSpeedEffect(float speed, double duration, double startTime = 0);
+    
     void stopEffects();
     
 private:
@@ -75,9 +81,12 @@ private:
     
 private:
     
-    ofPtr<BirdsSwarmVisual>    m_swarm;
-    ofPtr<MoveVisual>          m_moveEffect;
-    ofPtr<ScaleVisual>         m_scaleEffect;
+    ofPtr<BirdsSwarmVisual>             m_swarm;
+    ofPtr<MoveVisual>                   m_moveEffect;
+    ofPtr<ScaleVisual>                  m_scaleEffect;
+    ofPtr<BirdsRandonmnessEffect>       m_randEffect;
+    ofPtr<BirdsNumberEffect>            m_numberEffect;
+    ofPtr<BirdsSpeedEffect>             m_speedEffect;
     
     SyphonVisual        m_syphonVisual;
     ofShader            m_shader;

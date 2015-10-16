@@ -9,7 +9,7 @@
 #pragma once
 
 
-#include "BasicVisual.h"
+#include "BirdsSwarmVisual.h"
 #include "ofxScene.h"
 
 class BirdsAndPaperScene : public ofxScene {
@@ -45,7 +45,7 @@ private:
     
 private:
     
-    BasicVisual         m_visual;   ///< Visual representing position and size of the swarm. Used for animations
+    BirdsSwarmVisual         m_visual;   ///< Visual representing position and size of the swarm. Used for animations
 
 };
 
