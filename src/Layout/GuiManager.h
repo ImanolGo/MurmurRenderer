@@ -80,6 +80,8 @@ public:
     
     void onSetBirdsOpeningScene(bool& value);
     
+    void onSetPostShowScene(bool& value);
+    
     void setAudioVolume(float& value){m_audioVolume = value;}
     
     void setAudioOn(bool& value){m_audioOn = value;}
@@ -218,6 +220,7 @@ private:
     ofParameter<bool>       m_sceneKathak;
     ofParameter<bool>       m_birdsOpeningScene;
     ofParameter<bool>       m_birdsAndPaperScene;
+    ofParameter<bool>       m_postShowScene;
     
     ofParameter<int>        m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
     ofParameter<bool>       m_fullscreen;

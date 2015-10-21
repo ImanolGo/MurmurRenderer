@@ -36,7 +36,7 @@
     <texture name="scene_04_MIDDLE_SAIL_1" path="images/beautiful_mind/NEW_scene_04_MIDDLE_SAIL_1.png"/>
     <texture name="scene_04_MIDDLE_SAIL_2" path="images/beautiful_mind/NEW_scene_04_MIDDLE_SAIL_2.png"/>
     <texture name="scene_04_MIDDLE_SAIL_3" path="images/beautiful_mind/NEW_scene_04_MIDDLE_SAIL_3.png"/>
-
+    <texture name="postshow" path="images/general/postshow.png"/>
 
   </textures>
 

@@ -119,7 +119,6 @@
 		08EEBC2E1B445B0800061FB1 /* KeyboardManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EEBC281B445B0800061FB1 /* KeyboardManager.cpp */; };
 		08EEBC2F1B445B0800061FB1 /* OscManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EEBC2A1B445B0800061FB1 /* OscManager.cpp */; };
 		08EEBC301B445B0800061FB1 /* UdpManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EEBC2C1B445B0800061FB1 /* UdpManager.cpp */; };
-		08F31D9D1B47F6310053C234 /* BeautifulMindManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F31D9B1B47F6310053C234 /* BeautifulMindManager.cpp */; };
 		08F4182D1B6B683B00D190B7 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 08F418291B6B683B00D190B7 /* readme.md */; };
 		08F4182E1B6B683B00D190B7 /* ofxBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F4182B1B6B683B00D190B7 /* ofxBlur.cpp */; };
 		08F418461B6BC26500D190B7 /* SonicBoomVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F418441B6BC26500D190B7 /* SonicBoomVisual.cpp */; };
@@ -143,6 +142,8 @@
 		5A7307C2BBC29E51B588C902 /* ftOpticalFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA9EEBF20EB7A81317FF9587 /* ftOpticalFlow.cpp */; };
 		5C44105E1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C44105C1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.cpp */; };
 		5C767E231BCE978E003719D6 /* BeautifulMindSceneFloor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C767E211BCE978E003719D6 /* BeautifulMindSceneFloor.cpp */; };
+		5C9B83F61BD81D9B00004D38 /* BeautifulMindManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B83F41BD81D9B00004D38 /* BeautifulMindManager.cpp */; };
+		5C9B83FA1BD81E5300004D38 /* PostShowScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B83F81BD81E5300004D38 /* PostShowScene.cpp */; };
 		5D33A9513B2A4C6DBD3188C7 /* GuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4907E8B0250B798D3E6F09A1 /* GuiManager.cpp */; };
 		6221E2F850BE14E91A5FC425 /* ofxOscParameterSync.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F426CADEA7D4B0BD1C434406 /* ofxOscParameterSync.cpp */; };
 		65765878631ECAE01B74DFD0 /* ofxaddons_thumbnail.png in Sources */ = {isa = PBXBuildFile; fileRef = 8F970BC616DE96BF8255B47E /* ofxaddons_thumbnail.png */; };
@@ -486,8 +487,6 @@
 		08EEBC2B1B445B0800061FB1 /* OscManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscManager.h; sourceTree = "<group>"; };
 		08EEBC2C1B445B0800061FB1 /* UdpManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UdpManager.cpp; sourceTree = "<group>"; };
 		08EEBC2D1B445B0800061FB1 /* UdpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdpManager.h; sourceTree = "<group>"; };
-		08F31D9B1B47F6310053C234 /* BeautifulMindManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BeautifulMindManager.cpp; path = Visuals/BeautifulMindManager.cpp; sourceTree = "<group>"; };
-		08F31D9C1B47F6310053C234 /* BeautifulMindManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeautifulMindManager.h; path = Visuals/BeautifulMindManager.h; sourceTree = "<group>"; };
 		08F418281B6B683B00D190B7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		08F418291B6B683B00D190B7 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		08F4182B1B6B683B00D190B7 /* ofxBlur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxBlur.cpp; sourceTree = "<group>"; };
@@ -559,6 +558,10 @@
 		5C44105D1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdsAndPaperSceneFloor.h; sourceTree = "<group>"; };
 		5C767E211BCE978E003719D6 /* BeautifulMindSceneFloor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeautifulMindSceneFloor.cpp; sourceTree = "<group>"; };
 		5C767E221BCE978E003719D6 /* BeautifulMindSceneFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulMindSceneFloor.h; sourceTree = "<group>"; };
+		5C9B83F41BD81D9B00004D38 /* BeautifulMindManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BeautifulMindManager.cpp; path = Visuals/BeautifulMindManager.cpp; sourceTree = "<group>"; };
+		5C9B83F51BD81D9B00004D38 /* BeautifulMindManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeautifulMindManager.h; path = Visuals/BeautifulMindManager.h; sourceTree = "<group>"; };
+		5C9B83F81BD81E5300004D38 /* PostShowScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PostShowScene.cpp; sourceTree = "<group>"; };
+		5C9B83F91BD81E5300004D38 /* PostShowScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostShowScene.h; sourceTree = "<group>"; };
 		5E1973D14232CB5E49FFB984 /* ofxBaseGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBaseGui.cpp; path = src/Addons/ofxGui/src/ofxBaseGui.cpp; sourceTree = SOURCE_ROOT; };
 		5E6E7CC410AD6E7A9ABF31AF /* OscPrintReceivedElements.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscPrintReceivedElements.cpp; path = src/Addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.cpp; sourceTree = SOURCE_ROOT; };
 		5F2749C44752A2A58D5B69E2 /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = src/Addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
@@ -1212,6 +1215,8 @@
 		08EC80401B3C3FEF000893E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5C9B83F81BD81E5300004D38 /* PostShowScene.cpp */,
+				5C9B83F91BD81E5300004D38 /* PostShowScene.h */,
 				5C44105C1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.cpp */,
 				5C44105D1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.h */,
 				5C767E211BCE978E003719D6 /* BeautifulMindSceneFloor.cpp */,
@@ -1779,6 +1784,8 @@
 		C02C33831C66F04FEBAE29DE /* Visuals */ = {
 			isa = PBXGroup;
 			children = (
+				5C9B83F41BD81D9B00004D38 /* BeautifulMindManager.cpp */,
+				5C9B83F51BD81D9B00004D38 /* BeautifulMindManager.h */,
 				08FFBCF41BB1946D00B4CCF2 /* BirdsSwarmVisual.cpp */,
 				08FFBCF51BB1946D00B4CCF2 /* BirdsSwarmVisual.h */,
 				08EBB6531B72B380005F510F /* BirdsManager.cpp */,
@@ -1789,8 +1796,6 @@
 				08F418451B6BC26500D190B7 /* SonicBoomVisual.h */,
 				08D4019A1B6A61B00035C289 /* AudioManager.cpp */,
 				08D4019B1B6A61B00035C289 /* AudioManager.h */,
-				08F31D9B1B47F6310053C234 /* BeautifulMindManager.cpp */,
-				08F31D9C1B47F6310053C234 /* BeautifulMindManager.h */,
 				08B0745B1B4595E3008D71BB /* FloorManager.cpp */,
 				08B0745C1B4595E3008D71BB /* FloorManager.h */,
 				08EEBC241B444F0E00061FB1 /* HandsManager.cpp */,
@@ -2018,6 +2023,7 @@
 				08D401471B6A368C0035C289 /* BleachBypassPass.cpp in Sources */,
 				08EBB6551B72B380005F510F /* BirdsManager.cpp in Sources */,
 				08B074A01B46D588008D71BB /* Font.cpp in Sources */,
+				5C9B83FA1BD81E5300004D38 /* PostShowScene.cpp in Sources */,
 				08D401481B6A368C0035C289 /* BloomPass.cpp in Sources */,
 				9A15495FA2EE8F23378413B2 /* ofxBaseGui.cpp in Sources */,
 				08D401521B6A368C0035C289 /* KaleidoscopePass.cpp in Sources */,
@@ -2095,7 +2101,6 @@
 				08EBB6301B721185005F510F /* ofxSecondWindow.cpp in Sources */,
 				854D16924B6DD2C209FD11C2 /* ofxOscReceiver.cpp in Sources */,
 				08F4182E1B6B683B00D190B7 /* ofxBlur.cpp in Sources */,
-				08F31D9D1B47F6310053C234 /* BeautifulMindManager.cpp in Sources */,
 				0848D6F41B8F62A600672D56 /* VideoVisual.cpp in Sources */,
 				08D4014D1B6A368C0035C289 /* EdgePass.cpp in Sources */,
 				78903FED64B0BFD8EED1E552 /* ofxOscSender.cpp in Sources */,
@@ -2120,6 +2125,7 @@
 				82C668F7D0DF704AD7D1BB1C /* utf8cpp.html in Sources */,
 				B7993B374B98F50CBD9EC220 /* README.md in Sources */,
 				0848D72D1B904C6800672D56 /* SyphonNameboundClient.m in Sources */,
+				5C9B83F61BD81D9B00004D38 /* BeautifulMindManager.cpp in Sources */,
 				08EC803C1B3C3F0F000893E1 /* ofxEasingQuart.cpp in Sources */,
 				20DD9BBB631FBC0CDCCFA6B6 /* ofTextConverter.cpp in Sources */,
 				08EBB62F1B721185005F510F /* README.md in Sources */,

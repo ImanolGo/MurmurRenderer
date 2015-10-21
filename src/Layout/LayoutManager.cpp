@@ -99,12 +99,4 @@ void LayoutManager::addVisuals()
 }
 
 
-void onCropLeft(int & pixels);
-
-void onCropRight(int & pixels);
-
-void onCropTop(int & pixels);
-
-void onCropBottom(int & pixels);
-
 
