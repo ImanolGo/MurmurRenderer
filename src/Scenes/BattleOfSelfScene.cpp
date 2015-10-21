@@ -30,8 +30,9 @@ void BattleOfSelfScene::setup()
     }
     
     this->setupFbos();
-    //this->setupShaders();
     this->setupPostProcessing();
+    
+    m_sonicBoomVisual.setup();
     
     m_fluid.setup("xmls/BattleOfSelfFluid.xml");
     m_initialized = true;
@@ -50,6 +51,8 @@ void BattleOfSelfScene::setupFbos()
     m_fbo.begin(); ofClear(0); m_fbo.end();
     
 }
+
+
 
 void BattleOfSelfScene::setupShaders()
 {
@@ -101,7 +104,6 @@ void BattleOfSelfScene::setupPostProcessing()
 void BattleOfSelfScene::update()
 {
     this->updateFluid();
-    //this->updateContour();
     this->updateSonicBoom();
 }
 
@@ -130,18 +132,6 @@ void BattleOfSelfScene::updateContour()
 
 void BattleOfSelfScene::updateSonicBoom()
 {
-    auto hands = AppManager::getInstance().getHandsManager().getHands();
-    
-    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
-    
-    for (auto hand : hands) {
-        ofPoint pos = hand;
-        pos.x *= windowsSettings.width;
-        pos.y *= windowsSettings.height;
-        m_sonicBoomVisual.addParticle(pos);
-    }
-    
-    
     m_sonicBoomVisual.update();
 }
 

@@ -11,6 +11,8 @@
 
 #include "ofMain.h"
 #include "BasicVisual.h"
+#include "ofxWater.h"
+#include "SettingsManager.h"
 
 
 //========================== class SonicBoomParticle ==============================
@@ -73,6 +75,8 @@ public:
     
     //! Destructor
     ~SonicBoomVisual();
+     
+    void setup();
     
     //! Draw the Sonic boom visual
     void update();
@@ -84,12 +88,28 @@ public:
     void clear();
      
     void addParticle(const ofPoint& pos);
+     
+private:
+     
+     void setupWaterRipples();
+     
+     void updateWaterRipples();
+     
+     void updateParticles();
+     
+     void drawWaterRipples();
+     
+     void drawParticles();
     
      
 private:
      
      typedef vector< ofPtr<SonicBoomParticle> > ParticlesVector;
      ParticlesVector  m_particles;
+     
+     WindowSettings         m_windowsSettings;
+     
+     ofxWater                m_water;
 
 };
 

@@ -55,6 +55,8 @@ private:
     
     void setupPostProcessing();
     
+    void setupSonicBoom();
+    
     void drawFluid();
     
     void updateSonicBoom();
@@ -78,9 +80,7 @@ private:
     ofxPostProcessing       m_postProcessing;
     ofxBlur                 m_blur;
     SonicBoomVisual         m_sonicBoomVisual;
-    
-    ofxWater                m_water;
-    
+        
     ofRectangle             m_drawArea;
 
 };

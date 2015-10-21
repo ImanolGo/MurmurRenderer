@@ -39,11 +39,13 @@ void BirdsAndPaperScene::setInitialParameters()
 {
     AppManager::getInstance().getBirdsManager().stopEffects();
     
-    m_visual.setScale(ofVec3f(1.0,1.0,1.0));
-    m_visual.setPosition(ofVec3f(0,-0.2,0));
+    m_visual.setScale(ofVec3f(3.0,3.0,3.0));
+    m_visual.setPosition(ofVec3f(0,0,0));
     
     //AppManager::getInstance().getGuiManager().setBirdsSize(1.2);
-    AppManager::getInstance().getGuiManager().setBirdsNumber(0);
+    //AppManager::getInstance().getGuiManager().setBirdsNumber(0);
+    
+    AppManager::getInstance().getGuiManager().setBirdsNumber(100);
     
     AppManager::getInstance().getGuiManager().setBirdsPosition(m_visual.getPosition());
     //AppManager::getInstance().getGuiManager().setBirdsSize(m_visual.getScale().x);
@@ -70,8 +72,6 @@ void BirdsAndPaperScene::startBirds()
     
     double delayTime = 20;
     double animationTime = 60;
-    
-    AppManager::getInstance().getGuiManager().setBirdsNumber(100);
     
     AppManager::getInstance().getBirdsManager().addMoveEffect(m_visual.getPosition(), animationTime, delayTime);
     AppManager::getInstance().getBirdsManager().addScaleEffect(m_visual.getScale(), animationTime, delayTime);
