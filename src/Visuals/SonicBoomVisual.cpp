@@ -28,8 +28,8 @@ void SonicBoomParticle::setup()
 {
     m_time = 0;
     m_initSize = 10 + ofNoise( ofGetElapsedTimef()/4)*10;
-    m_lifeTime = 1 + ofNoise( ofGetElapsedTimef()/2)*7 ;
-    m_size = 50 + ofNoise( ofGetElapsedTimef()/2)*550 ;
+    m_lifeTime = 1 + ofNoise( ofGetElapsedTimef()/2)*2 ;
+    m_size = 100 + ofNoise( ofGetElapsedTimef()/2)*450 ;
     m_color = ofColor::white;
 }
 
@@ -43,7 +43,7 @@ void SonicBoomParticle::update()
     m_width = ofMap(m_time, 0, m_lifeTime, m_initSize, m_size);
     float brightness = ofMap(m_time, 0, m_lifeTime, 255, 0, true);
     m_color.setBrightness(brightness);
-   // m_color.a = ofMap(m_time, 0, m_lifeTime, 255, 0, true);
+    //m_color.a = brightness;
     
     //m_color.a = 50;
     
@@ -90,6 +90,10 @@ void SonicBoomVisual::setupWaterRipples()
     waterBackground.allocate(m_windowsSettings.width, m_windowsSettings.height, OF_IMAGE_GRAYSCALE);
     m_water.loadBackground(waterBackground);
     m_water.setDensity(0.9);
+    
+    
+    m_fbo.allocate(m_windowsSettings.width, m_windowsSettings.height);
+    m_fbo.begin(); ofClear(0); m_fbo.end();
     
 }
 
@@ -175,9 +179,25 @@ void SonicBoomVisual::drawWaterRipples()
 
 void SonicBoomVisual::drawParticles()
 {
-    for (auto particle: m_particles) {
+    ofPushStyle();
+    
+    m_fbo.begin();
+
+    ofEnableAlphaBlending();
+    ofSetColor(0,0,0, 60);
+    ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
+    ofSetColor(255,255,255);
+      //ofEnableBlendMode(OF_BLENDMODE_ADD);
+       for (auto particle: m_particles) {
         particle->draw();
     }
+    
+    ofDisableAlphaBlending();
+    m_fbo.end();
+    
+    ofPopStyle();
+    
+    m_fbo.draw(0, 0);
 }
 
 

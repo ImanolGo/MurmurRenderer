@@ -35,7 +35,8 @@ void PostShowScene::draw() {
 
 void PostShowScene::drawImages() {
     ofRectangle rect = this->getDrawingArea();
-    m_image.setHeight(rect.getHeight());
+    //m_image.setHeight(rect.getHeight());
+    m_image.setHeight(400,true);
     m_image.setPosition(rect.getCenter());
     m_image.draw();
 }

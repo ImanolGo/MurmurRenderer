@@ -221,7 +221,7 @@ void GuiManager::setupContourGui()
     m_parametersContour.add(m_contourThickness);
     
     
-    m_contourOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-2.0,-2.0) , ofVec2f(2.0,2.0));
+    m_contourOffset.set("Offset", ofVec2f(0.0,0.0) , ofVec2f(-0.7,-0.7) , ofVec2f(0.7,0.7));
     m_contourOffset.addListener(contourManager, &ContourManager::setOffset);
     m_parametersContour.add(m_contourOffset);
     
@@ -247,7 +247,7 @@ void GuiManager::setupHandsGui()
     m_handsOffset.addListener(handsManager, &HandsManager::setOffset);
     m_parametersHands.add(m_handsOffset);
     
-    m_handsScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-2.0,-2.0) , ofVec2f(2.0,2.0) );
+    m_handsScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
     m_handsScale.addListener(handsManager, &HandsManager::setScale);
     m_parametersHands.add(m_handsScale);
     

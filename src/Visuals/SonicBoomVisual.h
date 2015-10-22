@@ -109,7 +109,9 @@ private:
      
      WindowSettings         m_windowsSettings;
      
-     ofxWater                m_water;
+     ofxWater               m_water;
+     
+     ofFbo                  m_fbo;
 
 };
 

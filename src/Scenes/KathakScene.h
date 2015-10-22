@@ -8,7 +8,6 @@
 
 #pragma once
 
-#include "FluidVisual.h"
 #include "ofxScene.h"
 #include "ofxWater.h"
 #include "ImageVisual.h"
@@ -52,17 +51,12 @@ private:
     
     void setupShaders();
     
-    void drawFluid();
-    
     void drawWaterRipples();
-    
-    void updateFluid();
     
     void updateWaterRipples();
     
 private:
-    
-    FluidVisual     m_fluid;
+
     bool            m_initialized;
     ofShader        m_maskShader;
     ofFbo           m_fboMask;

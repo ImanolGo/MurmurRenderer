@@ -33,8 +33,6 @@ void KathakScene::setup()
     
     m_initialized = true;
     
-    m_fluid.setup("xmls/FluidFloor.xml");
-    
     this->setupFbos();
     this->setupShaders();
     this->setupWaterRipples();
@@ -84,7 +82,6 @@ void KathakScene::setupWaterRipples()
 
 void KathakScene::update()
 {
-    //this->updateFluid();
     this->updateWaterRipples();
 }
 
@@ -94,22 +91,11 @@ void KathakScene::draw() {
     
     m_maskShader.begin();
     m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
-        //this->drawFluid();
+
         this->drawWaterRipples();
     m_maskShader.end();
     
-    //m_fboMask.draw(0,0);
-    
-    //m_fluid.drawGui();
 
-}
-
-void KathakScene::updateFluid()
-{
-    auto floorPosition = AppManager::getInstance().getFloorManager().getPosition();
-    
-    m_fluid.addForce(floorPosition);
-    m_fluid.update();
 }
 
 void KathakScene::updateWaterRipples()
@@ -140,22 +126,6 @@ void KathakScene::updateWaterRipples()
 
 }
 
-void KathakScene::drawFluid()
-{
-    ofPushMatrix();
-    ofPushStyle();
-    ofEnableBlendMode(OF_BLENDMODE_DISABLED);
-    
-        AppManager::getInstance().getFloorManager().draw();
-    
-    ofEnableBlendMode(OF_BLENDMODE_ADD);
-    
-        m_fluid.draw(m_drawArea);
-    
-    ofPopStyle();
-    ofPopMatrix();
-    
-}
 
 void KathakScene::drawWaterRipples()
 {

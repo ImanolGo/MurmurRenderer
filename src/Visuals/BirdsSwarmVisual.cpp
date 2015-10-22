@@ -158,7 +158,7 @@ void BirdsSpeedEffect::setParameters(float startSpeed,float endSpeed, double ani
 void BirdsSpeedEffect::setParameters(float endSpeed, double animationTime)
 {
     m_elapsedTime = 0.0;
-    m_speed = m_birdsVisual->m_speed;
+    m_startSpeed = m_birdsVisual->m_speed;
     m_endSpeed = endSpeed;
     m_animationTime = animationTime;
 }
