@@ -28,8 +28,8 @@ void SonicBoomParticle::setup()
 {
     m_time = 0;
     m_initSize = 10 + ofNoise( ofGetElapsedTimef()/4)*10;
-    m_lifeTime = 1 + ofNoise( ofGetElapsedTimef()/2)*2 ;
-    m_size = 100 + ofNoise( ofGetElapsedTimef()/2)*450 ;
+    m_lifeTime = 1 + ofNoise( ofGetElapsedTimef()/2)*4 ;
+    m_size = 100 + ofNoise( ofGetElapsedTimef()/2)*350 ;
     m_color = ofColor::white;
 }
 
@@ -89,7 +89,7 @@ void SonicBoomVisual::setupWaterRipples()
     ofImage waterBackground;
     waterBackground.allocate(m_windowsSettings.width, m_windowsSettings.height, OF_IMAGE_GRAYSCALE);
     m_water.loadBackground(waterBackground);
-    m_water.setDensity(0.9);
+    m_water.setDensity(0.6);
     
     
     m_fbo.allocate(m_windowsSettings.width, m_windowsSettings.height);
@@ -100,7 +100,7 @@ void SonicBoomVisual::setupWaterRipples()
 void SonicBoomVisual::update()
 {
     this->updateParticles();
-    this->updateWaterRipples();
+    //this->updateWaterRipples();
     
 }
 
@@ -168,8 +168,8 @@ void SonicBoomVisual::updateWaterRipples()
 
 void SonicBoomVisual::draw()
 {
-    this->drawWaterRipples();
-    //this->drawParticles();
+    //this->drawWaterRipples();
+    this->drawParticles();
 }
 
 void SonicBoomVisual::drawWaterRipples()

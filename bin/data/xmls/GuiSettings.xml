@@ -1,7 +1,7 @@
 <MurmurRenderer>
-	<FPS>49.9693</FPS>
+	<FPS>60.0227</FPS>
 	<Scenes>
-		<TransitionTime>0.3</TransitionTime>
+		<TransitionTime>1.59184</TransitionTime>
 		<BlankScene>1</BlankScene>
 		<SmokyHandsScene>0</SmokyHandsScene>
 	<BattleOfSelfScene>0</BattleOfSelfScene>
@@ -17,31 +17,31 @@
 		<TransparencyTop>0</TransparencyTop>
 	<Opacity>0</Opacity>
 		<OpacityFront>0</OpacityFront>
-		<OpacityTop>1</OpacityTop>
+		<OpacityTop>0</OpacityTop>
 	<PostShowScene>0</PostShowScene>
 	</Scenes>
 	<Contour>
 		<Thickness>0</Thickness>
-		<Offset>0.325073, 0.542566</Offset>
-		<Scale>0.367347, 0.583923</Scale>
+		<Offset>0.291837, 0.560058</Offset>
+		<Scale>0.433986, 0.500625</Scale>
 	</Contour>
 <MurmurRenderer/>
 <Hands>
-		<Offset>0.000208259, 0.141816</Offset>
-		<Scale>-0.426396, -0.740941</Scale>
+		<Offset>-0.0289463, 0.0543523</Offset>
+		<Scale>-0.507705, -0.80758</Scale>
 	<On>0</On>
 	<FadeTime>9.55102</FadeTime>
-	<Size>0.653061</Size>
+	<Size>0.714286</Size>
 	</Hands>
 <Floor>
-		<Offset>0.0251979, 0.100167</Offset>
-		<Scale>-0.932112, 1.41691</Scale>
+		<Offset>0.00853813, -0.141399</Offset>
+		<Scale>1.13369, -1.58184</Scale>
 	</Floor>
 <BeautifulMind>
 		<Offset>0.000416517, -0.0662224</Offset>
 		<Scale>0.496043, 0.587672</Scale>
-	<FloorOn>1</FloorOn>
-		<Speed>3.67347</Speed>
+	<FloorOn>0</FloorOn>
+		<Speed>1.02041</Speed>
 	</BeautifulMind>
 <Crop>
 		<CropLeft>0</CropLeft>
@@ -50,8 +50,8 @@
 		<CropBottom>0</CropBottom>
 	</Crop>
 <Audio>
-		<Volume>0.420408</Volume>
-	<AudioOn>0</AudioOn>
+		<Volume>0.510204</Volume>
+	<AudioOn>1</AudioOn>
 	</Audio>
 <Layout>
 		<Fullscreen>1</Fullscreen>
