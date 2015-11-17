@@ -12,7 +12,6 @@
 #include "FluidVisual.h"
 #include "ofxScene.h"
 #include "ofxPostProcessing.h"
-#include "ofxBlur.h"
 #include "SonicBoomVisual.h"
 #include "ofxWater.h"
 
@@ -63,10 +62,6 @@ private:
     
     void updateFluid();
     
-    void updateContour();
-    
-    void drawContour();
-    
     void drawSonicBoom();
 
     
@@ -78,7 +73,6 @@ private:
     FluidVisual             m_fluid;
     ofFbo                   m_fbo;
     ofxPostProcessing       m_postProcessing;
-    ofxBlur                 m_blur;
     SonicBoomVisual         m_sonicBoomVisual;
         
     ofRectangle             m_drawArea;

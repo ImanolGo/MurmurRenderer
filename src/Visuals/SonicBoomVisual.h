@@ -12,7 +12,6 @@
 #include "ofMain.h"
 #include "BasicVisual.h"
 #include "ImageVisual.h"
-#include "ofxWater.h"
 #include "SettingsManager.h"
 
 
@@ -79,6 +78,7 @@ public:
     //! Destructor
     ~SonicBoomVisual();
      
+    //! set up the Sonic boom visual
     void setup();
     
     //! Draw the Sonic boom visual
@@ -94,18 +94,13 @@ public:
      
     void addParticle(const ofPoint& pos);
      
+    bool empty() {return m_particles.empty();}
+     
 private:
-     
-     void setupWaterRipples();
-     
-     void updateWaterRipples();
      
      void updateParticles();
      
-     void drawWaterRipples();
-     
      void drawParticles();
-    
      
 private:
      
@@ -114,11 +109,10 @@ private:
      
      WindowSettings         m_windowsSettings;
      
-     ofxWater               m_water;
-     
      ofFbo                  m_fbo;
      
      double                 m_elapsedTime;
+     double                 m_newParticleTime;
 
 };
 

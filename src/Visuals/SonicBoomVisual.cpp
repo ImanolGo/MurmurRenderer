@@ -74,9 +74,9 @@ void SonicBoomParticle::draw()
 
 
 
-SonicBoomVisual::SonicBoomVisual(): m_elapsedTime(10000)
+SonicBoomVisual::SonicBoomVisual(): m_elapsedTime(10000), m_newParticleTime(0.01)
 {
-    //Intentionaly left empty
+    this->setup();
 }
 
 
@@ -85,43 +85,31 @@ SonicBoomVisual::~SonicBoomVisual()
     //Intentionaly left empty
 }
 
+
 void SonicBoomVisual::setup()
 {
-    this->setupWaterRipples();
-}
-
-
-void SonicBoomVisual::setupWaterRipples()
-{
-    //ofSetCircleResolution(100);
     m_windowsSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(1);
-    
-    ofImage waterBackground;
-    waterBackground.allocate(m_windowsSettings.width, m_windowsSettings.height, OF_IMAGE_GRAYSCALE);
-    m_water.loadBackground(waterBackground);
-    m_water.setDensity(0.69);
-    
     
     m_fbo.allocate(m_windowsSettings.width, m_windowsSettings.height);
     m_fbo.begin(); ofClear(0); m_fbo.end();
-    
 }
+
 
 void SonicBoomVisual::update()
 {
     this->updateParticles();
-    //this->updateWaterRipples();
-    
 }
 
 
 void SonicBoomVisual::updateParticles()
 {
-    auto hands = AppManager::getInstance().getHandsManager().getHands();
-    
     m_elapsedTime += ofGetLastFrameTime();
-    if (m_elapsedTime >= 0.5) {
+    
+    if (m_elapsedTime >= m_newParticleTime) {
         m_elapsedTime = 0.0;
+        m_newParticleTime = 0.2 + ofRandom(0.5);
+        
+        auto hands = AppManager::getInstance().getHandsManager().getHands();
         
         for (auto hand : hands) {
             ofPoint pos = hand;
@@ -147,43 +135,6 @@ void SonicBoomVisual::updateParticles()
   
 }
 
-void SonicBoomVisual::updateWaterRipples()
-{
-    auto hands = AppManager::getInstance().getHandsManager().getHands();
-    
-    //ofEnableAlphaBlending();
-    m_water.begin();
-    
-    /*ofPushStyle();
-    ofFill();
-    ofSetLineWidth(16);
-    ofColor color = ofColor::white;
-    color.a =  ofMap(ofNoise( ofGetFrameNum() ) , 0.0, 1.0, 0, 255);
-    ofSetColor(color);
-    //ofSetColor(ofNoise( ofGetFrameNum() ) * 255 * 5, 255);
-    //ofSetColor(ofColor::blue);
-    float radius = ofMap(ofNoise( ofGetFrameNum() ) , 0.0, 1.0, 20, 60);
-    for (auto hand : hands) {
-        ofPoint pos = hand;
-        pos.x *= m_windowsSettings.width;
-        pos.y *= m_windowsSettings.height;
-        ofCircle(pos, radius);
-    }
-    ofPopStyle();*/
-    
-    //this->drawParticles();
-    
-    m_fbo.draw(0, 0);
-    
-    //ofCircle(ofGetMouseX(), ofGetMouseY(), radius);
-    m_water.end();
-    
-    m_water.update();
-    
-    //ofDisableAlphaBlending();
-    
-}
-
 
 void SonicBoomVisual::draw()
 {
@@ -191,14 +142,11 @@ void SonicBoomVisual::draw()
     //this->drawWaterRipples();
 }
 
-void SonicBoomVisual::drawWaterRipples()
-{
-    m_water[1].draw(0,0);
-}
 
 void SonicBoomVisual::drawParticles()
 {
-    ofPushStyle();
+    
+    //ofPushStyle();
     
     m_fbo.begin();
 
@@ -206,16 +154,16 @@ void SonicBoomVisual::drawParticles()
     ofClear(0,0,0);
     //ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
     //ofSetColor(255,255,255);
-       ofEnableBlendMode(OF_BLENDMODE_ADD);
-       for (auto particle: m_particles) {
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    for (auto particle: m_particles) {
         particle->draw();
     }
     
     //ofDisableAlphaBlending();
-    ofDisableBlendMode();
+   // ofDisableBlendMode();
     m_fbo.end();
     
-    ofPopStyle();
+   // ofPopStyle();
     
     m_fbo.draw(0, 0);
 }

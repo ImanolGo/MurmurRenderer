@@ -32,9 +32,11 @@ void BattleOfSelfScene::setup()
     this->setupFbos();
     this->setupPostProcessing();
     
+    //this->setupShaders();
+    
     m_sonicBoomVisual.setup();
     
-    m_fluid.setup("xmls/BattleOfSelfFluid.xml", 0.5);
+    m_fluid.setup("xmls/BattleOfSelfFluid.xml");
     m_initialized = true;
     
     ofLogNotice("BattleOfSelfScene::setup");
@@ -56,10 +58,6 @@ void BattleOfSelfScene::setupFbos()
 
 void BattleOfSelfScene::setupShaders()
 {
-    //m_shader.setGeometryInputType(GL_LINES);
-    //m_shader.setGeometryOutputType(GL_TRIANGLE_STRIP);
-    //m_shader.setGeometryOutputCount(24);
-    
     
     if(ofIsGLProgrammableRenderer()){
         m_shader.load("shaders/shadersGL3/LiquifyShader");
@@ -68,13 +66,6 @@ void BattleOfSelfScene::setupShaders()
         m_shader.load("shaders/shadersGL2/LiquifyShader");
         
     }
-    
-    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
-    m_blur.setup(windowsSettings.width, windowsSettings.height, 2, .2, 4);
-    //m_blur.setScale(5);
-    
-    //ofLogNotice() << "BattleOfSelfScene::setupShaders -> Geometry Max Output Count: " << m_shader.getGeometryMaxOutputCount();
-    
 }
 
 void BattleOfSelfScene::setupPostProcessing()
@@ -118,20 +109,6 @@ void BattleOfSelfScene::updateFluid()
 }
 
 
-void BattleOfSelfScene::updateContour()
-{
-    ofEnableAlphaBlending();
-    m_fbo.begin();
-    ofPushStyle();
-    ofSetColor(0,0,0, 20);
-    ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
-    ofSetColor(255,255,255);
-    AppManager::getInstance().getContourManager().draw();
-    ofPopStyle();
-    m_fbo.end();
-    ofDisableAlphaBlending();
-}
-
 void BattleOfSelfScene::updateSonicBoom()
 {
     m_sonicBoomVisual.update();
@@ -141,6 +118,7 @@ void BattleOfSelfScene::draw() {
     
     //ofLogNotice("BattleOfSelfScene::draw");
 
+    ofClear(0, 0, 0);
     ofPushStyle();
         ofEnableBlendMode(OF_BLENDMODE_DISABLED);
     
@@ -149,73 +127,38 @@ void BattleOfSelfScene::draw() {
         ofEnableBlendMode(OF_BLENDMODE_ADD);
 
         this->drawFluid();
-        //m_fluid.draw(m_drawArea);
-        //m_fluid.drawGui();
     
     ofPopStyle();
     
 }
 
 
-void BattleOfSelfScene::drawContour()
-{
-    // copy enable part of gl state
-    //glPushAttrib(GL_ENABLE_BIT);
-    
-    /*m_postProcessing.begin();
-     
-     ofPushMatrix();
-     //ofSetColor(255,255,255);
-     ofScale(1, -1);
-     ofTranslate(0, -ofGetHeight());
-     m_fbo.draw(0,0);
-     // AppManager::getInstance().getContourManager().draw();
-     ofPopMatrix();
-     
-     // end scene and draw
-     m_postProcessing.end();*/
-    
-    
-    // set gl state back to original
-    //glPopAttrib();
-    
-    //m_filter->begin();
-    //AppManager::getInstance().getContourManager().draw();
-    //m_filter->end();
-    m_blur.begin();
-    m_shader.begin();
-    float time = ofGetElapsedTimef();
-    m_shader.setUniform1f( "time", time );	//Passing float parameter "time" to shader
-    m_shader.setUniform1f( "amplitude", .4f );	//Passing float parameter "time" to shader
-    m_fbo.draw(0,0);
-    
-    m_shader.end();
-    m_blur.end();
-    
-    m_blur.draw();
-}
-
 void BattleOfSelfScene::drawSonicBoom()
 {
-    ofEnableAlphaBlending();
+    if (m_sonicBoomVisual.empty()) {
+        return;
+    }
+    
     m_postProcessing.begin();
-    ofPushStyle();
+    //ofPushStyle();
     ofPushMatrix();
-    //ofEnableBlendMode(OF_BLENDMODE_DISABLED);
         ofScale(1, -1);
         ofTranslate(0, -m_fbo.getHeight());
-        //m_fbo.draw(0,0);
-    //ofEnableBlendMode(OF_BLENDMODE_ADD);
         m_sonicBoomVisual.draw();
     
     ofPopMatrix();
     m_postProcessing.end();
-    ofPopStyle();
-    ofDisableAlphaBlending();
+    //ofPopStyle();
+    //ofDisableAlphaBlending();
 }
 
 void BattleOfSelfScene::drawFluid()
 {
+    
+    ofSetColor(160,160,255);
+    m_fluid.draw(m_drawArea);
+    return;
+    
     ofPushStyle();
     //ofEnableBlendMode(OF_BLENDMODE_ADD);
     
@@ -223,11 +166,13 @@ void BattleOfSelfScene::drawFluid()
     
     m_fbo.begin();
     
+    //ofClear(0, 0, 0);
+    
     ofSetColor(0,0,0);
     ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
     
-    //ofEnableBlendMode(OF_BLENDMODE_ADD);
-    ofSetColor(4,133,255);
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofSetColor(120,120,255);
     m_fluid.draw(m_drawArea);
     
     m_fbo.end();
