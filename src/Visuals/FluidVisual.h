@@ -35,7 +35,7 @@ public:
     ~FluidVisual();
     
     //! Setup the Fluid Visual
-    void setup(string settingsName);
+    void setup(string settingsName, float downSampling = 1.0f);
     
     //! Update the Fluid Visual
     void update();
@@ -105,8 +105,6 @@ public:
 private:
     
     
-    
-    
     ftOpticalFlow		m_opticalFlow;
     ftVelocityMask		m_velocityMask;
     ftFluidSimulation	m_fluid;
@@ -114,6 +112,8 @@ private:
     ftDisplayScalar		m_displayScalar;
     ftVelocityField		m_velocityField;
     ftTemperatureField	m_temperatureField;
+    
+    float               m_downSampling;
     
     int					m_numDrawForces;
     ftDrawForce*		m_flexDrawForces;

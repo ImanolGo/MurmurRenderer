@@ -17,7 +17,7 @@
 const int FluidVisual::FLUID_WIDTH = 1280;
 const int FluidVisual::FLUID_HEIGHT = 720;
 
-FluidVisual::FluidVisual()
+FluidVisual::FluidVisual(): m_downSampling(1.0f)
 {
     //Intentionaly left empty
 }
@@ -29,9 +29,10 @@ FluidVisual::~FluidVisual()
 }
 
 
-void FluidVisual::setup(string settingsName)
+void FluidVisual::setup(string settingsName, float downSampling)
 {
     m_guiSettingsName = settingsName;
+    m_downSampling = downSampling;
     
     this->setupFluid();
     this->setupGui();
@@ -41,19 +42,22 @@ void FluidVisual::setup(string settingsName)
 void FluidVisual::setupFluid()
 {
     
+    float drawWidth = FLUID_WIDTH*m_downSampling;
+    float drawHeight = FLUID_HEIGHT*m_downSampling;
+    
     // process all but the density on 16th resolution
-    int flowWidth = FLUID_WIDTH/4;
-    int flowHeight = FLUID_HEIGHT/4;
+    int flowWidth = drawWidth/4;
+    int flowHeight = drawHeight/4;
     
     // Flow & Mask
     m_opticalFlow.setup(flowWidth, flowHeight);
-    m_velocityMask.setup(FLUID_WIDTH, FLUID_HEIGHT);
+    m_velocityMask.setup(drawWidth, drawHeight);
     
     // m_fluid
     #ifdef USE_FASTER_INTERNAL_FORMATS
-        m_fluid.setup(flowWidth, flowHeight, FLUID_WIDTH, FLUID_HEIGHT, true);
+        m_fluid.setup(flowWidth, flowHeight, drawWidth, drawHeight, true);
     #else
-        m_fluid.setup(flowWidth, flowHeight, FLUID_WIDTH, FLUID_HEIGHT, false);
+        m_fluid.setup(flowWidth, flowHeight, drawWidth, drawHeight, false);
     #endif
     
     
@@ -65,7 +69,7 @@ void FluidVisual::setupFluid()
     // Draw Forces
     m_numDrawForces = 3;
     m_flexDrawForces = new ftDrawForce[m_numDrawForces];
-    m_flexDrawForces[0].setup(FLUID_WIDTH, FLUID_HEIGHT, FT_DENSITY, true);
+    m_flexDrawForces[0].setup(drawWidth, drawHeight, FT_DENSITY, true);
     m_flexDrawForces[0].setName("draw full res");
     m_flexDrawForces[1].setup(flowWidth, flowHeight, FT_VELOCITY, true);
     m_flexDrawForces[1].setName("draw flow res 1");

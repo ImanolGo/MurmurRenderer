@@ -34,7 +34,7 @@ void BattleOfSelfScene::setup()
     
     m_sonicBoomVisual.setup();
     
-    m_fluid.setup("xmls/BattleOfSelfFluid.xml");
+    m_fluid.setup("xmls/BattleOfSelfFluid.xml", 0.5);
     m_initialized = true;
     
     ofLogNotice("BattleOfSelfScene::setup");
@@ -91,9 +91,9 @@ void BattleOfSelfScene::setupPostProcessing()
     //zoomBlurPass->setEnabled(true);
     
     ofPtr<NoiseWarpPass> noisePass =  m_postProcessing.createPass<NoiseWarpPass>();
-    noisePass->setAmplitude(0.007);
-    noisePass->setSpeed(0.5);
-    noisePass->setFrequency(10);
+    noisePass->setAmplitude(0.01);
+    noisePass->setSpeed(0.3);
+    noisePass->setFrequency(5);
     noisePass->setEnabled(true);
     
     
@@ -111,6 +111,8 @@ void BattleOfSelfScene::update()
 void BattleOfSelfScene::updateFluid()
 {
     auto source = AppManager::getInstance().getContourManager().getSource();
+    
+    //source = m_sonicBoomVisual.getFbo();
     m_fluid.setSource(source);
     m_fluid.update();
 }
@@ -145,7 +147,7 @@ void BattleOfSelfScene::draw() {
         this->drawSonicBoom();
     
         ofEnableBlendMode(OF_BLENDMODE_ADD);
-    
+
         this->drawFluid();
         //m_fluid.draw(m_drawArea);
         //m_fluid.drawGui();
@@ -221,11 +223,11 @@ void BattleOfSelfScene::drawFluid()
     
     m_fbo.begin();
     
-    ofSetColor(0,0,0, 40);
+    ofSetColor(0,0,0);
     ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
     
-    ofEnableBlendMode(OF_BLENDMODE_ADD);
-    ofSetColor(120,120,255);
+    //ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofSetColor(4,133,255);
     m_fluid.draw(m_drawArea);
     
     m_fbo.end();

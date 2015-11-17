@@ -11,6 +11,7 @@
 
 #include "ofMain.h"
 #include "BasicVisual.h"
+#include "ImageVisual.h"
 #include "ofxWater.h"
 #include "SettingsManager.h"
 
@@ -54,6 +55,8 @@ private:
     float m_lifeTime;            //Allowed lifetime
     float m_size;                ///Max size
     bool  m_live;                //Is particle live
+    
+    ImageVisual  m_image;
 };
 
 
@@ -87,6 +90,8 @@ public:
      //! Clear the Sonic boom visual
     void clear();
      
+    const ofFbo& getFbo() const {return m_fbo;}
+     
     void addParticle(const ofPoint& pos);
      
 private:
@@ -112,6 +117,8 @@ private:
      ofxWater               m_water;
      
      ofFbo                  m_fbo;
+     
+     double                 m_elapsedTime;
 
 };
 

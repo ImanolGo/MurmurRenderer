@@ -1,7 +1,7 @@
 <FluidGUI>
 	<optical_flow>
-		<strength>16.9592</strength>
-		<offset>6</offset>
+		<strength>75.102</strength>
+		<offset>4</offset>
 		<labda>0.01</labda>
 		<treshold>0.115918</treshold>
 		<inverse_x>0</inverse_x>
@@ -13,7 +13,7 @@
 		</time_blur>
 	</optical_flow>
 	<velocity_mask>
-		<strength>4.73469</strength>
+		<strength>7.91837</strength>
 		<saturation>4.03673</saturation>
 		<blur_passes>3</blur_passes>
 		<blur_radius>5.5102</blur_radius>
@@ -23,8 +23,8 @@
 		<speed>34.6939</speed>
 		<cell_size>1.21633</cell_size>
 		<iterations>19</iterations>
-		<viscosity>0.277551</viscosity>
-		<vorticity>0.691837</vorticity>
+		<viscosity>0.489796</viscosity>
+		<vorticity>0.840816</vorticity>
 		<dissipation>0.00930612</dissipation>
 		<advanced_dissipation>
 			<velocity_offset>0</velocity_offset>
@@ -32,7 +32,7 @@
 			<temperature_offset>0</temperature_offset>
 		</advanced_dissipation>
 		<smoke_buoyancy>
-			<sigma>0.0254061</sigma>
+			<sigma>0.0962099</sigma>
 			<weight>0.216993</weight>
 			<ambient_temperature>0</ambient_temperature>
 			<gravity>0, 0</gravity>
