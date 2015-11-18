@@ -144,6 +144,7 @@ void AppManager::setupManagers()
     m_birdsManager.setup();
     m_midiManager.setup();
     m_previewManager.setup();
+    m_maskManager.setup();
 }
 
 void AppManager::update()

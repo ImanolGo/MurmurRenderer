@@ -31,6 +31,7 @@
 #include "BirdsManager.h"
 #include "MidiManager.h"
 #include "PreviewManager.h"
+#include "MaskManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -113,6 +114,9 @@ public:
     
     //! Returns the Preview Manager
     PreviewManager&  getPreviewManager() { return m_previewManager; }
+    
+    //! Returns the Mask Manager
+    MaskManager&  getMaskManager() { return m_maskManager; }
 
     
     //==========================================================================
@@ -175,6 +179,7 @@ private:
     BirdsManager                    m_birdsManager;             ///< Manages the birds
     MidiManager                     m_midiManager;              ///< Manages the midi input messages
     PreviewManager                  m_previewManager;           ///< Manages the preview
+    MaskManager                     m_maskManager;              ///< Manages the masking
     
 
     bool                            m_debugMode;

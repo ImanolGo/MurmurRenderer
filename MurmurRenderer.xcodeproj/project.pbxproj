@@ -33,6 +33,7 @@
 		0848D75D1B90872600672D56 /* ofxFFTBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7561B90872600672D56 /* ofxFFTBase.cpp */; };
 		0848D75E1B90872600672D56 /* ofxFFTFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7581B90872600672D56 /* ofxFFTFile.cpp */; };
 		0848D75F1B90872600672D56 /* ofxFFTLive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D75A1B90872600672D56 /* ofxFFTLive.cpp */; };
+		085B47051BFD37780084EA57 /* MaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 085B47031BFD37780084EA57 /* MaskManager.cpp */; };
 		087761EA1BBAD9E700898648 /* PreviewManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087761E81BBAD9E700898648 /* PreviewManager.cpp */; };
 		08895FA31BBD554F00ED3B0A /* RectangleVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08895FA11BBD554F00ED3B0A /* RectangleVisual.cpp */; };
 		089A81FF1B42CAF700928D12 /* BattleOfSelfScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 089A81FD1B42CAF700928D12 /* BattleOfSelfScene.cpp */; };
@@ -287,6 +288,8 @@
 		0848D7591B90872600672D56 /* ofxFFTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTFile.h; sourceTree = "<group>"; };
 		0848D75A1B90872600672D56 /* ofxFFTLive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTLive.cpp; sourceTree = "<group>"; };
 		0848D75B1B90872600672D56 /* ofxFFTLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTLive.h; sourceTree = "<group>"; };
+		085B47031BFD37780084EA57 /* MaskManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaskManager.cpp; path = Layout/MaskManager.cpp; sourceTree = "<group>"; };
+		085B47041BFD37780084EA57 /* MaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaskManager.h; path = Layout/MaskManager.h; sourceTree = "<group>"; };
 		087761E81BBAD9E700898648 /* PreviewManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PreviewManager.cpp; path = Layout/PreviewManager.cpp; sourceTree = "<group>"; };
 		087761E91BBAD9E700898648 /* PreviewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewManager.h; path = Layout/PreviewManager.h; sourceTree = "<group>"; };
 		08895FA11BBD554F00ED3B0A /* RectangleVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleVisual.cpp; sourceTree = "<group>"; };
@@ -1419,6 +1422,8 @@
 		375D8B140B52B55EB32EB487 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				085B47031BFD37780084EA57 /* MaskManager.cpp */,
+				085B47041BFD37780084EA57 /* MaskManager.h */,
 				087761E81BBAD9E700898648 /* PreviewManager.cpp */,
 				087761E91BBAD9E700898648 /* PreviewManager.h */,
 				4907E8B0250B798D3E6F09A1 /* GuiManager.cpp */,
@@ -2139,6 +2144,7 @@
 				08D401F41B6A703B0035C289 /* README.md in Sources */,
 				08AC0E111B45251200574154 /* HandsWritingScene.cpp in Sources */,
 				08D4015A1B6A368C0035C289 /* RimHighlightingPass.cpp in Sources */,
+				085B47051BFD37780084EA57 /* MaskManager.cpp in Sources */,
 				08EC80341B3C3F0F000893E1 /* ofxEasingBack.cpp in Sources */,
 				08D4015E1B6A368C0035C289 /* ZoomBlurPass.cpp in Sources */,
 				08B0745A1B45944C008D71BB /* FluidFloorScene.cpp in Sources */,
