@@ -452,6 +452,13 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
+        else if(m.getAddress() == "/MurmurRenderer/BeautifulMindCalibrationOn"){
+            int value = m.getArgAsInt32(0);
+            bool on = value != 0;
+            AppManager::getInstance().getGuiManager().setBeautifulMindCalibrationOn(on);
+            this->updateReceiveText();
+        }
+        
         else if(m.getAddress() == "/MurmurRenderer/PaperThrowerSpeed"){
             int value = m.getArgAsFloat(0);
             AppManager::getInstance().getGuiManager().setPaperThrowerSpeed(value);

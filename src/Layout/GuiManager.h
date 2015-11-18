@@ -138,6 +138,8 @@ public:
     
     void setBeautifulMindFloorOn(bool value) {m_beautifulMindFloorOn = value;}
     
+    void setBeautifulMindCalibrationOn(bool value) {m_beautifulMindCalibrationOn = value;}
+    
     void setCropLeft(unsigned int value) {m_cropLeft = value;}
     
     void setCropRight(unsigned int value) {m_cropRight = value;}
@@ -245,6 +247,7 @@ private:
     ofParameter<ofVec2f>    m_beautifulMindScale;
     ofParameter<float>      m_beautifulMindFloorSpeed;
     ofParameter<bool>       m_beautifulMindFloorOn;
+    ofParameter<bool>       m_beautifulMindCalibrationOn;
     
     ofParameter<ofVec3f>    m_birdsPosition;
     ofParameter<ofVec3f>    m_birdsSwarmSizeVector;

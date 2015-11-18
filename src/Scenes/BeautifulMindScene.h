@@ -54,10 +54,16 @@ public:
 private:
     
     //! Setup Fbo
-    void   setupFbo();
+    void   setupFbos();
+    
+    //! Setup shader
+    void   setupShaders();
     
     //! Setup video
-    void   setupVideo();
+    void setupVideo();
+    
+    //! Setup images
+    void setupImages();
     
     //! update video
     void   updateVideo();
@@ -65,67 +71,26 @@ private:
     //! update video
     void   drawVideo();
     
-    //! Setup all the scenes
-    void   setupScenes();
-    
-    //! Setup Scene 1
-    void   setupScene1();
-    
-    //! Update Scene 1
-    void   updateScene1();
-    
-    //! Setup Scene 2
-    void   setupScene2();
-    
-    //! Update Scene 2
-    void   updateScene2();
-    
-    //! Setup Scene 3
-    void   setupScene3();
-    
-    //! Update Scene 3
-    void   updateScene3();
-    
-    //! Setup Scene 4
-    void   setupScene4();
-    
-    //! Update Scene 4
-    void   updateScene4();
-    
-    //! Draw the complete scene
+    //! draw video
     void   drawScene();
+    
+    //! draw calibration
+    void   drawCalibration();
     
     //! Calculate the drawing area
     ofRectangle  getDrawingArea();
     
-    void setScene(int scene);
-    
-    void startCurrentScene();
-    
-    void nextScene();
-    
-    void fadeOutVisuals();
-    
-    void resetTimeValues();
-    
-    void nextSecondaryScene();
-    
-    void resetSecondaryScene();
-    
-private:
+   private:
     
      typedef   map < string, ofPtr< ImageVisual > >  ImageMap;
+     ImageMap      m_images;
     
      bool          m_initialized;
      VideoVisual   m_video;
-     ImageMap      m_images;
-     int           m_sceneNumber;
-     float         m_elapsedTime;
-     float         m_duration;
-     float         m_elapsedTimeSecondary;
-     int           m_sceneNumberSecondary;
-     float         m_durationSecondary;
-     ofFbo         m_fbo;
+    
+     ofShader        m_maskShader;
+     ofFbo           m_fboMask;
+     ofFbo           m_fboVideo;
 
 };
 

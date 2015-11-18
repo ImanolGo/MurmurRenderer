@@ -51,6 +51,8 @@ public:
 
     //! Get the original height
     float getOriginalHeight() const {return m_originalHeight;}
+    
+    ofTexture & getTexture();
 
 
 protected:

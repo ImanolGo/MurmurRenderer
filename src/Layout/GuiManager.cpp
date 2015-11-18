@@ -302,6 +302,11 @@ void GuiManager::setupBeautifulMindGui()
     m_beautifulMindFloorSpeed.set("Speed", 1.0, 0.0, 5.0);
     m_beautifulMindFloorSpeed.addListener(beautifulMindManager, &BeautifulMindManager::setFloorSpeed);
     m_parametersBeautifulMind.add(m_beautifulMindFloorSpeed);
+    
+    m_beautifulMindCalibrationOn.set("CalibrationOn", false);
+    m_beautifulMindCalibrationOn.addListener(beautifulMindManager, &BeautifulMindManager::setCalibrationOn);
+    m_parametersBeautifulMind.add(m_beautifulMindCalibrationOn);
+
 
     m_gui.add(m_parametersBeautifulMind);
 }

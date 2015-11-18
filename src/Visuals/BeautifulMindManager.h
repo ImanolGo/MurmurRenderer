@@ -61,9 +61,13 @@ public:
      
     void setFloorOn(bool &floorOn ) {m_floorOn = floorOn;}
      
+    void setCalibrationOn(bool &calibrationOn ) {m_calibrationOn = calibrationOn;}
+     
     float getFloorSpeed() const {return m_floorSpeed;}
      
     bool isFloorOn() const {return m_floorOn;}
+     
+    bool isCalibrationOn() const {return m_calibrationOn;}
 
      
 private:
@@ -81,6 +85,7 @@ private:
     TimingMap           m_timings;              ///< stores the timings
      
     bool                m_floorOn;
+    bool                m_calibrationOn;
     float               m_floorSpeed;
      
 };

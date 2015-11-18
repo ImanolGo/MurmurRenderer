@@ -14,7 +14,7 @@
 
 ImageVisual::ImageVisual(): BasicVisual(), m_centred(false), m_resizer(1,1,1)
 {
-    //Intentionally left empty
+    this->setResource("");
 }
 
 
@@ -93,4 +93,9 @@ void ImageVisual::setHeight(float height, bool keepRatio)
 
     m_resizer.x = m_width/m_originalWidth;
     m_resizer.y = m_height/m_originalHeight;
+}
+
+ofTexture & ImageVisual::getTexture()
+{
+    return (*m_texture.get());
 }
