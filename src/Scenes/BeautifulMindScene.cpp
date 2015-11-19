@@ -10,10 +10,6 @@
 #include "AppManager.h"
 #include "BeautifulMindScene.h"
 
-const int BeautifulMindScene::NUMBER_SCENES = 4;
-const float BeautifulMindScene::FADE_TIME = 2.0f;
-const int BeautifulMindScene::NUMBER_SCENES_IN_SCENE_02 = 4;
-const int BeautifulMindScene::NUMBER_SCENES_IN_SCENE_04 = 3;
 
 
 BeautifulMindScene::BeautifulMindScene(): m_initialized(false)
@@ -39,8 +35,8 @@ void BeautifulMindScene::setup() {
     this->setupImages();
     this->setupFbos();
     this->setupVideo();
-    this->setupShaders();
-    
+    this->setupShader();
+
     ofLogNotice("BeautifulMindScene::setup");
     
 }
@@ -48,12 +44,9 @@ void BeautifulMindScene::setup() {
 void BeautifulMindScene::setupFbos()
 {
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
-    m_fboMask.allocate(windowsSettings.width, windowsSettings.height,GL_RGB);
-    m_fboMask.begin(); ofClear(0, 0, 0); m_images["frame_mask"]->draw(); m_fboMask.end();
-    
-    
     m_fboVideo.allocate(windowsSettings.width, windowsSettings.height,GL_RGB);
-    m_fboVideo.begin(); ofClear(0, 0, 0); m_fboVideo.end();
+    m_fboVideo.begin(); ofClear(0, 0, 0);  ; m_fboVideo.end();
+    
 }
 
 void BeautifulMindScene::setupImages()
@@ -75,22 +68,30 @@ void BeautifulMindScene::setupImages()
 }
 
 
-void BeautifulMindScene::setupShaders()
+void BeautifulMindScene::setupShader()
 {
-    if(ofIsGLProgrammableRenderer()){
-        m_maskShader.load("shaders/shadersGL3/BlackMask");
-    }
-    else{
-        m_maskShader.load("shaders/shadersGL2/BlackMask");
-    }
+    auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     
+    m_mask.setup(windowsSettings.width, windowsSettings.height, ofxMaskAddon::LUMINANCE);
+    this->setupMask();
+}
+
+
+void BeautifulMindScene::setupMask()
+{
+    // creating masker texture
+    m_mask.beginMask();
+        ofClear(0, 0, 0);
+        m_images["frame_mask"]->draw();
+    // draw masker here in gray scale
+    m_mask.endMask();
 }
 
 void BeautifulMindScene::setupVideo()
 {
     string videoFileName = "videos/BeautifulMind.mov";
     m_video.setResource(videoFileName);
-    m_video.setWidth(m_fboMask.getWidth()); m_video.setHeight(m_fboMask.getHeight());
+    m_video.setWidth(m_fboVideo.getWidth()); m_video.setHeight(m_fboVideo.getHeight());
     m_video.setLoopState(OF_LOOP_NORMAL);
 }
 
@@ -99,11 +100,37 @@ void BeautifulMindScene::setupVideo()
 void BeautifulMindScene::update()
 {
     this->updateVideo();
+    this->updateMask();
 }
 
 void BeautifulMindScene::updateVideo()
 {
     m_video.update();
+    
+    auto area = getDrawingArea();
+    m_video.setHeight(area.height); m_video.setWidth(area.width);
+    ofVec2f pos(area.x,area.y);
+    m_video.setPosition(pos);
+    
+    m_fboVideo.begin();
+        ofClear(0, 0, 0);
+        m_video.draw();
+    m_fboVideo.end();
+
+}
+
+
+void BeautifulMindScene::updateMask()
+{
+    string resourceName = "frame_mask";
+    
+    auto area = getDrawingArea();
+    m_images[resourceName]->setHeight(area.height); m_images[resourceName]->setWidth(area.width);
+    ofVec2f pos(area.x,area.y);
+    
+    m_images[resourceName]->setPosition(pos);
+    
+    this->setupMask();
 }
 
 
@@ -126,19 +153,18 @@ void BeautifulMindScene::draw() {
 
 void BeautifulMindScene::drawScene()
 {
-    m_fboVideo.begin();
-        ofClear(0, 0, 0);
-        m_maskShader.begin();
-        m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
+    // creating maskee texture
+    m_mask.begin();
+    // draw maskee here
+        this->drawVideo();
+    m_mask.end();
     
-            this->drawVideo();
-            //m_fboMask.draw(0,0);
-        m_maskShader.end();
-    m_fboVideo.end();
+    // draw result
+    m_mask.draw();
     
-    m_fboVideo.draw(getDrawingArea());
-    //m_fboVideo.draw(0,0);
-    //m_fboMask.draw(0,0);
+    //m_video.draw();
+    
+    //this->drawVideo();
 }
 
 void BeautifulMindScene::drawCalibration()
@@ -157,7 +183,7 @@ void BeautifulMindScene::drawCalibration()
 
 void BeautifulMindScene::drawVideo() {
     
-    m_video.draw();
+    m_fboVideo.draw(0,0);
 }
 
 ofRectangle BeautifulMindScene::getDrawingArea()
@@ -179,14 +205,6 @@ void BeautifulMindScene::willFadeIn() {
      m_video.stop();
      m_video.setFrame(0);
      m_video.play();
-    
-    /*
-    for (auto image: m_images) {
-        image.second->setAlpha(0);
-    }
-    
-     this->setScene(0);
-    */
     
 }
 

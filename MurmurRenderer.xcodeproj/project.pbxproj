@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0466B9E6A55078A9F39B1B4B /* svgtiny_gradient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4F639B12AA5C1013177E49 /* svgtiny_gradient.cpp */; };
 		04DF616AA21AD331DF08C325 /* ftParticleFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D9822CFA7F77387B3BBDBC /* ftParticleFlow.cpp */; };
+		0818C74F1BFE7D4B0091A9DB /* ofxMaskAddon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0818C74D1BFE7D4B0091A9DB /* ofxMaskAddon.cpp */; };
 		082C27521BB3F08400EEB495 /* RtMidi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 082C27261BB3F08400EEB495 /* RtMidi.cpp */; };
 		082C27531BB3F08400EEB495 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 082C272A1BB3F08400EEB495 /* README.md */; };
 		082C27541BB3F08400EEB495 /* ofxRtMidiIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 082C27331BB3F08400EEB495 /* ofxRtMidiIn.cpp */; };
@@ -236,6 +237,8 @@
 		05F8E3C8BC749A2D7EFC7E4D /* ftTemperatureFieldShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ftTemperatureFieldShader.h; path = src/Addons/ofxFlowTools/src/visualisation/ftTemperatureFieldShader.h; sourceTree = SOURCE_ROOT; };
 		067A0CB3F8E32F33532D73DE /* ofxGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGui.h; path = src/Addons/ofxGui/src/ofxGui.h; sourceTree = SOURCE_ROOT; };
 		074978820820325AB8737225 /* README.md */ = {isa = PBXFileReference; explicitFileType = file; fileEncoding = 30; name = README.md; path = src/Addons/ofxUnicode/README.md; sourceTree = SOURCE_ROOT; };
+		0818C74D1BFE7D4B0091A9DB /* ofxMaskAddon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxMaskAddon.cpp; path = Addons/ofxMaskAddon/src/ofxMaskAddon.cpp; sourceTree = "<group>"; };
+		0818C74E1BFE7D4B0091A9DB /* ofxMaskAddon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMaskAddon.h; path = Addons/ofxMaskAddon/src/ofxMaskAddon.h; sourceTree = "<group>"; };
 		082C27181BB3F08400EEB495 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		082C27251BB3F08400EEB495 /* readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
 		082C27261BB3F08400EEB495 /* RtMidi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RtMidi.cpp; sourceTree = "<group>"; };
@@ -707,6 +710,23 @@
 				47B837DB6F7B4DA45AC9E559 /* src */,
 			);
 			name = oscpack;
+			sourceTree = "<group>";
+		};
+		0818C74B1BFE7D220091A9DB /* ofxMaskAddon */ = {
+			isa = PBXGroup;
+			children = (
+				0818C74C1BFE7D330091A9DB /* src */,
+			);
+			name = ofxMaskAddon;
+			sourceTree = "<group>";
+		};
+		0818C74C1BFE7D330091A9DB /* src */ = {
+			isa = PBXGroup;
+			children = (
+				0818C74D1BFE7D4B0091A9DB /* ofxMaskAddon.cpp */,
+				0818C74E1BFE7D4B0091A9DB /* ofxMaskAddon.h */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 		082C27171BB3F08400EEB495 /* ofxMidi */ = {
@@ -1669,6 +1689,7 @@
 		AD642137CCDF61FB3E6CCEA2 /* Addons */ = {
 			isa = PBXGroup;
 			children = (
+				0818C74B1BFE7D220091A9DB /* ofxMaskAddon */,
 				082C27171BB3F08400EEB495 /* ofxMidi */,
 				0848D74E1B90872600672D56 /* ofxFFT */,
 				0848D7181B904C6800672D56 /* ofxSyphon */,
@@ -2059,6 +2080,7 @@
 				0848D7311B904C6800672D56 /* ofxSyphonServerDirectory.mm in Sources */,
 				08D401551B6A368C0035C289 /* NoiseWarpPass.cpp in Sources */,
 				F79E74E14D9ADD817F5560E9 /* LICENSE in Sources */,
+				0818C74F1BFE7D4B0091A9DB /* ofxMaskAddon.cpp in Sources */,
 				CCFE08BE342AD4527F595CA8 /* README.md in Sources */,
 				08EC803A1B3C3F0F000893E1 /* ofxEasingLinear.cpp in Sources */,
 				08FFBCF31BB17D4100B4CCF2 /* BirdsOpeningScene.cpp in Sources */,

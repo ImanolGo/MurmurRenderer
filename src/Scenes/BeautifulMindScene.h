@@ -13,15 +13,12 @@
 
 #include "ofxScene.h"
 
+#include "ofxMaskAddon.h"
 
 
 class BeautifulMindScene : public ofxScene {
 
-    static const int NUMBER_SCENES;
-    static const int NUMBER_SCENES_IN_SCENE_02;
-    static const int NUMBER_SCENES_IN_SCENE_04;
-    static const float FADE_TIME;
-    
+
 public:
 
     //! Constructor
@@ -56,8 +53,11 @@ private:
     //! Setup Fbo
     void   setupFbos();
     
+    //! Setup mask
+    void  setupMask();
+    
     //! Setup shader
-    void   setupShaders();
+    void  setupShader();
     
     //! Setup video
     void setupVideo();
@@ -66,7 +66,10 @@ private:
     void setupImages();
     
     //! update video
-    void   updateVideo();
+    void  updateVideo();
+    
+    //! update video
+    void  updateMask();
     
     //! update video
     void   drawVideo();
@@ -88,9 +91,8 @@ private:
      bool          m_initialized;
      VideoVisual   m_video;
     
-     ofShader        m_maskShader;
-     ofFbo           m_fboMask;
      ofFbo           m_fboVideo;
+     ofxMaskAddon    m_mask;
 
 };
 

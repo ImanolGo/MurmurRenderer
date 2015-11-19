@@ -3,7 +3,7 @@
 #include "ofFbo.h"
 #include "ofShader.h"
 
-class ofxMask
+class ofxMaskAddon
 {
 public:
 	enum Type

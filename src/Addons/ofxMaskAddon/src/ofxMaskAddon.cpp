@@ -1,4 +1,4 @@
-#include "ofxMask.h"
+#include "ofxMaskAddon.h"
 #include "ofGraphics.h"
 
 namespace {
@@ -35,7 +35,7 @@ void makeTexCoords(float *dst, ofTextureData& texture_data)
 	}
 }
 }
-void ofxMask::setup(int width, int height, Type type)
+void ofxMaskAddon::setup(int width, int height, Type type)
 {
 #define _S(a) #a
 	switch(type) {
@@ -77,7 +77,7 @@ void ofxMask::setup(int width, int height, Type type)
 	makeVertices(vertices_, masker_.getTextureReference().getTextureData());
 }
 
-void ofxMask::beginMask(bool clear)
+void ofxMaskAddon::beginMask(bool clear)
 {
 	masker_.begin();
 	if(clear) {
@@ -85,19 +85,19 @@ void ofxMask::beginMask(bool clear)
 	}
 }
 
-void ofxMask::endMask()
+void ofxMaskAddon::endMask()
 {
 	masker_.end();
 }
 
-void ofxMask::clearMask()
+void ofxMaskAddon::clearMask()
 {
 	masker_.begin();
 	ofClear(0);
 	masker_.end();
 }
 
-void ofxMask::begin(bool clear)
+void ofxMaskAddon::begin(bool clear)
 {
 	maskee_.begin();
 	if(clear) {
@@ -105,12 +105,12 @@ void ofxMask::begin(bool clear)
 	}
 }
 
-void ofxMask::end()
+void ofxMaskAddon::end()
 {
 	maskee_.end();
 }
 
-void ofxMask::draw()
+void ofxMaskAddon::draw()
 {
 	ofPushStyle();
 	glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
@@ -127,14 +127,14 @@ void ofxMask::draw()
 	ofPopStyle();
 }
 
-void ofxMask::drawMasker()
+void ofxMaskAddon::drawMasker()
 {
 	ofPushStyle();
 	glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	masker_.draw(0,0,masker_.getWidth(),masker_.getHeight());
 	ofPopStyle();
 }
-void ofxMask::drawMaskee()
+void ofxMaskAddon::drawMaskee()
 {
 	ofPushStyle();
 	glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
