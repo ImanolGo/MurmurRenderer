@@ -14,7 +14,7 @@
 
 ImageVisual::ImageVisual(): BasicVisual(), m_centred(false), m_resizer(1,1,1)
 {
-    this->setResource("");
+    //this->setResource("");
 }
 
 

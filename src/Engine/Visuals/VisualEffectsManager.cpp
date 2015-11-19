@@ -125,7 +125,7 @@ void VisualEffectsManager::createScaleEffect(ofPtr<BasicVisual> visual, const of
     if(!visual)
         return;
 
-	ofPtr<ScaleVisual> scaleVisual = ofPtr<ScaleVisual>(new ScaleVisual(visual,QUINTIC, EASE_OUT));
+	ofPtr<ScaleVisual> scaleVisual = ofPtr<ScaleVisual>(new ScaleVisual(visual,CUBIC, EASE_OUT));
 	scaleVisual->setParameters(startScale,endScale,animationTime);
 	scaleVisual->start(startAnimation);
 	this->addVisualEffect(scaleVisual);

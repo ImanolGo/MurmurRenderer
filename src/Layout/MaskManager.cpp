@@ -53,6 +53,8 @@ void MaskManager::setupFbos()
         m_fbos.push_back(fbo);
     }
 
+    this->setMaskWindowFront();
+    this->setMaskWindowTop();
 }
 
 void MaskManager::setMaskWindowFront()
@@ -63,11 +65,14 @@ void MaskManager::setMaskWindowFront()
         return;
     }
     
-    ImageVisual gradientMask = ImageVisual(ofPoint(0,0), "floor_mask", true );
+    ofLogNotice() <<"MaskManager::setup Front Mask ";
+    
+    ImageVisual gradientMask = ImageVisual(ofPoint(0,0), "frame_mask" );
     gradientMask.setWidth(m_fbos[indexWindow]->getWidth()); gradientMask.setHeight(m_fbos[indexWindow]->getHeight());
     
     
     m_fbos[indexWindow]->begin();
+        ofClear(0);
         gradientMask.draw();
     m_fbos[indexWindow]->end();
 
@@ -81,11 +86,14 @@ void MaskManager::setMaskWindowTop()
         return;
     }
     
+    ofLogNotice() <<"MaskManager::setup Top Mask ";
+    
     ImageVisual gradientMask = ImageVisual(ofPoint(m_fbos[indexWindow]->getWidth()*0.5,m_fbos[indexWindow]->getHeight()*0.5), "floor_mask", true );
     gradientMask.setHeight(m_fbos[indexWindow]->getHeight(), true);
 
   
     m_fbos[indexWindow]->begin();
+        ofClear(0);
         gradientMask.draw();
     m_fbos[indexWindow]->end();
     
@@ -114,8 +122,8 @@ void MaskManager::begin(int windowIndex)
 
 void MaskManager::end(int windowIndex)
 {
-  
     m_maskShader.end();
+    //m_fbos[windowIndex]->draw(0,0);
 }
 
 

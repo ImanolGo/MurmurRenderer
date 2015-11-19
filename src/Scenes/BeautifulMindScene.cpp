@@ -64,7 +64,7 @@ void BeautifulMindScene::setupImages()
     ofPoint position = ofPoint(0,0,0);
     
     ofPtr<ImageVisual> image = ofPtr<ImageVisual>(new ImageVisual(position,resourceName));
-    image->setHeight(windowsSettings.height); image->setWidth(windowsSettings.width);
+     image->setWidth(windowsSettings.width); image->setHeight(windowsSettings.height);
     m_images[resourceName] = image;
     
     resourceName = "calibration_image";
@@ -88,7 +88,7 @@ void BeautifulMindScene::setupShaders()
 
 void BeautifulMindScene::setupVideo()
 {
-    string videoFileName = "videos/BeautifulMind.mp4";
+    string videoFileName = "videos/BeautifulMind.mov";
     m_video.setResource(videoFileName);
     m_video.setWidth(m_fboMask.getWidth()); m_video.setHeight(m_fboMask.getHeight());
     m_video.setLoopState(OF_LOOP_NORMAL);

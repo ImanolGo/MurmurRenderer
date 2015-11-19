@@ -179,16 +179,21 @@ void AppManager::draw()
         case 1:
             m_previewManager.begin(wIndex);
                 ofBackground(0,0,0); // change background color on each window
-                m_sceneManager.draw(WindowIndex(wIndex));
-                m_layoutManager.draw();
+                //m_maskManager.begin(wIndex);
+                    m_sceneManager.draw(WindowIndex(wIndex));
+                    m_layoutManager.draw();
+                //m_maskManager.end(wIndex);
+            
             m_previewManager.end(wIndex);
             m_previewManager.draw(wIndex);
             break;
         case 2:
             m_previewManager.begin(wIndex);
                 ofBackground(0,0,0); // change background color on each window
-                m_sceneManager.draw(WindowIndex(wIndex));
-                m_previewManager.end(wIndex);
+                //m_maskManager.begin(wIndex);
+                    m_sceneManager.draw(WindowIndex(wIndex));
+                //m_maskManager.end(wIndex);
+            m_previewManager.end(wIndex);
             m_previewManager.draw(wIndex);
             break;
     }

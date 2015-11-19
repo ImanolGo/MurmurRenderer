@@ -94,6 +94,7 @@ void HandsWritingScene::updateHands()
     m_skipFrames++;
     
     ofEnableAlphaBlending();
+    ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     m_fbo.begin();
     ofPushStyle();
         if(m_skipFrames>=numSkipFrames){
@@ -101,6 +102,8 @@ void HandsWritingScene::updateHands()
             ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
             m_skipFrames = 0;
         }
+    //ofSetColor(0,0,0,5);
+    //ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
     
         ofEnableBlendMode(OF_BLENDMODE_ADD);
         for (auto hand : hands) {
