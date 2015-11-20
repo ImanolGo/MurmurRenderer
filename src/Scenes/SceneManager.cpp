@@ -182,6 +182,7 @@ void SceneManager::setupText()
     AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
     
     
+    fontSize = 36;
     width =  (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5 - LayoutManager::MARGIN;
     height = fontSize*3;
     
@@ -192,7 +193,6 @@ void SceneManager::setupText()
     m_sceneText->setText("", "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
     m_sceneText->setColor(ofColor::white);
     AppManager::getInstance().getViewManager().addOverlay(m_sceneText);
-    
     
     width = m_sceneText->getWidth() + LayoutManager::MARGIN;
     height = m_sceneText->getHeight() + LayoutManager::MARGIN;

@@ -17,7 +17,7 @@
 //==============================================================================
 
 
-VisualEffect::VisualEffect(ofPtr<BasicVisual> visual, EasingFunction function, EasingType type): m_visual(visual), m_function(function), m_isActive(false), m_animationTime(1000.0), m_elapsedTime(0.0),	m_elaspedTimeToStart(0.0), m_type(type), m_isFinished(false)
+VisualEffect::VisualEffect(ofPtr<BasicVisual> visual, EasingFunction function, EasingType type): m_visual(visual), m_function(function), m_isActive(false), m_animationTime(1000.0), m_elapsedTime(0.0),	m_elaspedTimeToStart(0.0), m_type(type), m_isFinished(true)
 {
 	// intentionally left empty
 }

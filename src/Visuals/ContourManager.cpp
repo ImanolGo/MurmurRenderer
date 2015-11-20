@@ -9,6 +9,7 @@
 
 #include "FluidVisual.h"
 #include "ContourManager.h"
+#include "AppManager.h"
 
 
 ContourManager::ContourManager(): m_isFrameNew(false), m_contourThickness(1.0), m_contourScale(ofVec2f(1.0,1.0))
@@ -31,6 +32,7 @@ void ContourManager::setup()
     
     this->setupShader();
     this->setupFbo();
+    this->setupEffects();
 }
 
 
@@ -62,6 +64,12 @@ void ContourManager::setupFbo()
     
 }
 
+void ContourManager::setupEffects()
+{
+    m_contourVisual =  ofPtr<BasicVisual>(new BasicVisual());
+    m_contourEffect = ofPtr<MoveVisual>(new MoveVisual(m_contourVisual));
+}
+
 
 void ContourManager::update()
 {
@@ -84,6 +92,14 @@ void ContourManager::update()
         
         m_isFrameNew = false;
     }
+    
+    
+    if(!m_contourEffect->isFinished())
+    {
+        AppManager::getInstance().getGuiManager().setContourThickness(m_contourVisual->getPosition().x);
+        //ofLogNotice() <<"ContourManager::contour = " <<  m_contourVisual->getPosition().x;
+    }
+    
     
 }
 
@@ -156,4 +172,13 @@ void ContourManager::setScale(ofVec2f & scale)
 void ContourManager::setContourThickness(float & value)
 {
     m_contourThickness = ofClamp(value, 0.0, 10.0);
+}
+
+void ContourManager::addContourEffect(float targetContourThickness, double duration, double startTime)
+{
+    m_contourEffect->stop();
+    m_contourEffect->setParameters(ofVec3f(m_contourThickness,0,0), ofVec3f(targetContourThickness,0,0), duration);
+    m_contourEffect->start(startTime);
+    
+    AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_contourEffect);
 }

@@ -29,7 +29,7 @@ void SonicBoomParticle::setup()
     m_time = 0;
     m_initSize = 0 + ofNoise( ofGetElapsedTimef()/4)*20;
     m_lifeTime = 2 + ofNoise( ofGetElapsedTimef()/2)*6;
-    m_lifeTime = 1 + ofRandom(4);
+    m_lifeTime = 1 + ofRandom(3);
     
     m_size = 450 + ofNoise( ofGetElapsedTimef()/2)*350 ;
     m_color = ofColor::white;
@@ -107,7 +107,7 @@ void SonicBoomVisual::updateParticles()
     
     if (m_elapsedTime >= m_newParticleTime) {
         m_elapsedTime = 0.0;
-        m_newParticleTime = 0.1 + ofRandom(0.5);
+        m_newParticleTime = 0.3;
         
         auto hands = AppManager::getInstance().getHandsManager().getHands();
         

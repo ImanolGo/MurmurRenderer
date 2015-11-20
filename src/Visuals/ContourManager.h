@@ -11,6 +11,8 @@
 
 #include "ofMain.h"
 #include "Manager.h"
+#include "VisualEffects.h"
+#include "BasicVisual.h"
 
 //========================== class ContourManager ==============================
 //============================================================================
@@ -55,12 +57,15 @@ public:
     
     void setContourThickness(float & value);
     
+    void addContourEffect(float targetContourThickness, double duration, double startTime = 0);
+    
 private:
     
     void setupFbo();
     
     void setupShader();
     
+    void setupEffects();
     
 private:
     
@@ -68,6 +73,10 @@ private:
     
     ofVec2f             m_contourOffset;
     ofVec2f             m_contourScale;
+    
+    
+    ofPtr<BasicVisual>  m_contourVisual;
+    ofPtr<MoveVisual>   m_contourEffect;
     
     ContourVector       m_contours;
     

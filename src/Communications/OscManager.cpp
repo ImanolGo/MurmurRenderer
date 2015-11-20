@@ -205,6 +205,14 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
+        else if(m.getAddress() == "/MurmurRenderer/ContourThicknessEffect"){
+            float value = m.getArgAsFloat(0);
+            float duration = m.getArgAsFloat(1);
+            AppManager::getInstance().getContourManager().addContourEffect(value, duration);
+            this->updateReceiveText();
+        }
+
+        
         else if(m.getAddress() == "/MurmurRenderer/ContourOffset"){
             ofVec2f pos;
             pos.x = m.getArgAsFloat(0);

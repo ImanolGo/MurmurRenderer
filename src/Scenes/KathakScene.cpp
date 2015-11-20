@@ -111,7 +111,7 @@ void KathakScene::updateWaterRipples()
     
     m_water.begin();
         ofNoFill();
-        ofSetLineWidth(16);
+        ofSetLineWidth(20);
         ofColor color = ofColor::lightSeaGreen;
         color.setSaturation( 50 + ofNoise( ofGetFrameNum() ) * 255 );
         ofSetColor(color);
