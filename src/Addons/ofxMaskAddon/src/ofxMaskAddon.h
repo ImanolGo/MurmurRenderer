@@ -6,11 +6,15 @@
 class ofxMaskAddon
 {
 public:
+
 	enum Type
 	{
 		ALPHA,
 		LUMINANCE
 	};
+    
+    ofxMaskAddon() {}
+    
 	void setup(int width, int height, Type type);
 	int getWidth() { return width_; }
 	int getHeight() { return height_; }

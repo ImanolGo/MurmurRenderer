@@ -87,14 +87,14 @@ void HandsWritingScene::updateHands()
     
     m_brush.setWidth(m_brush.getOriginalWidth()*size,true);
     
-    float decrease = 2.0;
-    float framesToDie = 255.0/2.0;
+    float decrease = 3.0;
+    float framesToDie = 255.0/decrease;
     float dt = ofGetLastFrameTime();
     int numSkipFrames = fadeTime/(framesToDie*dt);
     m_skipFrames++;
     
     ofEnableAlphaBlending();
-    ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+    //ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     m_fbo.begin();
     ofPushStyle();
         if(m_skipFrames>=numSkipFrames){

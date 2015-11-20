@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>58.7457</FPS>
+	<FPS>60.061</FPS>
 	<Scenes>
 		<TransitionTime>1.59184</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -29,7 +29,7 @@
 <Hands>
 		<Offset>-0.0289463, 0.0543523</Offset>
 		<Scale>-0.507705, -0.80758</Scale>
-	<On>1</On>
+	<On>0</On>
 	<FadeTime>7.40816</FadeTime>
 	<Size>0.714286</Size>
 	</Hands>
@@ -38,7 +38,7 @@
 		<Scale>1.13369, -1.58184</Scale>
 	</Floor>
 <BeautifulMind>
-		<Offset>-0.0745522, -0.091212</Offset>
+		<Offset>-0.274469, -0.091212</Offset>
 		<Scale>0.583507, 0.666806</Scale>
 	<FloorOn>1</FloorOn>
 		<Speed>1.02041</Speed>
