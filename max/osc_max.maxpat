@@ -45,9 +45,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 512.5, 200.0, 292.0, 23.0 ],
+					"patching_rect" : [ 512.5, 200.0, 287.0, 23.0 ],
 					"style" : "",
-					"text" : "/MurmurRenderer/ContourThicknessEffect 2. 2."
+					"text" : "/MurmurRenderer/ContourThicknessEffect 0.2 2"
 				}
 
 			}

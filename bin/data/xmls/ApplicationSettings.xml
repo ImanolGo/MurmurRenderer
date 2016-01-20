@@ -8,11 +8,11 @@
 
   	<window title="Murmur Renderer GUI" x="0" y="0" width="1920" height="1200" fullscreen="0" showCursor="1"/>
     <window title="Murmur Renderer Front" x="0" y="0" width="1920" height="1200" fullscreen="1" showCursor="0"/>
-    <window title="Murmur Renderer Top" x="3840" y="0" width="1920" height="1080" fullscreen="1" showCursor="0"/>
+    <window title="Murmur Renderer Top" x="3840" y="0" width="1080" height="1920" fullscreen="1" showCursor="0"/>
 
   </of_settings>
-  
-  <textures>	
+
+  <textures>
 
     <texture name="hands_brush" path="images/hands/brush.png"/>
     <texture name="sonic_brush" path="images/hands/sonicBoomBrush.png"/>
@@ -44,16 +44,16 @@
 
   </textures>
 
-  <timings>  
+  <timings>
 
     <timing  id="0" duration="49.0"/>
-    <timing  id="1" duration="35.0"/> 
-    <timing  id="2" duration="31.0"/> 
+    <timing  id="1" duration="35.0"/>
+    <timing  id="2" duration="31.0"/>
     <timing  id="3" duration="68.0"/>
-  
+
   </timings>
 
-  <fonts>  
+  <fonts>
 
     <font  name="MurmurFont" path="fonts/open-sans/OpenSans-Semibold.ttf"/>
 
@@ -62,5 +62,5 @@
   <colors>
   </colors>
 
-  
+
 </settings>

@@ -247,7 +247,7 @@ void GuiManager::setupHandsGui()
     m_handsOffset.addListener(handsManager, &HandsManager::setOffset);
     m_parametersHands.add(m_handsOffset);
     
-    m_handsScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-1.0,-1.0) , ofVec2f(1.0,1.0) );
+    m_handsScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-1.5,-1.5) , ofVec2f(1.5,1.5) );
     m_handsScale.addListener(handsManager, &HandsManager::setScale);
     m_parametersHands.add(m_handsScale);
     

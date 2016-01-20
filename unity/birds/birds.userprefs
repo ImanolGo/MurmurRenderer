@@ -1,13 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/osc/Scripts/OSCReceiver.js">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../../../Documents/Unity/KvantSwarm/Assets/Kvant/Swarm/Shaders/Kernel.shader">
     <Files>
-      <File FileName="Assets/Bird Flocks/Scripts/FlockController.js" Line="202" Column="71" />
-      <File FileName="Assets/osc/Scripts/OSCReceiver.js" Line="69" Column="76" />
-      <File FileName="Assets/Bird Flocks/Scripts/FlockChild.js" Line="9" Column="25" />
-      <File FileName="Assets/Bird Flocks/Scripts/FlockChildSound.js" Line="1" Column="1" />
-      <File FileName="Assets/Bird Flocks/Scripts/FlockWaypointTrigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Bird Flocks/Bird Flock Readme.txt" Line="1" Column="1" />
+      <File FileName="../../../../../../../Documents/Unity/KvantSwarm/Assets/Kvant/Swarm/Shaders/Kernel.shader" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

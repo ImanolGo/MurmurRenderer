@@ -130,12 +130,20 @@ void PreviewManager::setupRectangles()
     if(indexWindow < m_fbos.size()){
         auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
         
-        width = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
-        height = width *  m_fbos[indexWindow]->getHeight()/  m_fbos[indexWindow]->getWidth();
+        position.y = 3*LayoutManager::MARGIN;
+        position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH;
+        
+        if(m_fbos[indexWindow]->getWidth()> m_fbos[indexWindow]->getHeight()){
+            width = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
+            height = width *  m_fbos[indexWindow]->getHeight()/  m_fbos[indexWindow]->getWidth();
+        }
+        else{
+            height = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
+            width = height *  m_fbos[indexWindow]->getWidth()/  m_fbos[indexWindow]->getHeight();
+        }
         //height = windowSettings.height * 0.4;
         //width = height * m_fbos[indexWindow]->getWidth() / m_fbos[indexWindow]->getHeight();
-        position.y = 3*LayoutManager::MARGIN;
-        position.x = 2*LayoutManager::MARGIN + GuiManager::GUI_WIDTH ;
+        
     }
     
     rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
@@ -151,9 +159,18 @@ void PreviewManager::setupRectangles()
         auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
         
         position.x = 3*LayoutManager::MARGIN + GuiManager::GUI_WIDTH + width;
-        width = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
-        height = width *  m_fbos[indexWindow]->getHeight()/  m_fbos[indexWindow]->getWidth();
         position.y = 3*LayoutManager::MARGIN;
+        
+    
+        if(m_fbos[indexWindow]->getWidth()> m_fbos[indexWindow]->getHeight()){
+            width = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
+            height = width *  m_fbos[indexWindow]->getHeight()/  m_fbos[indexWindow]->getWidth();
+        }
+        else{
+            height = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
+            width = height *  m_fbos[indexWindow]->getWidth()/  m_fbos[indexWindow]->getHeight();
+        }
+       
         
     }
     
