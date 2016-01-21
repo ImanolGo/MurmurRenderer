@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>35.1729</FPS>
+	<FPS>20.4706</FPS>
 	<Scenes>
 		<TransitionTime>1.59184</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -21,7 +21,7 @@
 	<PostShowScene>0</PostShowScene>
 	</Scenes>
 	<Contour>
-		<Thickness>0.221486</Thickness>
+		<Thickness>0.114286</Thickness>
 		<Offset>0.291837, 0.560058</Offset>
 		<Scale>0.367347, 0.500625</Scale>
 	</Contour>
@@ -29,7 +29,7 @@
 <Hands>
 		<Offset>-0.0289463, 0.0543523</Offset>
 		<Scale>-0.507705, -0.80758</Scale>
-	<On>0</On>
+	<On>1</On>
 	<FadeTime>7.40816</FadeTime>
 	<Size>0.714286</Size>
 	</Hands>

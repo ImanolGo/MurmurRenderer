@@ -155,9 +155,9 @@ void BattleOfSelfScene::drawSonicBoom()
 void BattleOfSelfScene::drawFluid()
 {
     
-    ofSetColor(160,160,255);
-    m_fluid.draw(m_drawArea);
-    return;
+    //ofSetColor(160,160,255);
+    //m_fluid.draw(m_drawArea);
+    //return;
     
     ofPushStyle();
     //ofEnableBlendMode(OF_BLENDMODE_ADD);
@@ -168,11 +168,11 @@ void BattleOfSelfScene::drawFluid()
     
     //ofClear(0, 0, 0);
     
-    ofSetColor(0,0,0);
+    ofSetColor(0,0,0,80);
     ofRect(0,0,m_fbo.getWidth(),m_fbo.getHeight());
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-    ofSetColor(120,120,255);
+    ofSetColor(160,160,255);
     m_fluid.draw(m_drawArea);
     
     m_fbo.end();
