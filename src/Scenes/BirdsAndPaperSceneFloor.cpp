@@ -49,6 +49,9 @@ void BirdsAndPaperSceneFloor::setupFbos()
     
     ImageVisual gradientMask = ImageVisual(ofPoint(windowsSettings.width*0.5, windowsSettings.height*0.5), "floor_mask", true );
     gradientMask.setHeight(windowsSettings.height,true);
+    if(windowsSettings.height>windowsSettings.width){
+        gradientMask.setHeight(windowsSettings.width,true);
+    }
     
     ofLogNotice()<<"BirdsAndPaperSceneFloor::mask width = " << gradientMask.getWidth() << ", height = " << gradientMask.getHeight() ;
     
