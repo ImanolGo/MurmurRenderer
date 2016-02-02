@@ -200,6 +200,7 @@ void HandsWritingScene::drawFluid()
 void HandsWritingScene::willFadeIn() {
     ofLogNotice("HandsWritingScene::willFadeIn");
     m_skipFrames = 0;
+    m_fbo.begin(); ofClear(0); m_fbo.end();
     
     AppManager::getInstance().getGuiManager().setHandsOn(true);
 }
