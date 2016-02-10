@@ -161,6 +161,42 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
+        else if(m.getAddress() == "/MurmurRenderer/HandsWritingScene"){
+            //string sceneName = m.getArgAsString(0);
+            int value  = m.getArgAsInt32(0);
+            
+            if(value==1){
+                AppManager::getInstance().getGuiManager().setScene("HandsWritingScene");
+            }
+            //AppManager::getInstance().getSceneManager().changeScene(sceneName);
+            
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/BattleOfSelfScene"){
+            //string sceneName = m.getArgAsString(0);
+            int value  = m.getArgAsInt32(0);
+            
+            if(value==1){
+                AppManager::getInstance().getGuiManager().setScene("BattleOfSelfScene");
+            }
+            //AppManager::getInstance().getSceneManager().changeScene(sceneName);
+            
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/KathakScene"){
+            //string sceneName = m.getArgAsString(0);
+            int value  = m.getArgAsInt32(0);
+            
+            if(value==1){
+                AppManager::getInstance().getGuiManager().setScene("KathakScene");
+            }
+            //AppManager::getInstance().getSceneManager().changeScene(sceneName);
+            
+            this->updateReceiveText();
+        }
+        
         else if(m.getAddress() == "/MurmurRenderer/SceneOpacity"){
             float value = m.getArgAsFloat(0);
             AppManager::getInstance().getGuiManager().setSceneOpacity(value);
