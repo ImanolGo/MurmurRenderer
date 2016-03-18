@@ -40,11 +40,23 @@ void GuiManager::setup()
     
     Manager::setup();
     
+    ofxGuiSetFont( "fonts/open-sans/OpenSans-Semibold.ttf", 9 );
+    
     m_gui.setDefaultWidth(GUI_WIDTH);
     m_gui.setup(GUI_SETTINGS_NAME, GUI_SETTINGS_FILE_NAME);
     m_gui.setPosition(LayoutManager::MARGIN, LayoutManager::MARGIN);
     m_gui.add(m_guiFPS.set("FPS", 0, 0, 60));
-    ofxGuiSetFont( "fonts/open-sans/OpenSans-Semibold.ttf", 9 );
+    
+    
+    ofxButton * button = new ofxButton();
+    button->setup("Reset Gui");
+    button->addListener(this, &GuiManager::loadGuiValues);
+    m_gui.add(button);
+    
+    button = new ofxButton();
+    button->setup("Save Gui");
+    button->addListener(this, &GuiManager::saveGuiValues);
+    m_gui.add(button);
     
     this->setupScenesGui();
     this->setupBirdsGui();
@@ -61,6 +73,7 @@ void GuiManager::setup()
     m_gui.minimizeAll();
  
 }
+
 
 void GuiManager::setupBirdsGui()
 {

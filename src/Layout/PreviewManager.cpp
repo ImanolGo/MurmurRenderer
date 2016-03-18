@@ -251,6 +251,7 @@ void PreviewManager::begin(int windowIndex)
     }
     
     m_fbos[windowIndex]->begin();
+    ofClear(0, 0, 0, 0);
 }
 
 void PreviewManager::end(int windowIndex)
