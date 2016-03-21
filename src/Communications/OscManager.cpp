@@ -185,6 +185,19 @@ void OscManager::update()
             this->updateReceiveText();
         }
         
+        else if(m.getAddress() == "/MurmurRenderer/SonicBoomScene"){
+            //string sceneName = m.getArgAsString(0);
+            int value  = m.getArgAsInt32(0);
+            
+            if(value==1){
+                AppManager::getInstance().getGuiManager().setScene("SonicBoomScene");
+            }
+            //AppManager::getInstance().getSceneManager().changeScene(sceneName);
+            
+            this->updateReceiveText();
+        }
+
+        
         else if(m.getAddress() == "/MurmurRenderer/KathakScene"){
             //string sceneName = m.getArgAsString(0);
             int value  = m.getArgAsInt32(0);

@@ -21,6 +21,7 @@
 		082C275F1BB3F08400EEB495 /* ofxMidiOut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 082C274B1BB3F08400EEB495 /* ofxMidiOut.cpp */; };
 		082C27621BB3F09A00EEB495 /* MidiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 082C27601BB3F09A00EEB495 /* MidiManager.cpp */; };
 		082C27641BB3F78000EEB495 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082C27631BB3F78000EEB495 /* CoreMIDI.framework */; };
+		084098051CA010330085E08B /* SonicBoomScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 084098041CA010330085E08B /* SonicBoomScene.cpp */; };
 		0848D6F41B8F62A600672D56 /* VideoVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D6F21B8F62A600672D56 /* VideoVisual.cpp */; };
 		0848D72C1B904C6800672D56 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0848D71E1B904C6800672D56 /* Syphon.framework */; };
 		0848D72D1B904C6800672D56 /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7211B904C6800672D56 /* SyphonNameboundClient.m */; };
@@ -265,6 +266,8 @@
 		082C27601BB3F09A00EEB495 /* MidiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MidiManager.cpp; sourceTree = "<group>"; };
 		082C27611BB3F09A00EEB495 /* MidiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiManager.h; sourceTree = "<group>"; };
 		082C27631BB3F78000EEB495 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		084098031CA010330085E08B /* SonicBoomScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonicBoomScene.h; sourceTree = "<group>"; };
+		084098041CA010330085E08B /* SonicBoomScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SonicBoomScene.cpp; sourceTree = "<group>"; };
 		0848D6F21B8F62A600672D56 /* VideoVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoVisual.cpp; sourceTree = "<group>"; };
 		0848D6F31B8F62A600672D56 /* VideoVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoVisual.h; sourceTree = "<group>"; };
 		0848D7191B904C6800672D56 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -1238,6 +1241,8 @@
 		08EC80401B3C3FEF000893E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				084098031CA010330085E08B /* SonicBoomScene.h */,
+				084098041CA010330085E08B /* SonicBoomScene.cpp */,
 				5C9B83F81BD81E5300004D38 /* PostShowScene.cpp */,
 				5C9B83F91BD81E5300004D38 /* PostShowScene.h */,
 				5C44105C1BD01C0200BA9EF7 /* BirdsAndPaperSceneFloor.cpp */,
@@ -2175,6 +2180,7 @@
 				08EEBC201B44354300061FB1 /* ofxTCPClient.cpp in Sources */,
 				08B074A11B46D588008D71BB /* ImageVisual.cpp in Sources */,
 				082C27621BB3F09A00EEB495 /* MidiManager.cpp in Sources */,
+				084098051CA010330085E08B /* SonicBoomScene.cpp in Sources */,
 				082C27541BB3F08400EEB495 /* ofxRtMidiIn.cpp in Sources */,
 				08D401541B6A368C0035C289 /* LUTPass.cpp in Sources */,
 				08EC800A1B3C3D1A000893E1 /* README.md in Sources */,

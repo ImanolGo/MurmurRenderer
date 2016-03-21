@@ -22,6 +22,7 @@
 #include "BirdsAndPaperSceneFloor.h"
 #include "BirdsOpeningScene.h"
 #include "PostShowScene.h"
+#include "SonicBoomScene.h"
 
 #include "AppManager.h"
 
@@ -113,6 +114,11 @@ void SceneManager::createFrontScenes()
     //Create Postshow Scene
     scene = ofPtr<ofxScene> (new PostShowScene());
     this->createScene("PostShowScene", SceneIndex(i), scene, WindowIndex(FRONT));
+    i++;
+    
+    //Create Postshow Scene
+    scene = ofPtr<ofxScene> (new SonicBoomScene());
+    this->createScene("SonicBoomScene", SceneIndex(i), scene, WindowIndex(FRONT));
     i++;
     
 }

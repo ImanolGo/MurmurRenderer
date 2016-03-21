@@ -153,6 +153,10 @@ void GuiManager::setupScenesGui()
     m_sceneBattleOfSelf.addListener(this, &GuiManager::onSetBattleOfSelfScene);
     m_parametersScenes.add(m_sceneBattleOfSelf);
     
+    m_sonicBoomScene.set("SonicBoomScene", false);
+    m_sonicBoomScene.addListener(this, &GuiManager::onSetSonicBoomScene);
+    m_parametersScenes.add(m_sonicBoomScene);
+    
     m_sceneHandsWriting.set("HandsWritingScene", false);
     m_sceneHandsWriting.addListener(this, &GuiManager::onSetHandsWritingScene);
     m_parametersScenes.add(m_sceneHandsWriting);
@@ -392,6 +396,7 @@ void GuiManager::onSetBlankScene(bool& value)
         m_birdsAndPaperScene = false;
         m_birdsOpeningScene = false;
         m_postShowScene = false;
+        m_sonicBoomScene = false;
         
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBlank.getName());
     }
@@ -409,6 +414,7 @@ void GuiManager::onSetSmokyHandsScene(bool& value)
         m_birdsAndPaperScene = false;
         m_birdsOpeningScene = false;
         m_postShowScene = false;
+        m_sonicBoomScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneSmokyHands.getName());
     }
@@ -426,6 +432,7 @@ void GuiManager::onSetBattleOfSelfScene(bool& value)
         m_birdsAndPaperScene = false;
         m_birdsOpeningScene = false;
         m_postShowScene = false;
+        m_sonicBoomScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBattleOfSelf.getName());
     }
@@ -443,6 +450,7 @@ void GuiManager::onSetHandsWritingScene(bool& value)
         m_birdsAndPaperScene = false;
         m_birdsOpeningScene = false;
         m_postShowScene = false;
+        m_sonicBoomScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneHandsWriting.getName());
     }
@@ -460,6 +468,7 @@ void GuiManager::onSetBeautifulMindScene(bool& value)
         m_birdsAndPaperScene = false;
         m_birdsOpeningScene = false;
         m_postShowScene = false;
+        m_sonicBoomScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBeautifulMind.getName());
     }
@@ -477,6 +486,7 @@ void GuiManager::onSetFluidFloorScene(bool& value)
         m_birdsAndPaperScene = false;
         m_birdsOpeningScene = false;
         m_postShowScene = false;
+        m_sonicBoomScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneFluidFloor.getName());
     }
@@ -494,6 +504,7 @@ void GuiManager::onSetKathakScene(bool& value)
         m_birdsAndPaperScene = false;
         m_birdsOpeningScene = false;
         m_postShowScene = false;
+        m_sonicBoomScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneKathak.getName());
     }
@@ -511,6 +522,7 @@ void GuiManager::onSetBirdsOpeningScene(bool& value)
         m_sceneKathak = false;
         m_birdsAndPaperScene = false;
         m_postShowScene = false;
+        m_sonicBoomScene = false;
         
         AppManager::getInstance().getSceneManager().changeScene(m_birdsOpeningScene.getName());
     }
@@ -528,6 +540,7 @@ void GuiManager::onSetBirdsAndPaperScene(bool& value)
         m_sceneKathak = false;
         m_birdsOpeningScene = false;
         m_postShowScene = false;
+        m_sonicBoomScene = false;
         
         AppManager::getInstance().getSceneManager().changeScene(m_birdsAndPaperScene.getName());
     }
@@ -545,8 +558,27 @@ void GuiManager::onSetPostShowScene(bool& value)
         m_sceneKathak = false;
         m_birdsOpeningScene = false;
         m_birdsAndPaperScene = false;
+        m_sonicBoomScene = false;
         
         AppManager::getInstance().getSceneManager().changeScene(m_postShowScene.getName());
+    }
+}
+
+void GuiManager::onSetSonicBoomScene(bool& value)
+{
+    if(value == true){
+        m_sceneBlank = false;
+        m_sceneSmokyHands = false;
+        m_sceneBattleOfSelf = false;
+        m_sceneHandsWriting = false;
+        m_sceneBeautifulMind = false;
+        m_sceneFluidFloor = false;
+        m_sceneKathak = false;
+        m_birdsOpeningScene = false;
+        m_birdsAndPaperScene = false;
+        m_postShowScene = false;
+        
+        AppManager::getInstance().getSceneManager().changeScene(m_sonicBoomScene.getName());
     }
 }
 
