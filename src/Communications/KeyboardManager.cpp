@@ -51,6 +51,15 @@ void KeyboardManager::keyPressed(ofKeyEventArgs &e)
         AppManager::getInstance().getGuiManager().toggleGui();
     }
     
+    if(key == 'r' || key == 'R') {
+        AppManager::getInstance().getOscManager().OscManager::onResetTopBackground();
+    }
+    
+    if(key == 'p' || key == 'P') {
+        AppManager::getInstance().getOscManager().OscManager::onFirePaperThrower();
+    }
+
+    
     else if(key == ' ') {
         AppManager::getInstance().toggleDebugMode();
     }
