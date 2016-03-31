@@ -49,7 +49,7 @@ void BirdsOpeningScene::setInitialParameters() {
     m_swarmSize = 1.0;
     AppManager::getInstance().getGuiManager().onSetBirdsSwarmSize(m_swarmSize);
     
-    AppManager::getInstance().getGuiManager().setBirdsSpeed(7.0);
+    AppManager::getInstance().getGuiManager().setBirdsSpeed(8.5);
     
 }
 

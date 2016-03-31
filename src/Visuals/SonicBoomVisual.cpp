@@ -28,8 +28,8 @@ void SonicBoomParticle::setup()
 {
     m_time = 0;
     m_initSize = 0 + ofNoise( ofGetElapsedTimef()/4)*20;
-    m_lifeTime = 2 + ofNoise( ofGetElapsedTimef()/2)*6;
-    m_lifeTime = 1 + ofRandom(3);
+    //m_lifeTime = 1 + ofNoise( ofGetElapsedTimef()/2)*2;
+    m_lifeTime = 1 + ofRandom(2);
     
     m_size = 450 + ofNoise( ofGetElapsedTimef()/2)*350 ;
     m_color = ofColor::white;
@@ -74,7 +74,7 @@ void SonicBoomParticle::draw()
 
 
 
-SonicBoomVisual::SonicBoomVisual(): m_elapsedTime(10000), m_newParticleTime(0.01)
+SonicBoomVisual::SonicBoomVisual(): m_elapsedTime(10000), m_newParticleTime(0.2)
 {
     this->setup();
 }
@@ -103,21 +103,13 @@ void SonicBoomVisual::update()
 
 void SonicBoomVisual::updateParticles()
 {
-    m_elapsedTime += ofGetLastFrameTime();
+    auto hands = AppManager::getInstance().getHandsManager().getHands();
     
-    if (m_elapsedTime >= m_newParticleTime) {
-        m_elapsedTime = 0.0;
-        m_newParticleTime = 0.3;
-        
-        auto hands = AppManager::getInstance().getHandsManager().getHands();
-        
-        for (auto hand : hands) {
-            ofPoint pos = hand;
-            pos.x *= m_windowsSettings.width;
-            pos.y *= m_windowsSettings.height;
-            this->addParticle(pos);
-        }
-        
+    for (auto hand : hands) {
+        ofPoint pos = hand;
+        pos.x *= m_windowsSettings.width;
+        pos.y *= m_windowsSettings.height;
+        this->addParticle(pos);
     }
     
     for(ParticlesVector::iterator it = m_particles.begin(); it != m_particles.end();)
@@ -171,8 +163,14 @@ void SonicBoomVisual::drawParticles()
 
 void SonicBoomVisual::addParticle(const ofPoint &pos)
 {
-    auto particle = ofPtr<SonicBoomParticle> (new SonicBoomParticle(pos));
-    m_particles.push_back(particle);
+    m_elapsedTime += ofGetLastFrameTime();
+    
+    if (m_elapsedTime >= m_newParticleTime) {
+        m_elapsedTime = 0.0;
+        auto particle = ofPtr<SonicBoomParticle> (new SonicBoomParticle(pos));
+        m_particles.push_back(particle);
+    }
+   
 }
 
 void SonicBoomVisual::clear()

@@ -35,7 +35,7 @@ void MaskManager::setup()
     this->setupMasks();
     
     ofLogNotice() <<"MaskManager::initialized";
-
+   
 }
 
 void MaskManager::setupMasks()
@@ -107,6 +107,7 @@ void MaskManager::begin(int windowIndex)
         return;
     }
     
+    ofEnableAlphaBlending();
     m_masks[windowIndex]->begin(true);
 }
 
@@ -116,9 +117,15 @@ void MaskManager::end(int windowIndex)
         return;
     }
     
-    m_masks[windowIndex]->end();
     
-    m_masks[windowIndex]->draw();
+    //m_maskShader.end();
+   m_masks[windowIndex]->end();
+    
+   //m_masks[windowIndex]->drawMasker();
+   m_masks[windowIndex]->draw();
+    
+   ofDisableAlphaBlending();
+   
 }
 
 

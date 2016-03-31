@@ -92,11 +92,11 @@ void KathakScene::update()
 void KathakScene::draw() {
     ofBackground(0,0,0);
     
-    m_maskShader.begin();
-    m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
+    //m_maskShader.begin();
+    //m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
 
         this->drawWaterRipples();
-    m_maskShader.end();
+    //m_maskShader.end();
     
 
 }

@@ -89,12 +89,12 @@ void FluidFloorScene::update()
 void FluidFloorScene::draw() {
     ofBackground(0,0,0);
 
-    m_maskShader.begin();
-    m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
+    //m_maskShader.begin();
+    //m_maskShader.setUniformTexture("imageMask", m_fboMask.getTextureReference(), 1);
         //AppManager::getInstance().getHandsManager().draw();
         //this->drawFluid();
         m_fboFluid.draw(0, 0);
-    m_maskShader.end();
+    //m_maskShader.end();
     //m_maskShader.end();
     //ofPushStyle();
     //ofEnableAlphaBlending();

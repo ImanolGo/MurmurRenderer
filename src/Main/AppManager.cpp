@@ -179,7 +179,10 @@ void AppManager::draw()
         case 1:
             m_previewManager.begin(wIndex);
                 ofBackground(0,0,0); // change background color on each window
+                ofClear(0, 0, 0);
                 m_maskManager.begin(wIndex);
+           
+                    //ofRect(0, 0, image.getWidth(), image.getHeight());
                     m_sceneManager.draw(WindowIndex(wIndex));
                     m_layoutManager.draw();
                 m_maskManager.end(wIndex);

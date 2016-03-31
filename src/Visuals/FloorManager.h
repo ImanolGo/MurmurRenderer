@@ -49,6 +49,10 @@ public:
     void setOffset(ofVec2f & offset);
     
     void setScale(ofVec2f & scale);
+     
+    void onMaskOn(bool& value);
+     
+    void onStretchMask(bool& value);
     
      
 private:

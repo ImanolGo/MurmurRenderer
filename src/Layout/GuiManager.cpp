@@ -290,7 +290,7 @@ void GuiManager::setupFloorGui()
     m_floorOffset.addListener(floorManager, &FloorManager::setOffset);
     m_parametersFloor.add(m_floorOffset);
     
-    m_floorScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-2.0,-2.0) , ofVec2f(2.0,2.0) );
+    m_floorScale.set("Scale", ofVec2f(1.0,1.0) , ofVec2f(-2.5,-2.5) , ofVec2f(2.5,2.5) );
     m_floorScale.addListener(floorManager, &FloorManager::setScale);
     m_parametersFloor.add(m_floorScale);
     
