@@ -47,7 +47,7 @@ void SceneManager::setup()
 
     this->createSceneManagers();
     this->createScenes();
-    this->setupText();
+    //this->setupText();
 
     ofLogNotice() <<"SceneManager::initialized";
 
@@ -308,8 +308,7 @@ bool SceneManager::changeScene(string sceneName)
                 sceneFound = true;
                 ofLogNotice() <<"SceneManager::changeScene -> Changed screen "<< sceneManager.first  <<" to scene  " << sceneName;
                 sceneManager.second->changeScene((int) scene->index);
-                this->updateText(sceneName);
-
+                //this->updateText(sceneName);
             }
         }
         

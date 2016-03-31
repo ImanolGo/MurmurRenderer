@@ -173,6 +173,7 @@ void AppManager::draw()
                 m_sceneManager.draw(WindowIndex(wIndex));
                 m_previewManager.draw();
                 m_guiManager.draw();
+                m_audioManager.draw();
             }
            
             break;

@@ -7,8 +7,8 @@
  */
 
 
-#include "FluidVisual.h"
 #include "AudioManager.h"
+#include "AppManager.h"
 
 
 AudioManager::AudioManager(): m_volume(0.5)
@@ -29,6 +29,7 @@ void AudioManager::setup()
     
     ofLogNotice() <<"AudioManager::initialized" ;
     
+    this->setupText();
     this->setupFFT();
 }
 
@@ -43,6 +44,40 @@ void AudioManager::setupFFT()
     m_fft.setVolume(m_volume);
 }
 
+void AudioManager::setupText()
+{
+    auto windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(0);
+    
+    ofVec3f position;
+    
+    float width =  (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5 - LayoutManager::MARGIN;
+    int fontSize = 12;
+    float height = fontSize*3;
+    
+    
+    string text = "AUDIO";
+    float width_offset = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
+    
+    position.x = GuiManager::GUI_WIDTH + 2.5*LayoutManager::MARGIN + LayoutManager::MARGIN  + width_offset;
+    position.y = LayoutManager::MARGIN + windowSettings.height*0.5;
+    
+    ofPtr<TextVisual> textVisual = ofPtr<TextVisual>(new TextVisual(position, width, height));
+    textVisual->setText(text, "fonts/open-sans/OpenSans-Semibold.ttf", fontSize);
+    textVisual->setColor(ofColor::white);
+    
+    AppManager::getInstance().getViewManager().addOverlay(textVisual);
+    
+    position.x -= LayoutManager::MARGIN*0.5;
+    position.y -= LayoutManager::MARGIN*0.5;
+    height = textVisual->getHeight() + LayoutManager::MARGIN;
+    width = textVisual->getWidth() + LayoutManager::MARGIN;
+    ofPtr<RectangleVisual> rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
+    ofColor color(60,60,60);
+    rectangleVisual->setColor(color);
+    
+    AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
+    
+}
 
 void AudioManager::update()
 {
@@ -63,8 +98,31 @@ void AudioManager::draw()
         return;
     }
 
-    m_fft.draw(340,600);
+    //m_fft.draw(340,600);
+    this->drawCircle();
 }
+
+void AudioManager::drawCircle()
+{
+    int mainWindowIndex = 0;
+    WindowSettings windowSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(mainWindowIndex);
+    
+    ofPoint pos;
+    pos.x = windowSettings.width -   windowSettings.width*0.25;
+    pos.y = windowSettings.height -   windowSettings.height*0.25;
+    
+    float radio = ofMap(m_fft.getAveragePeak(), 0.0, 1.0, windowSettings.height*0.05, windowSettings.height*0.2, true);
+    
+    
+    ofPushStyle();
+    ofSetCircleResolution(100);
+        ofSetColor(255);
+        ofCircle(pos, radio);
+    ofPopStyle();
+    
+  
+}
+
 
 void AudioManager::onChangeVolume(float& value)
 {
@@ -92,4 +150,4 @@ float AudioManager::getAudioMax()
 {
     return m_audioMax;
 }
-
+\

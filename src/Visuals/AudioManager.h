@@ -12,6 +12,9 @@
 #include "ofMain.h"
 #include "Manager.h"
 
+#include "TextVisual.h"
+#include "RectangleVisual.h"
+
 #include "ofxFFTLive.h"
 
 //========================== class AudioManager ==============================
@@ -52,7 +55,11 @@ public:
     
 private:
     
+    void setupText();
+    
     void setupFFT();
+    
+    void drawCircle();
     
     
 private:
@@ -61,6 +68,9 @@ private:
     ofxFFTLive      m_fft;
     bool            m_audioOn;
     float           m_audioMax;
+    
+    ofPtr<TextVisual>        m_audioText;
+    ofPtr<RectangleVisual>   m_audioRect;
     
 };
 

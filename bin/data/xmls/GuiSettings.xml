@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>59.951</FPS>
+	<FPS>59.9099</FPS>
 	<Scenes>
 		<TransitionTime>1.59184</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -53,7 +53,7 @@
 	</Crop>
 <Audio>
 		<Volume>0.82449</Volume>
-	<AudioOn>0</AudioOn>
+	<AudioOn>1</AudioOn>
 	</Audio>
 <Layout>
 		<Fullscreen>1</Fullscreen>
