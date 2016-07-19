@@ -127,6 +127,7 @@ void AppManager::setupManagers()
 {
     ofLogNotice() << "AppManager::setupManagers";
     
+    m_windowSettingsManager.setup();
     m_viewManager.setup();
     m_visualEffectsManager.setup();
     m_settingsManager.setup();

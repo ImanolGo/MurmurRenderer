@@ -21,6 +21,7 @@
 		082C275F1BB3F08400EEB495 /* ofxMidiOut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 082C274B1BB3F08400EEB495 /* ofxMidiOut.cpp */; };
 		082C27621BB3F09A00EEB495 /* MidiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 082C27601BB3F09A00EEB495 /* MidiManager.cpp */; };
 		082C27641BB3F78000EEB495 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082C27631BB3F78000EEB495 /* CoreMIDI.framework */; };
+		083FA9F11D3E8619008B6F2F /* WindowSettingsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083FA9EF1D3E8619008B6F2F /* WindowSettingsManager.cpp */; };
 		084098051CA010330085E08B /* SonicBoomScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 084098041CA010330085E08B /* SonicBoomScene.cpp */; };
 		0848D6F41B8F62A600672D56 /* VideoVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D6F21B8F62A600672D56 /* VideoVisual.cpp */; };
 		0848D72C1B904C6800672D56 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0848D71E1B904C6800672D56 /* Syphon.framework */; };
@@ -266,6 +267,8 @@
 		082C27601BB3F09A00EEB495 /* MidiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MidiManager.cpp; sourceTree = "<group>"; };
 		082C27611BB3F09A00EEB495 /* MidiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiManager.h; sourceTree = "<group>"; };
 		082C27631BB3F78000EEB495 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		083FA9EF1D3E8619008B6F2F /* WindowSettingsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WindowSettingsManager.cpp; path = Main/WindowSettingsManager.cpp; sourceTree = "<group>"; };
+		083FA9F01D3E8619008B6F2F /* WindowSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowSettingsManager.h; path = Main/WindowSettingsManager.h; sourceTree = "<group>"; };
 		084098031CA010330085E08B /* SonicBoomScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonicBoomScene.h; sourceTree = "<group>"; };
 		084098041CA010330085E08B /* SonicBoomScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SonicBoomScene.cpp; sourceTree = "<group>"; };
 		0848D6F21B8F62A600672D56 /* VideoVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoVisual.cpp; sourceTree = "<group>"; };
@@ -1719,6 +1722,8 @@
 		AF4FDCF7E02C59FCC5FE54A2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				083FA9EF1D3E8619008B6F2F /* WindowSettingsManager.cpp */,
+				083FA9F01D3E8619008B6F2F /* WindowSettingsManager.h */,
 				5056FC61E30B9810903B814D /* AppManager.cpp */,
 				D26C09D837E4FD6CBDBE2B8C /* AppManager.h */,
 				6E3F47F486843AA062205007 /* main.cpp */,
@@ -2173,6 +2178,7 @@
 				08D4015A1B6A368C0035C289 /* RimHighlightingPass.cpp in Sources */,
 				085B47051BFD37780084EA57 /* MaskManager.cpp in Sources */,
 				08EC80341B3C3F0F000893E1 /* ofxEasingBack.cpp in Sources */,
+				083FA9F11D3E8619008B6F2F /* WindowSettingsManager.cpp in Sources */,
 				08D4015E1B6A368C0035C289 /* ZoomBlurPass.cpp in Sources */,
 				08B0745A1B45944C008D71BB /* FluidFloorScene.cpp in Sources */,
 				082C27521BB3F08400EEB495 /* RtMidi.cpp in Sources */,
