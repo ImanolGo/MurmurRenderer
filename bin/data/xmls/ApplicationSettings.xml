@@ -22,6 +22,7 @@
   	<texture name="starling" path="images/birds/starling_top_01.png"/>
     <texture name="calibration_image" path="images/calibration/CalibrationImage.png"/>
     <texture name="frame_mask" path="images/general/FrameMask.png"/>
+    <texture name="frame_beautifulmind" path="images/general/FrameMaskWithObject.png"/>
   	<texture name="scene_01_BLURRED_FRONT" path="images/beautiful_mind/scene_01_BLURRED_FRONT.png"/>
   	<texture name="scene_01_BLURRED_MIDDLE" path="images/beautiful_mind/scene_01_BLURRED_MIDDLE.png"/>
   	<texture name="scene_01_BLURRED_REAR" path="images/beautiful_mind/scene_01_BLURRED_REAR.png"/>

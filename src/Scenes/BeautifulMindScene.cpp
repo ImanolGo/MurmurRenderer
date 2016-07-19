@@ -53,7 +53,7 @@ void BeautifulMindScene::setupImages()
 {
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     
-    string resourceName = "frame_mask";
+    string resourceName = "frame_beautifulmind";
     ofPoint position = ofPoint(0,0,0);
     
     ofPtr<ImageVisual> image = ofPtr<ImageVisual>(new ImageVisual(position,resourceName));
@@ -82,7 +82,7 @@ void BeautifulMindScene::setupMask()
     // creating masker texture
     m_mask.beginMask();
         ofClear(0, 0, 0);
-        m_images["frame_mask"]->draw();
+        m_images["frame_beautifulmind"]->draw();
     // draw masker here in gray scale
     m_mask.endMask();
 }
@@ -122,7 +122,7 @@ void BeautifulMindScene::updateVideo()
 
 void BeautifulMindScene::updateMask()
 {
-    string resourceName = "frame_mask";
+    string resourceName = "frame_beautifulmind";
     
     auto area = getDrawingArea();
     m_images[resourceName]->setHeight(area.height); m_images[resourceName]->setWidth(area.width);
