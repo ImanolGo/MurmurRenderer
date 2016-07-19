@@ -37,15 +37,17 @@ public:
     //! End fbo for a specific window
     void end(int windowIndex);
     
+    void setMaskWindowFront();
+    
 
 private:
 
     //! Set-up the masks
     void setupMasks();
     
-    void setMaskWindowFront();
-    
     void setMaskWindowTop();
+    
+    ofRectangle getFrontMaskRectangle();
     
 
 private:

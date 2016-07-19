@@ -72,13 +72,14 @@ void LayoutManager::createBackground()
 
 void LayoutManager::draw()
 {
-    ofPushStyle();
-    ofSetColor(0, 0, 0);
-        ofRect(0,0,m_cropLeft,ofGetHeight());
-        ofRect(0,0,ofGetWidth(),m_cropTop);
-        ofRect(ofGetWidth()-m_cropRight,0, m_cropRight, ofGetHeight());
-        ofRect(0,ofGetHeight()-m_cropBottom,ofGetWidth(),m_cropBottom);
-    ofPopStyle();
+    
+//    ofPushStyle();
+//    ofSetColor(0, 0, 0);
+//        ofRect(0,0,m_cropLeft,ofGetHeight());
+//        ofRect(0,0,ofGetWidth(),m_cropTop);
+//        ofRect(ofGetWidth()-m_cropRight,0, m_cropRight, ofGetHeight());
+//        ofRect(0,ofGetHeight()-m_cropBottom,ofGetWidth(),m_cropBottom);
+//    ofPopStyle();
 }
 
 
@@ -96,6 +97,32 @@ void LayoutManager::addVisuals()
     for(ImageMap::iterator it = m_imageVisuals.begin(); it!= m_imageVisuals.end(); ++it){
        // AppManager::getInstance().getViewManager().addOverlay(it->second,depthLevel);
     }
+}
+
+
+
+void LayoutManager::onCropLeft( int & pixels)
+{
+    m_cropLeft = pixels;
+    AppManager::getInstance().getMaskManager().setMaskWindowFront();
+}
+
+void LayoutManager::onCropRight( int & pixels)
+{
+    m_cropRight = pixels;
+    AppManager::getInstance().getMaskManager().setMaskWindowFront();
+}
+
+void LayoutManager::onCropTop( int & pixels)
+{
+    m_cropTop = pixels;
+    AppManager::getInstance().getMaskManager().setMaskWindowFront();
+}
+
+void LayoutManager::onCropBottom(int & pixels)
+{
+    m_cropBottom = pixels;
+    AppManager::getInstance().getMaskManager().setMaskWindowFront();
 }
 
 

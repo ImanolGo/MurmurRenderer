@@ -68,8 +68,14 @@ void MaskManager::setMaskWindowFront()
     
     ofLogNotice() <<"MaskManager::setup Front Mask ";
     
+    ofRectangle rect = getFrontMaskRectangle();
+    
+    ofLogNotice() <<"MaskManager::Rect-> x = " << rect.getX() << ", w = " << rect.getWidth();
+    
     ImageVisual gradientMask = ImageVisual(ofPoint(0,0), "frame_mask" );
-    gradientMask.setWidth(m_masks[windowIndex]->getWidth()); gradientMask.setHeight(m_masks[windowIndex]->getHeight());
+    //gradientMask.setWidth(m_masks[windowIndex]->getWidth()); gradientMask.setHeight(m_masks[windowIndex]->getHeight());
+    gradientMask.setWidth(rect.getWidth()); gradientMask.setHeight(rect.getHeight());
+    gradientMask.setPosition(ofPoint(rect.getX(),rect.getY()));
     
     
     m_masks[windowIndex]->beginMask();
@@ -128,6 +134,24 @@ void MaskManager::end(int windowIndex)
    
 }
 
+
+ofRectangle MaskManager::getFrontMaskRectangle()
+{
+    int windowIndex = 1;
+    
+    if(windowIndex<0 ||  windowIndex > (m_masks.size()-1)){
+        return;
+    }
+    
+    LayoutManager& layoutManager = AppManager::getInstance().getLayoutManager();
+    float x = layoutManager.getCropLeft();
+    float y = layoutManager.getCropTop();
+    float w = m_masks[windowIndex]->getWidth() - layoutManager.getCropRight() - x;
+    float h = m_masks[windowIndex]->getHeight() - layoutManager.getCropBottom() - y;
+    
+    
+    return ofRectangle(x, y, w, h);
+}
 
 
 
