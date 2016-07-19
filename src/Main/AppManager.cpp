@@ -62,7 +62,7 @@ void AppManager::setupMultipleWidows()
     
     m_glfw = (ofxMultiGLFWWindow*)ofGetWindowPtr();
     
-    WindowSettingsVector windowSettingsVector = AppManager::getInstance().getSettingsManager().getWindowsSettings();
+    WindowSettingsVector windowSettingsVector = AppManager::getInstance().getWindowSettingsManager().getWindowsSettings();
     
     m_windows = &m_glfw->windows;
     

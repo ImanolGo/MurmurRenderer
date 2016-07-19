@@ -55,6 +55,10 @@ void WindowSettingsManager::readSettings()
         settings.x = displayBounds.origin.x;
         settings.y = displayBounds.origin.y;
         
+        if(displayID==0){
+            settings.showCursor = true;
+        }
+        
         if(displayID>0){
             settings.fullscreen = true;
         }
