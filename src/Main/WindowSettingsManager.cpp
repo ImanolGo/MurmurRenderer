@@ -63,7 +63,7 @@ void WindowSettingsManager::readSettings()
             settings.fullscreen = true;
         }
 
-        
+        settings.title = "MurmurRenderer : " + ofToString(displayID);
         m_windows.push_back(settings);
         
     }
