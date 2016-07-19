@@ -32,7 +32,6 @@
 #include "MidiManager.h"
 #include "PreviewManager.h"
 #include "MaskManager.h"
-#include "WindowSettingsManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -119,10 +118,6 @@ public:
     //! Returns the Mask Manager
     MaskManager&  getMaskManager() { return m_maskManager; }
     
-    //! Returns the Window Manager
-    WindowSettingsManager&  getWindowSettingsManager() { return m_windowSettingsManager; }
-
-    
     //==========================================================================
     
     void toggleDebugMode();
@@ -184,7 +179,6 @@ private:
     MidiManager                     m_midiManager;              ///< Manages the midi input messages
     PreviewManager                  m_previewManager;           ///< Manages the preview
     MaskManager                     m_maskManager;              ///< Manages the masking
-    WindowSettingsManager           m_windowSettingsManager;    ///< Manages the windows
     
 
     bool                            m_debugMode;

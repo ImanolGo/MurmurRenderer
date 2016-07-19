@@ -44,6 +44,7 @@ class SettingsManager: public Manager
     
     static const string APPLICATION_SETTINGS_FILE_NAME;
     static const string LOCALHOST;
+    static const int MAX_NUM_WINDOWS;
     
     public:
     

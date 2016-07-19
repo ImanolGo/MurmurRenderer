@@ -14,6 +14,8 @@
 
 const string SettingsManager::APPLICATION_SETTINGS_FILE_NAME = "xmls/ApplicationSettings.xml";
 const string SettingsManager::LOCALHOST = "127.0.0.1";
+const int SettingsManager::MAX_NUM_WINDOWS = 3;
+
 
 
 SettingsManager::SettingsManager(): Manager(), m_portUdpReceive(0), m_portOscReceive(0), m_portOscSend(0), m_portOscUnity(0), m_ipAddress(LOCALHOST)
@@ -67,42 +69,56 @@ bool SettingsManager::loadSettingsFile()
 
 void SettingsManager::setWindowProperties()
 {
-    m_xmlSettings.setTo("//");
-
-    string windowPath = "//of_settings";
-    if(m_xmlSettings.exists(windowPath)) {
+    // Get screen widths and heights from Quartz Services
+    // See https://developer.apple.com/library/mac/documentation/GraphicsImaging/Reference/Quartz_Services_Ref/index.html
+    
+    CGDisplayCount displayCount;
+    CGDirectDisplayID displays[32];
+    
+    // Grab the active displays
+    CGGetActiveDisplayList(32, displays, &displayCount);
+    int numDisplays= displayCount;
+    
+    for(int displayID = 0; displayID<numDisplays; displayID++)
+    {
+        //WindowSettingsPtr settings = WindowSettingsPtr (new ofGLFWWindowSettings());
+        WindowSettings settings;
         
-        windowPath += "/window[0]";
-        m_xmlSettings.setTo(windowPath);
-        typedef   std::map<string, string>   AttributesMap;
+        settings.height = CGDisplayPixelsHigh ( displays[displayID] );
+        settings.width = CGDisplayPixelsWide ( displays[displayID] );
+        CGRect displayBounds= CGDisplayBounds (displays[displayID]);
+        settings.x = displayBounds.origin.x;
+        settings.y = displayBounds.origin.y;
         
-        do {
-            
-            AttributesMap attributes = m_xmlSettings.getAttributes();
-            WindowSettings windowSettings;
-            
-            windowSettings.title = attributes["title"];
-            windowSettings.width = ofToInt(attributes["width"]);
-            windowSettings.height = ofToInt(attributes["height"]);
-            windowSettings.x = ofToInt(attributes["x"]);
-            windowSettings.y = ofToInt(attributes["y"]);
-            windowSettings.fullscreen = ofToBool(attributes["fullscreen"]);
-            windowSettings.showCursor = ofToBool(attributes["showCursor"]);
-            
-            ofLogNotice() <<"SettingsManager::setWindowProperties->  title = "<< windowSettings.title <<", width = " << windowSettings.width <<", height = "
-            <<windowSettings.height <<", x = "<< windowSettings.x << ", y = " <<windowSettings.y << ", fullscreen = " << windowSettings.fullscreen
-            << ", showCursor = " << windowSettings.showCursor;
-            
-            m_windowsSettings.push_back(windowSettings);
+        if(displayID==0){
+            settings.showCursor = true;
         }
-        while(m_xmlSettings.setToSibling()); // go to the next texture
         
+        if(displayID>0){
+            settings.fullscreen = true;
+        }
         
-        ofLogNotice() <<"SettingsManager::setWindowProperties->  successfully loaded the window settings" ;
-        return;
+        settings.title = "MurmurRenderer : " + ofToString(displayID);
+        m_windowsSettings.push_back(settings);
+        
+    }
+    
+    for(int displayID = numDisplays; displayID<MAX_NUM_WINDOWS; displayID++)
+    {
+        m_windowsSettings.push_back(m_windowsSettings.front());
+    }
+    
+    
+    ofLogNotice() << "WindowSettingsManager::readSettings -> Displays detected: " <<  numDisplays;
+    
+    int i = 0;
+    for (auto windowSettings: m_windowsSettings)
+    {
+        ofLogNotice() << "WindowSettingsManager::readSettings -> Window " <<  i << ": x = " << windowSettings.x
+        << ", y = " << windowSettings.y << ", width = " << windowSettings.width << ", height = " << windowSettings.height;
+        i++;
     }
 
-    ofLogNotice() <<"SettingsManager::setWindowProperties->  path not found: " << windowPath ;
 }
 
 void SettingsManager::setNetworkProperties()
