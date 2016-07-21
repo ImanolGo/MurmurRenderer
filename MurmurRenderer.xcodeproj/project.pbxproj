@@ -35,6 +35,8 @@
 		0848D75D1B90872600672D56 /* ofxFFTBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7561B90872600672D56 /* ofxFFTBase.cpp */; };
 		0848D75E1B90872600672D56 /* ofxFFTFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D7581B90872600672D56 /* ofxFFTFile.cpp */; };
 		0848D75F1B90872600672D56 /* ofxFFTLive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D75A1B90872600672D56 /* ofxFFTLive.cpp */; };
+		085839541D3FA2C30032CDC3 /* ProjectorCalibrationScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 085839501D3FA2C30032CDC3 /* ProjectorCalibrationScene.cpp */; };
+		085839551D3FA2C30032CDC3 /* ProjectorCalibrationSceneFloor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 085839521D3FA2C30032CDC3 /* ProjectorCalibrationSceneFloor.cpp */; };
 		085B47051BFD37780084EA57 /* MaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 085B47031BFD37780084EA57 /* MaskManager.cpp */; };
 		087761EA1BBAD9E700898648 /* PreviewManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087761E81BBAD9E700898648 /* PreviewManager.cpp */; };
 		08895FA31BBD554F00ED3B0A /* RectangleVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08895FA11BBD554F00ED3B0A /* RectangleVisual.cpp */; };
@@ -294,6 +296,10 @@
 		0848D7591B90872600672D56 /* ofxFFTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTFile.h; sourceTree = "<group>"; };
 		0848D75A1B90872600672D56 /* ofxFFTLive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTLive.cpp; sourceTree = "<group>"; };
 		0848D75B1B90872600672D56 /* ofxFFTLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFFTLive.h; sourceTree = "<group>"; };
+		085839501D3FA2C30032CDC3 /* ProjectorCalibrationScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectorCalibrationScene.cpp; sourceTree = "<group>"; };
+		085839511D3FA2C30032CDC3 /* ProjectorCalibrationScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectorCalibrationScene.h; sourceTree = "<group>"; };
+		085839521D3FA2C30032CDC3 /* ProjectorCalibrationSceneFloor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectorCalibrationSceneFloor.cpp; sourceTree = "<group>"; };
+		085839531D3FA2C30032CDC3 /* ProjectorCalibrationSceneFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectorCalibrationSceneFloor.h; sourceTree = "<group>"; };
 		085B47031BFD37780084EA57 /* MaskManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaskManager.cpp; path = Layout/MaskManager.cpp; sourceTree = "<group>"; };
 		085B47041BFD37780084EA57 /* MaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaskManager.h; path = Layout/MaskManager.h; sourceTree = "<group>"; };
 		087761E81BBAD9E700898648 /* PreviewManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PreviewManager.cpp; path = Layout/PreviewManager.cpp; sourceTree = "<group>"; };
@@ -1241,6 +1247,10 @@
 		08EC80401B3C3FEF000893E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				085839501D3FA2C30032CDC3 /* ProjectorCalibrationScene.cpp */,
+				085839511D3FA2C30032CDC3 /* ProjectorCalibrationScene.h */,
+				085839521D3FA2C30032CDC3 /* ProjectorCalibrationSceneFloor.cpp */,
+				085839531D3FA2C30032CDC3 /* ProjectorCalibrationSceneFloor.h */,
 				084098031CA010330085E08B /* SonicBoomScene.h */,
 				084098041CA010330085E08B /* SonicBoomScene.cpp */,
 				5C9B83F81BD81E5300004D38 /* PostShowScene.cpp */,
@@ -2107,6 +2117,7 @@
 				0848D75D1B90872600672D56 /* ofxFFTBase.cpp in Sources */,
 				08F4182D1B6B683B00D190B7 /* readme.md in Sources */,
 				08D401531B6A368C0035C289 /* LimbDarkeningPass.cpp in Sources */,
+				085839551D3FA2C30032CDC3 /* ProjectorCalibrationSceneFloor.cpp in Sources */,
 				08B0749F1B46D588008D71BB /* ResourceManager.cpp in Sources */,
 				66917D59ACB7DEA9977F0675 /* UdpSocketWin.cpp in Sources */,
 				08EBB6511B729E8A005F510F /* SteeredVehicle.cpp in Sources */,
@@ -2147,6 +2158,7 @@
 				0466B9E6A55078A9F39B1B4B /* svgtiny_gradient.cpp in Sources */,
 				0848D72E1B904C6800672D56 /* README.md in Sources */,
 				FCA1CD00EA2BBEEEBA5C4AC9 /* svgtiny_list.cpp in Sources */,
+				085839541D3FA2C30032CDC3 /* ProjectorCalibrationScene.cpp in Sources */,
 				08B0745D1B4595E3008D71BB /* FloorManager.cpp in Sources */,
 				0848D75E1B90872600672D56 /* ofxFFTFile.cpp in Sources */,
 				E76816EF014518B0B3E83C39 /* ofxSvg.cpp in Sources */,

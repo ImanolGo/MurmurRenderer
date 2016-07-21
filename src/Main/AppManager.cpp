@@ -163,6 +163,7 @@ void AppManager::update()
 void AppManager::draw()
 {
     int wIndex = m_glfw->getWindowIndex();
+    bool isLayoutMasked = m_layoutManager.isMasked();
     
     switch (wIndex) { // switch on window index
         case 0:
@@ -181,12 +182,14 @@ void AppManager::draw()
             m_previewManager.begin(wIndex);
                 ofBackground(0,0,0); // change background color on each window
                 ofClear(0, 0, 0);
-                m_maskManager.begin(wIndex);
+                if(isLayoutMasked)
+                    m_maskManager.begin(wIndex);
            
-                    //ofRect(0, 0, image.getWidth(), image.getHeight());
-                    m_sceneManager.draw(WindowIndex(wIndex));
-                    m_layoutManager.draw();
-                m_maskManager.end(wIndex);
+                        //ofRect(0, 0, image.getWidth(), image.getHeight());
+                        m_sceneManager.draw(WindowIndex(wIndex));
+                        m_layoutManager.draw();
+                if(isLayoutMasked)
+                    m_maskManager.end(wIndex);
             
             m_previewManager.end(wIndex);
             m_previewManager.draw(wIndex);
@@ -194,9 +197,11 @@ void AppManager::draw()
         case 2:
             m_previewManager.begin(wIndex);
                 ofBackground(0,0,0); // change background color on each window
-                m_maskManager.begin(wIndex);
-                    m_sceneManager.draw(WindowIndex(wIndex));
-                m_maskManager.end(wIndex);
+                if(isLayoutMasked)
+                    m_maskManager.begin(wIndex);
+                        m_sceneManager.draw(WindowIndex(wIndex));
+                if(isLayoutMasked)
+                    m_maskManager.end(wIndex);
             m_previewManager.end(wIndex);
             m_previewManager.draw(wIndex);
             break;

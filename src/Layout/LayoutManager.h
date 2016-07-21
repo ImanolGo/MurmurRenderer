@@ -46,6 +46,9 @@ public:
     
     int getCropBottom() const {return m_cropBottom;}
     
+    void setIsMasked(bool value){m_isMasked = value;}
+    
+    bool isMasked() const {return m_isMasked;}
     
     void onCropLeft( int & pixels);
     
@@ -94,6 +97,8 @@ private:
     ofRectangle         m_layoutRect;
     
     int                 m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
+    
+    bool                m_isMasked;
 };
 
 //==========================================================================

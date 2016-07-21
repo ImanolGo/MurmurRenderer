@@ -1,5 +1,5 @@
 <MurmurRenderer>
-	<FPS>44.9312</FPS>
+	<FPS>60.0312</FPS>
 	<Scenes>
 		<TransitionTime>1.59184</TransitionTime>
 		<BlankScene>0</BlankScene>
@@ -19,7 +19,9 @@
 		<OpacityFront>0</OpacityFront>
 		<OpacityTop>0</OpacityTop>
 	<PostShowScene>0</PostShowScene>
-	<SonicBoomScene>1</SonicBoomScene>
+	<SonicBoomScene>0</SonicBoomScene>
+	<ProjectCalibrationScene>1</ProjectCalibrationScene>
+	<ProjectorCalibrationScene>1</ProjectorCalibrationScene>
 	</Scenes>
 	<Contour>
 		<Thickness>0.408163</Thickness>
@@ -57,10 +59,10 @@
 	</Audio>
 <Layout>
 		<Fullscreen>1</Fullscreen>
-		<CropLeft>151</CropLeft>
-		<CropRight>126</CropRight>
-		<CropTop>193</CropTop>
-		<CropBottom>214</CropBottom>
+		<CropLeft>100</CropLeft>
+		<CropRight>128</CropRight>
+		<CropTop>120</CropTop>
+		<CropBottom>126</CropBottom>
 	</Layout>
 <Birds>
 		<Offset>0, 0</Offset>

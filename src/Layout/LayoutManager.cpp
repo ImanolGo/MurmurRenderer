@@ -19,7 +19,7 @@ const int LayoutManager::MARGIN = 30;
 const int LayoutManager::PADDING = 10;
 
 
-LayoutManager::LayoutManager(): Manager(), m_cropLeft(0), m_cropRight(0), m_cropTop(0), m_cropBottom(0)
+LayoutManager::LayoutManager(): Manager(), m_cropLeft(0), m_cropRight(0), m_cropTop(0), m_cropBottom(0), m_isMasked(true)
 {
 	//Intentionally left empty
 }

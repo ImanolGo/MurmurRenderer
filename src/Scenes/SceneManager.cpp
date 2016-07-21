@@ -23,6 +23,8 @@
 #include "BirdsOpeningScene.h"
 #include "PostShowScene.h"
 #include "SonicBoomScene.h"
+#include "ProjectorCalibrationSceneFloor.h"
+#include "ProjectorCalibrationScene.h"
 
 #include "AppManager.h"
 
@@ -119,6 +121,11 @@ void SceneManager::createFrontScenes()
     //Create Postshow Scene
     scene = ofPtr<ofxScene> (new SonicBoomScene());
     this->createScene("SonicBoomScene", SceneIndex(i), scene, WindowIndex(FRONT));
+    i++;
+    
+    //Create ProjectorCalibrationScene Scene
+    scene = ofPtr<ofxScene> (new ProjectorCalibrationScene());
+    this->createScene("ProjectorCalibrationScene", SceneIndex(i), scene, WindowIndex(FRONT));
     i++;
     
 }
@@ -250,6 +257,11 @@ void SceneManager::createTopScenes()
     
     scene = ofPtr<ofxScene> (new BirdsAndPaperSceneFloor());
     this->createScene("BirdsAndPaperScene", SceneIndex(i), scene, WindowIndex(TOP));
+    i++;
+    
+    //Create ProjectorCalibrationScene Scene
+    scene = ofPtr<ofxScene> (new ProjectorCalibrationSceneFloor());
+    this->createScene("ProjectorCalibrationScene", SceneIndex(i), scene, WindowIndex(TOP));
     i++;
     
     

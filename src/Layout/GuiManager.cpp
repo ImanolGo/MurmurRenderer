@@ -180,8 +180,12 @@ void GuiManager::setupScenesGui()
     m_postShowScene.set("PostShowScene", false);
     m_postShowScene.addListener(this, &GuiManager::onSetPostShowScene);
     m_parametersScenes.add(m_postShowScene);
-
     
+    m_projectorCalibrationScene.set("ProjectorCalibrationScene", false);
+    m_projectorCalibrationScene.addListener(this, &GuiManager::onSetProjectCalibrationScene);
+    m_parametersScenes.add(m_projectorCalibrationScene);
+
+
     m_gui.add(m_parametersScenes);
     
 }
@@ -397,6 +401,7 @@ void GuiManager::onSetBlankScene(bool& value)
         m_birdsOpeningScene = false;
         m_postShowScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
         
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBlank.getName());
     }
@@ -415,6 +420,7 @@ void GuiManager::onSetSmokyHandsScene(bool& value)
         m_birdsOpeningScene = false;
         m_postShowScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneSmokyHands.getName());
     }
@@ -433,6 +439,7 @@ void GuiManager::onSetBattleOfSelfScene(bool& value)
         m_birdsOpeningScene = false;
         m_postShowScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBattleOfSelf.getName());
     }
@@ -451,6 +458,7 @@ void GuiManager::onSetHandsWritingScene(bool& value)
         m_birdsOpeningScene = false;
         m_postShowScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneHandsWriting.getName());
     }
@@ -469,6 +477,7 @@ void GuiManager::onSetBeautifulMindScene(bool& value)
         m_birdsOpeningScene = false;
         m_postShowScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneBeautifulMind.getName());
     }
@@ -487,6 +496,7 @@ void GuiManager::onSetFluidFloorScene(bool& value)
         m_birdsOpeningScene = false;
         m_postShowScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneFluidFloor.getName());
     }
@@ -505,6 +515,7 @@ void GuiManager::onSetKathakScene(bool& value)
         m_birdsOpeningScene = false;
         m_postShowScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
 
         AppManager::getInstance().getSceneManager().changeScene(m_sceneKathak.getName());
     }
@@ -523,6 +534,7 @@ void GuiManager::onSetBirdsOpeningScene(bool& value)
         m_birdsAndPaperScene = false;
         m_postShowScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
         
         AppManager::getInstance().getSceneManager().changeScene(m_birdsOpeningScene.getName());
     }
@@ -541,6 +553,7 @@ void GuiManager::onSetBirdsAndPaperScene(bool& value)
         m_birdsOpeningScene = false;
         m_postShowScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
         
         AppManager::getInstance().getSceneManager().changeScene(m_birdsAndPaperScene.getName());
     }
@@ -559,6 +572,7 @@ void GuiManager::onSetPostShowScene(bool& value)
         m_birdsOpeningScene = false;
         m_birdsAndPaperScene = false;
         m_sonicBoomScene = false;
+        m_projectorCalibrationScene = false;
         
         AppManager::getInstance().getSceneManager().changeScene(m_postShowScene.getName());
     }
@@ -577,10 +591,33 @@ void GuiManager::onSetSonicBoomScene(bool& value)
         m_birdsOpeningScene = false;
         m_birdsAndPaperScene = false;
         m_postShowScene = false;
+        m_projectorCalibrationScene = false;
         
         AppManager::getInstance().getSceneManager().changeScene(m_sonicBoomScene.getName());
     }
 }
+
+void GuiManager::onSetProjectCalibrationScene(bool& value)
+{
+    if(value == true){
+        m_sceneBlank = false;
+        m_sceneSmokyHands = false;
+        m_sceneBattleOfSelf = false;
+        m_sceneHandsWriting = false;
+        m_sceneBeautifulMind = false;
+        m_sceneFluidFloor = false;
+        m_sceneKathak = false;
+        m_birdsOpeningScene = false;
+        m_birdsAndPaperScene = false;
+        m_postShowScene = false;
+        m_sonicBoomScene = false;
+        
+        AppManager::getInstance().getSceneManager().changeScene(m_projectorCalibrationScene.getName());
+    }
+}
+
+
+
 
 
 

@@ -84,6 +84,8 @@ public:
     
     void onSetSonicBoomScene(bool& value);
     
+    void onSetProjectCalibrationScene(bool& value);
+    
     void setAudioVolume(float& value){m_audioVolume = value;}
     
     void setAudioOn(bool& value){m_audioOn = value;}
@@ -226,6 +228,7 @@ private:
     ofParameter<bool>       m_birdsAndPaperScene;
     ofParameter<bool>       m_postShowScene;
     ofParameter<bool>       m_sonicBoomScene;
+    ofParameter<bool>       m_projectorCalibrationScene;
     
     ofParameter<int>        m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
     ofParameter<bool>       m_fullscreen;
