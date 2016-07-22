@@ -58,6 +58,33 @@ void KeyboardManager::keyPressed(ofKeyEventArgs &e)
     if(key == 'p' || key == 'P') {
         AppManager::getInstance().getOscManager().OscManager::onFirePaperThrower();
     }
+    
+    if(key == OF_KEY_UP) {
+        ofPoint pos = AppManager::getInstance().getLayoutManager().getCircleOffset();
+        pos.y -= 2;
+        AppManager::getInstance().getLayoutManager().setCircleOffset(pos);
+    }
+    
+    
+    if(key == OF_KEY_DOWN) {
+        ofPoint pos = AppManager::getInstance().getLayoutManager().getCircleOffset();
+        pos.y += 2;
+        AppManager::getInstance().getLayoutManager().setCircleOffset(pos);
+    }
+
+    if(key == OF_KEY_RIGHT) {
+        ofPoint pos = AppManager::getInstance().getLayoutManager().getCircleOffset();
+        pos.x += 2;
+        AppManager::getInstance().getLayoutManager().setCircleOffset(pos);
+    }
+
+    
+    if(key == OF_KEY_LEFT) {
+        ofPoint pos = AppManager::getInstance().getLayoutManager().getCircleOffset();
+        pos.x -= 2;
+        AppManager::getInstance().getLayoutManager().setCircleOffset(pos);
+    }
+
 
     
     else if(key == ' ') {

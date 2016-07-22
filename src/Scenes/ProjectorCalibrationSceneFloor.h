@@ -13,6 +13,8 @@
 #include "ImageVisual.h"
 
 class ProjectorCalibrationSceneFloor : public ofxScene {
+    
+    static const float LINE_THICKNESS;
 
 public:
     
@@ -53,12 +55,15 @@ private:
     
     void drawTestPattern();
     
+    void drawFansCircle();
+    
     
 private:
     
     bool            m_initialized;
     ofShader        m_thickLineShader;
     ofFbo           m_fboTestPattern;
+    
 
 };
 

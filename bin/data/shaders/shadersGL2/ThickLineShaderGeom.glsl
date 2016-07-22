@@ -8,8 +8,6 @@
 #version 120
 #extension GL_EXT_geometry_shader4 : enable
 
-//layout(lines) in;
-//layout(triangle_strip, max_vertices = 4) out;
 
 uniform float thickness;
 

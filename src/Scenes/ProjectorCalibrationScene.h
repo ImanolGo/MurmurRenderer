@@ -14,6 +14,8 @@
 
 class ProjectorCalibrationScene : public ofxScene {
 
+    static const float LINE_THICKNESS;
+    
 public:
     
     //Contructor

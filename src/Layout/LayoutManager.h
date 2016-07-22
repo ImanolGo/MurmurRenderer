@@ -48,6 +48,10 @@ public:
     
     void setIsMasked(bool value){m_isMasked = value;}
     
+    void setCircleOffset(const ofPoint& pos){m_circleOffset = pos;}
+    
+    const ofPoint& getCircleOffset(){return m_circleOffset;}
+    
     bool isMasked() const {return m_isMasked;}
     
     void onCropLeft( int & pixels);
@@ -97,6 +101,7 @@ private:
     ofRectangle         m_layoutRect;
     
     int                 m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
+    ofPoint             m_circleOffset;
     
     bool                m_isMasked;
 };
