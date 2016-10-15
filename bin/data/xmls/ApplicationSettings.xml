@@ -12,6 +12,13 @@
 
   </of_settings>
 
+   <projector_settings>
+
+    <projector ipAddress="10.0.0.80"/>
+    <projector ipAddress="10.0.0.81"/>
+    
+  </projector_settings>
+
   <textures>
 
     <texture name="hands_brush" path="images/hands/brush.png"/>

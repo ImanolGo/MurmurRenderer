@@ -32,6 +32,7 @@
 #include "MidiManager.h"
 #include "PreviewManager.h"
 #include "MaskManager.h"
+#include "ProjectorsManager.h"
 
 //========================== class AppManager ==============================
 //============================================================================
@@ -118,6 +119,9 @@ public:
     //! Returns the Mask Manager
     MaskManager&  getMaskManager() { return m_maskManager; }
     
+    //! Returns the projectors Manager
+    ProjectorsManager&  getProjectorsManager() { return m_projectorsManager; }
+    
     //==========================================================================
     
     void toggleDebugMode();
@@ -179,6 +183,7 @@ private:
     MidiManager                     m_midiManager;              ///< Manages the midi input messages
     PreviewManager                  m_previewManager;           ///< Manages the preview
     MaskManager                     m_maskManager;              ///< Manages the masking
+    ProjectorsManager               m_projectorsManager;        ///< Manages the projectors
     
 
     bool                            m_debugMode;

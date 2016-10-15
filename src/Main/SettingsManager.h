@@ -37,6 +37,7 @@ struct WindowSettings
 typedef  map<int,float>              TimingMap;             ///< defines a map of duration times attached to an id
 typedef  map<string,string>          ResourcesPathMap;       ///< defines a map of path attached to the resources name
 typedef  vector<WindowSettings>      WindowSettingsVector;   ///< Defines a vector of windows settings
+typedef  vector<string>              IpsVector;     ///< Defines a vector of ip addresses
 
 
 class SettingsManager: public Manager
@@ -69,6 +70,8 @@ class SettingsManager: public Manager
     
         const TimingMap&  getTimings() const {return m_timings;}
     
+        const IpsVector& getProjectorsIps() const {return m_projectorsIps;}
+    
         string getIpAddress() const {return m_ipAddress;}
 
         int getOscPortReceive() const {return m_portOscReceive;}
@@ -97,6 +100,9 @@ class SettingsManager: public Manager
         //! Loads the time durations
         void loadTimings();
     
+        //! Loads all the projector settings
+        void loadProjectorSettings();
+    
         //! Loads all the app colors
         void loadColors();
 
@@ -109,8 +115,7 @@ class SettingsManager: public Manager
 
     private:
     
-        typedef             map< string, ofColor>    ColorMap;               ///< Defines a map of colors attached to a name
-
+        typedef             map< string, ofColor>    ColorMap;      ///< Defines a map of colors attached to a name
 
         ofXml		            m_xmlSettings;          ///< instance of the xml parser
         ResourcesPathMap        m_texturesPath;         ///< stores the texture paths
@@ -124,6 +129,7 @@ class SettingsManager: public Manager
         int                     m_portOscSend;          ///< stores the UDP port to send OSC messages to
         int                     m_portOscUnity;         ///< stores the UDP port to send OSC messages to Unity 3D
         string                  m_ipAddress;            ///< stores the Ip Address used for the Network communications
+        IpsVector               m_projectorsIps;        ///< stores the Ip adresses of all the projectors
 };
 
 

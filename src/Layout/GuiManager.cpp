@@ -67,6 +67,7 @@ void GuiManager::setup()
     this->setupBeautifulMindGui();
     this->setupAudioGui();
     this->setupTopGui();
+    this->setupProjectorsGui();
     
     m_gui.loadFromFile(GUI_SETTINGS_FILE_NAME);
     
@@ -276,7 +277,7 @@ void GuiManager::setupHandsGui()
     m_handsSize.addListener(handsManager, &HandsManager::setSize);
     m_parametersHands.add(m_handsSize);
 
-    m_handsFadeTime.set("FadeTime", 2.0, 0.0, 15.0);
+    m_handsFadeTime.set("FadeTime", 2.0, 0.0, 25.0);
     m_handsFadeTime.addListener(handsManager, &HandsManager::setFadeTime);
     m_parametersHands.add(m_handsFadeTime);
     
@@ -385,6 +386,22 @@ void GuiManager::toggleGui()
 {
     ofLogNotice() <<"GuiManager::toggleGui -> show GUI "<< m_showGui;
     m_showGui = !m_showGui;
+}
+
+void GuiManager::setupProjectorsGui()
+{
+    auto projectorsManager = &AppManager::getInstance().getProjectorsManager();
+    m_parametersProjector.setName("Projectors");
+    
+    m_projector1Shutter.set("Projector 1 Shutter", false);
+    m_projector1Shutter.addListener(projectorsManager, &ProjectorsManager::shutterProjector1);
+    m_parametersProjector.add(m_projector1Shutter);
+    
+    m_projector2Shutter.set("Projector 2 Shutter", false);
+    m_projector2Shutter.addListener(projectorsManager, &ProjectorsManager::shutterProjector2);
+    m_parametersProjector.add(m_projector2Shutter);
+    
+    m_gui.add(m_parametersProjector);
 }
 
 

@@ -49,6 +49,7 @@ void SettingsManager::loadAllSettings()
     this->setWindowProperties();
     this->setNetworkProperties();
     this->loadTextureSettings();
+    this->loadProjectorSettings();
     this->loadSvgSettings();
     this->loadColors();
     this->loadTimings();
@@ -147,7 +148,40 @@ void SettingsManager::setNetworkProperties()
     ofLogNotice() <<"SettingsManager::setNetworkProperties->  path not found: " << networkPath ;
 }
 
+
+void SettingsManager::loadProjectorSettings()
+{
+    m_projectorsIps.clear();
+    
+    m_xmlSettings.setTo("//");
+    
+    string projectorSettingsPath = "//projector_settings";
+    if(m_xmlSettings.exists(projectorSettingsPath)) {
+        
+        typedef   std::map<string, string>   AttributesMap;
+        AttributesMap attributes;
+        
+        projectorSettingsPath = "//projector_settings/projector[0]";
+        m_xmlSettings.setTo(projectorSettingsPath);
+        do {
+            
+            attributes = m_xmlSettings.getAttributes();
+            
+            m_projectorsIps.push_back(ofToString(attributes["ipAddress"]));
+            
+            ofLogNotice() <<"loadProjectorSettings::load projector ->  ip address = " << m_projectorsIps.back();
+        }
+        while(m_xmlSettings.setToSibling()); // go to the next node
+        
+        
+        ofLogNotice() <<"SettingsManager::loadProjectorSettings->  successfully loaded the projectors settings" ;
+        return;
+    }
+    
+    ofLogNotice() <<"SettingsManager::loadProjectorSettings->  path not found: " << projectorSettingsPath ;
+}
 void SettingsManager::loadColors()
+
 {
     
     m_xmlSettings.setTo("//");

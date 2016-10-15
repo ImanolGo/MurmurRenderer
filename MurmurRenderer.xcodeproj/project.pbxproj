@@ -127,6 +127,7 @@
 		08F4182D1B6B683B00D190B7 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 08F418291B6B683B00D190B7 /* readme.md */; };
 		08F4182E1B6B683B00D190B7 /* ofxBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F4182B1B6B683B00D190B7 /* ofxBlur.cpp */; };
 		08F418461B6BC26500D190B7 /* SonicBoomVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F418441B6BC26500D190B7 /* SonicBoomVisual.cpp */; };
+		08FD9DD01DB298E100E29556 /* ProjectorsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FD9DCE1DB298E100E29556 /* ProjectorsManager.cpp */; };
 		08FFBCF21BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FFBCEE1BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp */; };
 		08FFBCF31BB17D4100B4CCF2 /* BirdsOpeningScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FFBCF01BB17D4100B4CCF2 /* BirdsOpeningScene.cpp */; };
 		08FFBCF61BB1946D00B4CCF2 /* BirdsSwarmVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FFBCF41BB1946D00B4CCF2 /* BirdsSwarmVisual.cpp */; };
@@ -511,6 +512,8 @@
 		08F418371B6BA4CB00D190B7 /* ofxNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxNoise.h; sourceTree = "<group>"; };
 		08F418441B6BC26500D190B7 /* SonicBoomVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SonicBoomVisual.cpp; path = Visuals/SonicBoomVisual.cpp; sourceTree = "<group>"; };
 		08F418451B6BC26500D190B7 /* SonicBoomVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SonicBoomVisual.h; path = Visuals/SonicBoomVisual.h; sourceTree = "<group>"; };
+		08FD9DCE1DB298E100E29556 /* ProjectorsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectorsManager.cpp; sourceTree = "<group>"; };
+		08FD9DCF1DB298E100E29556 /* ProjectorsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectorsManager.h; sourceTree = "<group>"; };
 		08FFBCEE1BB17D4100B4CCF2 /* BirdsAndPaperScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BirdsAndPaperScene.cpp; sourceTree = "<group>"; };
 		08FFBCEF1BB17D4100B4CCF2 /* BirdsAndPaperScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdsAndPaperScene.h; sourceTree = "<group>"; };
 		08FFBCF01BB17D4100B4CCF2 /* BirdsOpeningScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BirdsOpeningScene.cpp; sourceTree = "<group>"; };
@@ -1322,6 +1325,8 @@
 		08EEBC271B445B0800061FB1 /* Communications */ = {
 			isa = PBXGroup;
 			children = (
+				08FD9DCE1DB298E100E29556 /* ProjectorsManager.cpp */,
+				08FD9DCF1DB298E100E29556 /* ProjectorsManager.h */,
 				082C27601BB3F09A00EEB495 /* MidiManager.cpp */,
 				082C27611BB3F09A00EEB495 /* MidiManager.h */,
 				08EEBC281B445B0800061FB1 /* KeyboardManager.cpp */,
@@ -2149,6 +2154,7 @@
 				78903FED64B0BFD8EED1E552 /* ofxOscSender.cpp in Sources */,
 				08D401F81B6A703B0035C289 /* ofxFXObject.cpp in Sources */,
 				9D3E5A7C189607A50D28E499 /* src_colors.cpp in Sources */,
+				08FD9DD01DB298E100E29556 /* ProjectorsManager.cpp in Sources */,
 				A417B50DA594FBD304CFF2CA /* svgtiny.cpp in Sources */,
 				08EBB6521B729E8A005F510F /* Vehicle.cpp in Sources */,
 				082C275C1BB3F08400EEB495 /* ofxMidi.cpp in Sources */,

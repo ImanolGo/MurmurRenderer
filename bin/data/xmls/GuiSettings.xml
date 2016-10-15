@@ -1,8 +1,8 @@
 <MurmurRenderer>
-	<FPS>59.9553</FPS>
+	<FPS>59.9722</FPS>
 	<Scenes>
-		<TransitionTime>1.59184</TransitionTime>
-		<BlankScene>0</BlankScene>
+		<TransitionTime>13</TransitionTime>
+		<BlankScene>1</BlankScene>
 		<SmokyHandsScene>0</SmokyHandsScene>
 	<BattleOfSelfScene>0</BattleOfSelfScene>
 	<HandsWritingScene>0</HandsWritingScene>
@@ -21,28 +21,28 @@
 	<PostShowScene>0</PostShowScene>
 	<SonicBoomScene>0</SonicBoomScene>
 	<ProjectCalibrationScene>1</ProjectCalibrationScene>
-	<ProjectorCalibrationScene>1</ProjectorCalibrationScene>
+	<ProjectorCalibrationScene>0</ProjectorCalibrationScene>
 	</Scenes>
 	<Contour>
-		<Thickness>0.408163</Thickness>
-		<Offset>0.0119534, 0.274344</Offset>
-		<Scale>1.03374, 0.967097</Scale>
+		<Thickness>0.914286</Thickness>
+		<Offset>0.268513, 0.3793</Offset>
+		<Scale>0.467305, 0.683882</Scale>
 	</Contour>
 <MurmurRenderer/>
 <Hands>
-		<Offset>-0.0289463, 0.0543523</Offset>
-		<Scale>-0.507705, -0.80758</Scale>
+		<Offset>0.0127031, -0.00395668</Offset>
+		<Scale>-0.602071, -0.852648</Scale>
 	<On>0</On>
-	<FadeTime>7.40816</FadeTime>
-	<Size>0.714286</Size>
+	<FadeTime>23.5714</FadeTime>
+	<Size>0.897959</Size>
 	</Hands>
 <Floor>
-		<Offset>0.00853813, -0.141399</Offset>
-		<Scale>1.13369, -1.85235</Scale>
+		<Offset>-0.0756289, -0.25691</Offset>
+		<Scale>0.897828, -1.42436</Scale>
 	</Floor>
 <BeautifulMind>
-		<Offset>0.000416517, 0.000416517</Offset>
-		<Scale>1, 1</Scale>
+		<Offset>0.00874639, -0.0828821</Offset>
+		<Scale>0.866722, 0.804248</Scale>
 	<FloorOn>1</FloorOn>
 		<Speed>1.02041</Speed>
 	<CalibrationOn>0</CalibrationOn>
@@ -54,15 +54,15 @@
 		<CropBottom>0</CropBottom>
 	</Crop>
 <Audio>
-		<Volume>0.82449</Volume>
+		<Volume>0.159184</Volume>
 	<AudioOn>1</AudioOn>
 	</Audio>
 <Layout>
 		<Fullscreen>1</Fullscreen>
-		<CropLeft>100</CropLeft>
-		<CropRight>128</CropRight>
-		<CropTop>120</CropTop>
-		<CropBottom>126</CropBottom>
+		<CropLeft>0</CropLeft>
+		<CropRight>0</CropRight>
+		<CropTop>0</CropTop>
+		<CropBottom>0</CropBottom>
 	</Layout>
 <Birds>
 		<Offset>0, 0</Offset>
@@ -87,4 +87,5 @@
 <FloorTracking>
 		<PaperThrowerSpeed>0</PaperThrowerSpeed>
 	</FloorTracking>
+<group/>
 </MurmurRenderer>

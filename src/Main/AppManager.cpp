@@ -145,6 +145,7 @@ void AppManager::setupManagers()
     m_midiManager.setup();
     m_previewManager.setup();
     m_maskManager.setup();
+    m_projectorsManager.setup();
 }
 
 void AppManager::update()

@@ -191,6 +191,8 @@ private:
     
     void setupBirdsGui();
     
+    void setupProjectorsGui();
+    
     
 public:
     
@@ -208,6 +210,7 @@ private:
     ofParameterGroup        m_parametersAudio;
     ofParameterGroup        m_parametersBirds;
     ofParameterGroup        m_parametersTop;
+    ofParameterGroup        m_parametersProjector;
    
     bool                    m_showGui;  //It defines the whether the gui should be shown or not
     
@@ -262,6 +265,10 @@ private:
     ofParameter<int>        m_birdsNumber;
     ofParameter<float>      m_birdsSpeed;
     ofParameter<float>      m_birdsRandomness;
+    
+    
+    ofParameter<bool>       m_projector1Shutter;
+    ofParameter<bool>       m_projector2Shutter;
     
     ofParameter<int>        m_paperThrowerSpeed;
     
