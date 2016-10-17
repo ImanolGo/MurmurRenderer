@@ -109,13 +109,33 @@ void SettingsManager::setWindowProperties()
         m_windowsSettings.push_back(m_windowsSettings.front());
     }
     
+
+    // use X::operator< by default
+    std::sort( m_windowsSettings.begin(), m_windowsSettings.end() );
     
-    ofLogNotice() << "WindowSettingsManager::readSettings -> Displays detected: " <<  numDisplays;
+    
+//    auto func = []() { cout << "Hello world"; }
+//    
+//    auto kateBushLambdaFunction = []() {
+//        cout << "So cold. Let me into your window." << endl;
+//    };
+//    
+//    auto sortRuleLambda = [] (const WindowSettings& s1, const WindowSettings& s2) -> bool
+//    {
+//        return s1.x() < s2.x();
+//    };
+//    
+//   std::sort(m_windowsSettings.begin(), m_windowsSettings.end(),[](const WindowSettings& s1, const WindowSettings& s2) -> bool{ return (s1.x() < s2.x());});
+//    
+//    //std::sort(m_windowsSettings.begin(), m_windowsSettings.end(), sortRuleLambda);
+    
+    
+    ofLogNotice() << "SettingsManager::readSettings -> Displays detected: " <<  numDisplays;
     
     int i = 0;
     for (auto windowSettings: m_windowsSettings)
     {
-        ofLogNotice() << "WindowSettingsManager::readSettings -> Window " <<  i << ": x = " << windowSettings.x
+        ofLogNotice() << "SettingsManager::readSettings -> Window " <<  i << ": x = " << windowSettings.x
         << ", y = " << windowSettings.y << ", width = " << windowSettings.width << ", height = " << windowSettings.height;
         i++;
     }
