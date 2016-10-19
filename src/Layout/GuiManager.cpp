@@ -299,6 +299,10 @@ void GuiManager::setupFloorGui()
     m_floorScale.addListener(floorManager, &FloorManager::setScale);
     m_parametersFloor.add(m_floorScale);
     
+    m_floorRadius.set("Radius", 70.0 , 0 , 100);
+    m_floorRadius.addListener(floorManager, &FloorManager::onSetKathakRadius);
+    m_parametersFloor.add(m_floorRadius);
+    
     m_gui.add(m_parametersFloor);
     
 }
@@ -356,7 +360,7 @@ void GuiManager::setupLayoutGui()
     m_cropBottom.addListener(layoutManager, &LayoutManager::onCropBottom);
     m_parametersLayout.add(m_cropBottom);
     
-     m_gui.add(m_parametersLayout);
+    m_gui.add(m_parametersLayout);
     
 }
 

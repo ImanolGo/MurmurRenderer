@@ -51,16 +51,14 @@ void ProjectorsManager::urlResponse(ofHttpResponse & response) {
 void ProjectorsManager::setupProjectors()
 {
     
-     m_projectorsIps = AppManager::getInstance().getSettingsManager().getProjectorsIps();
-    
-//    auto projectorsIps =  AppManager::getInstance().getSettingsManager().getProjectorsIps();
-//
-//    for(auto projectorIp: projectorsIps)
-//    {
-//        ofPtr <ofxPanasonicControl> projector = ofPtr <ofxPanasonicControl> (new ofxPanasonicControl());
-//        projector->setup();
-//        m_projectors.push_back(projector);
-//    }
+  auto projectorsIps =  AppManager::getInstance().getSettingsManager().getProjectorsIps();
+
+    for(auto projectorIp: projectorsIps)
+    {
+        ofPtr <ofxPanasonicControl> projector = ofPtr <ofxPanasonicControl> (new ofxPanasonicControl());
+        projector->setup(projectorIp,Panasonic_MODE,"admin1","panasonic");
+        m_projectors.push_back(projector);
+    }
 }
 
 
@@ -76,25 +74,18 @@ void ProjectorsManager::shutterProjector2(bool& value)
 
 void ProjectorsManager::shutterProjector(int num, bool value)
 {
-    if(m_projectorsIps.size() < num){
+    if(m_projectors.size() < num){
         return;
     }
     
-    
-    string command_url = "http://user1:panasonic@" + m_projectorsIps[num];
-    
     if(value){
-        command_url +=   "/cgi-bin/proj_ctl.cgi?key=shutter_on&lang=e&osd=off";
+        ofLogNotice() <<"ProjectorsManager::shutterProjector -> projector " << num << ", shutter closed";
+        m_projectors[num]->sendCommand("00OSH:1\r"); //shutter closed
     }
     else{
-        command_url +=   "/cgi-bin/proj_ctl.cgi?key=shutter_off&lang=e&osd=off";
+        ofLogNotice() <<"ProjectorsManager::shutterProjector -> projector " << num << ", shutter closed";
+        m_projectors[num]->sendCommand("00OSH:0\r"); //shutter open
     }
-    
-    ofLogNotice() <<"ProjectorsManager::shutterProjector -> projector " << num << ", shutter " << value;
-    ofLogNotice() <<"ProjectorsManager::shutterProjector -> url send: " << command_url;
-    
-    ofLoadURLAsync(command_url, "async_req");
-    
 }
 
 

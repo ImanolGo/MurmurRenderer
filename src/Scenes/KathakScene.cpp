@@ -120,7 +120,9 @@ void KathakScene::updateWaterRipples()
         ofSetColor(color);
         //ofSetColor(ofNoise( ofGetFrameNum() ) * 255 * 5, 255);
         //ofSetColor(ofColor::blue);
-        float radius = ofMap(volume, 0.0, 1.0, 70, windowsSettings.height/2.5);
+        float minRadius = AppManager::getInstance().getFloorManager().getKathakRadius();
+        float radius = ofMap(volume, 0.0, 1.0, minRadius, windowsSettings.height/2.5);
+       // float radius = ofMap(volume, 0.0, 1.0, 70, windowsSettings.height/2.5);
         ofCircle(position, radius);
         //ofCircle(ofGetMouseX(), ofGetMouseY(), radius);
     m_water.end();

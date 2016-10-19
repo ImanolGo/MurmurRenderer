@@ -53,6 +53,10 @@ public:
     void onMaskOn(bool& value);
      
     void onStretchMask(bool& value);
+     
+    void onSetKathakRadius(float& value) {m_kathakRadius = value;}
+     
+    float getKathakRadius() const {return m_kathakRadius;}
     
      
 private:
@@ -63,6 +67,7 @@ private:
     ofVec2f             m_floorPosition;
     ofVec2f             m_floorOffset;
     ofVec2f             m_floorScale;
+    float               m_kathakRadius;
      
 };
 

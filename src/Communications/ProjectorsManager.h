@@ -11,7 +11,7 @@
 
 #include "ofMain.h"
 #include "SettingsManager.h"
-//#include "ofxPanasonicControl.h"
+#include "ofxPanasonicControl.h"
 #include "Manager.h"
 
 
@@ -49,7 +49,8 @@ public:
     
  private:
     
-    IpsVector   m_projectorsIps;
+    typedef vector< ofPtr< ofxPanasonicControl> >  ProkectorsVector;
+    ProkectorsVector   m_projectors;
     
 };
 

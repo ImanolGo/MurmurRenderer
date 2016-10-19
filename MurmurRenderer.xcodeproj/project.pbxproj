@@ -21,6 +21,7 @@
 		082C275F1BB3F08400EEB495 /* ofxMidiOut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 082C274B1BB3F08400EEB495 /* ofxMidiOut.cpp */; };
 		082C27621BB3F09A00EEB495 /* MidiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 082C27601BB3F09A00EEB495 /* MidiManager.cpp */; };
 		082C27641BB3F78000EEB495 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082C27631BB3F78000EEB495 /* CoreMIDI.framework */; };
+		083087871DB7D9470023991B /* ofxPanasonicControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083087851DB7D9470023991B /* ofxPanasonicControl.cpp */; };
 		084098051CA010330085E08B /* SonicBoomScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 084098041CA010330085E08B /* SonicBoomScene.cpp */; };
 		0848D6F41B8F62A600672D56 /* VideoVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0848D6F21B8F62A600672D56 /* VideoVisual.cpp */; };
 		0848D72C1B904C6800672D56 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0848D71E1B904C6800672D56 /* Syphon.framework */; };
@@ -90,12 +91,6 @@
 		08D401F61B6A703B0035C289 /* ofxFluid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401E81B6A703B0035C289 /* ofxFluid.cpp */; };
 		08D401F71B6A703B0035C289 /* ofxWater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401EA1B6A703B0035C289 /* ofxWater.cpp */; };
 		08D401F81B6A703B0035C289 /* ofxFXObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D401ED1B6A703B0035C289 /* ofxFXObject.cpp */; };
-		08EBB62F1B721185005F510F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB62B1B721185005F510F /* README.md */; };
-		08EBB6301B721185005F510F /* ofxSecondWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB62D1B721185005F510F /* ofxSecondWindow.cpp */; };
-		08EBB64F1B729E8A005F510F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB6461B729E8A005F510F /* README.md */; };
-		08EBB6501B729E8A005F510F /* BiologicalVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB6481B729E8A005F510F /* BiologicalVehicle.cpp */; };
-		08EBB6511B729E8A005F510F /* SteeredVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB64B1B729E8A005F510F /* SteeredVehicle.cpp */; };
-		08EBB6521B729E8A005F510F /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB64D1B729E8A005F510F /* Vehicle.cpp */; };
 		08EBB6551B72B380005F510F /* BirdsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB6531B72B380005F510F /* BirdsManager.cpp */; };
 		08EC800A1B3C3D1A000893E1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80051B3C3D1A000893E1 /* README.md */; };
 		08EC800B1B3C3D1A000893E1 /* ofxSceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08EC80081B3C3D1A000893E1 /* ofxSceneManager.cpp */; };
@@ -269,6 +264,8 @@
 		082C27601BB3F09A00EEB495 /* MidiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MidiManager.cpp; sourceTree = "<group>"; };
 		082C27611BB3F09A00EEB495 /* MidiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiManager.h; sourceTree = "<group>"; };
 		082C27631BB3F78000EEB495 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		083087851DB7D9470023991B /* ofxPanasonicControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxPanasonicControl.cpp; path = Addons/ofxPanasonicControl/src/ofxPanasonicControl.cpp; sourceTree = "<group>"; };
+		083087861DB7D9470023991B /* ofxPanasonicControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxPanasonicControl.h; path = Addons/ofxPanasonicControl/src/ofxPanasonicControl.h; sourceTree = "<group>"; };
 		084098031CA010330085E08B /* SonicBoomScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonicBoomScene.h; sourceTree = "<group>"; };
 		084098041CA010330085E08B /* SonicBoomScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SonicBoomScene.cpp; sourceTree = "<group>"; };
 		0848D6F21B8F62A600672D56 /* VideoVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoVisual.cpp; sourceTree = "<group>"; };
@@ -427,18 +424,6 @@
 		08D401EF1B6A703B0035C289 /* ofxSwapBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSwapBuffer.h; sourceTree = "<group>"; };
 		08D401F11B6A703B0035C289 /* ofxKaleidoscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxKaleidoscope.h; sourceTree = "<group>"; };
 		08D401F21B6A703B0035C289 /* ofxRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxRotate.h; sourceTree = "<group>"; };
-		08EBB62A1B721185005F510F /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
-		08EBB62B1B721185005F510F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		08EBB62D1B721185005F510F /* ofxSecondWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSecondWindow.cpp; sourceTree = "<group>"; };
-		08EBB62E1B721185005F510F /* ofxSecondWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSecondWindow.h; sourceTree = "<group>"; };
-		08EBB6461B729E8A005F510F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		08EBB6481B729E8A005F510F /* BiologicalVehicle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BiologicalVehicle.cpp; sourceTree = "<group>"; };
-		08EBB6491B729E8A005F510F /* BiologicalVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiologicalVehicle.h; sourceTree = "<group>"; };
-		08EBB64A1B729E8A005F510F /* ofxBoids.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBoids.h; sourceTree = "<group>"; };
-		08EBB64B1B729E8A005F510F /* SteeredVehicle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SteeredVehicle.cpp; sourceTree = "<group>"; };
-		08EBB64C1B729E8A005F510F /* SteeredVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteeredVehicle.h; sourceTree = "<group>"; };
-		08EBB64D1B729E8A005F510F /* Vehicle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vehicle.cpp; sourceTree = "<group>"; };
-		08EBB64E1B729E8A005F510F /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
 		08EBB6531B72B380005F510F /* BirdsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BirdsManager.cpp; path = Visuals/BirdsManager.cpp; sourceTree = "<group>"; };
 		08EBB6541B72B380005F510F /* BirdsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BirdsManager.h; path = Visuals/BirdsManager.h; sourceTree = "<group>"; };
 		08EC80041B3C3D1A000893E1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -804,6 +789,23 @@
 			path = desktop;
 			sourceTree = "<group>";
 		};
+		083087831DB7D9080023991B /* ofxPanasonicControl */ = {
+			isa = PBXGroup;
+			children = (
+				083087841DB7D9300023991B /* src */,
+			);
+			name = ofxPanasonicControl;
+			sourceTree = "<group>";
+		};
+		083087841DB7D9300023991B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				083087851DB7D9470023991B /* ofxPanasonicControl.cpp */,
+				083087861DB7D9470023991B /* ofxPanasonicControl.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		0848D7181B904C6800672D56 /* ofxSyphon */ = {
 			isa = PBXGroup;
 			children = (
@@ -1127,50 +1129,6 @@
 				08D401F21B6A703B0035C289 /* ofxRotate.h */,
 			);
 			path = transformers;
-			sourceTree = "<group>";
-		};
-		08EBB6291B721185005F510F /* ofxSecondWindow */ = {
-			isa = PBXGroup;
-			children = (
-				08EBB62A1B721185005F510F /* ofxaddons_thumbnail.png */,
-				08EBB62B1B721185005F510F /* README.md */,
-				08EBB62C1B721185005F510F /* src */,
-			);
-			name = ofxSecondWindow;
-			path = Addons/ofxSecondWindow;
-			sourceTree = "<group>";
-		};
-		08EBB62C1B721185005F510F /* src */ = {
-			isa = PBXGroup;
-			children = (
-				08EBB62D1B721185005F510F /* ofxSecondWindow.cpp */,
-				08EBB62E1B721185005F510F /* ofxSecondWindow.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		08EBB6451B729E8A005F510F /* ofxBoids */ = {
-			isa = PBXGroup;
-			children = (
-				08EBB6461B729E8A005F510F /* README.md */,
-				08EBB6471B729E8A005F510F /* src */,
-			);
-			name = ofxBoids;
-			path = Addons/ofxBoids;
-			sourceTree = "<group>";
-		};
-		08EBB6471B729E8A005F510F /* src */ = {
-			isa = PBXGroup;
-			children = (
-				08EBB6481B729E8A005F510F /* BiologicalVehicle.cpp */,
-				08EBB6491B729E8A005F510F /* BiologicalVehicle.h */,
-				08EBB64A1B729E8A005F510F /* ofxBoids.h */,
-				08EBB64B1B729E8A005F510F /* SteeredVehicle.cpp */,
-				08EBB64C1B729E8A005F510F /* SteeredVehicle.h */,
-				08EBB64D1B729E8A005F510F /* Vehicle.cpp */,
-				08EBB64E1B729E8A005F510F /* Vehicle.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		08EC80021B3C3D1A000893E1 /* ofxSceneManager */ = {
@@ -1709,12 +1667,11 @@
 		AD642137CCDF61FB3E6CCEA2 /* Addons */ = {
 			isa = PBXGroup;
 			children = (
+				083087831DB7D9080023991B /* ofxPanasonicControl */,
 				0818C74B1BFE7D220091A9DB /* ofxMaskAddon */,
 				082C27171BB3F08400EEB495 /* ofxMidi */,
 				0848D74E1B90872600672D56 /* ofxFFT */,
 				0848D7181B904C6800672D56 /* ofxSyphon */,
-				08EBB6451B729E8A005F510F /* ofxBoids */,
-				08EBB6291B721185005F510F /* ofxSecondWindow */,
 				08F418271B6B683B00D190B7 /* ofxBlur */,
 				08D401D01B6A703B0035C289 /* ofxFX */,
 				08D401131B6A368B0035C289 /* ofxPostProcessing */,
@@ -2084,6 +2041,7 @@
 				08D401591B6A368C0035C289 /* RGBShiftPass.cpp in Sources */,
 				089A81FF1B42CAF700928D12 /* BattleOfSelfScene.cpp in Sources */,
 				08D401561B6A368C0035C289 /* PixelatePass.cpp in Sources */,
+				083087871DB7D9470023991B /* ofxPanasonicControl.cpp in Sources */,
 				087761EA1BBAD9E700898648 /* PreviewManager.cpp in Sources */,
 				5C767E231BCE978E003719D6 /* BeautifulMindSceneFloor.cpp in Sources */,
 				08D4015B1B6A368C0035C289 /* SSAOPass.cpp in Sources */,
@@ -2125,7 +2083,6 @@
 				085839551D3FA2C30032CDC3 /* ProjectorCalibrationSceneFloor.cpp in Sources */,
 				08B0749F1B46D588008D71BB /* ResourceManager.cpp in Sources */,
 				66917D59ACB7DEA9977F0675 /* UdpSocketWin.cpp in Sources */,
-				08EBB6511B729E8A005F510F /* SteeredVehicle.cpp in Sources */,
 				0848D7351B904DD700672D56 /* SyphonVisual.cpp in Sources */,
 				08EEBC301B445B0800061FB1 /* UdpManager.cpp in Sources */,
 				7E2A201F278FAA6068E9BD05 /* OscOutboundPacketStream.cpp in Sources */,
@@ -2146,7 +2103,6 @@
 				08EC80351B3C3F0F000893E1 /* ofxEasingBounce.cpp in Sources */,
 				08B074A51B46D588008D71BB /* ViewManager.cpp in Sources */,
 				08EC80431B3C3FEF000893E1 /* SceneManager.cpp in Sources */,
-				08EBB6301B721185005F510F /* ofxSecondWindow.cpp in Sources */,
 				854D16924B6DD2C209FD11C2 /* ofxOscReceiver.cpp in Sources */,
 				08F4182E1B6B683B00D190B7 /* ofxBlur.cpp in Sources */,
 				0848D6F41B8F62A600672D56 /* VideoVisual.cpp in Sources */,
@@ -2156,7 +2112,6 @@
 				9D3E5A7C189607A50D28E499 /* src_colors.cpp in Sources */,
 				08FD9DD01DB298E100E29556 /* ProjectorsManager.cpp in Sources */,
 				A417B50DA594FBD304CFF2CA /* svgtiny.cpp in Sources */,
-				08EBB6521B729E8A005F510F /* Vehicle.cpp in Sources */,
 				082C275C1BB3F08400EEB495 /* ofxMidi.cpp in Sources */,
 				08B0749E1B46D588008D71BB /* LightManager.cpp in Sources */,
 				08B0749B1B46D588008D71BB /* CameraAnimations.cpp in Sources */,
@@ -2178,9 +2133,7 @@
 				5C9B83F61BD81D9B00004D38 /* BeautifulMindManager.cpp in Sources */,
 				08EC803C1B3C3F0F000893E1 /* ofxEasingQuart.cpp in Sources */,
 				20DD9BBB631FBC0CDCCFA6B6 /* ofTextConverter.cpp in Sources */,
-				08EBB62F1B721185005F510F /* README.md in Sources */,
 				7E78555D595408C86F902937 /* ofUnicode.cpp in Sources */,
-				08EBB64F1B729E8A005F510F /* README.md in Sources */,
 				08EC80371B3C3F0F000893E1 /* ofxEasingCubic.cpp in Sources */,
 				EC108074DB75C3CD93A7DADF /* ofUTF8.cpp in Sources */,
 				08D401F31B6A703B0035C289 /* license.md in Sources */,
@@ -2213,7 +2166,6 @@
 				1AF15FCF93D2DDD6D4285C8E /* AppManager.cpp in Sources */,
 				08D4014F1B6A368C0035C289 /* FxaaPass.cpp in Sources */,
 				DA22DA3A4F2E611DF50078F2 /* main.cpp in Sources */,
-				08EBB6501B729E8A005F510F /* BiologicalVehicle.cpp in Sources */,
 				082C275E1BB3F08400EEB495 /* ofxMidiMessage.cpp in Sources */,
 				EEAC49F2D85B2790282E9CEF /* MurmurRendererApp.cpp in Sources */,
 				58BCEB4034B30CB4A3456FC7 /* SettingsManager.cpp in Sources */,

@@ -52,8 +52,13 @@ void ofxPanasonicControl::sendCommand(string command, int amount) {
     string msgRx="";
     
     if(!pjClient.isConnected()) {
-        pjClient.setVerbose(true);
-        connected = pjClient.setup(IPAddress, PANASONIC_PORT,true);
+        //pjClient.setVerbose(true);
+        
+        connected = pjClient.setup(IPAddress, PANASONIC_PORT,false);
+        if(!connected)
+        {
+            return;
+        }
         //ofLog() << "connection established: " << IPAddress << ":" << PANASONIC_PORT << endl;
         cout<< "connection established: " << IPAddress << ":" << PANASONIC_PORT << endl;
         string response = "";

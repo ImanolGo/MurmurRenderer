@@ -13,7 +13,7 @@
 
 const int FloorManager::FLOOR_POS_CIRCLE_RADIUS = 20;
 
-FloorManager::FloorManager()
+FloorManager::FloorManager(): m_kathakRadius(10)
 {
     //Intentionaly left empty
 }

@@ -251,6 +251,7 @@ private:
     
     ofParameter<ofVec2f>    m_floorOffset;
     ofParameter<ofVec2f>    m_floorScale;
+    ofParameter<float>      m_floorRadius;
     
     ofParameter<ofVec2f>    m_beautifulMindOffset;
     ofParameter<ofVec2f>    m_beautifulMindScale;

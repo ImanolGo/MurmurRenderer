@@ -1,15 +1,15 @@
 <MurmurRenderer>
-	<FPS>51.4215</FPS>
+	<FPS>57.827</FPS>
 	<Scenes>
 		<TransitionTime>1.18367</TransitionTime>
 		<BlankScene>0</BlankScene>
 		<SmokyHandsScene>0</SmokyHandsScene>
-	<BattleOfSelfScene>1</BattleOfSelfScene>
+	<BattleOfSelfScene>0</BattleOfSelfScene>
 	<HandsWritingScene>0</HandsWritingScene>
 	<FluidFloorScene>0</FluidFloorScene>
 		<BeautifulMindScene>0</BeautifulMindScene>
 	<Transparency>0</Transparency>
-	<KathakScene>0</KathakScene>
+	<KathakScene>1</KathakScene>
 	<BirdsScene>0</BirdsScene>
 	<BirdsOpeningScene>0</BirdsOpeningScene>
 		<BirdsAndPaperScene>0</BirdsAndPaperScene>
@@ -25,24 +25,24 @@
 	</Scenes>
 	<Contour>
 		<Thickness>0.718367</Thickness>
-		<Offset>0.25102, 0.472595</Offset>
-		<Scale>0.468419, 0.650562</Scale>
+		<Offset>0.283868, 0.602469</Offset>
+		<Scale>0.473517, 0.544086</Scale>
 	</Contour>
 <MurmurRenderer/>
 <Hands>
-		<Offset>0.00112778, 0.0489584</Offset>
-		<Scale>-0.495022, -0.846974</Scale>
-	<On>1</On>
-	<FadeTime>23.5714</FadeTime>
-	<Size>0.693878</Size>
+		<Offset>0.00112778, 0.0821621</Offset>
+		<Scale>-0.505217, -0.97499</Scale>
+	<On>0</On>
+	<FadeTime>9.18367</FadeTime>
+	<Size>0.489796</Size>
 	</Hands>
 <Floor>
-		<Offset>0.00358742, -0.230147</Offset>
-		<Scale>-0.900215, 1.31885</Scale>
+		<Offset>-0.0372807, -0.0531264</Offset>
+		<Scale>-0.900215, 1.00688</Scale>
 	</Floor>
 <BeautifulMind>
-		<Offset>-0.0245731, -0.091212</Offset>
-		<Scale>0.850062, 0.758434</Scale>
+		<Offset>-0.0245731, 0.0254061</Offset>
+		<Scale>0.758434, 0.541858</Scale>
 	<FloorOn>1</FloorOn>
 		<Speed>1.02041</Speed>
 	<CalibrationOn>0</CalibrationOn>
@@ -54,21 +54,21 @@
 		<CropBottom>0</CropBottom>
 	</Crop>
 <Audio>
-		<Volume>0.363265</Volume>
-	<AudioOn>1</AudioOn>
+		<Volume>0.926531</Volume>
+	<AudioOn>0</AudioOn>
 	</Audio>
 <Layout>
 		<Fullscreen>1</Fullscreen>
 		<CropLeft>0</CropLeft>
 		<CropRight>0</CropRight>
-		<CropTop>0</CropTop>
+		<CropTop>293</CropTop>
 		<CropBottom>0</CropBottom>
 	</Layout>
 <Birds>
 		<Offset>0, 0</Offset>
 		<Transparency>0.285714</Transparency>
-		<SwarmSize>3, 3, 3</SwarmSize>
-	<Position>0, 0, 0</Position>
+		<SwarmSize>1, 1, 1</SwarmSize>
+	<Position>0, 0.299993, 0</Position>
 		<Size>1.55102</Size>
 	<MaxForce>2.85714</MaxForce>
 		<WanderDistance>15.5102</WanderDistance>
@@ -77,8 +77,8 @@
 		<InSightDist>644.898</InSightDist>
 		<TooCloseDist>22.8571</TooCloseDist>
 	<BirdsNumber>0</BirdsNumber>
-		<Speed>7</Speed>
-		<Randomness>0</Randomness>
+		<Speed>8.5</Speed>
+		<Randomness>5</Randomness>
 	</Birds>
 <Top>
 		<Volume>1</Volume>
