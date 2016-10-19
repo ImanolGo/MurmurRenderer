@@ -59,9 +59,7 @@ private:
 
 private:
 
-    bool            m_initialized;
-
-    ofShader                m_shader;
+    bool                    m_initialized;
     ofFbo                   m_fbo;
     ofxPostProcessing       m_postProcessing;
     SonicBoomVisual         m_sonicBoomVisual;

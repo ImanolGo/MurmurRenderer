@@ -79,7 +79,7 @@ public:
     ~SonicBoomVisual();
      
     //! set up the Sonic boom visual
-    void setup();
+    void setup(int width, int height);
     
     //! Draw the Sonic boom visual
     void update();
@@ -98,6 +98,10 @@ public:
      
 private:
      
+     void setupFbos(int width, int height);
+     
+     void setupShaders();
+     
      void updateParticles();
      
      void drawParticles();
@@ -107,9 +111,10 @@ private:
      typedef vector< ofPtr<SonicBoomParticle> > ParticlesVector;
      ParticlesVector  m_particles;
      
-     WindowSettings         m_windowsSettings;
-     
      ofFbo                  m_fbo;
+     
+     ofShader               m_shader;
+     float                  m_frequency, m_amplitude, m_speed; //shader parameters
      
      double                 m_elapsedTime;
      double                 m_newParticleTime;

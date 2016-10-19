@@ -30,11 +30,9 @@ void BattleOfSelfScene::setup()
     }
     
     this->setupFbos();
-    this->setupPostProcessing();
+    //this->setupPostProcessing();
     
     //this->setupShaders();
-    
-    m_sonicBoomVisual.setup();
     
     m_fluid.setup("xmls/BattleOfSelfFluid.xml");
     m_initialized = true;
@@ -51,6 +49,8 @@ void BattleOfSelfScene::setupFbos()
     
     m_fbo.allocate(windowsSettings.width, windowsSettings.height);
     m_fbo.begin(); ofClear(0); m_fbo.end();
+    
+     m_sonicBoomVisual.setup(windowsSettings.width, windowsSettings.height);
     
 }
 
@@ -139,17 +139,19 @@ void BattleOfSelfScene::drawSonicBoom()
         return;
     }
     
-    m_postProcessing.begin();
-    //ofPushStyle();
-    ofPushMatrix();
-        ofScale(1, -1);
-        ofTranslate(0, -m_fbo.getHeight());
-        m_sonicBoomVisual.draw();
+    m_sonicBoomVisual.draw();
     
-    ofPopMatrix();
-    m_postProcessing.end();
-    //ofPopStyle();
-    //ofDisableAlphaBlending();
+//    m_postProcessing.begin();
+//    //ofPushStyle();
+//    ofPushMatrix();
+//        ofScale(1, -1);
+//        ofTranslate(0, -m_fbo.getHeight());
+//        m_sonicBoomVisual.draw();
+//    
+//    ofPopMatrix();
+//    m_postProcessing.end();
+//    //ofPopStyle();
+//    //ofDisableAlphaBlending();
 }
 
 void BattleOfSelfScene::drawFluid()

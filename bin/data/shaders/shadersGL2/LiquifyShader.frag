@@ -4,6 +4,8 @@
 uniform sampler2DRect texture0;
 uniform float time;
 uniform float amplitude;
+uniform float speed;
+uniform float frequency;
 
 //Classic Perlin noise function declaration
 //See definition in the end of file
@@ -14,8 +16,10 @@ void main(){
 	
 	//Shift pos using Perlin noise
 	vec2 shift;
-	shift.x = cnoise( vec3(pos*0.02, time * 0.5 + 17.0) )*30.0;
-	shift.y = cnoise( vec3(pos*0.02, time * 0.5 + 12.0) )*30.0;
+	shift.x = cnoise( vec3(pos*speed*0.01, time * frequency + 17.0) )*30.0;
+	shift.y = cnoise( vec3(pos*speed*0.01, time * frequency + 12.0) )*30.0;
+  //shift.x = cnoise( vec3(pos*0.02, time * 0.5 + 17.0) )*30.0;
+  //shift.y = cnoise( vec3(pos*0.02, time * 0.5 + 12.0) )*30.0;
 	pos += (shift*amplitude);
   //pos += shift;
 	

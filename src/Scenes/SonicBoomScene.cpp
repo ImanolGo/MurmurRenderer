@@ -30,9 +30,8 @@ void SonicBoomScene::setup()
     }
 
     this->setupFbos();
-    this->setupPostProcessing();
 
-    m_sonicBoomVisual.setup();
+    //this->setupPostProcessing();
 
     m_initialized = true;
 
@@ -49,6 +48,7 @@ void SonicBoomScene::setupFbos()
     m_fbo.allocate(windowsSettings.width, windowsSettings.height);
     m_fbo.begin(); ofClear(0); m_fbo.end();
 
+    m_sonicBoomVisual.setup(windowsSettings.width, windowsSettings.height);
 }
 
 
@@ -59,7 +59,7 @@ void SonicBoomScene::setupPostProcessing()
 
     // Setup post-processing chain
     m_postProcessing.init(windowsSettings.width, windowsSettings.height);
-    m_postProcessing.createPass<FxaaPass>()->setEnabled(true);
+    //m_postProcessing.createPass<FxaaPass>()->setEnabled(true);
     //m_postProcessing.createPass<BloomPass>()->setEnabled(true);
 
     //ofPtr<ZoomBlurPass> zoomBlurPass =  m_postProcessing.createPass<ZoomBlurPass>();
@@ -115,15 +115,15 @@ void SonicBoomScene::drawSonicBoom()
         return;
     }
 
-    m_postProcessing.begin();
-
-    ofPushMatrix();
-        ofScale(1, -1);
-        ofTranslate(0, -m_fbo.getHeight());
-        m_sonicBoomVisual.draw();
-
-    ofPopMatrix();
-    m_postProcessing.end();
+     m_sonicBoomVisual.draw();
+    
+//    m_postProcessing.begin();
+//    ofPushMatrix();
+//        ofScale(1, -1);
+//        ofTranslate(0, -m_fbo.getHeight());
+//        m_sonicBoomVisual.draw();
+//    ofPopMatrix();
+//    m_postProcessing.end();
 }
 
 

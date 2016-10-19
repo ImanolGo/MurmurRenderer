@@ -74,9 +74,9 @@ void SonicBoomParticle::draw()
 
 
 
-SonicBoomVisual::SonicBoomVisual(): m_elapsedTime(10000), m_newParticleTime(0.2)
+SonicBoomVisual::SonicBoomVisual(): m_elapsedTime(10000), m_newParticleTime(0.2), m_frequency(0.6), m_amplitude(1.0), m_speed(0.5)
 {
-    this->setup();
+    
 }
 
 
@@ -86,14 +86,36 @@ SonicBoomVisual::~SonicBoomVisual()
 }
 
 
-void SonicBoomVisual::setup()
+void SonicBoomVisual::setup(int width, int height)
 {
-    m_windowsSettings = AppManager::getInstance().getSettingsManager().getWindowsSettings(1);
     
-    m_fbo.allocate(m_windowsSettings.width, m_windowsSettings.height);
+    this->setupFbos(width, height);
+    this->setupShaders();
+}
+
+
+
+void SonicBoomVisual::setupFbos(int width, int height)
+{
+    m_fbo.allocate(width, height);
     m_fbo.begin(); ofClear(0); m_fbo.end();
 }
 
+void SonicBoomVisual::setupShaders()
+{
+    
+    if(ofIsGLProgrammableRenderer()){
+        m_shader.load("shaders/shadersGL3/LiquifyShader");
+    }
+    else{
+        m_shader.load("shaders/shadersGL2/LiquifyShader");
+        
+    }
+    
+    m_frequency = 0.6;
+    m_amplitude = 1.0;
+    m_speed = 0.5;
+}
 
 void SonicBoomVisual::update()
 {
@@ -107,8 +129,8 @@ void SonicBoomVisual::updateParticles()
     
     for (auto hand : hands) {
         ofPoint pos = hand;
-        pos.x *= m_windowsSettings.width;
-        pos.y *= m_windowsSettings.height;
+        pos.x *= m_fbo.getWidth();
+        pos.y *= m_fbo.getHeight();
         this->addParticle(pos);
     }
     
@@ -157,7 +179,26 @@ void SonicBoomVisual::drawParticles()
     
     // ofPopStyle();
     
-    m_fbo.draw(0, 0);
+    //Drawing to screen through the shader
+    m_shader.begin();		//Enable the shader
+    
+    m_shader.setUniform1f("time", ofGetElapsedTimef());
+   // m_shader.setUniformTexture("tex", m_fbo.getTextureReference(), 0);
+    m_shader.setUniform1f("frequency", m_frequency);
+    m_shader.setUniform1f("amplitude", m_amplitude);
+    m_shader.setUniform1f("speed", m_speed);
+    
+
+   // float time = ofGetElapsedTimef();
+    //m_shader.setUniform1f( "time", time );	//Passing float parameter "time" to shader
+    //m_shader.setUniform1f( "amplitude", 0.21 );	//Passing float parameter "amplitude" to shader
+    
+    //Draw fbo image
+    ofSetColor( 255, 255, 255 );
+    m_fbo.draw( 0, 0 );
+    
+    m_shader.end();		//Disable the shader
+    
 }
 
 

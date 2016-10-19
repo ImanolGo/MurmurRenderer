@@ -43,8 +43,6 @@ typedef  map<int,float>              TimingMap;             ///< defines a map o
 typedef  map<string,string>          ResourcesPathMap;       ///< defines a map of path attached to the resources name
 typedef  vector<WindowSettings>      WindowSettingsVector;   ///< Defines a vector of windows settings
 typedef  vector<string>              IpsVector;     ///< Defines a vector of ip addresses
-typedef std::pair<int, int>          ipair;
-
 
 
 class SettingsManager: public Manager
