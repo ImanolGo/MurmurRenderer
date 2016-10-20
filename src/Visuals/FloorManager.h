@@ -56,7 +56,11 @@ public:
      
     void onSetKathakRadius(float& value) {m_kathakRadius = value;}
      
+    void onSetKathakWidth(float& value) {m_floorWidth = value;}
+     
     float getKathakRadius() const {return m_kathakRadius;}
+     
+    float getKathakWidth() const {return m_floorWidth;}
     
      
 private:
@@ -68,6 +72,7 @@ private:
     ofVec2f             m_floorOffset;
     ofVec2f             m_floorScale;
     float               m_kathakRadius;
+    float               m_floorWidth;
      
 };
 

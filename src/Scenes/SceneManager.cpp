@@ -28,7 +28,7 @@
 
 #include "AppManager.h"
 
-SceneManager::SceneManager(): Manager()
+SceneManager::SceneManager(): Manager(),  m_opacityFront(0.0), m_opacityTop(0.0)
 {
 	//Intentionally left empty
 }
@@ -49,6 +49,7 @@ void SceneManager::setup()
 
     this->createSceneManagers();
     this->createScenes();
+    this->setupEffects();
     //this->setupText();
 
     ofLogNotice() <<"SceneManager::initialized";
@@ -71,6 +72,16 @@ void SceneManager::createScenes()
 {
     this->createFrontScenes();
     this->createTopScenes();
+}
+
+void SceneManager::setupEffects()
+{
+    m_topOpacityVisual =  ofPtr<BasicVisual>(new BasicVisual());
+    m_topOpacityEffect = ofPtr<MoveVisual>(new MoveVisual(m_topOpacityVisual));
+    
+    m_frontOpacityVisual =  ofPtr<BasicVisual>(new BasicVisual());
+    m_frontOpacityEffect = ofPtr<MoveVisual>(new MoveVisual(m_frontOpacityVisual));
+    
 }
 
 void SceneManager::createFrontScenes()
@@ -282,9 +293,29 @@ bool SceneManager::run(WindowIndex w)
 
 void SceneManager::update()
 {
-     for(auto sceneManager : m_sceneManagers) {
-         sceneManager.second->update();
-     }
+    this->updateScenes();
+    this->updateEffects();
+}
+
+void SceneManager::updateScenes()
+{
+    for(auto sceneManager : m_sceneManagers) {
+        sceneManager.second->update();
+    }
+}
+
+void SceneManager::updateEffects()
+{
+    if(!m_topOpacityEffect->isFinished())
+    {
+        AppManager::getInstance().getGuiManager().setSceneOpacityTop(m_topOpacityVisual->getPosition().x);
+    }
+    
+    if(!m_frontOpacityEffect->isFinished())
+    {
+        AppManager::getInstance().getGuiManager().setSceneOpacityFront(m_frontOpacityVisual->getPosition().x);
+    }
+    
 }
 
 void SceneManager::draw(WindowIndex w)
@@ -356,6 +387,9 @@ void SceneManager::onOpacityChange(float & value)
 {
     float alpha = ofMap(value, 0, 1, 1, 0, true);
     
+    m_opacityFront = value;
+    m_opacityTop = value;
+    
     for(auto sceneManager : m_sceneManagers) {
         sceneManager.second->setAlpha(alpha);
     }
@@ -365,6 +399,14 @@ void SceneManager::onOpacityChange(float & value, WindowIndex w)
 {
     float alpha = ofMap(value, 0, 1, 1, 0, true);
     
+    if(w == 1){
+         m_opacityFront = value;
+    }
+    
+    if(w == 2){
+        m_opacityTop = value;
+    }
+   
     if(m_sceneManagers.find(w)!= m_sceneManagers.end()){
         m_sceneManagers[w]->setAlpha(alpha);
     }
@@ -374,6 +416,7 @@ void SceneManager::onOpacityChange(float & value, WindowIndex w)
 void SceneManager::onFrontOpacityChange(float & value)
 {
     float alpha = ofMap(value, 0, 1, 1, 0, true);
+    m_opacityFront = value;
     
     WindowIndex w =  WindowIndex(FRONT);
     if(m_sceneManagers.find(w)!= m_sceneManagers.end()){
@@ -384,6 +427,7 @@ void SceneManager::onFrontOpacityChange(float & value)
 void SceneManager::onTopOpacityChange(float & value)
 {
     float alpha = ofMap(value, 0, 1, 1, 0, true);
+    m_opacityTop = value;
     
     WindowIndex w =  WindowIndex(TOP);
     if(m_sceneManagers.find(w)!= m_sceneManagers.end()){
@@ -391,6 +435,31 @@ void SceneManager::onTopOpacityChange(float & value)
     }
 }
 
+void SceneManager::addTopOpacityEffect(float targetOpacity, double duration, double startTime)
+{
+    m_topOpacityEffect->stop();
+    m_topOpacityEffect->setParameters(ofVec3f(m_opacityTop,0,0), ofVec3f(targetOpacity,0,0), duration);
+    m_topOpacityEffect->start(startTime);
+    
+    AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_topOpacityEffect);
+}
+
+
+void SceneManager::addFrontOpacityEffect(float targetOpacity, double duration, double startTime)
+{
+    m_frontOpacityEffect->stop();
+    m_frontOpacityEffect->setParameters(ofVec3f(m_opacityFront,0,0), ofVec3f(targetOpacity,0,0), duration);
+    m_frontOpacityEffect->start(startTime);
+    
+    AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_frontOpacityEffect);
+}
+
+
+void SceneManager::addOpacityEffect(float targetOpacity, double duration, double startTime)
+{
+    this->addTopOpacityEffect(targetOpacity, duration, startTime);
+    this->addFrontOpacityEffect(targetOpacity, duration, startTime);
+}
 
 
 

@@ -78,7 +78,13 @@ void KathakScene::setupWaterRipples()
     
     ofImage waterBackground;
     waterBackground.allocate(windowsSettings.width, windowsSettings.height, OF_IMAGE_GRAYSCALE);
-    m_water.loadBackground(waterBackground);
+    
+    
+    ofFbo waterBackgroundFbo;
+    waterBackgroundFbo.allocate(windowsSettings.width, windowsSettings.height);
+    waterBackgroundFbo.begin(); ofBackground(0, 0, 255); waterBackgroundFbo.end();
+    
+    m_water.loadBackground(waterBackgroundFbo);
     m_water.setDensity(0.97);
     
 }
@@ -103,9 +109,12 @@ void KathakScene::draw() {
 
 void KathakScene::updateWaterRipples()
 {
-    float volume = AppManager::getInstance().getAudioManager().getAudioMax();
+    auto volume = AppManager::getInstance().getAudioManager().getAudioMax();
     auto position = AppManager::getInstance().getFloorManager().getPosition();
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
+    auto minRadius = AppManager::getInstance().getFloorManager().getKathakRadius();
+    auto radius = ofMap(volume, 0.0, 1.0, minRadius, windowsSettings.height/2.5);
+    auto circleWidth = AppManager::getInstance().getFloorManager().getKathakWidth();
     
     position.x *= windowsSettings.width;
     position.y *= windowsSettings.height;
@@ -114,14 +123,13 @@ void KathakScene::updateWaterRipples()
     
     m_water.begin();
         ofNoFill();
-        ofSetLineWidth(20);
+        ofSetLineWidth(circleWidth);
         ofColor color = ofColor::lightSeaGreen;
         color.setSaturation( 50 + ofNoise( ofGetFrameNum() ) * 255 );
         ofSetColor(color);
         //ofSetColor(ofNoise( ofGetFrameNum() ) * 255 * 5, 255);
         //ofSetColor(ofColor::blue);
-        float minRadius = AppManager::getInstance().getFloorManager().getKathakRadius();
-        float radius = ofMap(volume, 0.0, 1.0, minRadius, windowsSettings.height/2.5);
+    
        // float radius = ofMap(volume, 0.0, 1.0, 70, windowsSettings.height/2.5);
         ofCircle(position, radius);
         //ofCircle(ofGetMouseX(), ofGetMouseY(), radius);
@@ -135,6 +143,7 @@ void KathakScene::updateWaterRipples()
 void KathakScene::drawWaterRipples()
 {
     m_water[1].draw(0,0);
+    //m_water.draw(0,0);
 }
 
 

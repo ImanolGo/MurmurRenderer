@@ -20,6 +20,7 @@ public:
     
     ofxWater& loadBackground(string file);
     ofxWater& loadBackground(ofImage& backgroundImage);
+    ofxWater& loadBackground(ofFbo& backgroundImage);
     
     ofxWater& linkBackground(ofTexture * _backText);
     

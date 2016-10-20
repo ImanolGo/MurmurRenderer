@@ -1,15 +1,15 @@
 <MurmurRenderer>
-	<FPS>57.827</FPS>
+	<FPS>60.058</FPS>
 	<Scenes>
-		<TransitionTime>1.18367</TransitionTime>
-		<BlankScene>0</BlankScene>
+		<TransitionTime>1.42857</TransitionTime>
+		<BlankScene>1</BlankScene>
 		<SmokyHandsScene>0</SmokyHandsScene>
 	<BattleOfSelfScene>0</BattleOfSelfScene>
 	<HandsWritingScene>0</HandsWritingScene>
 	<FluidFloorScene>0</FluidFloorScene>
 		<BeautifulMindScene>0</BeautifulMindScene>
 	<Transparency>0</Transparency>
-	<KathakScene>1</KathakScene>
+	<KathakScene>0</KathakScene>
 	<BirdsScene>0</BirdsScene>
 	<BirdsOpeningScene>0</BirdsOpeningScene>
 		<BirdsAndPaperScene>0</BirdsAndPaperScene>
@@ -24,21 +24,23 @@
 	<ProjectorCalibrationScene>0</ProjectorCalibrationScene>
 	</Scenes>
 	<Contour>
-		<Thickness>0.718367</Thickness>
-		<Offset>0.283868, 0.602469</Offset>
+		<Thickness>1.24</Thickness>
+		<Offset>0.25102, 0.57172</Offset>
 		<Scale>0.473517, 0.544086</Scale>
 	</Contour>
 <MurmurRenderer/>
 <Hands>
-		<Offset>0.00112778, 0.0821621</Offset>
-		<Scale>-0.505217, -0.97499</Scale>
+		<Offset>-0.00395668, 0.0585173</Offset>
+		<Scale>-0.536651, -0.97499</Scale>
 	<On>0</On>
-	<FadeTime>9.18367</FadeTime>
-	<Size>0.489796</Size>
+	<FadeTime>23.5714</FadeTime>
+	<Size>0.55102</Size>
 	</Hands>
 <Floor>
 		<Offset>-0.0372807, -0.0531264</Offset>
 		<Scale>-0.900215, 1.00688</Scale>
+	<Radius>65.7143</Radius>
+	<Width>22.2449</Width>
 	</Floor>
 <BeautifulMind>
 		<Offset>-0.0245731, 0.0254061</Offset>
@@ -54,21 +56,21 @@
 		<CropBottom>0</CropBottom>
 	</Crop>
 <Audio>
-		<Volume>0.926531</Volume>
+		<Volume>0.469388</Volume>
 	<AudioOn>0</AudioOn>
 	</Audio>
 <Layout>
 		<Fullscreen>1</Fullscreen>
 		<CropLeft>0</CropLeft>
 		<CropRight>0</CropRight>
-		<CropTop>293</CropTop>
+		<CropTop>253</CropTop>
 		<CropBottom>0</CropBottom>
 	</Layout>
 <Birds>
 		<Offset>0, 0</Offset>
 		<Transparency>0.285714</Transparency>
 		<SwarmSize>1, 1, 1</SwarmSize>
-	<Position>0, 0.299993, 0</Position>
+	<Position>0, -0.032903, -0.0745522</Position>
 		<Size>1.55102</Size>
 	<MaxForce>2.85714</MaxForce>
 		<WanderDistance>15.5102</WanderDistance>

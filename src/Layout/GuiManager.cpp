@@ -303,6 +303,11 @@ void GuiManager::setupFloorGui()
     m_floorRadius.addListener(floorManager, &FloorManager::onSetKathakRadius);
     m_parametersFloor.add(m_floorRadius);
     
+    m_floorWidth.set("Width", 20.0 , 0 , 50);
+    m_floorWidth.addListener(floorManager, &FloorManager::onSetKathakWidth);
+    m_parametersFloor.add(m_floorWidth);
+    
+    
     m_gui.add(m_parametersFloor);
     
 }

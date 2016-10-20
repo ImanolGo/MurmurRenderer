@@ -227,8 +227,29 @@ void OscManager::update()
             AppManager::getInstance().getGuiManager().setSceneOpacityTop(value);
             this->updateReceiveText();
         }
-
         
+        
+        else if(m.getAddress() == "/MurmurRenderer/SceneOpacityEffect"){
+            float value = m.getArgAsFloat(0);
+            float duration = m.getArgAsFloat(1);
+            AppManager::getInstance().getSceneManager().addOpacityEffect(value, duration);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/SceneOpacityTopEffect"){
+            float value = m.getArgAsFloat(0);
+            float duration = m.getArgAsFloat(1);
+            AppManager::getInstance().getSceneManager().addTopOpacityEffect(value, duration);
+            this->updateReceiveText();
+        }
+        
+        else if(m.getAddress() == "/MurmurRenderer/SceneOpacityFrontEffect"){
+            float value = m.getArgAsFloat(0);
+            float duration = m.getArgAsFloat(1);
+            AppManager::getInstance().getSceneManager().addTopOpacityEffect(value, duration);
+            this->updateReceiveText();
+        }
+
         else if(m.getAddress() == "/MurmurRenderer/AudioVolume"){
             float value = m.getArgAsFloat(0);
             AppManager::getInstance().getGuiManager().setAudioVolume(value);

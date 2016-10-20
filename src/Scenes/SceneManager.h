@@ -14,6 +14,8 @@
 #include "TextVisual.h"
 #include "RectangleVisual.h"
 #include "ofxSceneManager.h"
+#include "VisualEffects.h"
+#include "BasicVisual.h"
 
 //========================== class SceneManager ==============================
 //============================================================================
@@ -66,6 +68,15 @@ public:
     
     //! Opacity of a TOP scene manager value controlled by GUI
     void onTopOpacityChange(float & value);
+    
+    //! Opacity of a TOP scene manager value fade effect
+    void addTopOpacityEffect(float targetOpacity, double duration, double startTime = 0);
+    
+    //! Opacity of a FRONT scene manager value fade effect
+    void addFrontOpacityEffect(float targetOpacity, double duration, double startTime = 0);
+    
+    //! Opacity of both scene manager value fade effect
+    void addOpacityEffect(float targetOpacity, double duration, double startTime = 0);
 
 
 private:
@@ -91,8 +102,17 @@ private:
     //! setups the text layout
     void setupText();
     
+    //! setups the opacity effects
+    void setupEffects();
+    
+    //! updates all the scenes
+    void updateScenes();
+    
     //! updates the text layout
     void updateText(const string& text);
+    
+    //! updates the opacity effects
+    void updateEffects();
 
 private:
 
@@ -102,6 +122,13 @@ private:
     
     SceneManagerMap     m_sceneManagers;
     SceneVector         m_scenes;
+    
+    ofPtr<BasicVisual>  m_topOpacityVisual;
+    ofPtr<MoveVisual>   m_topOpacityEffect;
+    ofPtr<BasicVisual>  m_frontOpacityVisual;
+    ofPtr<MoveVisual>   m_frontOpacityEffect;
+    
+    float               m_opacityFront, m_opacityTop;
     
     ofPtr<TextVisual>        m_sceneText;
     ofPtr<RectangleVisual>   m_sceneRect;
