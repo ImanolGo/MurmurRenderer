@@ -21,7 +21,7 @@ AppManager& AppManager::getInstance()
 
 }
 
-AppManager::AppManager(): Manager(), m_debugMode(true)
+AppManager::AppManager(): Manager(), m_debugMode(true), m_areMasksResized(false)
 {
     //Intentioanlly left empty
 }
@@ -48,6 +48,7 @@ void AppManager::setup()
     setDebugMode(m_debugMode);
     
     ofLogNotice() << "AppManager::initialized";
+   
 }
 
 void AppManager::setupOF()
@@ -139,17 +140,18 @@ void AppManager::setupManagers()
     m_oscManager.setup();
     m_udpManager.setup();
     m_sceneManager.setup();
+    m_maskManager.setup();
     m_audioManager.setup();
     m_keyboardManager.setup();
     m_birdsManager.setup();
     m_midiManager.setup();
     m_previewManager.setup();
-    m_maskManager.setup();
     m_projectorsManager.setup();
 }
 
 void AppManager::update()
 {
+
     m_audioManager.update();
     m_oscManager.update();
     m_udpManager.update();
@@ -158,6 +160,7 @@ void AppManager::update()
     m_birdsManager.update();
     m_sceneManager.update();
     m_handsManager.update();
+    
 }
 
 
@@ -206,6 +209,17 @@ void AppManager::draw()
             m_previewManager.end(wIndex);
             m_previewManager.draw(wIndex);
             break;
+    }
+    
+    this->checkMasks();
+}
+
+void AppManager::checkMasks()
+{
+    if(!m_areMasksResized)
+    {
+        m_areMasksResized = true;
+        m_maskManager.resizeMasks();
     }
 }
 

@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 164.0, 338.0, 1333.0, 692.0 ],
+		"rect" : [ 994.0, 78.0, 892.0, 1083.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -45,9 +45,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 980.5, 223.0, 291.0, 23.0 ],
+					"patching_rect" : [ 980.5, 223.0, 286.0, 23.0 ],
 					"style" : "",
-					"text" : "/MurmurRenderer/SceneOpacityTopEffect 0.5 2"
+					"text" : "/MurmurRenderer/SceneOpacityFrontEffect 1. 2"
 				}
 
 			}

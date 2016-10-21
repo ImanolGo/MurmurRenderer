@@ -40,7 +40,7 @@ void MaskManager::setup()
 
 void MaskManager::setupMasks()
 {
-    
+    m_masks.clear();
     
     WindowSettingsVector windowSettingsVector = AppManager::getInstance().getSettingsManager().getWindowsSettings();
     
@@ -54,9 +54,17 @@ void MaskManager::setupMasks()
     }
     
 
+    this->resizeMasks();
+}
+
+
+void MaskManager::resizeMasks()
+{
+    
     this->setMaskWindowFront();
     this->setMaskWindowTop();
 }
+
 
 void MaskManager::setMaskWindowFront()
 {
@@ -71,6 +79,7 @@ void MaskManager::setMaskWindowFront()
     ofRectangle rect = getFrontMaskRectangle();
     
     ofLogNotice() <<"MaskManager::Rect-> x = " << rect.getX() << ", w = " << rect.getWidth();
+    ofLogNotice() <<"MaskManager::Rect-> y = " << rect.getY() << ", h = " << rect.getHeight();
     
     ImageVisual gradientMask = ImageVisual(ofPoint(0,0), "frame_mask" );
     //gradientMask.setWidth(m_masks[windowIndex]->getWidth()); gradientMask.setHeight(m_masks[windowIndex]->getHeight());

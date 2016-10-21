@@ -157,6 +157,8 @@ private:
 
     //! update all the managers
     void updateManagers();
+    
+    void checkMasks();
 
 
 private:
@@ -184,6 +186,8 @@ private:
     PreviewManager                  m_previewManager;           ///< Manages the preview
     MaskManager                     m_maskManager;              ///< Manages the masking
     ProjectorsManager               m_projectorsManager;        ///< Manages the projectors
+    
+    bool                            m_areMasksResized;
     
 
     bool                            m_debugMode;
