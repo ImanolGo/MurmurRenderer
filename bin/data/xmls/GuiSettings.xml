@@ -1,7 +1,7 @@
 <MurmurRenderer>
-	<FPS>59.9457</FPS>
+	<FPS>60.0354</FPS>
 	<Scenes>
-		<TransitionTime>2.89796</TransitionTime>
+		<TransitionTime>1.7551</TransitionTime>
 		<BlankScene>0</BlankScene>
 		<SmokyHandsScene>0</SmokyHandsScene>
 	<BattleOfSelfScene>0</BattleOfSelfScene>
@@ -9,7 +9,7 @@
 	<FluidFloorScene>0</FluidFloorScene>
 		<BeautifulMindScene>0</BeautifulMindScene>
 	<Transparency>0</Transparency>
-	<KathakScene>0</KathakScene>
+	<KathakScene>1</KathakScene>
 	<BirdsScene>0</BirdsScene>
 	<BirdsOpeningScene>0</BirdsOpeningScene>
 		<BirdsAndPaperScene>0</BirdsAndPaperScene>
@@ -19,7 +19,7 @@
 		<OpacityFront>0</OpacityFront>
 		<OpacityTop>0</OpacityTop>
 	<PostShowScene>0</PostShowScene>
-	<SonicBoomScene>1</SonicBoomScene>
+	<SonicBoomScene>0</SonicBoomScene>
 	<ProjectCalibrationScene>1</ProjectCalibrationScene>
 	<ProjectorCalibrationScene>0</ProjectorCalibrationScene>
 	</Scenes>
@@ -41,6 +41,9 @@
 		<Scale>-0.900215, 1.00688</Scale>
 	<Radius>65.7143</Radius>
 	<Width>22.2449</Width>
+	<Max_Size>70</Max_Size>
+		<Min_Size>62.2857</Min_Size>
+		<Line_Width>4.85714</Line_Width>
 	</Floor>
 <BeautifulMind>
 		<Offset>-0.0245731, 0.0254061</Offset>
@@ -56,8 +59,8 @@
 		<CropBottom>0</CropBottom>
 	</Crop>
 <Audio>
-		<Volume>0.469388</Volume>
-	<AudioOn>0</AudioOn>
+		<Volume>0.791837</Volume>
+	<AudioOn>1</AudioOn>
 	</Audio>
 <Layout>
 		<Fullscreen>1</Fullscreen>

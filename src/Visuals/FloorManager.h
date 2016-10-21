@@ -54,13 +54,17 @@ public:
      
     void onStretchMask(bool& value);
      
-    void onSetKathakRadius(float& value) {m_kathakRadius = value;}
+    void onSetKathakMinSize(float& value) {m_kathakMinSize = value;}
      
-    void onSetKathakWidth(float& value) {m_floorWidth = value;}
+    void onSetKathakMaxSize(float& value) {m_kathakMaxSize = value;}
      
-    float getKathakRadius() const {return m_kathakRadius;}
+    void onSetKathakLineWidth(float& value) {m_kathakLineWidth = value;}
      
-    float getKathakWidth() const {return m_floorWidth;}
+    float getKathakMinSize() const {return m_kathakMinSize;}
+     
+    float getKathakMaxSize() const {return m_kathakMaxSize;}
+     
+    float getKathakLineWidth() const {return m_kathakLineWidth;}
     
      
 private:
@@ -71,8 +75,9 @@ private:
     ofVec2f             m_floorPosition;
     ofVec2f             m_floorOffset;
     ofVec2f             m_floorScale;
-    float               m_kathakRadius;
-    float               m_floorWidth;
+    float               m_kathakMinSize;
+    float               m_kathakMaxSize;
+    float               m_kathakLineWidth;
      
 };
 

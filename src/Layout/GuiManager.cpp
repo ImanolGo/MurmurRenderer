@@ -299,14 +299,17 @@ void GuiManager::setupFloorGui()
     m_floorScale.addListener(floorManager, &FloorManager::setScale);
     m_parametersFloor.add(m_floorScale);
     
-    m_floorRadius.set("Radius", 70.0 , 0 , 100);
-    m_floorRadius.addListener(floorManager, &FloorManager::onSetKathakRadius);
-    m_parametersFloor.add(m_floorRadius);
+    m_floorMaxSize.set("Max Size", 70.0 , 0 , 100);
+    m_floorMaxSize.addListener(floorManager, &FloorManager::onSetKathakMaxSize);
+   // m_parametersFloor.add(m_floorMaxSize);
     
-    m_floorWidth.set("Width", 20.0 , 0 , 50);
-    m_floorWidth.addListener(floorManager, &FloorManager::onSetKathakWidth);
-    m_parametersFloor.add(m_floorWidth);
+    m_floorMinSize.set("Min Size", 0.0 , 0 , 70);
+    m_floorMinSize.addListener(floorManager, &FloorManager::onSetKathakMinSize);
+    m_parametersFloor.add(m_floorMinSize);
     
+    m_floorLineWidth.set("Line Width", 0.0 , 0 , 10);
+    m_floorLineWidth.addListener(floorManager, &FloorManager::onSetKathakLineWidth);
+    m_parametersFloor.add(m_floorLineWidth);
     
     m_gui.add(m_parametersFloor);
     

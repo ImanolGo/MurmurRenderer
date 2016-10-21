@@ -112,9 +112,12 @@ void KathakScene::updateWaterRipples()
     auto volume = AppManager::getInstance().getAudioManager().getAudioMax();
     auto position = AppManager::getInstance().getFloorManager().getPosition();
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
-    auto minRadius = AppManager::getInstance().getFloorManager().getKathakRadius();
-    auto radius = ofMap(volume, 0.0, 1.0, minRadius, windowsSettings.height/2.5);
-    auto circleWidth = AppManager::getInstance().getFloorManager().getKathakWidth();
+    auto minSize = AppManager::getInstance().getFloorManager().getKathakMinSize();
+    auto maxSize = AppManager::getInstance().getFloorManager().getKathakMaxSize();
+    auto lineWidth = AppManager::getInstance().getFloorManager().getKathakLineWidth();
+    
+    //auto radius = ofMap(volume, 0.0, 1.0, minSize, maxSize);
+    auto radius = ofMap(volume, 0.0, 1.0, minSize, windowsSettings.height*0.3);
     
     position.x *= windowsSettings.width;
     position.y *= windowsSettings.height;
@@ -123,7 +126,7 @@ void KathakScene::updateWaterRipples()
     
     m_water.begin();
         ofNoFill();
-        ofSetLineWidth(circleWidth);
+        ofSetLineWidth(lineWidth);
         ofColor color = ofColor::lightSeaGreen;
         color.setSaturation( 50 + ofNoise( ofGetFrameNum() ) * 255 );
         ofSetColor(color);
