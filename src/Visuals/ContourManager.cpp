@@ -174,6 +174,12 @@ void ContourManager::setContourThickness(float & value)
     m_contourThickness = ofClamp(value, 0.0, 10.0);
 }
 
+
+void ContourManager::setSmokeBrightness(float & value)
+{
+    m_smokeBrightness = ofClamp(value, 0.0, 1.0);
+}
+
 void ContourManager::addContourEffect(float targetContourThickness, double duration, double startTime)
 {
     m_contourEffect->stop();

@@ -35,7 +35,10 @@ void SmokyHandsScene::setup()
     auto windowsSettings = AppManager::getInstance().getSceneManager().getWindowSettings(this);
     m_drawArea = ofRectangle(0, 0, windowsSettings.width, windowsSettings.height);
     
+    m_smokeColor = ofColor::white;
+    
     m_initialized = true;
+    
 }
 
 void SmokyHandsScene::update()
@@ -54,6 +57,9 @@ void SmokyHandsScene::updateFluid()
     auto source = AppManager::getInstance().getContourManager().getSource();
     m_smokeFluid.setSource(source);
     m_smokeFluid.update();
+    
+    int colorBrightness = (int) 255 * AppManager::getInstance().getContourManager().getSmokeBrightness();
+    m_smokeColor.setBrightness(colorBrightness);
 }
 
 void SmokyHandsScene::drawFluid()
@@ -64,6 +70,8 @@ void SmokyHandsScene::drawFluid()
     //AppManager::getInstance().getContourManager().draw(m_drawArea);
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofSetColor(m_smokeColor);
+    
     m_smokeFluid.draw(m_drawArea);
     //m_smokeFluid.drawGui();
 

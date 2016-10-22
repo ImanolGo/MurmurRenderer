@@ -117,7 +117,7 @@ void KathakScene::updateWaterRipples()
     auto lineWidth = AppManager::getInstance().getFloorManager().getKathakLineWidth();
     
     //auto radius = ofMap(volume, 0.0, 1.0, minSize, maxSize);
-    auto radius = ofMap(volume, 0.0, 1.0, minSize, windowsSettings.height*0.3);
+    auto radius = ofMap(volume, 0.0, 1.0, minSize*windowsSettings.height*0.5, maxSize*windowsSettings.height*0.5);
     
     position.x *= windowsSettings.width;
     position.y *= windowsSettings.height;

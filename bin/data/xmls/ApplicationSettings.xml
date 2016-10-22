@@ -4,7 +4,7 @@
   <of_settings>
 
     <debug showCursor="1" setVerbose="0"/>
-    <network ipAddress="murmurtop.local" portOscSend="7890" portOscReceive="50000" portUdpReceive="44409" portOscUnity="8000"/>
+    <network ipFloor="murmurtop.local"  portOscFloor="7890" ipContour="murmurrear.local" portOscContour="7890" portOscReceive="50000" portUdpReceive="44409" portOscUnity="8000"/>
 
   	<window title="Murmur Renderer GUI" x="0" y="0" width="1920" height="1200" fullscreen="0" showCursor="1"/>
     <window title="Murmur Renderer Front" x="1920" y="0" width="1920" height="1200" fullscreen="1" showCursor="0"/>
@@ -68,6 +68,12 @@
   </fonts>
 
   <colors>
+    
+      <color  name="GUI_Background" r="0" g="0" b="0" a="127"/>
+      <color  name="GUI_Fill" r="160" g="160" b="160" a="160"/>
+      <color  name="GUI1" r="160" g="160" b="80" a="200"/>
+      <color  name="GUI2" r="80" g="160" b="160" a="200"/>
+
   </colors>
 
 

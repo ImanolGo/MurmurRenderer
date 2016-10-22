@@ -1,15 +1,15 @@
 <MurmurRenderer>
-	<FPS>60.0354</FPS>
+	<FPS>59.9923</FPS>
 	<Scenes>
-		<TransitionTime>1.7551</TransitionTime>
+		<TransitionTime>1</TransitionTime>
 		<BlankScene>0</BlankScene>
-		<SmokyHandsScene>0</SmokyHandsScene>
+		<SmokyHandsScene>1</SmokyHandsScene>
 	<BattleOfSelfScene>0</BattleOfSelfScene>
 	<HandsWritingScene>0</HandsWritingScene>
 	<FluidFloorScene>0</FluidFloorScene>
 		<BeautifulMindScene>0</BeautifulMindScene>
 	<Transparency>0</Transparency>
-	<KathakScene>1</KathakScene>
+	<KathakScene>0</KathakScene>
 	<BirdsScene>0</BirdsScene>
 	<BirdsOpeningScene>0</BirdsOpeningScene>
 		<BirdsAndPaperScene>0</BirdsAndPaperScene>
@@ -25,29 +25,31 @@
 	</Scenes>
 	<Contour>
 		<Thickness>1.15918</Thickness>
-		<Offset>0.227697, 0.542566</Offset>
-		<Scale>0.473517, 0.544086</Scale>
+		<Offset>0.204373, 0.542566</Offset>
+		<Scale>0.600583, 0.544086</Scale>
+	<Smoke_Brightness>0.546939</Smoke_Brightness>
 	</Contour>
 <MurmurRenderer/>
 <Hands>
-		<Offset>-0.00395668, 0.0585173</Offset>
-		<Scale>-0.536651, -0.97499</Scale>
+		<Offset>-0.00395668, 0.0918368</Offset>
+		<Scale>-0.561641, -0.836526</Scale>
 	<On>0</On>
 	<FadeTime>23.5714</FadeTime>
 	<Size>0.489796</Size>
 	</Hands>
 <Floor>
-		<Offset>-0.0372807, -0.0531264</Offset>
-		<Scale>-0.900215, 1.00688</Scale>
+		<Offset>-0.103915, -0.11641</Offset>
+		<Scale>0.813203, 1.20887</Scale>
 	<Radius>65.7143</Radius>
 	<Width>22.2449</Width>
-	<Max_Size>70</Max_Size>
-		<Min_Size>62.2857</Min_Size>
+	<Max_Size>0.828571</Max_Size>
+		<Min_Size>0.134694</Min_Size>
 		<Line_Width>4.85714</Line_Width>
+	<Inverted_Coordinates>1</Inverted_Coordinates>
 	</Floor>
 <BeautifulMind>
-		<Offset>-0.0245731, 0.0254061</Offset>
-		<Scale>0.758434, 0.541858</Scale>
+		<Offset>-0.0495626, 0.0170763</Offset>
+		<Scale>0.758434, 0.558517</Scale>
 	<FloorOn>1</FloorOn>
 		<Speed>1.02041</Speed>
 	<CalibrationOn>0</CalibrationOn>
@@ -61,19 +63,22 @@
 <Audio>
 		<Volume>0.791837</Volume>
 	<AudioOn>1</AudioOn>
+	<InternalAudioOn>1</InternalAudioOn>
+		<InternalVolume>0.734694</InternalVolume>
 	</Audio>
 <Layout>
 		<Fullscreen>1</Fullscreen>
-		<CropLeft>0</CropLeft>
-		<CropRight>0</CropRight>
-		<CropTop>0</CropTop>
+		<CropLeft>38</CropLeft>
+		<CropRight>157</CropRight>
+		<CropTop>240</CropTop>
 		<CropBottom>0</CropBottom>
+	<ShowMasks>0</ShowMasks>
 	</Layout>
 <Birds>
 		<Offset>0, 0</Offset>
 		<Transparency>0.285714</Transparency>
-		<SwarmSize>3, 3, 3</SwarmSize>
-	<Position>0, 0, 0</Position>
+		<SwarmSize>1, 1, 1</SwarmSize>
+	<Position>0, -0.0662224, -0.124531</Position>
 		<Size>1.55102</Size>
 	<MaxForce>2.85714</MaxForce>
 		<WanderDistance>15.5102</WanderDistance>
@@ -82,8 +87,8 @@
 		<InSightDist>644.898</InSightDist>
 		<TooCloseDist>22.8571</TooCloseDist>
 	<BirdsNumber>0</BirdsNumber>
-		<Speed>7</Speed>
-		<Randomness>0</Randomness>
+		<Speed>8.5</Speed>
+		<Randomness>5</Randomness>
 	</Birds>
 <Top>
 		<Volume>1</Volume>
@@ -97,4 +102,7 @@
 		<Projector_1_Shutter>0</Projector_1_Shutter>
 		<Projector_2_Shutter>0</Projector_2_Shutter>
 	</Projectors>
+<PaperThrower>
+		<Speed>0</Speed>
+	</PaperThrower>
 </MurmurRenderer>

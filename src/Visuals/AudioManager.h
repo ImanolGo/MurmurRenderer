@@ -68,6 +68,7 @@ private:
     ofxFFTLive      m_fft;
     bool            m_audioOn;
     float           m_audioMax;
+    ofPoint         m_circlePosition;
     
     ofPtr<TextVisual>        m_audioText;
     ofPtr<RectangleVisual>   m_audioRect;

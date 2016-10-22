@@ -18,7 +18,7 @@ const string GuiManager::GUI_SETTINGS_NAME = "MurmurRenderer";
 const int GuiManager::GUI_WIDTH = 250;
 
 
-GuiManager::GuiManager(): Manager(), m_showGui(true)
+GuiManager::GuiManager(): Manager(), m_showGui(true), m_switchColor(0)
 {
     //Intentionally left empty
 }
@@ -42,11 +42,23 @@ void GuiManager::setup()
     
     ofxGuiSetFont( "fonts/open-sans/OpenSans-Semibold.ttf", 9 );
     
+    ofColor backgroundColor = AppManager::getInstance().getSettingsManager().getColor("GUI_Background");
+    ofColor fillColor = AppManager::getInstance().getSettingsManager().getColor("GUI_Fill");
+    m_gui.setDefaultBackgroundColor(backgroundColor);
+    m_gui.setDefaultFillColor(fillColor);
+    m_colors.push_back(AppManager::getInstance().getSettingsManager().getColor("GUI1"));
+    m_colors.push_back(AppManager::getInstance().getSettingsManager().getColor("GUI2"));
+    
+    
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.setDefaultWidth(GUI_WIDTH);
     m_gui.setup(GUI_SETTINGS_NAME, GUI_SETTINGS_FILE_NAME);
     m_gui.setPosition(LayoutManager::MARGIN, LayoutManager::MARGIN);
     m_gui.add(m_guiFPS.set("FPS", 0, 0, 60));
     
+   
     
     ofxButton * button = new ofxButton();
     button->setup("Reset Gui");
@@ -110,6 +122,11 @@ void GuiManager::setupBirdsGui()
     m_birdsRandomness.addListener(birdsManager, &BirdsManager::onChangeSwarmRandomness);
     m_parametersBirds.add(m_birdsRandomness);
 
+    
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
+    
     m_gui.add(m_parametersBirds);
     
 }
@@ -187,6 +204,9 @@ void GuiManager::setupScenesGui()
     m_parametersScenes.add(m_projectorCalibrationScene);
 
 
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.add(m_parametersScenes);
     
 }
@@ -196,40 +216,44 @@ void GuiManager::setupAudioGui()
     auto audioManager = &AppManager::getInstance().getAudioManager();
     m_parametersAudio.setName("Audio");
     
-    m_audioOn.set("AudioOn", false);
+    m_audioOn.set("InternalAudioOn", false);
     m_audioOn.addListener(audioManager, &AudioManager::onChangeAudioOn);
     m_parametersAudio.add(m_audioOn);
     
-    m_audioVolume.set("Volume", 0.5, 0.0, 1.0);
+    m_audioVolume.set("InternalVolume", 0.5, 0.0, 1.0);
     m_audioVolume.addListener(audioManager, &AudioManager::onChangeVolume);
     m_parametersAudio.add(m_audioVolume);
     
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.add(m_parametersAudio);
 }
 
 void GuiManager::setupTopGui()
 {
     auto oscManager = &AppManager::getInstance().getOscManager();
-    m_parametersTop.setName("FloorTracking");
+    m_parametersTop.setName("PaperThrower");
     
-    
-    m_paperThrowerSpeed.set("PaperThrowerSpeed", 0, 0, 100);
+    m_paperThrowerSpeed.set("Speed", 0, 0, 100);
     m_paperThrowerSpeed.addListener(oscManager, &OscManager::onChangePaperThrowerSpeed);
     m_parametersTop.add(m_paperThrowerSpeed);
     
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.add(m_parametersTop);
     
     ofxButton * paperThrowerFire = new ofxButton();
-    paperThrowerFire->setup("PaperThrowerFire");
+    paperThrowerFire->setup("PaperThrowerFire (P)");
     paperThrowerFire->addListener(oscManager, &OscManager::onFirePaperThrower);
     m_gui.add(paperThrowerFire);
     
     ofxButton * resetBackground = new ofxButton();
     resetBackground->setup("ResetBackground");
     resetBackground->addListener(oscManager, &OscManager::onResetTopBackground);
-    m_gui.add(resetBackground);
+    //m_gui.add(resetBackground);
     
-   
 }
 
 void GuiManager::setupContourGui()
@@ -251,6 +275,13 @@ void GuiManager::setupContourGui()
     m_contourScale.addListener(contourManager, &ContourManager::setScale);
     m_parametersContour.add(m_contourScale);
     
+    m_contourSmokeBrightness.set("Smoke Brightness", 0.5, 0.0, 1.0);
+    m_contourSmokeBrightness.addListener(contourManager, &ContourManager::setSmokeBrightness);
+    m_parametersContour.add(m_contourSmokeBrightness);
+    
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.add(m_parametersContour);
     
 }
@@ -281,6 +312,9 @@ void GuiManager::setupHandsGui()
     m_handsFadeTime.addListener(handsManager, &HandsManager::setFadeTime);
     m_parametersHands.add(m_handsFadeTime);
     
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.add(m_parametersHands);
     
 }
@@ -299,18 +333,25 @@ void GuiManager::setupFloorGui()
     m_floorScale.addListener(floorManager, &FloorManager::setScale);
     m_parametersFloor.add(m_floorScale);
     
-    m_floorMaxSize.set("Max Size", 70.0 , 0 , 100);
-    m_floorMaxSize.addListener(floorManager, &FloorManager::onSetKathakMaxSize);
-   // m_parametersFloor.add(m_floorMaxSize);
+    m_floorInvertedCoordinates.set("Inverted Coordinates", false);
+    m_floorInvertedCoordinates.addListener(floorManager, &FloorManager::onInvertedCoordinates);
+    m_parametersFloor.add(m_floorInvertedCoordinates);
     
-    m_floorMinSize.set("Min Size", 0.0 , 0 , 70);
+    m_floorMinSize.set("Min Size", 0.1 , 0.0 , 1.0);
     m_floorMinSize.addListener(floorManager, &FloorManager::onSetKathakMinSize);
     m_parametersFloor.add(m_floorMinSize);
+    
+    m_floorMaxSize.set("Max Size", 0.5 , 0.0 , 1.0);
+    m_floorMaxSize.addListener(floorManager, &FloorManager::onSetKathakMaxSize);
+    m_parametersFloor.add(m_floorMaxSize);
     
     m_floorLineWidth.set("Line Width", 0.0 , 0 , 10);
     m_floorLineWidth.addListener(floorManager, &FloorManager::onSetKathakLineWidth);
     m_parametersFloor.add(m_floorLineWidth);
     
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.add(m_parametersFloor);
     
 }
@@ -341,7 +382,9 @@ void GuiManager::setupBeautifulMindGui()
     m_beautifulMindCalibrationOn.addListener(beautifulMindManager, &BeautifulMindManager::setCalibrationOn);
     m_parametersBeautifulMind.add(m_beautifulMindCalibrationOn);
 
-
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.add(m_parametersBeautifulMind);
 }
 
@@ -349,6 +392,8 @@ void GuiManager::setupLayoutGui()
 {
     auto appManager = &AppManager::getInstance();
     auto layoutManager = &AppManager::getInstance().getLayoutManager();
+    auto maskManager = &AppManager::getInstance().getMaskManager();
+
     
     m_parametersLayout.setName("Layout");
 
@@ -368,6 +413,14 @@ void GuiManager::setupLayoutGui()
     m_cropBottom.addListener(layoutManager, &LayoutManager::onCropBottom);
     m_parametersLayout.add(m_cropBottom);
     
+    m_layoutMasks.set("ShowMasks", false);
+    m_layoutMasks.addListener(maskManager, &MaskManager::onChangeShowMasks);
+    m_parametersLayout.add(m_layoutMasks);
+
+    
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.add(m_parametersLayout);
     
 }
@@ -413,6 +466,10 @@ void GuiManager::setupProjectorsGui()
     m_projector2Shutter.addListener(projectorsManager, &ProjectorsManager::shutterProjector2);
     m_parametersProjector.add(m_projector2Shutter);
     
+    
+    m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
+    m_gui.setDefaultFillColor(m_colors[m_switchColor]);
+    m_switchColor = 1 - m_switchColor;
     m_gui.add(m_parametersProjector);
 }
 

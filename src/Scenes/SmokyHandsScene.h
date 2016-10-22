@@ -54,6 +54,7 @@ private:
     FluidVisual     m_smokeFluid;
     bool            m_initialized;
     ofRectangle     m_drawArea;
+    ofColor         m_smokeColor;
 
 };
 

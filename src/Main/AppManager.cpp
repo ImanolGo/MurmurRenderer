@@ -137,6 +137,7 @@ void AppManager::setupManagers()
     m_handsManager.setup();
     m_floorManager.setup();
     m_beautifulMindManager.setup();
+    m_previewManager.setup();
     m_oscManager.setup();
     m_udpManager.setup();
     m_sceneManager.setup();
@@ -145,7 +146,6 @@ void AppManager::setupManagers()
     m_keyboardManager.setup();
     m_birdsManager.setup();
     m_midiManager.setup();
-    m_previewManager.setup();
     m_projectorsManager.setup();
 }
 

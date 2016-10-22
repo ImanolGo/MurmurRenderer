@@ -100,6 +100,9 @@ void PreviewManager::setupText()
 
 void PreviewManager::setupRectangles()
 {
+    
+    ofColor color = AppManager::getInstance().getSettingsManager().getColor("GUI1");
+    
     string key = "FRONT";
     ofVec3f position = m_texts[key]->getPosition();
     position.x -= LayoutManager::MARGIN*0.5;
@@ -107,11 +110,13 @@ void PreviewManager::setupRectangles()
     float height = m_texts[key]->getHeight() + LayoutManager::MARGIN;
     float width = m_texts[key]->getWidth() + LayoutManager::MARGIN;
     ofPtr<RectangleVisual> rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
-    ofColor color(60,60,60);
+   // ofColor color(60,60,60);
     rectangleVisual->setColor(color);
     
     AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
     
+    
+    color = AppManager::getInstance().getSettingsManager().getColor("GUI2");
     
     key = "TOP";
     position = m_texts[key]->getPosition();
@@ -124,6 +129,8 @@ void PreviewManager::setupRectangles()
     
     AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
     
+    
+    color = AppManager::getInstance().getSettingsManager().getColor("GUI1");
     
     key = "FRONT";
     int indexWindow = 1;
@@ -153,6 +160,8 @@ void PreviewManager::setupRectangles()
     AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
     
     
+    
+    color = AppManager::getInstance().getSettingsManager().getColor("GUI2");
     key = "TOP";
     indexWindow = 2;
     if(indexWindow < m_fbos.size()){
@@ -263,6 +272,18 @@ void PreviewManager::end(int windowIndex)
     m_fbos[windowIndex]->end();
 
 }
+
+
+ofPtr<RectangleVisual>  PreviewManager::getFrontRectangle() const
+{
+    return  m_rectangles.at("FRONT");
+}
+
+ofPtr<RectangleVisual> PreviewManager::getTopRectangle() const
+{
+     return  m_rectangles.at("TOP");
+}
+
 
 
 

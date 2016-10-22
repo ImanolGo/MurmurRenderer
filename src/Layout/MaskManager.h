@@ -41,6 +41,8 @@ public:
     
     void resizeMasks();
     
+    void onChangeShowMasks(bool& value){ m_showMasks = value; }
+    
 
 private:
 
@@ -57,6 +59,8 @@ private:
     typedef  vector<ofPtr<ofxMaskAddon> >  MaskVector;        ///< defines a vector of ofxMaskAddons
     
     MaskVector      m_masks;
+    
+    bool            m_showMasks;
     
 };
 

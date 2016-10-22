@@ -13,7 +13,7 @@
 
 
 
-MaskManager::MaskManager(): Manager()
+MaskManager::MaskManager(): Manager(), m_showMasks(false)
 {
 	//Intentionally left empty
 }
@@ -136,9 +136,13 @@ void MaskManager::end(int windowIndex)
     //m_maskShader.end();
    m_masks[windowIndex]->end();
     
-   //m_masks[windowIndex]->drawMasker();
-   m_masks[windowIndex]->draw();
-    
+    if(m_showMasks){
+        m_masks[windowIndex]->drawMasker();
+    }
+    else{
+         m_masks[windowIndex]->draw();
+    }
+      
    ofDisableAlphaBlending();
    
 }

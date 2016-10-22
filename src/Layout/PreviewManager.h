@@ -44,6 +44,9 @@ public:
     //! End fbo for a specific window
     void end(int windowIndex);
     
+    ofPtr<RectangleVisual> getFrontRectangle() const;
+    
+    ofPtr<RectangleVisual> getTopRectangle() const;
 
 private:
 

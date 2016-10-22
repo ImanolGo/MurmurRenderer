@@ -50,6 +50,8 @@ public:
     
     void setScale(ofVec2f & scale);
      
+    void onInvertedCoordinates(bool& value) {m_invertedCoordinates = value;}
+     
     void onMaskOn(bool& value);
      
     void onStretchMask(bool& value);
@@ -78,6 +80,7 @@ private:
     float               m_kathakMinSize;
     float               m_kathakMaxSize;
     float               m_kathakLineWidth;
+    bool                m_invertedCoordinates;
      
 };
 

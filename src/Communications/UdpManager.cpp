@@ -61,8 +61,11 @@ void UdpManager::setupText()
     
     ofVec3f position;
     
+    ofPtr<RectangleVisual> rect = AppManager::getInstance().getOscManager().getBoundingBox();
+    float offset_y = rect->getPosition().y + rect->getHeight();
+    
     //position.x = GuiManager::GUI_WIDTH + 2*LayoutManager::MARGIN;
-    position.y = 9*LayoutManager::MARGIN + windowSettings.height*0.5;
+    position.y = LayoutManager::MARGIN + offset_y;
     position.x = 2.5*LayoutManager::MARGIN + GuiManager::GUI_WIDTH;
     
     int porReceive = AppManager::getInstance().getSettingsManager().getUdpPortReceive();
@@ -82,8 +85,7 @@ void UdpManager::setupText()
     AppManager::getInstance().getViewManager().addOverlay(m_udpReceiveTextFont);
     AppManager::getInstance().getViewManager().addOverlay(m_udpReceiveMessageFont);
     
-    
-    position.y = 8.5*LayoutManager::MARGIN + windowSettings.height*0.5;
+    position.y = LayoutManager::PADDING + offset_y;;
     position.x -= 0.5*LayoutManager::MARGIN;
     width += LayoutManager::MARGIN;
     height = 4*LayoutManager::MARGIN;

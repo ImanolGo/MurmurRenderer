@@ -57,7 +57,11 @@ public:
     
     void setContourThickness(float & value);
     
+    void setSmokeBrightness(float & value);
+    
     void addContourEffect(float targetContourThickness, double duration, double startTime = 0);
+    
+    float getSmokeBrightness() const {return m_smokeBrightness;}
     
 private:
     
@@ -85,6 +89,7 @@ private:
     bool                m_isFrameNew;
     
     ofShader            m_thickLineShader;
+    float               m_smokeBrightness;
     
     
     float               m_contourThickness;

@@ -18,7 +18,7 @@ const int SettingsManager::MAX_NUM_WINDOWS = 3;
 
 
 
-SettingsManager::SettingsManager(): Manager(), m_portUdpReceive(0), m_portOscReceive(0), m_portOscSend(0), m_portOscUnity(0), m_ipAddress(LOCALHOST)
+SettingsManager::SettingsManager(): Manager(), m_portUdpReceive(0), m_portOscReceive(0), m_portOscFloor(0), m_portOscUnity(0), m_ipFloor(LOCALHOST), m_ipContour(LOCALHOST)
 {
     //Intentionally left empty
 }
@@ -154,12 +154,14 @@ void SettingsManager::setNetworkProperties()
 
         m_portUdpReceive = ofToInt(attributes["portUdpReceive"]);
         m_portOscReceive = ofToInt(attributes["portOscReceive"]);
-        m_portOscSend  =   ofToInt(attributes["portOscSend"]);
+        m_portOscFloor  =   ofToInt(attributes["portOscFloor"]);
+        m_portOscContour  =   ofToInt(attributes["portOscContour"]);
         m_portOscUnity = ofToInt(attributes["portOscUnity"]);
-        m_ipAddress  =  ofToString(attributes["ipAddress"]);
+        m_ipFloor  =  ofToString(attributes["ipFloor"]);
+        m_ipContour  =  ofToString(attributes["ipContour"]);
         
-        ofLogNotice() <<"SettingsManager::setNetworkProperties->  receive UDP port = " << m_portUdpReceive << ". receive OSC port = "<< m_portOscReceive<<", send OSC port = " << m_portOscSend<<", host = "
-        <<m_ipAddress << ", send OSC Unity = "<< m_portOscUnity;
+        ofLogNotice() <<"SettingsManager::setNetworkProperties->  receive UDP port = " << m_portUdpReceive << ". receive OSC port = "<< m_portOscReceive<<", send OSC port = " << m_portOscFloor<<", host = "
+        <<m_ipFloor << ", send OSC Unity = "<< m_portOscUnity;
 
         ofLogNotice() <<"SettingsManager::setNetworkProperties->  successfully loaded the network settings" ;
         return;

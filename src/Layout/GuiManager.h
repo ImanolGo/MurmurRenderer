@@ -235,12 +235,16 @@ private:
     
     ofParameter<int>        m_cropLeft, m_cropRight, m_cropTop, m_cropBottom;
     ofParameter<bool>       m_fullscreen;
+    ofParameter<bool>       m_layoutMasks;
     
     ofParameter<float>      m_contourThickness;
     ofParameter<ofVec2f>    m_contourOffset;
     ofParameter<ofVec2f>    m_contourScale;
+    ofParameter<int>        m_contourFarClipping;
+    ofParameter<float>      m_contourSmokeBrightness;
     
     ofParameter<float>      m_audioVolume;
+    ofParameter<float>      m_audioExternalVolume;
     ofParameter<bool>       m_audioOn;
     
     ofParameter<ofVec2f>    m_handsOffset;
@@ -251,6 +255,7 @@ private:
     
     ofParameter<ofVec2f>    m_floorOffset;
     ofParameter<ofVec2f>    m_floorScale;
+    ofParameter<bool>       m_floorInvertedCoordinates;
     ofParameter<float>      m_floorMinSize;
     ofParameter<float>      m_floorMaxSize;
     ofParameter<float>      m_floorLineWidth;
@@ -275,7 +280,8 @@ private:
     
     ofParameter<int>        m_paperThrowerSpeed;
     
-    
+    vector<ofColor>         m_colors;
+    int                     m_switchColor;
 };
 
 //==========================================================================
