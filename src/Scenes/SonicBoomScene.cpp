@@ -132,7 +132,7 @@ void SonicBoomScene::drawSonicBoom()
 void SonicBoomScene::willFadeIn() {
     ofLogNotice("SonicBoomScene::willFadeIn");
     
-    AppManager::getInstance().getGuiManager().setHandsOn(false);
+    AppManager::getInstance().getGuiManager().setHandsOn(true);
     m_sonicBoomVisual.clear();
 
 }

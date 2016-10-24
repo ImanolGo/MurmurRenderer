@@ -92,6 +92,7 @@ void UdpManager::setupText()
     
     ofPtr<RectangleVisual> rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
     ofColor color(60,60,60);
+    //ofColor color = AppManager::getInstance().getSettingsManager().getColor("GUI2");
     rectangleVisual->setColor(color);
     
     AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);

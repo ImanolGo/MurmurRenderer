@@ -53,6 +53,8 @@ public:
     
     void setAudioMax(float audioMax);
     
+    void onSendAudioVolume(float& value); //Send audio volume command
+    
 private:
     
     void setupText();

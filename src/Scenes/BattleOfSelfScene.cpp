@@ -193,7 +193,7 @@ void BattleOfSelfScene::willFadeIn() {
     
     m_sonicBoomVisual.clear();
     m_fluid.reset();
-    AppManager::getInstance().getGuiManager().setHandsOn(false);
+    //AppManager::getInstance().getGuiManager().setHandsOn(false);
     
     //AppManager::getInstance().getGuiManager().setContourThickness(0.25);
 }

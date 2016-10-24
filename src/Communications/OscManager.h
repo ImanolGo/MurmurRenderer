@@ -60,9 +60,6 @@ public:
     //Send Paper Reset Background command
     void onResetTopBackground();
     
-    //Send far clipping command
-    void onSendFarClipping();
-    
     ofPtr<RectangleVisual> getBoundingBox() const {return m_boundingBox;}
     
 private:

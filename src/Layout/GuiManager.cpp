@@ -224,6 +224,10 @@ void GuiManager::setupAudioGui()
     m_audioVolume.addListener(audioManager, &AudioManager::onChangeVolume);
     m_parametersAudio.add(m_audioVolume);
     
+    m_audioExternalVolume.set("ExternalVolume", 0.5, 0.0, 1.0);
+    m_audioExternalVolume.addListener(audioManager, &AudioManager::onSendAudioVolume);
+    m_parametersAudio.add(m_audioExternalVolume);
+    
     m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
     m_gui.setDefaultFillColor(m_colors[m_switchColor]);
     m_switchColor = 1 - m_switchColor;
@@ -278,7 +282,16 @@ void GuiManager::setupContourGui()
     m_contourSmokeBrightness.set("Smoke Brightness", 0.5, 0.0, 1.0);
     m_contourSmokeBrightness.addListener(contourManager, &ContourManager::setSmokeBrightness);
     m_parametersContour.add(m_contourSmokeBrightness);
+
+    m_contourFarClipping.set("FarClipping", 5000, 0, 12000);
+    m_contourFarClipping.addListener(contourManager, &ContourManager::onSendFarClipping);
+    m_parametersContour.add(m_contourFarClipping);
     
+    m_contourCropBottom.set("CropBottom", 0, 0, 250);
+    m_contourCropBottom.addListener(contourManager, &ContourManager::onSendCropBottom);
+    m_parametersContour.add(m_contourCropBottom);
+    
+
     m_gui.setDefaultHeaderBackgroundColor(m_colors[m_switchColor]);
     m_gui.setDefaultFillColor(m_colors[m_switchColor]);
     m_switchColor = 1 - m_switchColor;
@@ -701,10 +714,6 @@ void GuiManager::onSetProjectCalibrationScene(bool& value)
         AppManager::getInstance().getSceneManager().changeScene(m_projectorCalibrationScene.getName());
     }
 }
-
-
-
-
 
 
  void GuiManager::onSetBirdsSwarmSize(float& value)

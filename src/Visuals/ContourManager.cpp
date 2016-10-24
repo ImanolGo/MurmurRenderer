@@ -188,3 +188,21 @@ void ContourManager::addContourEffect(float targetContourThickness, double durat
     
     AppManager::getInstance().getVisualEffectsManager().addVisualEffect(m_contourEffect);
 }
+
+void ContourManager::onSendFarClipping(int& value)
+{
+    ofxOscMessage m;
+    m.setAddress("/MurmurContourTracking/FarClipping");
+    m.addIntArg(value);
+    AppManager::getInstance().getOscManager().sendMessageToContourTracking(m);
+}
+
+void ContourManager::onSendCropBottom(int& value)
+{
+    ofxOscMessage m;
+    m.setAddress("/MurmurContourTracking/CropBottom");
+    m.addIntArg(value);
+    AppManager::getInstance().getOscManager().sendMessageToContourTracking(m);
+}
+
+

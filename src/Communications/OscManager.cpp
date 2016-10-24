@@ -96,6 +96,7 @@ void OscManager::setupText()
     position.y -= LayoutManager::MARGIN*0.5;
     height = textVisual->getHeight() + LayoutManager::MARGIN;
     width = textVisual->getWidth() + LayoutManager::MARGIN;
+    //ofColor color = AppManager::getInstance().getSettingsManager().getColor("GUI2");
     m_boundingBox = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
     ofColor color(60,60,60);
     m_boundingBox->setColor(color);
@@ -596,7 +597,7 @@ void OscManager::sendMessageToFloorTracking(ofxOscMessage& message)
 void OscManager::sendMessageToContourTracking(ofxOscMessage& message)
 {
     m_latestOscMessage = message;
-    m_oscFloorTrackingSender.sendMessage(message);
+    m_oscContourTrackingSender.sendMessage(message);
     this->updateSendContourText();
 }
 
@@ -613,8 +614,8 @@ void OscManager::updateSendFloorText()
 
 void OscManager::updateSendContourText()
 {
-    int portSend = AppManager::getInstance().getSettingsManager().getOscPortFloor();
-    string host = AppManager::getInstance().getSettingsManager().getIpFloor();
+    int portSend = AppManager::getInstance().getSettingsManager().getOscPortContour();
+    string host = AppManager::getInstance().getSettingsManager().getIpContour();
     string text = ">> OSC sending -> Host: " + host + ", Port: " + ofToString(portSend) + "\n";
     
     text += this->getMessageAsString(m_latestOscMessage);
@@ -681,13 +682,6 @@ void OscManager::onResetTopBackground()
     this->sendMessageToFloorTracking(m);
 }
 
-void OscManager::onSendFarClipping()
-{
-    ofxOscMessage m;
-    m.setAddress("/MurmurContourTracking/FarClipping");
-    m.addIntArg(1);
-    this->sendMessageToContourTracking(m);
-}
 
 
 

@@ -53,8 +53,9 @@ void AudioManager::setupText()
     float width =  (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5 - LayoutManager::MARGIN;
     int fontSize = 12;
     float height = fontSize*3;
-    ofPtr<RectangleVisual> rect = AppManager::getInstance().getPreviewManager().getFrontRectangle();
+    ofPtr<RectangleVisual> rect = AppManager::getInstance().getPreviewManager().getTopRectangle();
     float y_offset = rect->getPosition().y + rect->getHeight();
+    //ofColor color = AppManager::getInstance().getSettingsManager().getColor("GUI1");
     
     string text = "AUDIO";
     float width_offset = (windowSettings.width - 4*LayoutManager::MARGIN - GuiManager::GUI_WIDTH)*0.5;
@@ -74,6 +75,7 @@ void AudioManager::setupText()
     width = textVisual->getWidth() + LayoutManager::MARGIN;
     ofPtr<RectangleVisual> rectangleVisual = ofPtr<RectangleVisual>(new RectangleVisual(position, width, height));
     ofColor color(60,60,60);
+    
     rectangleVisual->setColor(color);
     
     AppManager::getInstance().getViewManager().addOverlay(rectangleVisual,2);
@@ -110,10 +112,11 @@ void AudioManager::drawCircle()
     
     float radius = ofMap(m_fft.getAveragePeak(), 0.0, 1.0, windowSettings.height*0.05, windowSettings.height*0.15, true);
     
+    //ofColor color = AppManager::getInstance().getSettingsManager().getColor("GUI1");
     
     ofPushStyle();
     ofSetCircleResolution(100);
-        ofSetColor(255);
+    ofSetColor(ofColor::white);
         ofCircle(m_circlePosition, radius);
     ofPopStyle();
     
@@ -147,4 +150,13 @@ float AudioManager::getAudioMax()
 {
     return m_audioMax;
 }
-\
+
+
+
+void AudioManager::onSendAudioVolume(float& value)
+{
+    ofxOscMessage m;
+    m.setAddress("/MurmurContourTracking/AudioVolume");
+    m.addFloatArg(value);
+    AppManager::getInstance().getOscManager().sendMessageToContourTracking(m);
+}

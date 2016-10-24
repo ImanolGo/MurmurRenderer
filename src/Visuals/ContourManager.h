@@ -59,6 +59,10 @@ public:
     
     void setSmokeBrightness(float & value);
     
+    void onSendFarClipping(int& value); //Send far clipping command
+    
+    void onSendCropBottom(int& value); //Send far crop bottom command
+    
     void addContourEffect(float targetContourThickness, double duration, double startTime = 0);
     
     float getSmokeBrightness() const {return m_smokeBrightness;}

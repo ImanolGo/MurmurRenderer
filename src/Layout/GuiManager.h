@@ -241,7 +241,9 @@ private:
     ofParameter<ofVec2f>    m_contourOffset;
     ofParameter<ofVec2f>    m_contourScale;
     ofParameter<int>        m_contourFarClipping;
+    ofParameter<int>        m_contourCropBottom;
     ofParameter<float>      m_contourSmokeBrightness;
+    
     
     ofParameter<float>      m_audioVolume;
     ofParameter<float>      m_audioExternalVolume;
